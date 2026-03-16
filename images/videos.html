@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highlights - Official Manjeet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
+    <style>
+        /* होम स्क्रीन जैसा ही डार्क प्रीमियम बैकग्राउंड */
+        :root {
+            --bg: #0f172a;
+            --card: rgba(255, 255, 255, 0.05);
+            --accent: #38bdf8;
+            --text: #ffffff;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            margin-top: 40px;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .highlight-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 50px;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        /* वीडियो बॉक्स स्टाइल */
+        .video-box {
+            background: var(--card);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 25px;
+            width: 450px;
+            text-align: center;
+            transition: 0.4s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .video-box:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 15px 40px rgba(56, 189, 248, 0.2);
+        }
+
+        video {
+            width: 100%;
+            height: 250px;
+            border-radius: 15px;
+            object-fit: cover;
+            background: #000;
+        }
+
+        .video-title {
+            margin-top: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--accent);
+        }
+
+        .video-desc {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-top: 8px;
+            line-height: 1.5;
+        }
+
+        /* बैक बटन */
+        .back-btn {
+            margin-top: 60px;
+            text-decoration: none;
+            color: var(--text);
+            border: 1px solid var(--text);
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            background: var(--text);
+            color: var(--bg);
+        }
+
+        @media (max-width: 768px) {
+            .video-box { width: 90%; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="highlightTitle">My Highlights</h1>
+
+    <div class="highlight-container">
+        <!-- वीडियो बॉक्स 1 -->
+        <div class="video-box">
+            <video controls poster="images/thumb1.jpg">
+                <source src="videos/life-vlog1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-title" id="v1Title">Video One: My Journey</div>
+            <p class="video-desc" id="v1Desc">एक छोटा सा सफर मेरी जिंदगी के उन पलों का जिन्होंने मुझे आज यहाँ पहुँचाया।</p>
+        </div>
+
+        <!-- वीडियो बॉक्स 2 -->
+        <div class="video-box">
+            <video controls poster="images/thumb2.jpg">
+                <source src="videos/life-vlog2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-title" id="v2Title">Video Two: Motivation</div>
+            <p class="video-desc" id="v2Desc">संघर्ष और सफलता की एक छोटी सी कहानी, जो आपको हर दिन कुछ बड़ा करने के लिए प्रेरित करेगी।</p>
+        </div>
+    </div>
+
+    <!-- वापस होम बटन -->
+    <a href="index.html" class="back-btn" id="backBtn">Back To Home</a>
+
+    <script>
+        // होम स्क्रीन की भाषा सेटिंग के अनुसार नाम बदलें
+        window.onload = function() {
+            let lang = localStorage.getItem("preferredLang") || "EN";
+            if (lang === "HI") {
+                document.getElementById("highlightTitle").innerText = "मेरी खास झलकियाँ";
+                document.getElementById("v1Title").innerText = "वीडियो 1: मेरी यात्रा";
+                document.getElementById("v2Title").innerText = "वीडियो 2: प्रेरणा";
+                document.getElementById("backBtn").innerText = "वापस होम पर";
+            }
+        };
+    </script>
+
+</body>
+</html>
