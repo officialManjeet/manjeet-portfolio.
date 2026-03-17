@@ -8,9 +8,9 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background-color: #0a0a0a; /* डार्क प्रीमियम बैकग्राउंड */
+            background-color: #0a0a0a; 
             color: white;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -20,17 +20,16 @@
 
         .about-card {
             background: #121212;
-            max-width: 900px;
+            max-width: 1000px;
             width: 100%;
             display: flex;
-            flex-wrap: wrap; /* मोबाइल के लिए */
-            border-radius: 20px;
+            flex-wrap: wrap; 
+            border-radius: 25px;
             overflow: hidden;
             border: 1px solid #333;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
         }
 
-        /* फोटो वाला हिस्सा */
         .image-section {
             flex: 1;
             min-width: 350px;
@@ -43,11 +42,9 @@
         .image-section img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* फोटो को पूरे बॉक्स में फिट रखेगा */
-            transition: 0.5s;
+            object-fit: cover; 
         }
 
-        /* जानकारी वाला हिस्सा */
         .text-section {
             flex: 1.2;
             padding: 50px;
@@ -61,7 +58,7 @@
             margin-bottom: 20px;
             text-transform: uppercase;
             font-weight: 900;
-            background: linear-gradient(to right, #fff, #888);
+            background: linear-gradient(to right, #38bdf8, #818cf8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -69,7 +66,7 @@
         .text-section p {
             font-size: 1.1rem;
             line-height: 1.8;
-            color: #bbb;
+            color: #ccc;
             margin-bottom: 30px;
         }
 
@@ -78,7 +75,7 @@
             text-decoration: none;
             color: white;
             border: 1px solid #555;
-            padding: 12px 30px;
+            padding: 12px 35px;
             border-radius: 50px;
             font-weight: bold;
             transition: 0.3s;
@@ -88,53 +85,48 @@
         .back-btn:hover {
             background: white;
             color: black;
-            transform: scale(1.05);
         }
 
-        /* मोबाइल के लिए सेटिंग */
         @media (max-width: 768px) {
             .about-card { flex-direction: column; }
             .text-section { padding: 30px; text-align: center; }
             .back-btn { align-self: center; }
             .image-section { height: 400px; }
+            .text-section h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
     <div class="about-card">
-        <!-- यहाँ अपनी फोटो लगायें -->
         <div class="image-section">
             <img src="images/bg.jpg" alt="Manjeet Photo"> 
         </div>
 
         <div class="text-section">
-            <h1>About Me</h1>
-            <p>
-                नमस्ते! मैं मंजीत हूँ। मुझे फैशन का जुनून है और मैं हर नए पहनावे को एक कहानी की तरह देखता हूँ। इसके साथ ही, मुझे फाइनेंस और ट्रेडिंग की दुनिया में भी गहरी दिलचस्पी है। <br><br>
-                मेरा मानना है कि स्टाइल सिर्फ कपड़ों के बारे में नहीं है, बल्कि यह आपके व्यक्तित्व और आत्मविश्वास की झलक है। मेरी इस यात्रा का हिस्सा बनने के लिए धन्यवाद।
+            <h1 id="aboutTitle">About Me</h1>
+            <p id="aboutPara">
+                I am Manjeet, a passionate Full Stack Developer based in Gurgaon. My journey started in a small village, and my curiosity for technology led me to complete my BCA in 2022 from JB Knowledge Park, Faridabad.
             </p>
-            <a href="index.html" class="back-btn">← Back to Home</a>
+            <a href="index.html" class="back-btn" id="backBtn">← Back to Home</a>
         </div>
     </div>
+
 <script>
     window.onload = function() {
-        // चेक करें कि यूजर ने होम पेज पर कौन सी भाषा चुनी थी
         let lang = localStorage.getItem("preferredLang") || "EN";
         
-        let title = document.querySelector("h1");
-        let para = document.querySelector("p");
-        let backBtn = document.querySelector(".back-btn");
+        let title = document.getElementById("aboutTitle");
+        let para = document.getElementById("aboutPara");
+        let backBtn = document.getElementById("backBtn");
 
         if (lang === "HI") {
-            // हिंदी कंटेंट
             title.innerHTML = "मेरे बारे में";
-            para.innerHTML = "नमस्ते! मैं मंजीत हूँ। मुझे फैशन का जुनून है और मैं हर नए पहनावे को एक कहानी की तरह देखता हूँ। इसके साथ ही, मुझे फाइनेंस और ट्रेडिंग की दुनिया में भी गहरी दिलचस्पी है। मेरा मानना है कि स्टाइल सिर्फ कपड़ों के बारे में नहीं है, बल्कि यह आपके व्यक्तित्व की झलक है।";
+            para.innerHTML = "नमस्ते! मैं मंजीत हूँ, गुड़गांव में रहने वाला एक पैशनेट **Full Stack Developer**। मेरा सफर एक छोटे से गाँव से शुरू हुआ और टेक्नोलॉजी के प्रति मेरी जिज्ञासा मुझे 2022 में **JB नॉलेज पार्क, फरीदाबाद** ले आई, जहाँ मैंने अपना **BCA** पूरा किया।<br><br>शुरुआत में मैंने **MIS Executive** के तौर पर काम किया, लेकिन कोडिंग के प्रति मेरे जुनून ने मुझे फुल स्टैक डेवलपर बनने के लिए प्रेरित किया। मुझे चीज़ों को शुरू से 'बिल्ड' करना पसंद है, चाहे वो कोड हो या एक नया स्टाइल। मेरी इस डिजिटल यात्रा का हिस्सा बनने के लिए धन्यवाद।";
             if(backBtn) backBtn.innerHTML = "← वापस होम पर";
         } else {
-            // इंग्लिश कंटेंट
             title.innerHTML = "About Me";
-            para.innerHTML = "I am Manjeet. I love fashion. I love the thrill of wearing a new piece and giving it a story. This passion has taken me to many different places. Enter my world. I believe style is not just about clothes, it's a reflection of your personality.";
+            para.innerHTML = "I am Manjeet, a passionate **Full Stack Developer** based in Gurgaon. My journey started in a small village, and my curiosity for technology led me to complete my **BCA** in 2022 from JB Knowledge Park, Faridabad.<br><br>After starting my career as an **MIS Executive**, my passion for coding drove me to become a Full Stack Developer. I love building things from scratch, whether it's complex code or a new style. This journey takes me to new paths every day. Welcome to my world!";
             if(backBtn) backBtn.innerHTML = "← Back to Home";
         }
     };
