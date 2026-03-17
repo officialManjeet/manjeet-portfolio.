@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Official Manjeet</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: #0a0a0a; /* डार्क प्रीमियम बैकग्राउंड */
+            color: white;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .about-card {
+            background: #121212;
+            max-width: 900px;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap; /* मोबाइल के लिए */
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #333;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        /* फोटो वाला हिस्सा */
+        .image-section {
+            flex: 1;
+            min-width: 350px;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-section img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* फोटो को पूरे बॉक्स में फिट रखेगा */
+            transition: 0.5s;
+        }
+
+        /* जानकारी वाला हिस्सा */
+        .text-section {
+            flex: 1.2;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .text-section h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-weight: 900;
+            background: linear-gradient(to right, #fff, #888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #bbb;
+            margin-bottom: 30px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            border: 1px solid #555;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+            align-self: flex-start;
+        }
+
+        .back-btn:hover {
+            background: white;
+            color: black;
+            transform: scale(1.05);
+        }
+
+        /* मोबाइल के लिए सेटिंग */
+        @media (max-width: 768px) {
+            .about-card { flex-direction: column; }
+            .text-section { padding: 30px; text-align: center; }
+            .back-btn { align-self: center; }
+            .image-section { height: 400px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="about-card">
+        <!-- यहाँ अपनी फोटो लगायें -->
+        <div class="image-section">
+            <img src="images/bg.jpg" alt="Manjeet Photo"> 
+        </div>
+
+        <div class="text-section">
+            <h1>About Me</h1>
+            <p>
+                नमस्ते! मैं मंजीत हूँ। मुझे फैशन का जुनून है और मैं हर नए पहनावे को एक कहानी की तरह देखता हूँ। इसके साथ ही, मुझे फाइनेंस और ट्रेडिंग की दुनिया में भी गहरी दिलचस्पी है। <br><br>
+                मेरा मानना है कि स्टाइल सिर्फ कपड़ों के बारे में नहीं है, बल्कि यह आपके व्यक्तित्व और आत्मविश्वास की झलक है। मेरी इस यात्रा का हिस्सा बनने के लिए धन्यवाद।
+            </p>
+            <a href="index.html" class="back-btn">← Back to Home</a>
+        </div>
+    </div>
+<script>
+    window.onload = function() {
+        // चेक करें कि यूजर ने होम पेज पर कौन सी भाषा चुनी थी
+        let lang = localStorage.getItem("preferredLang") || "EN";
+        
+        let title = document.querySelector("h1");
+        let para = document.querySelector("p");
+        let backBtn = document.querySelector(".back-btn");
+
+        if (lang === "HI") {
+            // हिंदी कंटेंट
+            title.innerHTML = "मेरे बारे में";
+            para.innerHTML = "नमस्ते! मैं मंजीत हूँ। मुझे फैशन का जुनून है और मैं हर नए पहनावे को एक कहानी की तरह देखता हूँ। इसके साथ ही, मुझे फाइनेंस और ट्रेडिंग की दुनिया में भी गहरी दिलचस्पी है। मेरा मानना है कि स्टाइल सिर्फ कपड़ों के बारे में नहीं है, बल्कि यह आपके व्यक्तित्व की झलक है।";
+            if(backBtn) backBtn.innerHTML = "← वापस होम पर";
+        } else {
+            // इंग्लिश कंटेंट
+            title.innerHTML = "About Me";
+            para.innerHTML = "I am Manjeet. I love fashion. I love the thrill of wearing a new piece and giving it a story. This passion has taken me to many different places. Enter my world. I believe style is not just about clothes, it's a reflection of your personality.";
+            if(backBtn) backBtn.innerHTML = "← Back to Home";
+        }
+    };
+</script>
+
+</body>
+</html>

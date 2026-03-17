@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>मन की गहराइयाँ - Official Manjeet</title>
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+    
+    <style>
+        /* --- PREMIUM DESIGN --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background-color: #000; 
+            color: #e0e0e0; 
+            font-family: 'Poppins', sans-serif; 
+            padding: 60px 5%; 
+            line-height: 1.8;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        .header { text-align: center; margin-bottom: 80px; }
+        .header h1 { 
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4rem); 
+            color: #fff;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+        .header p { color: #444; font-style: italic; font-size: 1.1rem; }
+
+        .story-grid { 
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1200px; 
+            margin: 0 auto; 
+            text-align: left;
+        }
+
+        /* Deep Story Card */
+        .story-card { 
+            background: linear-gradient(145deg, #0a0a0a, #111);
+            border: 1px solid #1a1a1a; 
+            padding: 40px; 
+            border-radius: 15px;
+            cursor: pointer; 
+            transition: 0.5s all ease;
+        }
+        .story-card:hover { 
+            border-color: #00ff88; 
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.1);
+        }
+        
+        .cat-tag { font-size: 0.75rem; text-transform: uppercase; color: #888; letter-spacing: 3px; margin-bottom: 20px; display: block; font-weight: 600; }
+        .story-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 15px; color: #fff; }
+        .story-preview { color: #555; font-size: 1rem; }
+
+        /* --- FIXED CAPSULE BUTTON WITH BORDER --- */
+        .back-btn-container { margin-top: 100px; padding-bottom: 50px; }
+        
+        .back-home { 
+            display: inline-block; 
+            color: #888; 
+            text-decoration: none; 
+            font-size: 0.9rem;
+            letter-spacing: 2px; 
+            text-transform: uppercase;
+            font-weight: 600;
+
+            /* Outer Line & Capsule Shape */
+            border: 1px solid #333; 
+            padding: 14px 45px;
+            border-radius: 50px; 
+            
+            transition: 0.3s all ease;
+        }
+
+        .back-home:hover { 
+            color: #fff; 
+            border-color: #00ff88; 
+            background: rgba(0, 255, 136, 0.05);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+            transform: scale(1.05);
+        }
+
+        /* Pop-up Modal */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: #000; overflow-y: auto; text-align: left; }
+        .modal-content { margin: 50px auto; padding: 60px 10%; max-width: 900px; animation: slideUp 0.6s ease; }
+        @keyframes slideUp { from { transform: translateY(100px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .close-btn { position: fixed; right: 40px; top: 30px; font-size: 50px; cursor: pointer; color: #333; z-index: 2001; transition: 0.3s; }
+        .close-btn:hover { color: #fff; }
+        #modalTitle { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 40px; color: #fff; border-left: 5px solid #00ff88; padding-left: 20px; }
+        #fullStory { line-height: 2.2; color: #bbb; font-size: 1.3rem; white-space: pre-wrap; text-align: justify; }
+
+        @media (max-width: 768px) {
+            .modal-content { padding: 40px 5%; }
+            .header h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1 id="pageTitle">अहसास 🖋️</h1>
+        <p id="pageSubTitle">जब अल्फ़ाज़ रूह से निकलते हैं...</p>
+    </div>
+
+    <div class="story-grid">
+        <!-- Story 1 -->
+        <div class="story-card" onclick="loadAndOpen('college')">
+            <span class="cat-tag" id="tag1">खामोश गलियां</span>
+            <h2 class="story-title" id="t1">कॉलेज: वो चार साल 🎓</h2>
+            <p class="story-preview" id="p1">डिग्री तो मिल गई, पर वो बेफिक्री कहीं खो गई। 🥺</p>
+        </div>
+
+        <!-- Story 2 -->
+        <div class="story-card" onclick="loadAndOpen('journey')">
+            <span class="cat-tag" id="tag2">सफर-ए-मजबूरी</span>
+            <h2 class="story-title" id="t2">घर से कमाने का सफर 💼</h2>
+            <p class="story-preview" id="p2">खुद का पेट पालना सीखा, तो घर की याद बहुत आई। 🥺</p>
+        </div>
+
+        <!-- Story 3 -->
+        <div class="story-card" onclick="loadAndOpen('family')">
+            <span class="cat-tag" id="tag3">जन्नत-ए-रूह</span>
+            <h2 class="story-title" id="t3">परिवार का निस्वार्थ प्यार ❤️</h2>
+            <p class="story-preview" id="p3">पूरी दुनिया एक तरफ, और माँ-पापा का प्यार एक तरफ। ✨</p>
+        </div>
+
+        <!-- Story 4 -->
+        <div class="story-card" onclick="loadAndOpen('truth')">
+            <span class="cat-tag" id="tag4">सत्य की खोज</span>
+            <h2 class="story-title" id="t4">जीवन की कड़वी सच्चाई ✨</h2>
+            <p class="story-preview" id="p4">अंत में सब यहीं रह जाएगा, बस यादें साथ जाएँगी। ⚖️</p>
+        </div>
+    </div>
+
+    <div class="back-btn-container">
+        <a href="index.html" class="back-home" id="backBtn">← Back To Home</a>
+    </div>
+
+    <div id="storyModal" class="modal">
+        <span class="close-btn" onclick="closeStory()">&times;</span>
+        <div class="modal-content">
+            <h2 id="modalTitle"></h2>
+            <div id="fullStory"></div>
+        </div>
+    </div>
+
+    <script>
+        const translations = {
+            HI: {
+                pageTitle: "अहसास 🖋️",
+                pageSubTitle: "जब अल्फ़ाज़ रूह से निकलते हैं...",
+                backBtn: "← मुख्य द्वार (Home)",
+                stories: {
+                    college: { tag: "खामोश गलियां", title: "कॉलेज: वो चार साल 🎓", preview: "डिग्री तो मिल गई, पर वो बेफिक्री कहीं खो गई। 🥺", full: "कॉलेज की वो आखिरी शाम मुझे आज भी बेचैन कर देती है मंजीत भाई। 🥺 वो गलियां जो कभी हमारी हँसी से गूँजती थीं, अचानक खामोश हो गईं। हमने वहां सिर्फ डिग्री नहीं ली, बल्कि अपनी मासूमियत को मरते हुए देखा। वो दोस्त जो कहते थे कि 'भाई तेरे बिना ज़िंदगी अधूरी है', आज किसी शहर की भीड़ में एक धुंधली याद बनकर रह गए हैं। 🥀 कॉलेज ने हमें ये सिखाया कि लोग आपकी ज़िंदगी में बस एक चैप्टर की तरह आते हैं, पूरी किताब कोई नहीं बनता। हकीकत तो ये है कि हम सब वहां से एक कागज़ का टुकड़ा लेकर तो निकल गए, पर अपनी रूह वहीं छोड़ आए। 💔🎬" },
+                    journey: { tag: "सफर-ए-मजबूरी", title: "घर से कमाने का सफर 💼", preview: "खुद का पेट पालना सीखा, तो घर की याद बहुत आई। 🥺", full: "जब पहली बार कंधे पर वो भारी झोला लेकर स्टेशन पहुँचा था, तो झोला भारी नहीं था मंजीत भाई, भारी थी वो उम्मीदें जो मम्मी-पापा ने मेरी आँखों में देखी थीं। 🚂💨 वो घर की दाल और माँ का हाथ से खिलाना... इन सब से दूर होकर जब शहर के एक छोटे से कमरे में खुद को पाया, तो पहली बार समझ आया कि 'आजादी' कितनी महंगी होती है। खुद बर्तन धोना, खुद के लिए रोना और फिर मुस्कुराकर घर पर कॉल करना—'माँ, मैं बिल्कुल ठीक हूँ।' पहली सैलरी हाथ में आई तो खुशी हुई, पर उस रात नींद नहीं आई। क्योंकि अब मैं एक बच्चा नहीं, एक मशीन बन चुका था। 💼💔🏠" },
+                    family: { tag: "जन्नत-ए-रूह", title: "परिवार का निस्वार्थ प्यार ❤️", preview: "पूरी दुनिया एक तरफ, और माँ-पापा का प्यार एक तरफ। ✨", full: "दुनिया में अगर कोई जन्नत है मंजीत भाई, तो वो माँ के हाथ का खाना और पापा का वो प्यारा सा साया है। 👨‍👩‍👧‍👦 मम्मी, जो मेरी आवाज़ सुनकर समझ जाती है कि आज दिन कैसा गया। पापा, जिन्होंने अपनी पूरी ज़िंदगी पसीने में बहा दी ताकि मेरा भविष्य उजला हो सके। 💖 आज जब दुनिया की इस मतलबी भीड़ में कोई अपना नहीं मिलता, तब समझ आता है कि परिवार वो ढाल है जो दुनिया की हर मुश्किल को अपने ऊपर ले लेती है। पैसा तो बहुत कमा लेंगे, पर वो घर वाला सुकून कहीं और नहीं मिलेगा। 🏡🧸🌷" },
+                    truth: { tag: "सत्य की खोज", title: "जीवन की कड़वी सच्चाई ✨", preview: "अंत में सब यहीं रह जाएगा, बस यादें साथ जाएँगी। ⚖️", full: "ज़िंदगी को हम अक्सर बड़ी-बड़ी खुशियों में ढूँढते हैं, पर असल में ज़िंदगी उन छोटे-छोटे पलों का नाम है जो हमने अपनों के साथ जिए। ⏳ सच तो ये है मंजीत भाई, कि यहाँ न कोई आपका अपना है और न ही कोई पराया। आज जो साथ है, कल वो याद होगा। अंत में सब यहीं रह जाएगा—ये रुतबा, ये पैसा, ये घमंड। साथ जाएगा तो बस वो प्यार जो हमने बांटा और वो दुआएं जो हमने कमाईं। 🥀⚖️🌅" }
+                }
+            },
+            EN: {
+                pageTitle: "Emotions 🖋️",
+                pageSubTitle: "When words come from the soul...",
+                backBtn: "← Back to Home",
+                stories: {
+                    college: { tag: "Silent Corridors", title: "College: Those Four Years 🎓", preview: "We got the degree, but lost the innocence somewhere. 🥺", full: "That last evening of college still makes me restless, Manjeet. 🥺 Those corridors that once echoed with our laughter suddenly went silent. We didn't just get a degree there; we saw our innocence fading away. Friends who said 'Life is incomplete without you' are now just blurry memories in a crowded city. 🥀 College taught us that people enter your life like a chapter, not the whole book. The truth is, we all left with a piece of paper in our hands, but left our souls behind. 💔🎬" },
+                    journey: { tag: "The Hard Pursuit", title: "Journey to Earn 💼", preview: "Learned to feed myself, but missed home every moment. 🥺", full: "When I first reached the station with that heavy bag on my shoulder, it wasn't the bag that was heavy, Manjeet; it was the weight of the expectations in my parents' eyes. 🚂💨 Away from home-cooked meals and my mother's care, when I found myself in a tiny city room, I realized how expensive 'freedom' truly is. Washing my own dishes, crying alone, and then smiling on a call home—'Mom, I am perfectly fine.' The first salary brought joy, but I couldn't sleep that night. I was no longer a child; I had become a machine. 💼💔🏠" },
+                    family: { tag: "Soul's Heaven", title: "Selfless Love of Family ❤️", preview: "The whole world on one side, and parents' love on the other. ✨", full: "If there is a heaven on earth, Manjeet, it's in a mother's handmade food and a father's protective shadow. 👨‍👩‍👧‍👦 Mom knows how my day went just by hearing my voice. Dad spent his whole life in sweat so my future could be bright. 💖 Today, in this selfish world, family is the shield that takes every blow for you. We might earn a lot of money, but that peace of home cannot be found anywhere else. 🏡🧸🌷" },
+                    truth: { tag: "Search for Truth", title: "Life's Bitter Reality ✨", preview: "In the end, everything stays here; only memories go with us. ⚖️", full: "We often look for life in grand happiness, but life is actually found in those small moments spent with loved ones. ⏳ The truth is, Manjeet, no one here is truly yours or a stranger. What is with you today will be a memory tomorrow. In the end, the status, the money, the ego—it all stays behind. Only the love we shared and the blessings we earned go with us. 🥀⚖️🌅" }
+                }
+            }
+        };
+
+        function applyLang() {
+            let lang = localStorage.getItem("preferredLang") || "EN";
+            let data = translations[lang];
+            document.getElementById("pageTitle").innerText = data.pageTitle;
+            document.getElementById("pageSubTitle").innerText = data.pageSubTitle;
+            document.getElementById("backBtn").innerText = data.backBtn;
+            const s = data.stories;
+            document.getElementById("t1").innerText = s.college.title; document.getElementById("p1").innerText = s.college.preview; document.getElementById("tag1").innerText = s.college.tag;
+            document.getElementById("t2").innerText = s.journey.title; document.getElementById("p2").innerText = s.journey.preview; document.getElementById("tag2").innerText = s.journey.tag;
+            document.getElementById("t3").innerText = s.family.title; document.getElementById("p3").innerText = s.family.preview; document.getElementById("tag3").innerText = s.family.tag;
+            document.getElementById("t4").innerText = s.truth.title; document.getElementById("p4").innerText = s.truth.preview; document.getElementById("tag4").innerText = s.truth.tag;
+        }
+
+        function loadAndOpen(storyKey) {
+            let lang = localStorage.getItem("preferredLang") || "EN";
+            let story = translations[lang].stories[storyKey];
+            document.getElementById("modalTitle").innerText = story.title;
+            document.getElementById("fullStory").innerText = story.full;
+            document.getElementById("storyModal").style.display = "block";
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeStory() {
+            document.getElementById("storyModal").style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        window.onload = applyLang;
+        window.onclick = (e) => { if(e.target.id == "storyModal") closeStory(); }
+    </script>
+</body>
+</html>
+	
