@@ -17,7 +17,7 @@
             color: var(--text);
             font-family: 'Segoe UI', sans-serif;
             margin: 0;
-            padding: 10px; /* मोबाइल के लिए पैडिंग कम की है */
+            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -40,34 +40,33 @@
             justify-content: center;
             margin-top: 30px;
             width: 100%;
-            max-width: 800px; /* कंटेनर को थोड़ा बड़ा किया */
+            max-width: 900px;
         }
 
         .video-box {
             background: var(--card);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255,255,255,0.1);
-            padding: 15px;
-            border-radius: 20px;
-            width: 100%; /* फुल विड्थ */
-            max-width: 700px; /* डेस्कटॉप पर लिमिट */
+            padding: 20px;
+            border-radius: 25px;
+            width: 100%;
+            max-width: 650px;
             text-align: center;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        /* वीडियो को फुल फ्रेम दिखाने के लिए सेटिंग्स */
+        /* चेहरा न कटे इसके लिए बेस्ट सेटिंग्स */
         video {
             width: 100%;
-            height: auto;
-            aspect-ratio: 16 / 9; /* या 9 / 16 अगर वीडियो वर्टिकल है */
-            border-radius: 12px;
-            object-fit: cover; /* ताकि फ्रेम पूरा भरा रहे */
+            height: auto; /* ऊंचाई अपने आप सेट होगी */
+            border-radius: 15px;
+            object-fit: contain; /* इससे वीडियो का कोई भी हिस्सा नहीं कटेगा */
             background: #000;
             display: block;
         }
 
         .video-title {
-            margin-top: 15px;
+            margin-top: 20px;
             font-size: 1.3rem;
             font-weight: bold;
             color: var(--accent);
@@ -76,21 +75,20 @@
         .video-desc {
             font-size: 1rem;
             color: #94a3b8;
-            margin-top: 8px;
-            line-height: 1.4;
-            padding: 0 10px;
+            margin-top: 10px;
+            line-height: 1.5;
         }
 
         .back-btn {
-            margin-top: 40px;
+            margin-top: 50px;
             text-decoration: none;
             color: var(--text);
             border: 1px solid var(--text);
-            padding: 10px 30px;
+            padding: 12px 35px;
             border-radius: 50px;
             font-weight: bold;
             transition: 0.3s;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
         .back-btn:hover {
@@ -99,9 +97,8 @@
         }
 
         @media (max-width: 768px) {
-            h1 { font-size: 1.6rem; }
-            .video-box { padding: 10px; }
-            video { aspect-ratio: auto; } /* मोबाइल पर नेचुरल रेश्यो */
+            h1 { font-size: 1.8rem; }
+            .video-box { width: 95%; padding: 15px; }
         }
     </style>
 </head>
@@ -111,7 +108,6 @@
 
     <div class="highlight-container">
         <div class="video-box">
-            <!-- पाथ 'videos' (छोटा v) एकदम सही है -->
             <video controls autoplay muted playsinline>
                 <source src="videos/intro.mp4" type="video/mp4">
                 आपका ब्राउज़र वीडियो सपोर्ट नहीं करता।
