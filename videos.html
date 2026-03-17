@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Highlights - Official Manjeet</title>
     <style>
-        /* प्रीमियम डार्क थीम */
         :root {
             --bg: #0f172a;
             --card: rgba(255, 255, 255, 0.05);
@@ -46,30 +45,24 @@
             max-width: 1100px;
         }
 
-        /* वीडियो कार्ड स्टाइल */
         .video-box {
             background: var(--card);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255,255,255,0.1);
             padding: 20px;
             border-radius: 25px;
-            width: 450px;
+            width: 550px; /* बॉक्स को थोड़ा बड़ा किया है */
             text-align: center;
             transition: 0.4s;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        .video-box:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent);
-            box-shadow: 0 15px 40px rgba(56, 189, 248, 0.2);
-        }
-
         video {
             width: 100%;
-            height: 250px;
+            height: auto; /* चेहरा न कटे इसलिए इसे ऑटो किया है */
+            max-height: 500px; 
             border-radius: 15px;
-            object-fit: cover;
+            object-fit: contain; /* इससे पूरा वीडियो (Full Face) दिखेगा */
             background: #000;
         }
 
@@ -87,7 +80,6 @@
             line-height: 1.5;
         }
 
-        /* बैक बटन */
         .back-btn {
             margin-top: 60px;
             text-decoration: none;
@@ -106,8 +98,7 @@
         }
 
         @media (max-width: 768px) {
-            .video-box { width: 90%; }
-            h1 { font-size: 1.8rem; }
+            .video-box { width: 95%; }
         }
     </style>
 </head>
@@ -116,23 +107,20 @@
     <h1 id="highlightTitle">My Highlights</h1>
 
     <div class="highlight-container">
-        <!-- वीडियो बॉक्स (Videos फोल्डर और intro.mp4 फाइल) -->
         <div class="video-box">
+            <!-- पाथ 'videos' (छोटा v) एकदम सही सेट है -->
             <video controls autoplay muted playsinline>
                 <source src="videos/intro.mp4" type="video/mp4">
-
                 आपका ब्राउज़र वीडियो सपोर्ट नहीं करता।
             </video>
             <div class="video-title" id="v1Title">My Journey</div>
-            <p class="video-desc" id="v1Desc">एक छोटा सा सफर मेरी जिंदगी के उन पलों का जिन्होंने मुझे आज यहाँ पहुँचाया।</p>
+            <p class="video-desc" id="v1Desc">मेरे प्रोफेशनल सफर की एक छोटी सी झलक।</p>
         </div>
     </div>
 
-    <!-- होम पेज पर वापस जाने का बटन -->
     <a href="index.html" class="back-btn" id="backBtn">Back To Home</a>
 
     <script>
-        // भाषा के हिसाब से टेक्स्ट बदलना
         window.onload = function() {
             let lang = localStorage.getItem("preferredLang") || "EN";
             if (lang === "HI") {
