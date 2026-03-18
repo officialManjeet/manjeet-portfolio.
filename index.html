@@ -1,4 +1,4 @@
-Official Manjeet - Final Verified GitHub Code
+Official Manjeet - Verified Final GitHub Code
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +22,7 @@ Official Manjeet - Final Verified GitHub Code
 
             --card-bg: rgba(255, 255, 255, 0.03);
             --glass-border: rgba(255, 255, 255, 0.08);
-            /* Your favorite "Second First" Fluid Abstract background */
+            /* This is your favorite "Second First" Fluid Abstract background */
             --home-bg: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1920');
             --detail-bg: linear-gradient(135deg, #050505 0%, #001133 100%);
         }
@@ -38,7 +38,7 @@ Official Manjeet - Final Verified GitHub Code
             scroll-behavior: smooth;
         }
 
-        /* Spotlight effect */
+        /* Interactive Spotlight Effect */
 
         #spotlight {
             position: fixed;
@@ -63,13 +63,13 @@ Official Manjeet - Final Verified GitHub Code
             transition: 0.6s ease;
         }
 
-        /* Header Navigation */
+        /* Navigation Header */
         header { 
             padding: 15px 5%; 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            background: rgba(0, 0, 0, 0.85); 
+            background: rgba(0, 0, 0, 0.9); 
             position: fixed; 
             width: 100%; 
             top: 0; 
@@ -78,7 +78,7 @@ Official Manjeet - Final Verified GitHub Code
             backdrop-filter: blur(25px);
         }
         
-        /* Logo with your Profile Image sel.jpg from images/ folder */
+        /* Logo with Image images/sel.jpg */
 
         .logo { display: flex; align-items: center; text-decoration: none; text-transform: uppercase; letter-spacing: 1.5px; font-size: 18px; font-weight: 800; }
         .logo-img { 
@@ -89,6 +89,7 @@ Official Manjeet - Final Verified GitHub Code
             border: 2px solid var(--primary); 
             object-fit: cover; 
             background: #111;
+            display: block;
         }
         .logo .white { color: #ffffff; }
         .logo .blue { color: var(--primary); text-shadow: 0 0 15px rgba(0, 210, 255, 0.4); }
@@ -100,11 +101,11 @@ Official Manjeet - Final Verified GitHub Code
         #lang-btn { padding: 8px 15px; background: rgba(0, 210, 255, 0.1); color: var(--primary); border: 1px solid var(--primary); border-radius: 8px; cursor: pointer; font-weight: 800; font-size: 10px; text-transform: uppercase; }
 
 
-        /* Container & Views */
+        /* Content Container */
         .container { padding: 140px 5% 80px; position: relative; z-index: 10; width: 100%; max-width: 1200px; margin: 0 auto; }
         #detail-view { display: none; }
 
-        /* Hero */
+        /* Hero Section */
         .hero { text-align: center; margin-bottom: 80px; }
         .hero h1 { font-size: clamp(32px, 5vw, 60px); margin-bottom: 20px; font-weight: 800; line-height: 1.1; }
         .hero h1 span { color: var(--primary); }
@@ -114,7 +115,7 @@ Official Manjeet - Final Verified GitHub Code
         .btn-whatsapp { display: inline-flex; align-items: center; gap: 12px; background: var(--whatsapp); color: #fff; text-decoration: none; padding: 16px 38px; border-radius: 50px; font-weight: 800; font-size: 16px; transition: 0.4s; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); }
         .btn-whatsapp:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(37, 211, 102, 0.5); }
 
-        /* Service Cards Grid */
+        /* Services Grid */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
         .card { background: var(--card-bg); padding: 50px 30px; border-radius: 35px; border: 1px solid var(--glass-border); text-align: center; cursor: pointer; transition: 0.4s ease; backdrop-filter: blur(15px); }
         .card:hover { transform: translateY(-12px); border-color: var(--primary); background: rgba(255,255,255,0.06); }
@@ -123,7 +124,7 @@ Official Manjeet - Final Verified GitHub Code
         .card h3 { font-size: 24px; margin-bottom: 12px; font-weight: 700; }
         .card p { font-size: 15px; color: #888; }
 
-        /* Detail Section Styles */
+        /* Detail Page Styling */
         .detail-flex { display: flex; gap: 50px; align-items: center; margin-top: 30px; }
         .detail-text { flex: 1; }
         .detail-text h2 { font-size: clamp(35px, 4vw, 55px); margin-bottom: 25px; font-weight: 800; color: var(--primary); }
@@ -131,26 +132,26 @@ Official Manjeet - Final Verified GitHub Code
         .detail-img { flex: 1; }
         .detail-img img { width: 100%; border-radius: 30px; border: 1px solid var(--glass-border); box-shadow: 0 20px 50px rgba(0,0,0,0.6); }
 
-        /* Buttons on Detail Page */
-        .btn-cta { display: inline-block; padding: 20px 45px; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #fff; text-decoration: none; border-radius: 15px; font-weight: 800; text-transform: uppercase; font-size: 15px; box-shadow: 0 10px 25px rgba(0, 210, 255, 0.4); margin-bottom: 20px; transition: 0.3s; }
+        /* Detail Page Buttons - REORDERED */
+        .btn-cta { display: inline-block; padding: 18px 45px; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #fff; text-decoration: none; border-radius: 12px; font-weight: 800; text-transform: uppercase; font-size: 14px; box-shadow: 0 10px 25px rgba(0, 210, 255, 0.4); margin-bottom: 15px; transition: 0.3s; }
         .btn-cta:hover { transform: scale(1.05); }
 
-        .btn-back { display: block; width: fit-content; padding: 14px 30px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: 12px; cursor: pointer; color: #fff; font-weight: 700; font-size: 15px; text-decoration: none; transition: 0.3s; }
+        .btn-back { display: inline-flex; align-items: center; gap: 10px; padding: 12px 25px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: 10px; cursor: pointer; color: #fff; font-weight: 700; font-size: 14px; text-decoration: none; transition: 0.3s; margin-top: 5px; }
         .btn-back:hover { background: #fff; color: #000; }
 
-        /* Social Footer */
+        /* Social Media Icons */
 
         footer { padding: 80px 5% 50px; text-align: center; border-top: 1px solid var(--glass-border); margin-top: 100px; }
         .socials { display: flex; justify-content: center; gap: 30px; margin-top: 35px; }
-        .socials a { color: #fff; font-size: 32px; opacity: 0.7; transition: 0.4s; text-decoration: none; }
+        .socials a { color: #fff; font-size: 30px; opacity: 0.7; transition: 0.4s; text-decoration: none; }
         .socials a:hover { color: var(--primary); opacity: 1; transform: translateY(-8px) scale(1.2); }
 
         @media (max-width: 768px) {
-            header { padding: 10px; height: auto; flex-direction: column; }
+            header { padding: 10px; flex-direction: column; height: auto; }
             nav { margin: 15px 0; gap: 10px; flex-wrap: wrap; justify-content: center; }
             .container { padding-top: 220px; }
             .detail-flex { flex-direction: column; text-align: center; }
-            .btn-back { margin: 0 auto; }
+            .btn-back { margin: 10px auto; }
         }
     </style>
 </head>
@@ -162,16 +163,16 @@ Official Manjeet - Final Verified GitHub Code
 
     <header>
         <a href="#" class="logo" onclick="showHome()">
-            <!-- Path specifically set to your images/sel.jpg file -->
-            <img src="images/sel.jpg" alt="Official Manjeet Logo" class="logo-img">
+            <!-- I have ensured the path points to images/sel.jpg exactly -->
+            <img src="images/sel.jpg" alt="" class="logo-img">
             <span class="white" id="logo-w">OFFICIAL</span>
             <span class="blue" id="logo-b">MANJEET</span>
         </a>
 
         <nav id="top-nav">
             <a href="#" id="nav-h" onclick="showHome()">Home</a>
-            <!-- Links to your separate biography file -->
-            <a href="about.html" id="nav-a">About</a>
+            <!-- Clicking About will now load data from your about.html file -->
+            <a href="#" id="nav-a" onclick="showDetail('about')">About</a>
             <a href="#" id="nav-p" onclick="showDetail('portfolio')">Portfolio</a>
             <a href="#" id="nav-t" onclick="showDetail('trading')">Trading</a>
             <a href="#" id="nav-s" onclick="showDetail('shop')">Shop</a>
@@ -183,7 +184,7 @@ Official Manjeet - Final Verified GitHub Code
         </div>
     </header>
 
-    <!-- Landing Page -->
+    <!-- Landing View -->
     <div id="home-view" class="container">
         <section class="hero">
             <h1 id="hero-h">Elevate Your <span>Business</span></h1>
@@ -226,31 +227,32 @@ Official Manjeet - Final Verified GitHub Code
         </section>
     </div>
 
-    <!-- Service Detail Section -->
+    <!-- Detailed Section View -->
     <div id="detail-view" class="container">
         <div class="detail-flex">
             <div class="detail-text">
                 <h2 id="det-title">Service Title</h2>
-                <div id="det-content">
+                <div id="det-box">
                     <p id="det-desc">Details loading...</p>
                 </div>
                 
-                <!-- Consult Now Button -->
+                <!-- Action Button -->
                 <a href="https://wa.me" target="_blank" class="btn-cta" id="cta-txt">Consult Now</a>
                 
-                <!-- Back Button BELOW Consult Now -->
+                <br>
 
+                <!-- Back Button BELOW Consult Now as requested -->
                 <div class="btn-back" onclick="showHome()">
                     <i class="fas fa-arrow-left"></i> <span id="back-txt">Back to Home</span>
                 </div>
             </div>
             <div class="detail-img">
-                <img id="det-img" src="" alt="Service Detail">
+                <img id="det-img" src="" alt="Detail View">
             </div>
         </div>
     </div>
 
-    <!-- Social Connections Footer -->
+    <!-- Footer with Social Links -->
     <footer>
         <h3 id="foot-h">Connect With Me</h3>
         <div class="socials">
@@ -258,8 +260,8 @@ Official Manjeet - Final Verified GitHub Code
             <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
             <a href="https://twitter.com" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
             <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://t.me" target="_blank"><i class="fa-brands fa-telegram"></i></a>
 
+            <a href="https://t.me" target="_blank"><i class="fa-brands fa-telegram"></i></a>
         </div>
     </footer>
 
@@ -274,12 +276,13 @@ Official Manjeet - Final Verified GitHub Code
                 branding: 'https://images.unsplash.com/photo-1614036634955-ae5e90f9b9eb?auto=format&fit=crop&q=80&w=800',
                 portfolio: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&q=80&w=800',
                 shop: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=80&w=800',
-                trading: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&q=80&w=800'
+                trading: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&q=80&w=800',
+                about: 'images/sel.jpg'
             }
         };
 
-        let lang = 'en';
 
+        let lang = 'en';
         let currentView = 'home';
 
         const dict = {
@@ -298,11 +301,12 @@ Official Manjeet - Final Verified GitHub Code
                 adsD: "Data-driven advertising strategies designed for maximum conversion and massive growth.",
                 webD: "Modern, high-speed, and conversion-focused websites that capture global attention.",
                 brandingD: "We create a unique identity for your business that resonates with your target audience.",
-                portfolioT: "Successful Portfolio", portfolioD: "Explore our track record of high-impact digital transformations and successful projects.",
 
-                shopT: "Official Store", shopD: "Premium digital tools and elite resources tailored for high-performing entrepreneurs.",
-                tradingT: "Master the Stock Market", 
-                tradingD: "Step into the financial markets with expert guidance. We provide real-time market data, technical chart analysis, and strategic entry points to ensure consistent growth. Learn professional risk management and portfolio diversification techniques to trade with precision and confidence. Our data-driven approach helps you navigate the complexities of the financial markets."
+                portfolioT: "Success Stories", portfolioD: "Check out our portfolio of elite digital solutions and business transformations.",
+                shopT: "Digital Shop", shopD: "Elite tools and resources designed to help entrepreneurs scale faster.",
+                tradingT: "Professional Trading", 
+                tradingD: "Step into the financial markets with precision. We offer advanced chart analysis, risk management strategies, and high-probability entry points. Learn to navigate the stock market with confidence and consistency.",
+                aboutT: "About Manjeet", aboutD: "Loading biography from about.html..."
             },
             hi: {
                 btn: "English", logoW: "ऑफिशियल", logoB: "मंजीत",
@@ -317,13 +321,14 @@ Official Manjeet - Final Verified GitHub Code
                 back: "होम पर वापस", cta: "सलाह लें", foot: "मुझसे जुड़ें",
                 socialD: "सोशल मीडिया के एल्गोरिदम में महारत हासिल करें और एक बड़ा डिजिटल समुदाय बनाएं।",
                 adsD: "सटीक डेटा के साथ विज्ञापन खर्च में अधिकतम लाभ प्राप्त करने की रणनीति।",
+
                 webD: "सुपर फास्ट वेबसाइटें जो आपके बिजनेस को एक नई ऊँचाई पर ले जाएँगी।",
                 brandingD: "प्रोफेशनल ब्रांडिंग और डिजाइन जो आपकी बाजार में एक अलग पहचान बनाएगी।",
-
-                portfolioT: "सफल पोर्टफोलियो", portfolioD: "हमारे सफल डिजिटल प्रोजेक्ट्स और समाधानों का संग्रह देखें।",
-                shopT: "ऑफिशियल शॉप", shopD: "उद्यमियों के लिए विशेष डिजिटल टूल्स और प्रीमियम संसाधन।",
-                tradingT: "स्टॉक मार्केट में महारत", 
-                tradingD: "विशेषज्ञ मार्गदर्शन के साथ वित्तीय बाजारों में कदम रखें। हम रीयल-टाइम डेटा, चार्ट विश्लेषण और रणनीतिक प्रवेश बिंदु प्रदान करते हैं ताकि आप आत्मविश्वास के साथ ट्रेड कर सकें।"
+                portfolioT: "सफल कार्य", portfolioD: "हमारे शानदार डिजिटल समाधानों का संग्रह यहाँ देखें।",
+                shopT: "ऑफिशियल शॉप", shopD: "उद्यमियों के लिए विशेष टूल्स और प्रीमियम संसाधनों का संग्रह।",
+                tradingT: "ट्रेडिंग में महारत", 
+                tradingD: "वित्तीय बाजारों में आत्मविश्वास के साथ कदम रखें। हम आपको चार्ट विश्लेषण और रिस्क मैनेजमेंट की बारीकियां सिखाते हैं।",
+                aboutT: "मेरे बारे में", aboutD: "about.html से जानकारी लोड हो रही है..."
             }
         };
 
@@ -336,10 +341,10 @@ Official Manjeet - Final Verified GitHub Code
         function init() { updateContent(); showHome(); }
         function toggleLang() { lang = lang === 'en' ? 'hi' : 'en'; updateContent(); }
 
+
         function updateContent() {
             const d = dict[lang];
             document.getElementById('logo-w').innerText = d.logoW;
-
             document.getElementById('logo-b').innerText = d.logoB;
             document.getElementById('lang-btn').innerText = d.btn;
             document.getElementById('nav-h').innerText = d.nH;
@@ -356,15 +361,17 @@ Official Manjeet - Final Verified GitHub Code
             document.getElementById('s4-t').innerText = d.s4T; document.getElementById('s4-s').innerText = d.s4S;
             document.getElementById('s5-t').innerText = d.s5T; document.getElementById('s5-s').innerText = d.s5S;
             document.getElementById('back-txt').innerText = d.back;
+
             document.getElementById('cta-txt').innerText = d.cta;
             document.getElementById('foot-h').innerText = d.foot;
-
 
             if (currentView !== 'home') {
                 const titleKey = currentView + 'T';
                 const descKey = currentView + 'D';
                 document.getElementById('det-title').innerText = d[titleKey] || d[currentView + 't'];
-                document.getElementById('det-desc').innerText = d[descKey] || d[currentView + 'd'];
+                if (currentView !== 'about') {
+                    document.getElementById('det-desc').innerText = d[descKey] || d[currentView + 'd'];
+                }
             }
         }
 
@@ -374,12 +381,12 @@ Official Manjeet - Final Verified GitHub Code
             document.getElementById('detail-view').style.display = 'none';
             const bg = document.getElementById('main-bg');
             bg.style.backgroundImage = config.homeImg;
+
             bg.style.filter = 'brightness(0.3)';
             window.scrollTo(0,0);
         }
 
-        function showDetail(id) {
-
+        async function showDetail(id) {
             currentView = id;
             const d = dict[lang];
             document.getElementById('home-view').style.display = 'none';
@@ -392,8 +399,29 @@ Official Manjeet - Final Verified GitHub Code
             const titleKey = id + 'T';
             const descKey = id + 'D';
             document.getElementById('det-title').innerText = d[titleKey] || d[id + 't'];
-            document.getElementById('det-desc').innerText = d[descKey] || d[id + 'd'];
             document.getElementById('det-img').src = config.imgs[id];
+
+
+            if (id === 'about') {
+                try {
+                    // This fetches your bio from about.html file
+                    const res = await fetch('about.html');
+                    if (res.ok) {
+                        const html = await res.text();
+                        // Extract only body content if it's a full page
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(html, 'text/html');
+                        document.getElementById('det-desc').innerHTML = doc.body.innerHTML || html;
+                    } else {
+                        document.getElementById('det-desc').innerText = d[descKey];
+                    }
+                } catch (e) {
+                    document.getElementById('det-desc').innerText = d[descKey];
+                }
+            } else {
+                document.getElementById('det-desc').innerText = d[descKey] || d[id + 'd'];
+            }
+
             window.scrollTo(0,0);
         }
     </script>
