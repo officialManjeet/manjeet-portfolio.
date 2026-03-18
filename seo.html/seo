@@ -1,1 +1,31 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Optimization | Official Manjeet</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
+</head>
+<body style="background: #0b0b0d; color: white;">
+
+    <header style="padding: 20px 8%; background: rgba(0,0,0,0.5);"><nav><div class="logo">Official<span>Manjeet</span></div><a href="index.html" class="btn-secondary">Back to Home</a></nav></header>
+
+    <section style="padding: 80px 8%; display: flex; align-items: center; gap: 50px; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 300px;">
+            <h1 style="font-size: 50px; margin-bottom: 20px;">Rank Top on <span style="color: #00d2ff;">Google</span></h1>
+            <p style="color: #ccc; font-size: 18px; line-height: 1.6;">अपनी वेबसाइट को सर्च इंजन में सबसे ऊपर लाएं। SEO के जरिए हम आपकी वेबसाइट पर ऑर्गेनिक ट्रैफिक बढ़ाते हैं जिससे आपकी सेल्स बढ़ती है।</p>
+            <ul style="margin: 30px 0; list-style: none; color: #00d2ff; font-weight: 600; line-height: 2;">
+                <li><i class="fas fa-check-circle"></i> Keyword Research</li>
+                <li><i class="fas fa-check-circle"></i> High Quality Backlinks</li>
+                <li><i class="fas fa-check-circle"></i> Technical SEO Audit</li>
+            </ul>
+            <a href="https://wa.me" class="btn-primary">Boost My Traffic</a>
+        </div>
+        <div style="flex: 1; min-width: 300px;">
+            <img src="images/manjeet.png" alt="SEO Service" style="width: 100%; border-radius: 20px; box-shadow: 0 0 50px rgba(0, 210, 255, 0.2);">
+        </div>
+    </section>
+</body>
+</html>
 
