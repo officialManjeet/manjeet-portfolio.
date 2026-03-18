@@ -4,149 +4,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Official Manjeet | Digital Agency</title>
-    
-    <!-- 1. आइकन्स के लिए लेटेस्ट Font Awesome लिंक (इसे जरूर रहने दें) -->
+    <!-- आइकन्स के लिए लेटेस्ट पक्का लिंक -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
-    
     <style>
-        /* पूरी वेबसाइट के लिए बेसिक सेटिंग्स */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #000; color: #fff; overflow-x: hidden; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: #050507; color: #fff; line-height: 1.6; scroll-behavior: smooth; }
 
-        /* Navigation Bar - इसे फिक्स किया गया है */
-        header {
-            padding: 20px 8%;
-            background: rgba(0, 0, 0, 0.95);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid #222;
-        }
-        .logo { font-size: 24px; font-weight: 800; }
-        .logo span { color: #00d2ff; }
-        nav a { color: #fff; text-decoration: none; margin-left: 25px; font-size: 15px; transition: 0.3s; }
-        nav a:hover { color: #00d2ff; }
+        /* Header / Navbar */
+        header { padding: 25px 8%; display: flex; justify-content: space-between; align-items: center; background: #000; position: fixed; width: 100%; top: 0; z-index: 3000; border-bottom: 1px solid #111; }
+        .logo { font-size: 24px; font-weight: 900; text-decoration: none; text-transform: uppercase; }
+        .logo .white { color: #ffffff; }
+        .logo .blue { color: #00d2ff; }
 
-        /* Hero Section - यहाँ Padding-top बढ़ा दी है ताकि हेडर के नीचे न दबे */
-        .hero {
-            padding: 180px 8% 100px 8%; 
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-        .hero-content { max-width: 600px; }
-        .hero-content h1 { font-size: 50px; line-height: 1.2; margin-bottom: 20px; }
-        .hero-content h1 span { color: #00d2ff; }
-        .hero-content p { color: #aaa; margin-bottom: 30px; font-size: 18px; }
+        nav a { color: #fff; text-decoration: none; margin-left: 25px; font-size: 14px; opacity: 0.8; transition: 0.3s; }
+        nav a:hover { color: #00d2ff; opacity: 1; }
 
-        /* बटन स्टाइल */
-        .btns { display: flex; gap: 15px; }
-        .btn-blue { padding: 12px 35px; background: #00d2ff; color: #000; text-decoration: none; border-radius: 50px; font-weight: bold; transition: 0.3s; }
-        .btn-outline { padding: 12px 35px; border: 2px solid #00d2ff; color: #00d2ff; text-decoration: none; border-radius: 50px; font-weight: bold; transition: 0.3s; }
-        .btn-blue:hover { box-shadow: 0 0 20px rgba(0, 210, 255, 0.5); }
-
-        /* Services Section - बिल्कुल वैसा जैसा आपने फोटो में माँगा था */
-        .services-section { padding: 80px 8%; text-align: center; }
-        .services-section h2 { font-size: 35px; margin-bottom: 60px; }
-        .services-section h2 span { color: #9d50bb; }
+        /* Hero Section (Supercharge वाला हिस्सा) */
+        .hero { padding: 180px 8% 100px 8%; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 40px; }
+        .hero-text { flex: 1; min-width: 350px; }
+        .hero-text h1 { font-size: 55px; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
+        .hero-text h1 span { color: #00d2ff; }
+        .hero-text p { color: #aaa; font-size: 18px; margin-bottom: 35px; max-width: 500px; }
         
-        .service-container { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; }
+        .hero-btns { display: flex; gap: 20px; }
+        .btn-blue { padding: 15px 40px; background: #00d2ff; color: #000; text-decoration: none; border-radius: 50px; font-weight: 700; transition: 0.4s; border: 2px solid #00d2ff; display: inline-block; }
+        .btn-blue:hover { background: transparent; color: #00d2ff; box-shadow: 0 0 20px #00d2ff; transform: translateY(-5px); }
+
+        /* Our Services (Blink Effect के साथ) */
+        .services { padding: 100px 8%; text-align: center; }
+        .services h2 { font-size: 32px; margin-bottom: 50px; }
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
         
-        /* होवर (Blink) इफेक्ट वाला कार्ड */
-        .service-card {
-            width: 220px;
-            text-align: center;
-            padding: 25px;
-            border-radius: 15px;
-            text-decoration: none;
-            color: #fff;
-            transition: all 0.4s ease;
+        .service-card { 
+            background: #111113; padding: 45px 20px; border-radius: 15px; 
+            border: 1px solid #1a1a1c; transition: all 0.3s ease;
+            cursor: pointer; text-decoration: none; color: #fff; display: block;
         }
-        .service-card:hover {
+        /* Blink/Glow Effect */
+        .service-card:hover { 
+            border-color: #00d2ff;
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.4);
             transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.05);
-            filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.2));
         }
-
-        .service-card i { font-size: 40px; margin-bottom: 20px; display: block; transition: 0.3s; }
-        .service-card:hover i { text-shadow: 0 0 20px currentColor; }
-
-        /* आइकन्स के कलर्स */
-        .i-blue { color: #4facfe; }
-        .i-pink { color: #f093fb; }
-        .i-green { color: #43e97b; }
-        .i-orange { color: #fa709a; }
-
         .service-card h3 { font-size: 18px; margin-bottom: 10px; }
-        .service-card p { font-size: 13px; color: #888; line-height: 1.5; }
+        .service-card p { color: #888; font-size: 13px; }
 
-        .portfolio-btn { display: inline-block; margin-top: 50px; color: #9d50bb; text-decoration: none; font-weight: 600; border-bottom: 2px solid #9d50bb; padding-bottom: 5px; }
+        /* Contact Section & Social Links */
+        .contact { padding: 100px 8%; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 50px; }
+        .contact-left { flex: 1; min-width: 300px; }
+        
+        .social-links { display: flex; gap: 15px; margin-top: 25px; }
+        .social-links a { 
+            width: 45px; height: 45px; background: #1a1a1c; color: #fff; 
+            display: flex; align-items: center; justify-content: center; 
+            border-radius: 10px; text-decoration: none; font-size: 20px; transition: 0.3s; border: 1px solid #333;
+        }
+        .social-links a:hover { background: #00d2ff; color: #000; box-shadow: 0 0 15px #00d2ff; transform: translateY(-5px); }
 
-        /* फोटो स्टाइल */
-        .hero-img img { width: 350px; border-radius: 30px; box-shadow: 0 0 30px rgba(0, 210, 255, 0.1); }
+        .wa-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 3000; text-decoration: none; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+
+        @media (max-width: 768px) { .hero { padding-top: 150px; text-align: center; } .hero-text h1 { font-size: 38px; } nav { display: none; } }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">Official<span>Manjeet</span></div>
+        <a href="index.html" class="logo"><span class="white">OFFICIAL</span><span class="blue">MANJEET</span></a>
         <nav>
             <a href="index.html">Home</a>
-            <a href="shop.html">Shop</a>
+            <a href="about.html">About</a>
+            <a href="shop.html">Portfolio</a>
             <a href="trading.html">Trading</a>
         </nav>
     </header>
 
     <section class="hero">
-        <div class="hero-content">
-            <h1>Supercharge Your <br><span>Business</span> With Us</h1>
+        <div class="hero-text">
+            <h1>Supercharge Your <br><span>Business With Us</span></h1>
             <p>हम आपके ब्रांड को डिजिटल दुनिया में नई ऊंचाइयों पर ले जाते हैं।</p>
-            <div class="btns">
-                <a href="#contact" class="btn-blue">Get Started</a>
-                <a href="https://wa.me" target="_blank" class="btn-outline">WhatsApp Us</a>
+            <div class="hero-btns">
+                <a href="https://wa.me" target="_blank" class="btn-blue">WhatsApp Us</a>
+                <a href="shop.html" class="btn-blue" style="background: transparent; color: #00d2ff;">Our Work</a>
             </div>
         </div>
-        <div class="hero-img">
-            <img src="images/manjeet.png" alt="Manjeet">
+        <div class="hero-img"><img src="images/manjeet.png" alt="Manjeet" style="width:100%; max-width:400px; border-radius:20px;"></div>
+    </section>
+
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="service-grid">
+            <a href="social-media.html" class="service-card"><h3>Social Media</h3><p>Grow your audience</p></a>
+            <a href="seo.html" class="service-card"><h3>Targeted Ads</h3><p>Insta & FB Ads</p></a>
+            <a href="web-design.html" class="service-card"><h3>Web Design</h3><p>Modern Websites</p></a>
+            <a href="index.html" class="service-card"><h3>Branding</h3><p>Logo & Identity</p></a>
         </div>
     </section>
 
-    <section class="services-section">
-        <h2>Our <span>Services</span></h2>
-        <div class="service-container">
-            
-            <a href="social-media.html" class="service-card">
-                <i class="fa-solid fa-share-nodes i-blue"></i>
-                <h3>Social Media</h3>
-                <p>Grow your audience & engagement</p>
-            </a>
-
-            <a href="seo.html" class="service-card">
-                <i class="fa-solid fa-bullseye i-pink"></i>
-                <h3>Targeted Advertising</h3>
-                <p>FB, Insta & Google ads</p>
-            </a>
-
-            <a href="web-design.html" class="service-card">
-                <i class="fa-solid fa-code i-green"></i>
-                <h3>Website Design</h3>
-                <p>High converting websites</p>
-            </a>
-
-            <a href="#" class="service-card">
-                <i class="fa-solid fa-pen-nib i-orange"></i>
-                <h3>Branding</h3>
-                <p>Logo, visuals & graphics</p>
-            </a>
-
+    <section id="contact" class="contact">
+        <div class="contact-left">
+            <h2>Get In Touch</h2>
+            <div class="social-links">
+                <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://x.com" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://t.me" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+            </div>
         </div>
-        <a href="shop.html" class="portfolio-btn">View Portfolio</a>
     </section>
+
+    <a href="https://wa.me" class="wa-float" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
 
 </body>
 </html>
