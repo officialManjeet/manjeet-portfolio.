@@ -1,272 +1,369 @@
-Official Manjeet - Services Section Final
+Official Manjeet - Perfect Background & Spotlight
 
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Official Manjeet | Digital Agency</title>
+    <title>Official Manjeet | Premium Digital Agency</title>
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     
-    <!-- Icons: Font Awesome -->
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
-        /* Base Styles */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: #050507; color: #fff; line-height: 1.6; scroll-behavior: smooth; }
+        :root {
+            --primary: #00d2ff;
+            --secondary: #0072ff;
+            --bg-dark: #050505;
+            --card-bg: rgba(255, 255, 255, 0.03);
 
-        /* Header / Navbar */
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        body { 
+            background: var(--bg-dark);
+            color: #fff; 
+            line-height: 1.6; 
+            scroll-behavior: smooth; 
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Interactive Spotlight Effect */
+        #spotlight {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+
+            background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(0, 210, 255, 0.15) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Fixed Background Image - Restored Fluid Abstract version */
+        .bg-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(rgba(5, 5, 5, 0.8), rgba(5, 5, 5, 0.9)), 
+                        url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+
+        /* Header */
         header { 
+
             padding: 20px 8%; 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            background: rgba(0, 0, 0, 0.9); 
+            background: rgba(5, 5, 5, 0.6); 
             position: fixed; 
             width: 100%; 
             top: 0; 
             z-index: 3000; 
-            border-bottom: 1px solid #111; 
-            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border); 
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
         }
-        .logo { font-size: 22px; font-weight: 900; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; }
+        .logo { font-size: 20px; font-weight: 800; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; }
         .logo .white { color: #ffffff; }
-        .logo .blue { color: #00d2ff; }
+        .logo .blue { color: var(--primary); text-shadow: 0 0 15px rgba(0, 210, 255, 0.4); }
 
-        nav a { color: #fff; text-decoration: none; margin-left: 25px; font-size: 14px; opacity: 0.8; transition: 0.3s; font-weight: 600; }
-        nav a:hover { color: #00d2ff; opacity: 1; }
+        .nav-container { display: flex; align-items: center; }
+        nav a { color: #fff; text-decoration: none; margin-left: 30px; font-size: 13px; opacity: 0.6; transition: 0.4s; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 
+        nav a:hover { color: var(--primary); opacity: 1; transform: translateY(-2px); }
 
-        /* Hero Section Placeholder (Context for spacing) */
-        .hero { padding: 160px 8% 60px; text-align: center; }
-        .hero h1 { font-size: 45px; margin-bottom: 15px; }
-        .hero h1 span { color: #00d2ff; }
-
-        /* --- SERVICES SECTION (Your Specified Content) --- */
-        #services { 
-            padding: 80px 8%; 
-            text-align: center; 
-            background: #000; 
+        #lang-btn {
+            margin-left: 35px;
+            padding: 10px 22px;
+            background: linear-gradient(135deg, rgba(0, 210, 255, 0.1), rgba(0, 114, 255, 0.1));
+            color: var(--primary);
+            border: 1px solid rgba(0, 210, 255, 0.3);
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 11px;
+            transition: 0.3s;
+            text-transform: uppercase;
         }
-        #services h2 { 
-            font-size: 36px; 
-            margin-bottom: 50px; 
-            font-weight: 800;
-        }
-        #services h2 span { color: #00d2ff; }
+        #lang-btn:hover { background: var(--primary); color: #000; box-shadow: 0 0 20px rgba(0, 210, 255, 0.4); }
+
+        /* Hero */
+        .hero { padding: 220px 8% 120px; text-align: center; position: relative; z-index: 2; }
+
+        .hero h1 { font-size: clamp(40px, 6vw, 70px); margin-bottom: 25px; font-weight: 800; letter-spacing: -2px; line-height: 1.05; }
+        .hero h1 span { background: linear-gradient(to right, #00d2ff, #3a7bd5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { color: #999; font-size: 21px; max-width: 800px; margin: 0 auto; font-weight: 300; }
+
+        /* Services */
+        #services { padding: 100px 8%; text-align: center; position: relative; z-index: 2; }
+        #services h2 { font-size: 45px; margin-bottom: 80px; font-weight: 800; }
+        #services h2 span { color: var(--primary); }
 
         .service-container { 
-
             display: flex; 
             justify-content: center; 
             flex-wrap: wrap; 
-            gap: 25px; 
-            max-width: 1200px;
+            gap: 40px; 
+            max-width: 1300px;
             margin: 0 auto;
         }
 
-        /* Service Card with BLINK Effect */
+        /* Reveal Animation */
+
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Card Design */
         .service-card { 
-            background: #0f0f11; 
-            padding: 45px 25px; 
-            border-radius: 20px; 
-            border: 1px solid #1a1a1c; 
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: var(--card-bg); 
+            padding: 60px 35px; 
+            border-radius: 35px; 
+            border: 1px solid var(--glass-border); 
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
             cursor: pointer; 
             text-decoration: none; 
             color: #fff; 
-            width: 260px; 
-
+            width: 300px; 
             display: flex;
             flex-direction: column;
             align-items: center;
+            backdrop-filter: blur(15px);
             position: relative;
+
             overflow: hidden;
         }
 
-        /* The Blink/Glow Logic */
-        .service-card:hover, .service-card:active { 
-            border-color: #00d2ff;
-            box-shadow: 0 0 25px rgba(0, 210, 255, 0.3);
-            transform: translateY(-10px);
-            background: #141417;
+        .service-card:hover { 
+            border-color: rgba(0, 210, 255, 0.5);
+            transform: translateY(-20px) scale(1.03);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
         }
 
-        /* Visual indicator for "Blink" on click */
-        .service-card:active {
-            animation: pulse-glow 0.4s ease-out;
-        }
-
-
-        @keyframes pulse-glow {
-            0% { box-shadow: 0 0 5px rgba(0, 210, 255, 0.5); }
-            50% { box-shadow: 0 0 40px rgba(0, 210, 255, 0.8); }
-            100% { box-shadow: 0 0 25px rgba(0, 210, 255, 0.3); }
-        }
-
+        /* Floating Icon Animation */
         .service-card i { 
-            font-size: 40px; 
-            color: #00d2ff; 
-            margin-bottom: 25px; 
-            transition: 0.3s; 
+            font-size: 50px; 
+            color: var(--primary); 
+            margin-bottom: 30px; 
+            transition: 0.5s;
+            animation: float 4s ease-in-out infinite;
         }
-        .service-card:hover i { 
-            transform: scale(1.1);
-            text-shadow: 0 0 15px rgba(0, 210, 255, 0.6);
+        @keyframes float {
+
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
-        .service-card h3 { 
-            font-size: 19px; 
+        .service-card h3 { font-size: 24px; margin-bottom: 15px; font-weight: 700; letter-spacing: 0.5px; }
+        .service-card p { color: #888; font-size: 15px; line-height: 1.7; }
 
-            margin-bottom: 12px; 
-            font-weight: 700; 
-        }
-        .service-card p { 
-            color: #888; 
-            font-size: 14px; 
-            line-height: 1.5; 
+        /* Blink Logic */
+        .service-card:active { animation: pro-blink 0.4s ease; }
+        @keyframes pro-blink {
+            50% { background: rgba(0, 210, 255, 0.3); border-color: #fff; box-shadow: 0 0 30px #00d2ff; }
         }
 
-        /* View Portfolio Button Styling */
+        /* Portfolio Button */
         .btn-portfolio { 
             display: inline-block; 
-            margin-top: 60px; 
-            padding: 15px 45px; 
-            background: linear-gradient(135deg, #00d2ff 0%, #0072ff 100%); 
+            margin-top: 100px; 
+            padding: 20px 60px; 
+            background: linear-gradient(135deg, var(--primary), var(--secondary)); 
+
             color: #fff; 
             text-decoration: none; 
-            border-radius: 50px; 
-            font-weight: 700; 
+            border-radius: 100px; 
+            font-weight: 800; 
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 20px 40px rgba(0, 210, 255, 0.4); 
+            transition: 0.4s;
+        }
+        .btn-portfolio:hover { transform: translateY(-5px); box-shadow: 0 25px 50px rgba(0, 210, 255, 0.6); letter-spacing: 3px; }
 
-            font-size: 16px;
-            box-shadow: 0 10px 20px rgba(0, 210, 255, 0.2); 
-            transition: 0.3s all ease;
-            border: none;
-            cursor: pointer;
-        }
-        .btn-portfolio:hover { 
-            transform: scale(1.05) translateY(-3px); 
-            box-shadow: 0 15px 30px rgba(0, 210, 255, 0.4); 
-            filter: brightness(1.1);
-        }
+        /* Footer */
+        .social-footer { padding: 120px 8% 60px; text-align: center; border-top: 1px solid var(--glass-border); }
+        .social-icons { display: flex; justify-content: center; gap: 25px; margin-top: 40px; }
+        .social-icons a { 
+            width: 60px; height: 60px; background: var(--card-bg); color: #fff; 
+            display: flex; align-items: center; justify-content: center; 
+            border-radius: 20px; font-size: 25px; transition: 0.4s; border: 1px solid var(--glass-border);
 
-        /* Social Links Footer Style */
-        .social-footer {
-            padding: 60px 8%;
-            text-align: center;
-            border-top: 1px solid #111;
         }
-        .social-icons {
+        .social-icons a:hover { background: var(--primary); color: #000; transform: scale(1.1); border-color: var(--primary); box-shadow: 0 10px 30px rgba(0, 210, 255, 0.3); }
 
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .social-icons a {
-            width: 50px;
-            height: 50px;
-            background: #111;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            font-size: 22px;
-            transition: 0.3s;
-            border: 1px solid #222;
-            text-decoration: none;
-        }
-
-        .social-icons a:hover {
-            background: #00d2ff;
-            color: #000;
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 210, 255, 0.4);
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 32px; }
-            .service-card { width: 100%; max-width: 350px; }
+            .hero h1 { font-size: 40px; }
+            .service-card { width: 100%; }
             nav { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <a href="index.html" class="logo"><span class="white">OFFICIAL</span><span class="blue">MANJEET</span></a>
+    <div id="spotlight"></div>
+    <div class="bg-overlay"></div>
 
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="shop.html">Portfolio</a>
-            <a href="trading.html">Trading</a>
-        </nav>
+    <header>
+        <a href="index.html" class="logo">
+            <span class="white" id="logo-white">OFFICIAL</span>
+            <span class="blue" id="logo-blue">MANJEET</span>
+
+        </a>
+        <div class="nav-container">
+            <nav>
+                <a href="index.html" id="nav-home">Home</a>
+                <a href="about.html" id="nav-about">About</a>
+                <a href="shop.html" id="nav-port">Portfolio</a>
+            </nav>
+            <button id="lang-btn" onclick="toggleLanguage()">Hindi</button>
+        </div>
     </header>
 
-    <section class="hero">
-        <h1>Supercharge Your <span>Business</span></h1>
-        <p>Expert Digital Solutions for Modern Brands</p>
+    <section class="hero reveal">
+        <h1 id="hero-title">Supercharge Your <span>Business</span></h1>
+        <p id="hero-desc">Expert Digital Solutions for High-Growth Modern Brands</p>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="services">
-        <h2>Our <span>Services</span></h2>
+    <section id="services">
+        <h2 id="services-head" class="reveal">Our <span>Services</span></h2>
+
         <div class="service-container">
             
-            <!-- 1. Social Media -->
-
-            <a href="social-media.html" class="service-card">
+            <a href="social-media.html" class="service-card reveal">
                 <i class="fas fa-users"></i>
-                <h3>Social Media</h3>
-                <p>Grow your audience & engagement across platforms.</p>
+                <h3 id="s1-title">Social Media</h3>
+                <p id="s1-desc">Grow your online presence with strategic engagement.</p>
             </a>
 
-            <!-- 2. Targeted Advertising -->
-            <a href="seo.html" class="service-card">
+            <a href="seo.html" class="service-card reveal" style="transition-delay: 0.1s;">
                 <i class="fas fa-bullseye"></i>
-                <h3>Targeted Advertising</h3>
-                <p>FB, Insta & Google Ads to boost your ROI.</p>
+                <h3 id="s2-title">Targeted Advertising</h3>
+                <p id="s2-desc">Precision ads on FB, IG & Google for maximum results.</p>
             </a>
 
-            <!-- 3. Website Design -->
-            <a href="web-design.html" class="service-card">
+            <a href="web-design.html" class="service-card reveal" style="transition-delay: 0.2s;">
                 <i class="fas fa-laptop-code"></i>
-                <h3>Website Design</h3>
-                <p>High converting, mobile-ready modern websites.</p>
+                <h3 id="s3-title">Website Design</h3>
+                <p id="s3-desc">Stunning mobile-first websites that convert visitors.</p>
             </a>
 
 
-            <!-- 4. Branding -->
-            <a href="index.html" class="service-card">
+            <a href="index.html" class="service-card reveal" style="transition-delay: 0.3s;">
                 <i class="fas fa-pen-nib"></i>
-                <h3>Branding</h3>
-                <p>Logo, visuals & graphics that define your identity.</p>
+                <h3 id="s4-title">Branding</h3>
+                <p id="s4-desc">Visual identities and graphics that set you apart.</p>
             </a>
         </div>
 
-        <!-- View Portfolio Button -->
-        <div>
-            <a href="shop.html" class="btn-portfolio">View Portfolio</a>
+        <div class="reveal" style="transition-delay: 0.4s;">
+            <a href="shop.html" class="btn-portfolio" id="port-btn">View Portfolio</a>
         </div>
     </section>
 
-    <footer class="social-footer">
-        <h3>Connect With Me</h3>
+    <footer class="social-footer reveal">
+        <h3 id="footer-head">Connect With Me</h3>
         <div class="social-icons">
-            <a href="https://www.facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-telegram"></i></a>
 
-            <a href="https://x.com" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="https://t.me" target="_blank"><i class="fa-brands fa-telegram"></i></a>
         </div>
     </footer>
+
+    <script>
+        // Spotlight Mouse tracking
+        const spotlight = document.getElementById('spotlight');
+        document.addEventListener('mousemove', e => {
+            spotlight.style.setProperty('--x', (e.clientX) + 'px');
+            spotlight.style.setProperty('--y', (e.clientY) + 'px');
+        });
+
+        // Simple Scroll Reveal
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        window.onload = reveal;
+
+        // Multilingual System
+        let currentLang = 'en';
+        const translations = {
+            en: {
+                btn: "Hindi", logoWhite: "OFFICIAL", logoBlue: "MANJEET",
+                navHome: "Home", navAbout: "About", navPort: "Portfolio",
+                heroTitle: "Supercharge Your <span>Business</span>",
+                heroDesc: "Expert Digital Solutions for High-Growth Modern Brands",
+                servicesHead: "Our <span>Services</span>",
+                s1Title: "Social Media", s1Desc: "Grow your online presence with strategic engagement.",
+                s2Title: "Targeted Advertising", s2Desc: "Precision ads on FB, IG & Google for maximum results.",
+                s3Title: "Website Design", s3Desc: "Stunning mobile-first websites that convert visitors.",
+
+                s4Title: "Branding", s4Desc: "Visual identities and graphics that set you apart.",
+                portBtn: "View Portfolio", footerHead: "Connect With Me"
+            },
+            hi: {
+                btn: "English", logoWhite: "ऑफिशियल", logoBlue: "मंजीत",
+                navHome: "होम", navAbout: "मेरे बारे में", navPort: "पोर्टफोलियो",
+                heroTitle: "अपने <span>बिजनेस</span> को रफ़्तार दें",
+                heroDesc: "हाई-ग्रोथ ब्रांडों के लिए आधुनिक डिजिटल समाधान",
+                servicesHead: "हमारी <span>सेवाएं</span>",
+                s1Title: "सोशल मीडिया", s1Desc: "रणनीतिक एंगेजमेंट के साथ अपनी ऑनलाइन उपस्थिति बढ़ाएं।",
+                s2Title: "टारगेटेड विज्ञापन", s2Desc: "बेहतरीन परिणामों के लिए FB, IG और Google पर सटीक विज्ञापन।",
+                s3Title: "वेबसाइट डिजाइन", s3Desc: "शानदार मोबाइल-फर्स्ट वेबसाइटें जो ग्राहकों को जोड़ती हैं।",
+                s4Title: "ब्रांडिंग", s4Desc: "विजुअल आइडेंटिटी और ग्राफिक्स जो आपको अलग पहचान देते हैं।",
+                portBtn: "पोर्टफोलियो देखें", footerHead: "मुझसे जुड़ें"
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'hi' : 'en';
+
+            const lang = translations[currentLang];
+            document.getElementById('logo-white').innerText = lang.logoWhite;
+            document.getElementById('logo-blue').innerText = lang.logoBlue;
+            document.getElementById('lang-btn').innerText = lang.btn;
+            document.getElementById('nav-home').innerText = lang.navHome;
+            document.getElementById('nav-about').innerText = lang.navAbout;
+            document.getElementById('nav-port').innerText = lang.navPort;
+            document.getElementById('hero-title').innerHTML = lang.heroTitle;
+            document.getElementById('hero-desc').innerText = lang.heroDesc;
+            document.getElementById('services-head').innerHTML = lang.servicesHead;
+            document.getElementById('s1-title').innerText = lang.s1Title;
+            document.getElementById('s1-desc').innerText = lang.s1Desc;
+            document.getElementById('s2-title').innerText = lang.s2Title;
+            document.getElementById('s2-desc').innerText = lang.s2Desc;
+            document.getElementById('s3-title').innerText = lang.s3Title;
+            document.getElementById('s3-desc').innerText = lang.s3Desc;
+            document.getElementById('s4-title').innerText = lang.s4Title;
+            document.getElementById('s4-desc').innerText = lang.s4Desc;
+            document.getElementById('port-btn').innerText = lang.portBtn;
+
+            document.getElementById('footer-head').innerText = lang.footerHead;
+        }
+    </script>
 
 </body>
 </html>
