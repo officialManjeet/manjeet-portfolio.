@@ -1,135 +1,225 @@
-<!DOCTYPE html>
-<html lang="hi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Official Manjeet</title>
-    <style>
-        /* बेसिक सेटिंग्स */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com');
 
-        body {
-            height: 100vh;
-            color: white;
-            font-family: 'Arial', sans-serif;
-            background-color: #000;
-            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('images/bg.jpg');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center 20%;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 10;
-        }
+body {
+    background-color: #0b0b0d; /* गहरा काला बैकग्राउंड */
+    color: #ffffff;
+    overflow-x: hidden;
+}
 
-        /* --- भाषा बदलने वाला बटन --- */
-        .lang-switch { margin-bottom: 20px; }
-        #langBtn {
-            background: transparent;
-            color: white;
-            border: 1px solid #ffffff55;
-            padding: 6px 18px;
-            cursor: pointer;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            transition: 0.3s;
-            font-weight: bold;
-        }
-        #langBtn:hover { background: white; color: black; }
+/* Header & Navigation */
+header {
+    padding: 20px 8%;
+    background: rgba(11, 11, 13, 0.9);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
 
-        .left-content { flex: 1; text-align: left; }
-        .name { font-size: clamp(2.5rem, 8vw, 5rem); line-height: 0.9; margin-bottom: 15px; text-transform: uppercase; font-weight: 900; }
-        .socials { margin-bottom: 15px; font-size: 1.5rem; display: flex; gap: 20px; }
-        .socials a { color: white; text-decoration: none; transition: 0.3s; }
-        .socials a:hover { opacity: 0.7; transform: scale(1.1); }
-        .bio { font-size: 1rem; line-height: 1.6; max-width: 400px; color: #ddd; }
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .right-content { flex: 1; text-align: right; }
-        .nav-links { list-style: none; display: inline-block; width: 100%; max-width: 250px; }
-        .nav-links li { border-bottom: 1px solid rgba(255,255,255,0.2); padding: 12px 0; }
-        .nav-links a { color: white; text-decoration: none; font-weight: bold; font-size: 1.1rem; display: block; transition: 0.3s; }
-        .nav-links a:hover { padding-right: 10px; color: #aaa; }
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+}
 
-        /* मोबाइल के लिए */
-        @media (max-width: 768px) {
-            body { align-items: flex-end; padding-bottom: 50px; background-position: center center; }
-            .container { flex-direction: column; text-align: center; }
-            .left-content { align-items: center; margin-bottom: 30px; }
-            .right-content { text-align: center; width: 100%; }
-            .socials { justify-content: center; }
-            .bio { margin: 0 auto; }
-        }
-    </style>
-</head>
-<body>
+.logo span {
+    color: #00d2ff; /* इलेक्ट्रिक ब्लू */
+}
 
-    <div class="container">
-        <!-- लेफ्ट साइड -->
-        <div class="left-content">
-            <!-- भाषा बदलने वाला बटन -->
-            <div class="lang-switch">
-                <button onclick="changeLang()" id="langBtn">हिन्दी / EN</button>
-            </div>
+nav ul {
+    display: flex;
+    list-style: none;
+}
 
-            <h1 class="name" id="mainName">Official<br>Manjeet</h1>
-            
-            <div class="socials">
-                <a href="#">📸</a> <a href="#">f</a> <a href="#">🔗</a>
-            </div>
+nav ul li {
+    margin-left: 30px;
+}
 
-            <p class="bio" id="bioText">
-                I love fashion. I love the thrill of wearing a new piece and giving it a story. This passion has taken me to many different places. Enter my world.
-            </p>
-        </div>
+nav ul li a {
+    text-decoration: none;
+    color: #ccc;
+    font-weight: 500;
+    transition: 0.3s;
+}
 
-        <!-- राइट साइड - मेन्यू -->
-        <div class="right-content">
-            <ul class="nav-links">
-                <li><a href="about.html" id="link1">The Persona</a></li>
-                <li><a href="photos.html" id="link2">The Gallery</a></li>
-                <li><a href="videos.html" id="link3">Highlights</a></li>
-                <li><a href="#" id="link4">Stories</a></li>
-                <li><a href="trading.html" id="link5">The Trade Desk</a></li>
-                <li><a href="#" id="link6">Shop</a></li>
-            </ul>
-        </div>
-    </div>
+nav ul li a:hover {
+    color: #00d2ff;
+}
 
-    <!-- भाषा बदलने वाला जादू (JavaScript) -->
-    <script>
-        function changeLang() {
-            let bio = document.getElementById("bioText");
-            let btn = document.getElementById("langBtn");
-            let l1 = document.getElementById("link1"), l2 = document.getElementById("link2"), 
-                l3 = document.getElementById("link3"), l4 = document.getElementById("link4"), 
-                l5 = document.getElementById("link5"), l6 = document.getElementById("link6");
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8%;
+    margin-top: 50px;
+}
 
-            // अगर इंग्लिश है तो हिंदी कर दो
-            if (bio.innerHTML.includes("fashion")) {
-                bio.innerHTML = "नमस्ते! मैं मंजीत हूँ। मुझे फैशन का जुनून है और मैं हर नए पहनावे को एक कहानी की तरह देखता हूँ। मेरी इस यात्रा का हिस्सा बनें और मेरी दुनिया में प्रवेश करें।";
-                btn.innerHTML = "English";
-                l1.innerHTML = "मेरे बारे में"; l2.innerHTML = "गैलरी"; l3.innerHTML = "खास बातें";
-                l4.innerHTML = "कहानियां"; l5.innerHTML = "ट्रेडिंग डेस्क"; l6.innerHTML = "दुकान";
-            } 
-            // वापस इंग्लिश कर दो
-            else {
-                bio.innerHTML = "I love fashion. I love the thrill of wearing a new piece and giving it a story. This passion has taken me to many different places. Enter my world.";
-                btn.innerHTML = "हिन्दी / EN";
-                l1.innerHTML = "The Persona"; l2.innerHTML = "The Gallery"; l3.innerHTML = "Highlights";
-                l4.innerHTML = "Stories"; l5.innerHTML = "The Trade Desk"; l6.innerHTML = "Shop";
-            }
-        }
-    </script>
+.hero-text h1 {
+    font-size: 55px;
+    font-weight: 800;
+    line-height: 1.2;
+}
 
-</body>
-</html>
+.hero-text span {
+    background: linear-gradient(90deg, #00d2ff, #9d50bb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-text p {
+    margin: 20px 0;
+    color: #aaa;
+    max-width: 500px;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-primary {
+    padding: 12px 30px;
+    background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-secondary {
+    padding: 12px 30px;
+    border: 2px solid #00d2ff;
+    color: #00d2ff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    box-shadow: 0px 0px 20px rgba(0, 210, 255, 0.5);
+}
+
+.hero-image img {
+    width: 450px;
+    border-radius: 20px;
+}
+
+/* Services Section */
+.services {
+    padding: 100px 8%;
+    text-align: center;
+}
+
+.services h2 {
+    font-size: 35px;
+    margin-bottom: 50px;
+}
+
+.services h2 span {
+    color: #9d50bb;
+}
+
+.service-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.service-box {
+    background: #1a1a1d;
+    padding: 40px;
+    border-radius: 15px;
+    transition: 0.3s;
+    border: 1px solid #333;
+}
+
+.service-box:hover {
+    transform: translateY(-10px);
+    border-color: #00d2ff;
+    box-shadow: 0px 10px 30px rgba(0, 210, 255, 0.1);
+}
+
+.service-box i {
+    font-size: 40px;
+    color: #00d2ff;
+    margin-bottom: 20px;
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 100px 8%;
+    background: #0e0e11;
+}
+
+.contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-container h2 span {
+    color: #00d2ff;
+}
+
+form {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input, textarea {
+    padding: 15px;
+    background: #1a1a1d;
+    border: 1px solid #333;
+    color: white;
+    border-radius: 8px;
+    outline: none;
+}
+
+input:focus, textarea:focus {
+    border-color: #00d2ff;
+}
+
+textarea {
+    height: 120px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 150px;
+    }
+    .hero-image img {
+        width: 300px;
+        margin-top: 50px;
+    }
+    .hero-text h1 {
+        font-size: 35px;
+    }
+    nav ul {
+        display: none; /* मोबाइल के लिए बाद में मेनू बनाएंगे */
+    }
+}
