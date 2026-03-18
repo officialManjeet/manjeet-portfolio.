@@ -1,4 +1,4 @@
-Official Manjeet - Perfect Background & Spotlight
+Official Manjeet - Navigation Details & WhatsApp Integrated
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,10 +17,14 @@ Official Manjeet - Perfect Background & Spotlight
         :root {
             --primary: #00d2ff;
             --secondary: #0072ff;
+            --whatsapp: #25D366;
             --bg-dark: #050505;
-            --card-bg: rgba(255, 255, 255, 0.03);
 
+            --card-bg: rgba(255, 255, 255, 0.03);
             --glass-border: rgba(255, 255, 255, 0.08);
+            /* Premium Dark Abstract Background */
+            --home-bg: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1920');
+            --detail-bg: linear-gradient(135deg, #050505 0%, #001133 100%);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
@@ -29,342 +33,405 @@ Official Manjeet - Perfect Background & Spotlight
             background: var(--bg-dark);
             color: #fff; 
             line-height: 1.6; 
-            scroll-behavior: smooth; 
             min-height: 100vh;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        /* Interactive Spotlight Effect */
+        /* Spotlight Effect */
+
         #spotlight {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-
-            background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(0, 210, 255, 0.15) 0%, transparent 60%);
+            background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(0, 210, 255, 0.12) 0%, transparent 60%);
             pointer-events: none;
             z-index: 1;
         }
 
-        /* Fixed Background Image - Restored Fluid Abstract version */
-        .bg-overlay {
+        /* Background Layer */
+        #main-bg {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: linear-gradient(rgba(5, 5, 5, 0.8), rgba(5, 5, 5, 0.9)), 
-                        url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1920');
+            background-image: var(--home-bg);
             background-size: cover;
             background-position: center;
-            z-index: -1;
+            z-index: -2;
+            filter: brightness(0.25);
+
+            transition: 0.6s ease;
         }
 
-        /* Header */
+        /* Header Navigation */
         header { 
-
-            padding: 20px 8%; 
+            padding: 15px 5%; 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            background: rgba(5, 5, 5, 0.6); 
+            background: rgba(0, 0, 0, 0.85); 
             position: fixed; 
             width: 100%; 
             top: 0; 
-            z-index: 3000; 
+            z-index: 9999; 
             border-bottom: 1px solid var(--glass-border); 
             backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
         }
-        .logo { font-size: 20px; font-weight: 800; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; }
+        
+        .logo { font-size: 18px; font-weight: 800; text-decoration: none; text-transform: uppercase; letter-spacing: 1.5px; flex-shrink: 0; }
+
         .logo .white { color: #ffffff; }
         .logo .blue { color: var(--primary); text-shadow: 0 0 15px rgba(0, 210, 255, 0.4); }
 
-        .nav-container { display: flex; align-items: center; }
-        nav a { color: #fff; text-decoration: none; margin-left: 30px; font-size: 13px; opacity: 0.6; transition: 0.4s; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
-
-        nav a:hover { color: var(--primary); opacity: 1; transform: translateY(-2px); }
+        nav { display: flex; gap: 12px; align-items: center; margin: 0 10px; flex-wrap: wrap; }
+        nav a { 
+            color: #fff; 
+            text-decoration: none; 
+            font-size: 10px; 
+            opacity: 0.7; 
+            transition: 0.3s; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+        nav a:hover { color: var(--primary); opacity: 1; }
 
         #lang-btn {
-            margin-left: 35px;
-            padding: 10px 22px;
-            background: linear-gradient(135deg, rgba(0, 210, 255, 0.1), rgba(0, 114, 255, 0.1));
+            padding: 8px 12px;
+
+            background: rgba(0, 210, 255, 0.1);
             color: var(--primary);
-            border: 1px solid rgba(0, 210, 255, 0.3);
-            border-radius: 12px;
+            border: 1px solid var(--primary);
+            border-radius: 8px;
             cursor: pointer;
-            font-weight: 700;
-            font-size: 11px;
-            transition: 0.3s;
+            font-weight: 800;
+            font-size: 10px;
             text-transform: uppercase;
         }
-        #lang-btn:hover { background: var(--primary); color: #000; box-shadow: 0 0 20px rgba(0, 210, 255, 0.4); }
 
-        /* Hero */
-        .hero { padding: 220px 8% 120px; text-align: center; position: relative; z-index: 2; }
+        /* Container & Content */
+        .container { padding: 140px 5% 80px; position: relative; z-index: 10; width: 100%; max-width: 1200px; margin: 0 auto; }
+        #detail-view { display: none; }
 
-        .hero h1 { font-size: clamp(40px, 6vw, 70px); margin-bottom: 25px; font-weight: 800; letter-spacing: -2px; line-height: 1.05; }
-        .hero h1 span { background: linear-gradient(to right, #00d2ff, #3a7bd5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { color: #999; font-size: 21px; max-width: 800px; margin: 0 auto; font-weight: 300; }
+        /* Hero Section */
+        .hero { text-align: center; margin-bottom: 70px; }
+        .hero h1 { font-size: clamp(32px, 5vw, 60px); margin-bottom: 20px; font-weight: 800; line-height: 1.1; }
+        .hero h1 span { color: var(--primary); }
+        .hero p { color: #aaa; font-size: 18px; max-width: 700px; margin: 0 auto 35px; font-weight: 300; }
 
-        /* Services */
-        #services { padding: 100px 8%; text-align: center; position: relative; z-index: 2; }
-        #services h2 { font-size: 45px; margin-bottom: 80px; font-weight: 800; }
-        #services h2 span { color: var(--primary); }
 
-        .service-container { 
-            display: flex; 
-            justify-content: center; 
-            flex-wrap: wrap; 
-            gap: 40px; 
-            max-width: 1300px;
-            margin: 0 auto;
-        }
-
-        /* Reveal Animation */
-
-        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-
-        /* Card Design */
-        .service-card { 
-            background: var(--card-bg); 
-            padding: 60px 35px; 
-            border-radius: 35px; 
-            border: 1px solid var(--glass-border); 
-            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-            cursor: pointer; 
-            text-decoration: none; 
-            color: #fff; 
-            width: 300px; 
-            display: flex;
-            flex-direction: column;
+        /* WhatsApp Button Styles */
+        .btn-whatsapp {
+            display: inline-flex;
             align-items: center;
-            backdrop-filter: blur(15px);
-            position: relative;
-
-            overflow: hidden;
-        }
-
-        .service-card:hover { 
-            border-color: rgba(0, 210, 255, 0.5);
-            transform: translateY(-20px) scale(1.03);
-            background: rgba(255, 255, 255, 0.05);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-        }
-
-        /* Floating Icon Animation */
-        .service-card i { 
-            font-size: 50px; 
-            color: var(--primary); 
-            margin-bottom: 30px; 
-            transition: 0.5s;
-            animation: float 4s ease-in-out infinite;
-        }
-        @keyframes float {
-
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .service-card h3 { font-size: 24px; margin-bottom: 15px; font-weight: 700; letter-spacing: 0.5px; }
-        .service-card p { color: #888; font-size: 15px; line-height: 1.7; }
-
-        /* Blink Logic */
-        .service-card:active { animation: pro-blink 0.4s ease; }
-        @keyframes pro-blink {
-            50% { background: rgba(0, 210, 255, 0.3); border-color: #fff; box-shadow: 0 0 30px #00d2ff; }
-        }
-
-        /* Portfolio Button */
-        .btn-portfolio { 
-            display: inline-block; 
-            margin-top: 100px; 
-            padding: 20px 60px; 
-            background: linear-gradient(135deg, var(--primary), var(--secondary)); 
-
-            color: #fff; 
-            text-decoration: none; 
-            border-radius: 100px; 
-            font-weight: 800; 
-            font-size: 15px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            box-shadow: 0 20px 40px rgba(0, 210, 255, 0.4); 
+            gap: 12px;
+            background: var(--whatsapp);
+            color: #fff;
+            text-decoration: none;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 16px;
             transition: 0.4s;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
         }
-        .btn-portfolio:hover { transform: translateY(-5px); box-shadow: 0 25px 50px rgba(0, 210, 255, 0.6); letter-spacing: 3px; }
+        .btn-whatsapp:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(37, 211, 102, 0.5); }
+        .btn-whatsapp i { font-size: 22px; }
+
+        /* Grid */
+
+        .grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 25px; }
+        .card { 
+            background: var(--card-bg); 
+            padding: 45px 25px; 
+            border-radius: 30px; 
+            border: 1px solid var(--glass-border); 
+            width: 270px; 
+            text-align: center;
+            cursor: pointer;
+            transition: 0.4s ease;
+            backdrop-filter: blur(15px);
+        }
+        .card:hover { transform: translateY(-12px); border-color: var(--primary); background: rgba(255,255,255,0.06); }
+        .card i { font-size: 40px; color: var(--primary); margin-bottom: 20px; }
+        .card h3 { font-size: 22px; margin-bottom: 10px; font-weight: 700; }
+        .card p { font-size: 14px; color: #888; }
+
+        /* Detail Elements */
+        .btn-back {
+
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 10px 20px; background: rgba(255,255,255,0.05);
+            border: 1px solid var(--glass-border); border-radius: 10px;
+            cursor: pointer; margin-bottom: 30px; color: #fff; font-weight: 700; font-size: 14px;
+        }
+        .btn-back:hover { background: #fff; color: #000; }
+
+        .detail-flex { display: flex; gap: 40px; align-items: center; }
+        .detail-text { flex: 1; }
+        .detail-text h2 { font-size: clamp(30px, 4vw, 50px); margin-bottom: 20px; font-weight: 800; color: var(--primary); }
+        .detail-text p { font-size: 17px; color: #ccc; margin-bottom: 35px; line-height: 1.7; }
+        .detail-img { flex: 1; }
+        .detail-img img { width: 100%; border-radius: 25px; border: 1px solid var(--glass-border); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+
+        .btn-cta {
+            padding: 18px 40px; background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff; text-decoration: none; border-radius: 12px;
+            font-weight: 800; text-transform: uppercase; font-size: 14px;
+            box-shadow: 0 10px 25px rgba(0, 210, 255, 0.4);
+
+        }
 
         /* Footer */
-        .social-footer { padding: 120px 8% 60px; text-align: center; border-top: 1px solid var(--glass-border); }
-        .social-icons { display: flex; justify-content: center; gap: 25px; margin-top: 40px; }
-        .social-icons a { 
-            width: 60px; height: 60px; background: var(--card-bg); color: #fff; 
-            display: flex; align-items: center; justify-content: center; 
-            border-radius: 20px; font-size: 25px; transition: 0.4s; border: 1px solid var(--glass-border);
+        footer { padding: 60px 5% 40px; text-align: center; border-top: 1px solid var(--glass-border); margin-top: 80px; }
+        .socials { display: flex; justify-content: center; gap: 25px; margin-top: 30px; }
+        .socials a { color: #fff; font-size: 26px; opacity: 0.6; transition: 0.4s; }
+        .socials a:hover { color: var(--primary); opacity: 1; transform: scale(1.2); }
 
-        }
-        .social-icons a:hover { background: var(--primary); color: #000; transform: scale(1.1); border-color: var(--primary); box-shadow: 0 10px 30px rgba(0, 210, 255, 0.3); }
-
+        /* Mobile Fix */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 40px; }
-            .service-card { width: 100%; }
-            nav { display: none; }
+            header { flex-direction: column; padding: 10px; height: auto; }
+            nav { margin-top: 10px; justify-content: center; }
+            .container { padding-top: 180px; }
+            .detail-flex { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
-<body>
+<body onmousemove="moveSpotlight(event)" onload="init()">
+
 
     <div id="spotlight"></div>
-    <div class="bg-overlay"></div>
+    <div id="main-bg"></div>
 
     <header>
-        <a href="index.html" class="logo">
-            <span class="white" id="logo-white">OFFICIAL</span>
-            <span class="blue" id="logo-blue">MANJEET</span>
-
+        <a href="#" class="logo" onclick="showHome()">
+            <span class="white" id="logo-w">OFFICIAL</span>
+            <span class="blue" id="logo-b">MANJEET</span>
         </a>
-        <div class="nav-container">
-            <nav>
-                <a href="index.html" id="nav-home">Home</a>
-                <a href="about.html" id="nav-about">About</a>
-                <a href="shop.html" id="nav-port">Portfolio</a>
-            </nav>
-            <button id="lang-btn" onclick="toggleLanguage()">Hindi</button>
+
+        <nav id="top-nav">
+            <a href="#" id="nav-h" onclick="showHome()">Home</a>
+            <a href="#" id="nav-a" onclick="showDetail('about')">About</a>
+            <a href="#" id="nav-p" onclick="showDetail('portfolio')">Portfolio</a>
+            <a href="#" id="nav-t" onclick="showDetail('trading')">Trading</a>
+            <a href="#" id="nav-s" onclick="showDetail('shop')">Shop</a>
+        </nav>
+
+        <div class="header-right">
+            <button id="lang-btn" onclick="toggleLang()">Hindi</button>
+
         </div>
     </header>
 
-    <section class="hero reveal">
-        <h1 id="hero-title">Supercharge Your <span>Business</span></h1>
-        <p id="hero-desc">Expert Digital Solutions for High-Growth Modern Brands</p>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services">
-        <h2 id="services-head" class="reveal">Our <span>Services</span></h2>
-
-        <div class="service-container">
+    <!-- Home View -->
+    <div id="home-view" class="container">
+        <section class="hero">
+            <h1 id="hero-h">Elevate Your <span>Business</span></h1>
+            <p id="hero-p">Cutting-edge digital strategies for world-class growth and dominance.</p>
             
-            <a href="social-media.html" class="service-card reveal">
+            <!-- WhatsApp Button -->
+            <a href="https://wa.me" target="_blank" class="btn-whatsapp">
+                <i class="fab fa-whatsapp"></i>
+                <span id="wa-txt">Chat on WhatsApp</span>
+            </a>
+        </section>
+
+        <section class="grid">
+            <div class="card" onclick="showDetail('social')">
                 <i class="fas fa-users"></i>
-                <h3 id="s1-title">Social Media</h3>
-                <p id="s1-desc">Grow your online presence with strategic engagement.</p>
-            </a>
 
-            <a href="seo.html" class="service-card reveal" style="transition-delay: 0.1s;">
+                <h3 id="s1-t">Social Media</h3>
+                <p id="s1-s">Grow your online influence.</p>
+            </div>
+            <div class="card" onclick="showDetail('ads')">
                 <i class="fas fa-bullseye"></i>
-                <h3 id="s2-title">Targeted Advertising</h3>
-                <p id="s2-desc">Precision ads on FB, IG & Google for maximum results.</p>
-            </a>
-
-            <a href="web-design.html" class="service-card reveal" style="transition-delay: 0.2s;">
+                <h3 id="s2-t">Targeted Ads</h3>
+                <p id="s2-s">High conversion campaigns.</p>
+            </div>
+            <div class="card" onclick="showDetail('web')">
                 <i class="fas fa-laptop-code"></i>
-                <h3 id="s3-title">Website Design</h3>
-                <p id="s3-desc">Stunning mobile-first websites that convert visitors.</p>
-            </a>
-
-
-            <a href="index.html" class="service-card reveal" style="transition-delay: 0.3s;">
+                <h3 id="s3-t">Web Design</h3>
+                <p id="s3-s">Fast & responsive sites.</p>
+            </div>
+            <div class="card" onclick="showDetail('branding')">
                 <i class="fas fa-pen-nib"></i>
-                <h3 id="s4-title">Branding</h3>
-                <p id="s4-desc">Visual identities and graphics that set you apart.</p>
-            </a>
-        </div>
+                <h3 id="s4-t">Branding</h3>
+                <p id="s4-s">Build a unique identity.</p>
+            </div>
+        </section>
 
-        <div class="reveal" style="transition-delay: 0.4s;">
-            <a href="shop.html" class="btn-portfolio" id="port-btn">View Portfolio</a>
-        </div>
-    </section>
+    </div>
 
-    <footer class="social-footer reveal">
-        <h3 id="footer-head">Connect With Me</h3>
-        <div class="social-icons">
-            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+    <!-- Detail View -->
+    <div id="detail-view" class="container">
+        <div class="btn-back" onclick="showHome()">
+            <i class="fas fa-arrow-left"></i> <span id="back-txt">Back to Home</span>
+        </div>
+        
+        <div class="detail-flex">
+            <div class="detail-text">
+                <h2 id="det-title">Service</h2>
+                <p id="det-desc">Loading details...</p>
+                <a href="#" class="btn-cta" id="cta-txt">Consult Now</a>
+            </div>
+            <div class="detail-img">
+                <img id="det-img" src="" alt="Service Spotlight">
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <h3 id="foot-h">Connect With Me</h3>
+        <div class="socials">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
             <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
             <a href="#"><i class="fa-brands fa-telegram"></i></a>
-
         </div>
     </footer>
 
     <script>
-        // Spotlight Mouse tracking
-        const spotlight = document.getElementById('spotlight');
-        document.addEventListener('mousemove', e => {
-            spotlight.style.setProperty('--x', (e.clientX) + 'px');
-            spotlight.style.setProperty('--y', (e.clientY) + 'px');
-        });
+        const config = {
+            homeImg: 'url("https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1920")',
+            detailBg: 'linear-gradient(135deg, #050505 0%, #001133 100%)',
+            imgs: {
+                social: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&q=80&w=800',
+                ads: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
+                web: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800',
+                branding: 'https://images.unsplash.com/photo-1614036634955-ae5e90f9b9eb?auto=format&fit=crop&q=80&w=800',
 
-        // Simple Scroll Reveal
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-        window.addEventListener("scroll", reveal);
-        window.onload = reveal;
-
-        // Multilingual System
-        let currentLang = 'en';
-        const translations = {
-            en: {
-                btn: "Hindi", logoWhite: "OFFICIAL", logoBlue: "MANJEET",
-                navHome: "Home", navAbout: "About", navPort: "Portfolio",
-                heroTitle: "Supercharge Your <span>Business</span>",
-                heroDesc: "Expert Digital Solutions for High-Growth Modern Brands",
-                servicesHead: "Our <span>Services</span>",
-                s1Title: "Social Media", s1Desc: "Grow your online presence with strategic engagement.",
-                s2Title: "Targeted Advertising", s2Desc: "Precision ads on FB, IG & Google for maximum results.",
-                s3Title: "Website Design", s3Desc: "Stunning mobile-first websites that convert visitors.",
-
-                s4Title: "Branding", s4Desc: "Visual identities and graphics that set you apart.",
-                portBtn: "View Portfolio", footerHead: "Connect With Me"
-            },
-            hi: {
-                btn: "English", logoWhite: "ऑफिशियल", logoBlue: "मंजीत",
-                navHome: "होम", navAbout: "मेरे बारे में", navPort: "पोर्टफोलियो",
-                heroTitle: "अपने <span>बिजनेस</span> को रफ़्तार दें",
-                heroDesc: "हाई-ग्रोथ ब्रांडों के लिए आधुनिक डिजिटल समाधान",
-                servicesHead: "हमारी <span>सेवाएं</span>",
-                s1Title: "सोशल मीडिया", s1Desc: "रणनीतिक एंगेजमेंट के साथ अपनी ऑनलाइन उपस्थिति बढ़ाएं।",
-                s2Title: "टारगेटेड विज्ञापन", s2Desc: "बेहतरीन परिणामों के लिए FB, IG और Google पर सटीक विज्ञापन।",
-                s3Title: "वेबसाइट डिजाइन", s3Desc: "शानदार मोबाइल-फर्स्ट वेबसाइटें जो ग्राहकों को जोड़ती हैं।",
-                s4Title: "ब्रांडिंग", s4Desc: "विजुअल आइडेंटिटी और ग्राफिक्स जो आपको अलग पहचान देते हैं।",
-                portBtn: "पोर्टफोलियो देखें", footerHead: "मुझसे जुड़ें"
+                /* New Navigation Images */
+                about: 'https://images.unsplash.com/photo-1522071823991-b96c0d37c74e?auto=format&fit=crop&q=80&w=800',
+                portfolio: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&q=80&w=800',
+                shop: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=80&w=800',
+                trading: 'https://images.unsplash.com/photo-1611974717483-36009c2fa16d?auto=format&fit=crop&q=80&w=800'
             }
         };
 
-        function toggleLanguage() {
-            currentLang = currentLang === 'en' ? 'hi' : 'en';
+        let lang = 'en';
+        let currentView = 'home';
 
-            const lang = translations[currentLang];
-            document.getElementById('logo-white').innerText = lang.logoWhite;
-            document.getElementById('logo-blue').innerText = lang.logoBlue;
-            document.getElementById('lang-btn').innerText = lang.btn;
-            document.getElementById('nav-home').innerText = lang.navHome;
-            document.getElementById('nav-about').innerText = lang.navAbout;
-            document.getElementById('nav-port').innerText = lang.navPort;
-            document.getElementById('hero-title').innerHTML = lang.heroTitle;
-            document.getElementById('hero-desc').innerText = lang.heroDesc;
-            document.getElementById('services-head').innerHTML = lang.servicesHead;
-            document.getElementById('s1-title').innerText = lang.s1Title;
-            document.getElementById('s1-desc').innerText = lang.s1Desc;
-            document.getElementById('s2-title').innerText = lang.s2Title;
-            document.getElementById('s2-desc').innerText = lang.s2Desc;
-            document.getElementById('s3-title').innerText = lang.s3Title;
-            document.getElementById('s3-desc').innerText = lang.s3Desc;
-            document.getElementById('s4-title').innerText = lang.s4Title;
-            document.getElementById('s4-desc').innerText = lang.s4Desc;
-            document.getElementById('port-btn').innerText = lang.portBtn;
+        const dict = {
+            en: {
+                btn: "Hindi", logoW: "OFFICIAL", logoB: "MANJEET",
+                nH: "Home", nA: "About", nP: "Portfolio", nT: "Trading", nS: "Shop",
+                hH: "Elevate Your <span>Business</span>", hP: "Cutting-edge digital strategies for world-class growth and dominance.",
+                waT: "Chat on WhatsApp",
+                s1T: "Social Media", s1S: "Grow your online influence.",
+                s2T: "Targeted Ads", s2S: "High conversion campaigns.",
 
-            document.getElementById('footer-head').innerText = lang.footerHead;
+                s3T: "Web Design", s3S: "Fast & responsive sites.",
+                s4T: "Branding", s4S: "Build a unique identity.",
+                back: "Back to Home", cta: "Consult Now", foot: "Connect With Me",
+                socialD: "Master Instagram and Facebook to build a massive community. We create viral content that drives engagement and trust.",
+                adsD: "Surgical precision in your ad spending. Data-driven campaigns on Meta and Google to maximize your ROI instantly.",
+                webD: "High-speed, conversion-focused websites that turn visitors into loyal high-ticket clients across any device.",
+                brandingD: "We define your unique story through professional visual identities and logos that make you stand out in the market.",
+                /* Navigation Details En */
+                aboutT: "About Manjeet", aboutD: "A visionary digital entrepreneur dedicated to helping brands scale through technology and creative storytelling.",
+                portfolioT: "My Portfolio", portfolioD: "Explore our collection of successful digital projects, from viral social campaigns to high-conversion websites.",
+                shopT: "Official Shop", shopD: "Get access to exclusive digital assets, courses, and business tools designed for high-end growth.",
+                tradingT: "Trading Strategies", tradingD: "Unlock advanced financial market insights and data-driven trading strategies for wealth management."
+            },
+            hi: {
+                btn: "English", logoW: "ऑफिशियल", logoB: "मंजीत",
+                nH: "होम", nA: "मेरे बारे में", nP: "पोर्टफोलियो", nT: "ट्रेडिंग", nS: "शॉप",
+                hH: "अपने <span>बिजनेस</span> को आगे बढ़ाएं", hP: "विश्व स्तरीय विकास और दबदबे के लिए अत्याधुनिक डिजिटल रणनीतियाँ।",
+                waT: "व्हाट्सएप पर चैट करें",
+                s1T: "सोशल मीडिया", s1S: "अपनी ऑनलाइन उपस्थिति बढ़ाएं।",
+
+                s2T: "टारगेटेड विज्ञापन", s2S: "हाई कन्वर्शन विज्ञापन अभियान।",
+                s3T: "वेब डिजाइन", s3S: "तेज और रिस्पॉन्सिव साइट्स।",
+                s4T: "ब्रांडिंग", s4S: "एक अनूठी पहचान बनाएं।",
+                back: "होम पर वापस", cta: "सलाह लें", foot: "मुझसे जुड़ें",
+                socialD: "इंस्टाग्राम और फेसबुक के एल्गोरिदम में महारत हासिल करें। हम ऐसा कंटेंट बनाते हैं जो वायरल हो और लोग आप पर भरोसा करें।",
+                adsD: "आपके विज्ञापन खर्च में सटीक रणनीति। मेटा और गूगल पर डेटा-आधारित अभियान जो तुरंत परिणाम देते हैं।",
+                webD: "सुपर फास्ट और कन्वर्शन-केंद्रित वेबसाइटें जो हर डिवाइस पर विजिटर्स को वफादार ग्राहकों में बदलती हैं।",
+                brandingD: "हम आपकी अनूठी कहानी के आधार पर प्रोफेशनल लोगो और ब्रांडिंग बनाते हैं जो आपको बाजार में सबसे अलग खड़ा करती है।",
+                /* Navigation Details Hi */
+                aboutT: "मेरे बारे में", aboutD: "एक दूरदर्शी डिजिटल उद्यमी जो ब्रांड्स को तकनीक और रचनात्मक कहानी के माध्यम से आगे बढ़ाने के लिए समर्पित है।",
+                portfolioT: "मेरा पोर्टफोलियो", portfolioD: "सफल डिजिटल प्रोजेक्ट्स का हमारा संग्रह देखें, जिसमें वायरल सोशल अभियान और हाई-कन्वर्शन वेबसाइटें शामिल हैं।",
+                shopT: "ऑफिशियल शॉप", shopD: "विशेष डिजिटल एसेट्स, कोर्सेज और बिजनेस टूल्स तक पहुंच प्राप्त करें जिन्हें विकास के लिए बनाया गया है।",
+                tradingT: "ट्रेडिंग रणनीतियाँ", tradingD: "धन प्रबंधन के लिए उन्नत वित्तीय बाजार अंतर्दृष्टि और डेटा-आधारित ट्रेडिंग रणनीतियों को अनलॉक करें।"
+            }
+        };
+
+        function moveSpotlight(e) {
+            const spotlight = document.getElementById('spotlight');
+            spotlight.style.setProperty('--x', e.clientX + 'px');
+
+            spotlight.style.setProperty('--y', e.clientY + 'px');
+        }
+
+        function init() {
+            updateContent();
+            showHome();
+        }
+
+        function toggleLang() {
+            lang = lang === 'en' ? 'hi' : 'en';
+            updateContent();
+        }
+
+        function updateContent() {
+            const d = dict[lang];
+            document.getElementById('logo-w').innerText = d.logoW;
+            document.getElementById('logo-b').innerText = d.logoB;
+            document.getElementById('lang-btn').innerText = d.btn;
+            document.getElementById('nav-h').innerText = d.nH;
+
+            document.getElementById('nav-a').innerText = d.nA;
+            document.getElementById('nav-p').innerText = d.nP;
+            document.getElementById('nav-t').innerText = d.nT;
+            document.getElementById('nav-s').innerText = d.nS;
+            document.getElementById('hero-h').innerHTML = d.hH;
+            document.getElementById('hero-p').innerText = d.hP;
+            document.getElementById('wa-txt').innerText = d.waT;
+            document.getElementById('s1-t').innerText = d.s1T; document.getElementById('s1-s').innerText = d.s1S;
+            document.getElementById('s2-t').innerText = d.s2T; document.getElementById('s2-s').innerText = d.s2S;
+            document.getElementById('s3-t').innerText = d.s3T; document.getElementById('s3-s').innerText = d.s3S;
+            document.getElementById('s4-t').innerText = d.s4T; document.getElementById('s4-s').innerText = d.s4S;
+            document.getElementById('back-txt').innerText = d.back;
+            document.getElementById('cta-txt').innerText = d.cta;
+            document.getElementById('foot-h').innerText = d.foot;
+
+            if (currentView !== 'home') {
+                document.getElementById('det-title').innerText = d[currentView + 'T'];
+                document.getElementById('det-desc').innerText = d[currentView + 'D'];
+            }
+
+        }
+
+        function showHome() {
+            currentView = 'home';
+            document.getElementById('home-view').style.display = 'block';
+            document.getElementById('detail-view').style.display = 'none';
+            const bg = document.getElementById('main-bg');
+            bg.style.backgroundImage = config.homeImg;
+            bg.style.background = '';
+            bg.style.backgroundImage = config.homeImg;
+            bg.style.filter = 'brightness(0.25)';
+            window.scrollTo(0,0);
+        }
+
+        function showDetail(id) {
+            currentView = id;
+            const d = dict[lang];
+            document.getElementById('home-view').style.display = 'none';
+            document.getElementById('detail-view').style.display = 'block';
+
+            const bg = document.getElementById('main-bg');
+            bg.style.backgroundImage = 'none';
+            bg.style.background = config.detailBg;
+            bg.style.filter = 'none';
+            document.getElementById('det-title').innerText = d[id + 'T'];
+            document.getElementById('det-desc').innerText = d[id + 'D'];
+            document.getElementById('det-img').src = config.imgs[id];
+            window.scrollTo(0,0);
         }
     </script>
-
 </body>
 </html>
 
