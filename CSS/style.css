@@ -223,3 +223,17 @@ textarea {
         display: none; /* मोबाइल के लिए बाद में मेनू बनाएंगे */
     }
 }
+/* सर्विस लिंक का स्टाइल सही करने के लिए */
+.service-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 15px;
+    color: #00d2ff;
+    font-weight: 600;
+    font-size: 14px;
+}
