@@ -5,159 +5,147 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Official Manjeet | Digital Agency</title>
     
-    <!-- 1. आइकन्स दिखने के लिए यह सबसे ज़रूरी लिंक है -->
+    <!-- 1. आइकन्स के लिए लेटेस्ट Font Awesome लिंक (इसे जरूर रहने दें) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
     
-    <!-- 2. आपकी पुरानी CSS फाइल -->
-    <link rel="stylesheet" href="CSS/style.css"> 
-
     <style>
-        /* सर्विस सेक्शन के लिए खास स्टाइल (इमेज जैसा) */
-        .services-section {
-            background-color: #000;
-            padding: 80px 8%;
-            text-align: center;
-            color: #fff;
-        }
+        /* पूरी वेबसाइट के लिए बेसिक सेटिंग्स */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #000; color: #fff; overflow-x: hidden; }
 
-        .services-section h2 {
-            font-size: 32px;
-            margin-bottom: 50px;
-        }
-
-        .services-section h2 span {
-            color: #9d50bb;
-        }
-
-        .service-container {
+        /* Navigation Bar - इसे फिक्स किया गया है */
+        header {
+            padding: 20px 8%;
+            background: rgba(0, 0, 0, 0.95);
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #222;
+        }
+        .logo { font-size: 24px; font-weight: 800; }
+        .logo span { color: #00d2ff; }
+        nav a { color: #fff; text-decoration: none; margin-left: 25px; font-size: 15px; transition: 0.3s; }
+        nav a:hover { color: #00d2ff; }
+
+        /* Hero Section - यहाँ Padding-top बढ़ा दी है ताकि हेडर के नीचे न दबे */
+        .hero {
+            padding: 180px 8% 100px 8%; 
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             flex-wrap: wrap;
-            gap: 20px;
         }
+        .hero-content { max-width: 600px; }
+        .hero-content h1 { font-size: 50px; line-height: 1.2; margin-bottom: 20px; }
+        .hero-content h1 span { color: #00d2ff; }
+        .hero-content p { color: #aaa; margin-bottom: 30px; font-size: 18px; }
 
-        /* सर्विस कार्ड और होवर (Blink) इफेक्ट */
+        /* बटन स्टाइल */
+        .btns { display: flex; gap: 15px; }
+        .btn-blue { padding: 12px 35px; background: #00d2ff; color: #000; text-decoration: none; border-radius: 50px; font-weight: bold; transition: 0.3s; }
+        .btn-outline { padding: 12px 35px; border: 2px solid #00d2ff; color: #00d2ff; text-decoration: none; border-radius: 50px; font-weight: bold; transition: 0.3s; }
+        .btn-blue:hover { box-shadow: 0 0 20px rgba(0, 210, 255, 0.5); }
+
+        /* Services Section - बिल्कुल वैसा जैसा आपने फोटो में माँगा था */
+        .services-section { padding: 80px 8%; text-align: center; }
+        .services-section h2 { font-size: 35px; margin-bottom: 60px; }
+        .services-section h2 span { color: #9d50bb; }
+        
+        .service-container { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; }
+        
+        /* होवर (Blink) इफेक्ट वाला कार्ड */
         .service-card {
-            text-decoration: none;
-            color: #fff;
             width: 220px;
-            padding: 20px;
-            transition: transform 0.3s ease, filter 0.3s ease;
-            cursor: pointer;
-        }
-
-        /* माउस ले जाने पर बॉक्स थोड़ा बड़ा होगा और चमकेगा (Blink Effect) */
-        .service-card:hover {
-            transform: translateY(-10px) scale(1.05);
-            filter: drop-shadow(0 0 15px rgba(157, 80, 187, 0.4));
-        }
-
-        .service-card i {
-            font-size: 35px;
-            margin-bottom: 15px;
-            display: block;
-            transition: 0.3s;
-        }
-
-        /* होवर करने पर आइकन में ग्लो (चमक) आएगा */
-        .service-card:hover i {
-            text-shadow: 0 0 20px currentColor;
-        }
-
-        /* रंगों की सेटिंग जैसा इमेज में है */
-        .icon-blue { color: #4facfe; }
-        .icon-red { color: #f093fb; }
-        .icon-green { color: #43e97b; }
-        .icon-orange { color: #fa709a; }
-
-        .service-card h3 {
-            font-size: 18px;
-            margin-bottom: 8px;
-        }
-
-        .service-card p {
-            font-size: 13px;
-            color: #ccc;
-            line-height: 1.4;
-        }
-
-        .portfolio-link {
-            display: inline-block;
-            margin-top: 50px;
-            color: #9d50bb;
+            text-align: center;
+            padding: 25px;
+            border-radius: 15px;
             text-decoration: none;
-            font-weight: 600;
-            border-bottom: 1px solid #9d50bb;
-            padding-bottom: 5px;
-            transition: 0.3s;
+            color: #fff;
+            transition: all 0.4s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.05);
+            filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.2));
         }
 
-        .portfolio-link:hover {
-            color: #fff;
-            border-color: #fff;
-        }
+        .service-card i { font-size: 40px; margin-bottom: 20px; display: block; transition: 0.3s; }
+        .service-card:hover i { text-shadow: 0 0 20px currentColor; }
+
+        /* आइकन्स के कलर्स */
+        .i-blue { color: #4facfe; }
+        .i-pink { color: #f093fb; }
+        .i-green { color: #43e97b; }
+        .i-orange { color: #fa709a; }
+
+        .service-card h3 { font-size: 18px; margin-bottom: 10px; }
+        .service-card p { font-size: 13px; color: #888; line-height: 1.5; }
+
+        .portfolio-btn { display: inline-block; margin-top: 50px; color: #9d50bb; text-decoration: none; font-weight: 600; border-bottom: 2px solid #9d50bb; padding-bottom: 5px; }
+
+        /* फोटो स्टाइल */
+        .hero-img img { width: 350px; border-radius: 30px; box-shadow: 0 0 30px rgba(0, 210, 255, 0.1); }
     </style>
 </head>
-<body style="background: #000; margin: 0; font-family: sans-serif;">
+<body>
 
-    <!-- Navbar -->
-    <header style="padding: 20px 8%; background: rgba(0,0,0,0.9); position: sticky; top: 0; z-index: 1000;">
-        <nav style="display: flex; justify-content: space-between; align-items: center;">
-            <div style="font-size: 24px; font-weight: 800; color: #fff;">Official<span style="color: #00d2ff;">Manjeet</span></div>
-            <div style="display: flex; gap: 20px;">
-                <a href="index.html" style="color: #fff; text-decoration: none;">Home</a>
-                <a href="shop.html" style="color: #fff; text-decoration: none;">Shop</a>
-                <a href="trading.html" style="color: #fff; text-decoration: none;">Trading</a>
-            </div>
+    <header>
+        <div class="logo">Official<span>Manjeet</span></div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="trading.html">Trading</a>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section style="padding: 100px 8%; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
-        <div style="max-width: 600px;">
-            <h1 style="font-size: 55px; color: #fff; line-height: 1.2;">Supercharge Your <br><span style="color: #00d2ff;">Business</span> With Us</h1>
-            <p style="color: #aaa; margin: 20px 0;">हम आपके ब्रांड को डिजिटल दुनिया में नई ऊंचाइयों पर ले जाते हैं।</p>
-            <div style="display: flex; gap: 15px;">
-                <a href="#contact" style="padding: 12px 30px; background: #00d2ff; color: #000; text-decoration: none; border-radius: 50px; font-weight: bold;">Get Started</a>
-                <a href="https://wa.me" target="_blank" style="padding: 12px 30px; border: 2px solid #00d2ff; color: #00d2ff; text-decoration: none; border-radius: 50px; font-weight: bold;">WhatsApp Us</a>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Supercharge Your <br><span>Business</span> With Us</h1>
+            <p>हम आपके ब्रांड को डिजिटल दुनिया में नई ऊंचाइयों पर ले जाते हैं।</p>
+            <div class="btns">
+                <a href="#contact" class="btn-blue">Get Started</a>
+                <a href="https://wa.me" target="_blank" class="btn-outline">WhatsApp Us</a>
             </div>
         </div>
-        <div>
-            <img src="images/manjeet.png" alt="Manjeet" style="width: 400px; border-radius: 20px;">
+        <div class="hero-img">
+            <img src="images/manjeet.png" alt="Manjeet">
         </div>
     </section>
 
-    <!-- Our Services Section (जो फोटो आपने भेजी थी) -->
     <section class="services-section">
         <h2>Our <span>Services</span></h2>
         <div class="service-container">
             
             <a href="social-media.html" class="service-card">
-                <i class="fa-solid fa-share-nodes icon-blue"></i>
+                <i class="fa-solid fa-share-nodes i-blue"></i>
                 <h3>Social Media</h3>
                 <p>Grow your audience & engagement</p>
             </a>
 
             <a href="seo.html" class="service-card">
-                <i class="fa-solid fa-bullseye icon-red"></i>
+                <i class="fa-solid fa-bullseye i-pink"></i>
                 <h3>Targeted Advertising</h3>
                 <p>FB, Insta & Google ads</p>
             </a>
 
             <a href="web-design.html" class="service-card">
-                <i class="fa-solid fa-code icon-green"></i>
+                <i class="fa-solid fa-code i-green"></i>
                 <h3>Website Design</h3>
                 <p>High converting websites</p>
             </a>
 
             <a href="#" class="service-card">
-                <i class="fa-solid fa-pen-nib icon-orange"></i>
+                <i class="fa-solid fa-pen-nib i-orange"></i>
                 <h3>Branding</h3>
                 <p>Logo, visuals & graphics</p>
             </a>
 
         </div>
-        <a href="shop.html" class="portfolio-link">View Portfolio</a>
+        <a href="shop.html" class="portfolio-btn">View Portfolio</a>
     </section>
 
 </body>
