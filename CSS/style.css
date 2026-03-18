@@ -237,3 +237,65 @@ textarea {
     font-weight: 600;
     font-size: 14px;
 }
+/* सर्विस सेक्शन का मेन स्टाइल */
+.service-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.service-card {
+    width: 220px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+/* आइकन्स को छोटा और राउंड रखने के लिए (जैसा इमेज में है) */
+.icon-box {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 20px;
+}
+
+/* इमेज के हिसाब से आइकन्स के अलग-अलग रंग */
+.icon-blue { background: rgba(0, 210, 255, 0.1); color: #00d2ff; box-shadow: 0 0 15px rgba(0, 210, 255, 0.3); }
+.icon-red { background: rgba(255, 71, 87, 0.1); color: #ff4757; box-shadow: 0 0 15px rgba(255, 71, 87, 0.3); }
+.icon-purple { background: rgba(157, 80, 187, 0.1); color: #9d50bb; box-shadow: 0 0 15px rgba(157, 80, 187, 0.3); }
+.icon-cyan { background: rgba(0, 255, 255, 0.1); color: #00ffff; box-shadow: 0 0 15px rgba(0, 255, 255, 0.3); }
+
+.service-card h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.service-card p {
+    font-size: 13px;
+    color: #aaa;
+    line-height: 1.4;
+}
+
+/* View Portfolio बटन का ग्रेडिएंट लुक */
+.view-portfolio-btn {
+    display: inline-block;
+    padding: 12px 35px;
+    background: linear-gradient(90deg, #3a7bd5, #00d2ff);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    box-shadow: 0 5px 20px rgba(0, 210, 255, 0.4);
+    transition: 0.3s;
+}
+
+.view-portfolio-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 210, 255, 0.6);
+}
