@@ -1,4 +1,4 @@
-Official Manjeet - Professional Social & UI Fix
+Official Manjeet - Final Verified GitHub Code
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +22,7 @@ Official Manjeet - Professional Social & UI Fix
 
             --card-bg: rgba(255, 255, 255, 0.03);
             --glass-border: rgba(255, 255, 255, 0.08);
-            /* Keeping your favorite "Second First" Fluid Abstract background */
+            /* Your favorite "Second First" Fluid Abstract background */
             --home-bg: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1920');
             --detail-bg: linear-gradient(135deg, #050505 0%, #001133 100%);
         }
@@ -38,7 +38,7 @@ Official Manjeet - Professional Social & UI Fix
             scroll-behavior: smooth;
         }
 
-        /* Interactive Spotlight Effect */
+        /* Spotlight effect */
 
         #spotlight {
             position: fixed;
@@ -49,7 +49,7 @@ Official Manjeet - Professional Social & UI Fix
             z-index: 1;
         }
 
-        /* Fixed Background Layer */
+        /* Background Layer */
         #main-bg {
             position: fixed;
             top: 0; left: 0;
@@ -63,7 +63,7 @@ Official Manjeet - Professional Social & UI Fix
             transition: 0.6s ease;
         }
 
-        /* Header Styling */
+        /* Header Navigation */
         header { 
             padding: 15px 5%; 
             display: flex; 
@@ -78,12 +78,12 @@ Official Manjeet - Professional Social & UI Fix
             backdrop-filter: blur(25px);
         }
         
-        /* Logo with Circular Image sel.jpg */
+        /* Logo with your Profile Image sel.jpg from images/ folder */
 
         .logo { display: flex; align-items: center; text-decoration: none; text-transform: uppercase; letter-spacing: 1.5px; font-size: 18px; font-weight: 800; }
         .logo-img { 
-            width: 42px; 
-            height: 42px; 
+            width: 45px; 
+            height: 45px; 
             border-radius: 50%; 
             margin-right: 12px; 
             border: 2px solid var(--primary); 
@@ -93,59 +93,61 @@ Official Manjeet - Professional Social & UI Fix
         .logo .white { color: #ffffff; }
         .logo .blue { color: var(--primary); text-shadow: 0 0 15px rgba(0, 210, 255, 0.4); }
 
-        nav { display: flex; gap: 15px; align-items: center; }
-        nav a { color: #fff; text-decoration: none; font-size: 11px; opacity: 0.7; transition: 0.3s; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
+        nav { display: flex; gap: 18px; align-items: center; }
+        nav a { color: #fff; text-decoration: none; font-size: 11px; opacity: 0.7; transition: 0.3s; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
         nav a:hover { color: var(--primary); opacity: 1; }
 
         #lang-btn { padding: 8px 15px; background: rgba(0, 210, 255, 0.1); color: var(--primary); border: 1px solid var(--primary); border-radius: 8px; cursor: pointer; font-weight: 800; font-size: 10px; text-transform: uppercase; }
 
 
-        /* Hero Section */
+        /* Container & Views */
         .container { padding: 140px 5% 80px; position: relative; z-index: 10; width: 100%; max-width: 1200px; margin: 0 auto; }
         #detail-view { display: none; }
 
-        .hero { text-align: center; margin-bottom: 70px; }
+        /* Hero */
+        .hero { text-align: center; margin-bottom: 80px; }
         .hero h1 { font-size: clamp(32px, 5vw, 60px); margin-bottom: 20px; font-weight: 800; line-height: 1.1; }
         .hero h1 span { color: var(--primary); }
         .hero p { color: #aaa; font-size: 18px; max-width: 700px; margin: 0 auto 35px; font-weight: 300; }
 
-        /* Main WhatsApp Button */
-        .btn-whatsapp { display: inline-flex; align-items: center; gap: 12px; background: var(--whatsapp); color: #fff; text-decoration: none; padding: 15px 35px; border-radius: 50px; font-weight: 800; font-size: 16px; transition: 0.4s; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); }
+        /* WhatsApp Button */
+        .btn-whatsapp { display: inline-flex; align-items: center; gap: 12px; background: var(--whatsapp); color: #fff; text-decoration: none; padding: 16px 38px; border-radius: 50px; font-weight: 800; font-size: 16px; transition: 0.4s; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); }
         .btn-whatsapp:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(37, 211, 102, 0.5); }
 
-        /* Card Layout */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
-        .card { background: var(--card-bg); padding: 45px 25px; border-radius: 30px; border: 1px solid var(--glass-border); text-align: center; cursor: pointer; transition: 0.4s ease; backdrop-filter: blur(15px); }
+        /* Service Cards Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
+        .card { background: var(--card-bg); padding: 50px 30px; border-radius: 35px; border: 1px solid var(--glass-border); text-align: center; cursor: pointer; transition: 0.4s ease; backdrop-filter: blur(15px); }
         .card:hover { transform: translateY(-12px); border-color: var(--primary); background: rgba(255,255,255,0.06); }
-        .card i { font-size: 40px; color: var(--primary); margin-bottom: 20px; }
-        .card h3 { font-size: 22px; margin-bottom: 10px; font-weight: 700; }
+        .card i { font-size: 45px; color: var(--primary); margin-bottom: 25px; }
 
-        .card p { font-size: 14px; color: #888; }
+        .card h3 { font-size: 24px; margin-bottom: 12px; font-weight: 700; }
+        .card p { font-size: 15px; color: #888; }
 
-        /* Detailed View Elements */
-        .detail-flex { display: flex; gap: 40px; align-items: center; margin-top: 30px; }
+        /* Detail Section Styles */
+        .detail-flex { display: flex; gap: 50px; align-items: center; margin-top: 30px; }
         .detail-text { flex: 1; }
-        .detail-text h2 { font-size: clamp(30px, 4vw, 50px); margin-bottom: 20px; font-weight: 800; color: var(--primary); }
-        .detail-text p { font-size: 17px; color: #ccc; margin-bottom: 35px; line-height: 1.8; }
+        .detail-text h2 { font-size: clamp(35px, 4vw, 55px); margin-bottom: 25px; font-weight: 800; color: var(--primary); }
+        .detail-text p { font-size: 18px; color: #ccc; margin-bottom: 35px; line-height: 1.8; }
         .detail-img { flex: 1; }
-        .detail-img img { width: 100%; border-radius: 25px; border: 1px solid var(--glass-border); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .detail-img img { width: 100%; border-radius: 30px; border: 1px solid var(--glass-border); box-shadow: 0 20px 50px rgba(0,0,0,0.6); }
 
-        .btn-cta { display: inline-block; padding: 18px 40px; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #fff; text-decoration: none; border-radius: 12px; font-weight: 800; text-transform: uppercase; font-size: 14px; box-shadow: 0 10px 25px rgba(0, 210, 255, 0.4); margin-bottom: 25px; }
+        /* Buttons on Detail Page */
+        .btn-cta { display: inline-block; padding: 20px 45px; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #fff; text-decoration: none; border-radius: 15px; font-weight: 800; text-transform: uppercase; font-size: 15px; box-shadow: 0 10px 25px rgba(0, 210, 255, 0.4); margin-bottom: 20px; transition: 0.3s; }
+        .btn-cta:hover { transform: scale(1.05); }
 
-        /* Back Button - Moved below Consult Now */
-        .btn-back { display: inline-flex; align-items: center; gap: 10px; padding: 12px 25px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: 10px; cursor: pointer; color: #fff; font-weight: 700; font-size: 14px; text-decoration: none; transition: 0.3s; }
+        .btn-back { display: block; width: fit-content; padding: 14px 30px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: 12px; cursor: pointer; color: #fff; font-weight: 700; font-size: 15px; text-decoration: none; transition: 0.3s; }
         .btn-back:hover { background: #fff; color: #000; }
 
-        /* Footer & Social Media */
-        footer { padding: 60px 5% 40px; text-align: center; border-top: 1px solid var(--glass-border); margin-top: 80px; position: relative; z-index: 100; }
-        .socials { display: flex; justify-content: center; gap: 25px; margin-top: 30px; }
+        /* Social Footer */
 
-        .socials a { color: #fff; font-size: 28px; opacity: 0.7; transition: 0.4s; text-decoration: none; }
-        .socials a:hover { color: var(--primary); opacity: 1; transform: translateY(-5px) scale(1.15); }
+        footer { padding: 80px 5% 50px; text-align: center; border-top: 1px solid var(--glass-border); margin-top: 100px; }
+        .socials { display: flex; justify-content: center; gap: 30px; margin-top: 35px; }
+        .socials a { color: #fff; font-size: 32px; opacity: 0.7; transition: 0.4s; text-decoration: none; }
+        .socials a:hover { color: var(--primary); opacity: 1; transform: translateY(-8px) scale(1.2); }
 
         @media (max-width: 768px) {
-            header { flex-direction: column; padding: 10px; height: auto; }
-            nav { margin-top: 15px; justify-content: center; flex-wrap: wrap; }
+            header { padding: 10px; height: auto; flex-direction: column; }
+            nav { margin: 15px 0; gap: 10px; flex-wrap: wrap; justify-content: center; }
             .container { padding-top: 220px; }
             .detail-flex { flex-direction: column; text-align: center; }
             .btn-back { margin: 0 auto; }
@@ -157,18 +159,18 @@ Official Manjeet - Professional Social & UI Fix
     <div id="spotlight"></div>
     <div id="main-bg"></div>
 
+
     <header>
         <a href="#" class="logo" onclick="showHome()">
-
-            <!-- Make sure sel.jpg is in your images/ folder -->
-            <img src="images/sel.jpg" alt="Manjeet" class="logo-img">
+            <!-- Path specifically set to your images/sel.jpg file -->
+            <img src="images/sel.jpg" alt="Official Manjeet Logo" class="logo-img">
             <span class="white" id="logo-w">OFFICIAL</span>
             <span class="blue" id="logo-b">MANJEET</span>
         </a>
 
         <nav id="top-nav">
             <a href="#" id="nav-h" onclick="showHome()">Home</a>
-            <!-- Links to your biography file -->
+            <!-- Links to your separate biography file -->
             <a href="about.html" id="nav-a">About</a>
             <a href="#" id="nav-p" onclick="showDetail('portfolio')">Portfolio</a>
             <a href="#" id="nav-t" onclick="showDetail('trading')">Trading</a>
@@ -177,11 +179,11 @@ Official Manjeet - Professional Social & UI Fix
 
         <div class="header-right">
             <button id="lang-btn" onclick="toggleLang()">Hindi</button>
+
         </div>
     </header>
 
-
-    <!-- Landing View -->
+    <!-- Landing Page -->
     <div id="home-view" class="container">
         <section class="hero">
             <h1 id="hero-h">Elevate Your <span>Business</span></h1>
@@ -197,10 +199,10 @@ Official Manjeet - Professional Social & UI Fix
             <div class="card" onclick="showDetail('social')">
                 <i class="fas fa-users"></i>
                 <h3 id="s1-t">Social Media</h3>
+
                 <p id="s1-s">Grow your online influence.</p>
             </div>
             <div class="card" onclick="showDetail('ads')">
-
                 <i class="fas fa-bullseye"></i>
                 <h3 id="s2-t">Targeted Ads</h3>
                 <p id="s2-s">High conversion campaigns.</p>
@@ -217,50 +219,52 @@ Official Manjeet - Professional Social & UI Fix
             </div>
             <div class="card" onclick="showDetail('branding')">
                 <i class="fas fa-pen-nib"></i>
+
                 <h3 id="s4-t">Branding</h3>
                 <p id="s4-s">Build a unique identity.</p>
             </div>
-
         </section>
     </div>
 
-    <!-- Details View -->
+    <!-- Service Detail Section -->
     <div id="detail-view" class="container">
         <div class="detail-flex">
             <div class="detail-text">
                 <h2 id="det-title">Service Title</h2>
-                <p id="det-desc">Details content...</p>
+                <div id="det-content">
+                    <p id="det-desc">Details loading...</p>
+                </div>
                 
-                <!-- Action Button -->
+                <!-- Consult Now Button -->
                 <a href="https://wa.me" target="_blank" class="btn-cta" id="cta-txt">Consult Now</a>
                 
-                <br>
-                <!-- Back Button - Positioned below Consult Now -->
+                <!-- Back Button BELOW Consult Now -->
+
                 <div class="btn-back" onclick="showHome()">
                     <i class="fas fa-arrow-left"></i> <span id="back-txt">Back to Home</span>
                 </div>
             </div>
-
             <div class="detail-img">
-                <img id="det-img" src="" alt="Service Image">
+                <img id="det-img" src="" alt="Service Detail">
             </div>
         </div>
     </div>
 
-    <!-- Social Media Footer - Links Fixed -->
+    <!-- Social Connections Footer -->
     <footer>
         <h3 id="foot-h">Connect With Me</h3>
         <div class="socials">
+            <a href="https://wa.me" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
             <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
             <a href="https://twitter.com" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
             <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
             <a href="https://t.me" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+
         </div>
     </footer>
 
     <script>
         const config = {
-
             homeImg: 'url("https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1920")',
             detailBg: 'linear-gradient(135deg, #050505 0%, #001133 100%)',
             imgs: {
@@ -275,12 +279,12 @@ Official Manjeet - Professional Social & UI Fix
         };
 
         let lang = 'en';
+
         let currentView = 'home';
 
         const dict = {
             en: {
                 btn: "Hindi", logoW: "OFFICIAL", logoB: "MANJEET",
-
                 nH: "Home", nA: "About", nP: "Portfolio", nT: "Trading", nS: "Shop",
                 hH: "Elevate Your <span>Business</span>", hP: "Cutting-edge digital strategies for world-class growth and dominance.",
                 waT: "Chat on WhatsApp",
@@ -292,15 +296,15 @@ Official Manjeet - Professional Social & UI Fix
                 back: "Back to Home", cta: "Consult Now", foot: "Connect With Me",
                 socialD: "Master Instagram and Facebook to build a massive community with professional organic reach.",
                 adsD: "Data-driven advertising strategies designed for maximum conversion and massive growth.",
-                webD: "Modern, high-speed, and conversion-focused websites that capture attention.",
-                brandingD: "We create a unique identity for your business that resonates with your global audience.",
-                portfolioT: "Successful Projects", portfolioD: "Take a look at the high-impact digital solutions we have delivered.",
-                shopT: "Digital Store", shopD: "Premium assets and resources tailored for high-performing entrepreneurs.",
-                tradingT: "Professional Stock Analysis", 
-                tradingD: "Step into the financial markets with expert guidance. We cover real-time market data, technical chart analysis, and strategic entry points to ensure consistent growth. Learn risk management and portfolio diversification techniques to trade with precision."
+                webD: "Modern, high-speed, and conversion-focused websites that capture global attention.",
+                brandingD: "We create a unique identity for your business that resonates with your target audience.",
+                portfolioT: "Successful Portfolio", portfolioD: "Explore our track record of high-impact digital transformations and successful projects.",
+
+                shopT: "Official Store", shopD: "Premium digital tools and elite resources tailored for high-performing entrepreneurs.",
+                tradingT: "Master the Stock Market", 
+                tradingD: "Step into the financial markets with expert guidance. We provide real-time market data, technical chart analysis, and strategic entry points to ensure consistent growth. Learn professional risk management and portfolio diversification techniques to trade with precision and confidence. Our data-driven approach helps you navigate the complexities of the financial markets."
             },
             hi: {
-
                 btn: "English", logoW: "ऑफिशियल", logoB: "मंजीत",
                 nH: "होम", nA: "मेरे बारे में", nP: "पोर्टफोलियो", nT: "ट्रेडिंग", nS: "शॉप",
                 hH: "अपने <span>बिजनेस</span> को आगे बढ़ाएं", hP: "विश्व स्तरीय विकास और दबदबे के लिए अत्याधुनिक डिजिटल रणनीतियाँ।",
@@ -312,15 +316,15 @@ Official Manjeet - Professional Social & UI Fix
                 s5T: "ट्रेडिंग", s5S: "वित्तीय बाजार रणनीतियाँ।",
                 back: "होम पर वापस", cta: "सलाह लें", foot: "मुझसे जुड़ें",
                 socialD: "सोशल मीडिया के एल्गोरिदम में महारत हासिल करें और एक बड़ा डिजिटल समुदाय बनाएं।",
-                adsD: "डेटा-आधारित विज्ञापन रणनीतियाँ जो विकास और मुनाफे को सुनिश्चित करती हैं।",
-                webD: "सुपर फास्ट और कन्वर्शन-केंद्रित वेबसाइटें, जो आपके बिजनेस को बढ़ाएंगी।",
-                brandingD: "प्रोफेशनल ब्रांडिंग जो आपकी मार्केट में एक अलग और अनूठी पहचान बनाएगी।",
-                portfolioT: "सफल प्रोजेक्ट्स", portfolioD: "हमारे उच्च-प्रभाव वाले डिजिटल समाधानों पर एक नज़र डालें।",
-                shopT: "डिजिटल स्टोर", shopD: "सफल उद्यमियों के लिए विशेष डिजिटल संसाधन और टूल्स।",
-                tradingT: "प्रोफेशनल स्टॉक विश्लेषण", 
-                tradingD: "विशेषज्ञ मार्गदर्शन के साथ वित्तीय बाजारों में कदम रखें। हम रीयल-टाइम डेटा और चार्ट विश्लेषण प्रदान करते हैं।"
-            }
+                adsD: "सटीक डेटा के साथ विज्ञापन खर्च में अधिकतम लाभ प्राप्त करने की रणनीति।",
+                webD: "सुपर फास्ट वेबसाइटें जो आपके बिजनेस को एक नई ऊँचाई पर ले जाएँगी।",
+                brandingD: "प्रोफेशनल ब्रांडिंग और डिजाइन जो आपकी बाजार में एक अलग पहचान बनाएगी।",
 
+                portfolioT: "सफल पोर्टफोलियो", portfolioD: "हमारे सफल डिजिटल प्रोजेक्ट्स और समाधानों का संग्रह देखें।",
+                shopT: "ऑफिशियल शॉप", shopD: "उद्यमियों के लिए विशेष डिजिटल टूल्स और प्रीमियम संसाधन।",
+                tradingT: "स्टॉक मार्केट में महारत", 
+                tradingD: "विशेषज्ञ मार्गदर्शन के साथ वित्तीय बाजारों में कदम रखें। हम रीयल-टाइम डेटा, चार्ट विश्लेषण और रणनीतिक प्रवेश बिंदु प्रदान करते हैं ताकि आप आत्मविश्वास के साथ ट्रेड कर सकें।"
+            }
         };
 
         function moveSpotlight(e) {
@@ -335,12 +339,12 @@ Official Manjeet - Professional Social & UI Fix
         function updateContent() {
             const d = dict[lang];
             document.getElementById('logo-w').innerText = d.logoW;
+
             document.getElementById('logo-b').innerText = d.logoB;
             document.getElementById('lang-btn').innerText = d.btn;
             document.getElementById('nav-h').innerText = d.nH;
             document.getElementById('nav-a').innerText = d.nA;
             document.getElementById('nav-p').innerText = d.nP;
-
             document.getElementById('nav-t').innerText = d.nT;
             document.getElementById('nav-s').innerText = d.nS;
             document.getElementById('hero-h').innerHTML = d.hH;
@@ -355,12 +359,12 @@ Official Manjeet - Professional Social & UI Fix
             document.getElementById('cta-txt').innerText = d.cta;
             document.getElementById('foot-h').innerText = d.foot;
 
+
             if (currentView !== 'home') {
                 const titleKey = currentView + 'T';
                 const descKey = currentView + 'D';
                 document.getElementById('det-title').innerText = d[titleKey] || d[currentView + 't'];
                 document.getElementById('det-desc').innerText = d[descKey] || d[currentView + 'd'];
-
             }
         }
 
@@ -375,12 +379,12 @@ Official Manjeet - Professional Social & UI Fix
         }
 
         function showDetail(id) {
+
             currentView = id;
             const d = dict[lang];
             document.getElementById('home-view').style.display = 'none';
             document.getElementById('detail-view').style.display = 'block';
             const bg = document.getElementById('main-bg');
-
             bg.style.backgroundImage = 'none';
             bg.style.background = config.detailBg;
             bg.style.filter = 'none';
