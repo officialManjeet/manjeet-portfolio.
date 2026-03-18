@@ -2,24 +2,37 @@
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
-    <title>Shop | Official Manjeet</title>
-    <link rel="stylesheet" href="CSS/style.css"> <!-- वही CSS इस्तेमाल करें -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Shop | Official Manjeet</title>
+    <!-- पक्का करें कि CSS फोल्डर का नाम बड़ा 'CSS' ही है -->
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
 </head>
-<body style="background: #0b0b0d; color: white; padding: 100px 8%;">
+<body style="background: #0b0b0d; color: white; padding: 50px 8%;">
 
-    <h1>Our <span>Shop</span></h1>
-    <p>यहाँ हमारी प्रीमियम सर्विसेज की लिस्ट है।</p>
+    <header style="margin-bottom: 50px;">
+        <h1 style="font-size: 40px;">Our <span>Shop</span></h1>
+        <p style="color: #aaa;">यहाँ हमारी प्रीमियम सर्विसेज की लिस्ट है।</p>
+    </header>
 
-    <div class="service-container">
-        <div class="service-box">
-            <h3>Basic Plan</h3>
-            <p>₹999 - Social Media Audit</p>
-            <a href="#" class="btn-primary">Buy Now</a>
+    <div class="service-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+        
+        <!-- Basic Plan Card -->
+        <div class="service-box" style="background: #1a1a1d; padding: 40px; border-radius: 20px; border: 1px solid #333; text-align: left;">
+            <i class="fas fa-star" style="color: #00d2ff; font-size: 30px; margin-bottom: 20px;"></i>
+            <h3 style="font-size: 24px; margin-bottom: 10px;">Basic Plan</h3>
+            <p style="color: #00d2ff; font-weight: bold; font-size: 20px; margin-bottom: 15px;">₹999</p>
+            <p style="color: #ccc; margin-bottom: 25px;">Social Media Audit & Basic Strategy</p>
+            <a href="https://wa.me" class="btn-primary" style="display: inline-block; padding: 12px 35px; background: linear-gradient(90deg, #00d2ff, #3a7bd5); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);">Buy Now</a>
         </div>
-        <!-- और बॉक्स यहाँ जोड़ें -->
+
+        <!-- आप यहाँ और भी प्लान्स (Cards) जोड़ सकते हैं -->
+        
     </div>
 
-    <br><a href="index.html" style="color: #00d2ff;">← Back to Home</a>
+    <div style="margin-top: 50px;">
+        <a href="index.html" style="color: #00d2ff; text-decoration: none; font-weight: 500;">← Back to Home</a>
+    </div>
 
 </body>
 </html>
