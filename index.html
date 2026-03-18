@@ -1,4 +1,4 @@
-Official Manjeet - Final Professional Website
+Official Manjeet - Professional Social & UI Fix
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +22,7 @@ Official Manjeet - Final Professional Website
 
             --card-bg: rgba(255, 255, 255, 0.03);
             --glass-border: rgba(255, 255, 255, 0.08);
-            /* Your favorite "Second First" Fluid Abstract background */
+            /* Keeping your favorite "Second First" Fluid Abstract background */
             --home-bg: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1920');
             --detail-bg: linear-gradient(135deg, #050505 0%, #001133 100%);
         }
@@ -38,7 +38,7 @@ Official Manjeet - Final Professional Website
             scroll-behavior: smooth;
         }
 
-        /* Interactive Spotlight */
+        /* Interactive Spotlight Effect */
 
         #spotlight {
             position: fixed;
@@ -49,7 +49,7 @@ Official Manjeet - Final Professional Website
             z-index: 1;
         }
 
-        /* Background Layer */
+        /* Fixed Background Layer */
         #main-bg {
             position: fixed;
             top: 0; left: 0;
@@ -63,7 +63,7 @@ Official Manjeet - Final Professional Website
             transition: 0.6s ease;
         }
 
-        /* Header Navigation */
+        /* Header Styling */
         header { 
             padding: 15px 5%; 
             display: flex; 
@@ -78,7 +78,7 @@ Official Manjeet - Final Professional Website
             backdrop-filter: blur(25px);
         }
         
-        /* Logo with your Profile Image sel.jpg */
+        /* Logo with Circular Image sel.jpg */
 
         .logo { display: flex; align-items: center; text-decoration: none; text-transform: uppercase; letter-spacing: 1.5px; font-size: 18px; font-weight: 800; }
         .logo-img { 
@@ -89,7 +89,6 @@ Official Manjeet - Final Professional Website
             border: 2px solid var(--primary); 
             object-fit: cover; 
             background: #111;
-            display: block;
         }
         .logo .white { color: #ffffff; }
         .logo .blue { color: var(--primary); text-shadow: 0 0 15px rgba(0, 210, 255, 0.4); }
@@ -110,11 +109,11 @@ Official Manjeet - Final Professional Website
         .hero h1 span { color: var(--primary); }
         .hero p { color: #aaa; font-size: 18px; max-width: 700px; margin: 0 auto 35px; font-weight: 300; }
 
-        /* WhatsApp Button */
+        /* Main WhatsApp Button */
         .btn-whatsapp { display: inline-flex; align-items: center; gap: 12px; background: var(--whatsapp); color: #fff; text-decoration: none; padding: 15px 35px; border-radius: 50px; font-weight: 800; font-size: 16px; transition: 0.4s; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); }
         .btn-whatsapp:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(37, 211, 102, 0.5); }
 
-        /* Grid */
+        /* Card Layout */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
         .card { background: var(--card-bg); padding: 45px 25px; border-radius: 30px; border: 1px solid var(--glass-border); text-align: center; cursor: pointer; transition: 0.4s ease; backdrop-filter: blur(15px); }
         .card:hover { transform: translateY(-12px); border-color: var(--primary); background: rgba(255,255,255,0.06); }
@@ -123,8 +122,8 @@ Official Manjeet - Final Professional Website
 
         .card p { font-size: 14px; color: #888; }
 
-        /* Detail View Styles */
-        .detail-flex { display: flex; gap: 40px; align-items: center; margin-top: 20px; }
+        /* Detailed View Elements */
+        .detail-flex { display: flex; gap: 40px; align-items: center; margin-top: 30px; }
         .detail-text { flex: 1; }
         .detail-text h2 { font-size: clamp(30px, 4vw, 50px); margin-bottom: 20px; font-weight: 800; color: var(--primary); }
         .detail-text p { font-size: 17px; color: #ccc; margin-bottom: 35px; line-height: 1.8; }
@@ -133,20 +132,21 @@ Official Manjeet - Final Professional Website
 
         .btn-cta { display: inline-block; padding: 18px 40px; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #fff; text-decoration: none; border-radius: 12px; font-weight: 800; text-transform: uppercase; font-size: 14px; box-shadow: 0 10px 25px rgba(0, 210, 255, 0.4); margin-bottom: 25px; }
 
-        /* Back Button moved below Consult Now */
-        .btn-back { display: block; width: fit-content; padding: 12px 25px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: 10px; cursor: pointer; color: #fff; font-weight: 700; font-size: 14px; text-decoration: none; transition: 0.3s; }
+        /* Back Button - Moved below Consult Now */
+        .btn-back { display: inline-flex; align-items: center; gap: 10px; padding: 12px 25px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: 10px; cursor: pointer; color: #fff; font-weight: 700; font-size: 14px; text-decoration: none; transition: 0.3s; }
         .btn-back:hover { background: #fff; color: #000; }
 
-        footer { padding: 60px 5% 40px; text-align: center; border-top: 1px solid var(--glass-border); margin-top: 80px; }
+        /* Footer & Social Media */
+        footer { padding: 60px 5% 40px; text-align: center; border-top: 1px solid var(--glass-border); margin-top: 80px; position: relative; z-index: 100; }
         .socials { display: flex; justify-content: center; gap: 25px; margin-top: 30px; }
-        .socials a { color: #fff; font-size: 28px; opacity: 0.7; transition: 0.4s; text-decoration: none; }
 
+        .socials a { color: #fff; font-size: 28px; opacity: 0.7; transition: 0.4s; text-decoration: none; }
         .socials a:hover { color: var(--primary); opacity: 1; transform: translateY(-5px) scale(1.15); }
 
         @media (max-width: 768px) {
             header { flex-direction: column; padding: 10px; height: auto; }
             nav { margin-top: 15px; justify-content: center; flex-wrap: wrap; }
-            .container { padding-top: 200px; }
+            .container { padding-top: 220px; }
             .detail-flex { flex-direction: column; text-align: center; }
             .btn-back { margin: 0 auto; }
         }
@@ -159,15 +159,16 @@ Official Manjeet - Final Professional Website
 
     <header>
         <a href="#" class="logo" onclick="showHome()">
-            <!-- Using sel.jpg as your logo image -->
 
-            <img src="images/sel.jpg" alt="Official Manjeet" class="logo-img">
+            <!-- Make sure sel.jpg is in your images/ folder -->
+            <img src="images/sel.jpg" alt="Manjeet" class="logo-img">
             <span class="white" id="logo-w">OFFICIAL</span>
             <span class="blue" id="logo-b">MANJEET</span>
         </a>
 
         <nav id="top-nav">
             <a href="#" id="nav-h" onclick="showHome()">Home</a>
+            <!-- Links to your biography file -->
             <a href="about.html" id="nav-a">About</a>
             <a href="#" id="nav-p" onclick="showDetail('portfolio')">Portfolio</a>
             <a href="#" id="nav-t" onclick="showDetail('trading')">Trading</a>
@@ -179,8 +180,8 @@ Official Manjeet - Final Professional Website
         </div>
     </header>
 
-    <!-- Hero Content -->
 
+    <!-- Landing View -->
     <div id="home-view" class="container">
         <section class="hero">
             <h1 id="hero-h">Elevate Your <span>Business</span></h1>
@@ -199,8 +200,8 @@ Official Manjeet - Final Professional Website
                 <p id="s1-s">Grow your online influence.</p>
             </div>
             <div class="card" onclick="showDetail('ads')">
-                <i class="fas fa-bullseye"></i>
 
+                <i class="fas fa-bullseye"></i>
                 <h3 id="s2-t">Targeted Ads</h3>
                 <p id="s2-s">High conversion campaigns.</p>
             </div>
@@ -219,35 +220,34 @@ Official Manjeet - Final Professional Website
                 <h3 id="s4-t">Branding</h3>
                 <p id="s4-s">Build a unique identity.</p>
             </div>
-        </section>
 
+        </section>
     </div>
 
-    <!-- Detail View -->
+    <!-- Details View -->
     <div id="detail-view" class="container">
         <div class="detail-flex">
             <div class="detail-text">
-                <h2 id="det-title">Service</h2>
-                <div id="det-content">
-                    <p id="det-desc">Details loading...</p>
-                </div>
+                <h2 id="det-title">Service Title</h2>
+                <p id="det-desc">Details content...</p>
                 
-                <!-- CTA Button -->
+                <!-- Action Button -->
                 <a href="https://wa.me" target="_blank" class="btn-cta" id="cta-txt">Consult Now</a>
                 
-                <!-- Back Button below Consult Now -->
+                <br>
+                <!-- Back Button - Positioned below Consult Now -->
                 <div class="btn-back" onclick="showHome()">
                     <i class="fas fa-arrow-left"></i> <span id="back-txt">Back to Home</span>
                 </div>
             </div>
 
             <div class="detail-img">
-                <img id="det-img" src="" alt="Service Detail">
+                <img id="det-img" src="" alt="Service Image">
             </div>
         </div>
     </div>
 
-    <!-- Footer with fixed links -->
+    <!-- Social Media Footer - Links Fixed -->
     <footer>
         <h3 id="foot-h">Connect With Me</h3>
         <div class="socials">
@@ -290,14 +290,14 @@ Official Manjeet - Final Professional Website
                 s4T: "Branding", s4S: "Build a unique identity.",
                 s5T: "Trading", s5S: "Financial market strategies.",
                 back: "Back to Home", cta: "Consult Now", foot: "Connect With Me",
-                socialD: "Master Instagram and Facebook to build a massive community with organic reach.",
-                adsD: "Precision-targeted campaigns designed to maximize ROI and sales conversion.",
-                webD: "Modern, high-speed websites designed to convert visitors into loyal customers.",
-                brandingD: "Professional identity design that makes your brand stand out in the global market.",
-                portfolioT: "My Portfolio", portfolioD: "Explore our track record of successful digital transformations.",
-                shopT: "Official Shop", shopD: "Premium digital products and resources for entrepreneurs.",
-                tradingT: "Stock Trading & Market Analysis", 
-                tradingD: "Master the art of stock trading with our expert insights. We provide real-time market analysis, technical indicators, and strategic entry/exit points to help you grow your portfolio. Whether you are a day trader or a long-term investor, our data-driven approach helps you navigate the complexities of the financial markets with confidence. Learn how to identify chart patterns, manage risk effectively, and build a sustainable trading system for consistent profits."
+                socialD: "Master Instagram and Facebook to build a massive community with professional organic reach.",
+                adsD: "Data-driven advertising strategies designed for maximum conversion and massive growth.",
+                webD: "Modern, high-speed, and conversion-focused websites that capture attention.",
+                brandingD: "We create a unique identity for your business that resonates with your global audience.",
+                portfolioT: "Successful Projects", portfolioD: "Take a look at the high-impact digital solutions we have delivered.",
+                shopT: "Digital Store", shopD: "Premium assets and resources tailored for high-performing entrepreneurs.",
+                tradingT: "Professional Stock Analysis", 
+                tradingD: "Step into the financial markets with expert guidance. We cover real-time market data, technical chart analysis, and strategic entry points to ensure consistent growth. Learn risk management and portfolio diversification techniques to trade with precision."
             },
             hi: {
 
@@ -312,13 +312,13 @@ Official Manjeet - Final Professional Website
                 s5T: "ट्रेडिंग", s5S: "वित्तीय बाजार रणनीतियाँ।",
                 back: "होम पर वापस", cta: "सलाह लें", foot: "मुझसे जुड़ें",
                 socialD: "सोशल मीडिया के एल्गोरिदम में महारत हासिल करें और एक बड़ा डिजिटल समुदाय बनाएं।",
-                adsD: "सटीक डेटा के साथ विज्ञापन खर्च में अधिकतम लाभ प्राप्त करने की रणनीति।",
-                webD: "सुपर फास्ट वेबसाइटें जो आपके बिजनेस को एक नई ऊँचाई पर ले जाएँगी।",
-                brandingD: "प्रोफेशनल ब्रांडिंग और डिजाइन जो आपकी बाजार में एक अलग पहचान बनाएगी।",
-                portfolioT: "मेरा पोर्टफोलियो", portfolioD: "हमारे सफल डिजिटल प्रोजेक्ट्स का संग्रह देखें।",
-                shopT: "ऑफिशियल शॉप", shopD: "उद्यमियों के लिए विशेष डिजिटल टूल्स और संसाधन।",
-                tradingT: "स्टॉक ट्रेडिंग और बाजार विश्लेषण", 
-                tradingD: "हमारे विशेषज्ञ सुझावों के साथ स्टॉक ट्रेडिंग की कला में महारत हासिल करें। हम रीयल-टाइम बाजार विश्लेषण, तकनीकी संकेतकों और रणनीतिक प्रवेश/निकास बिंदुओं के साथ आपके पोर्टफोलियो की वृद्धि को अधिकतम करते हैं। चाहे आप डे ट्रेडर हों या दीर्घकालिक निवेशक, हमारा डेटा-आधारित दृष्टिकोण आपको आत्मविश्वास के साथ वित्तीय बाजारों की जटिलताओं को समझने में मदद करता है। चार्ट पैटर्न की पहचान करना, जोखिम प्रबंधन और एक सफल ट्रेडिंग सिस्टम बनाना सीखें।"
+                adsD: "डेटा-आधारित विज्ञापन रणनीतियाँ जो विकास और मुनाफे को सुनिश्चित करती हैं।",
+                webD: "सुपर फास्ट और कन्वर्शन-केंद्रित वेबसाइटें, जो आपके बिजनेस को बढ़ाएंगी।",
+                brandingD: "प्रोफेशनल ब्रांडिंग जो आपकी मार्केट में एक अलग और अनूठी पहचान बनाएगी।",
+                portfolioT: "सफल प्रोजेक्ट्स", portfolioD: "हमारे उच्च-प्रभाव वाले डिजिटल समाधानों पर एक नज़र डालें।",
+                shopT: "डिजिटल स्टोर", shopD: "सफल उद्यमियों के लिए विशेष डिजिटल संसाधन और टूल्स।",
+                tradingT: "प्रोफेशनल स्टॉक विश्लेषण", 
+                tradingD: "विशेषज्ञ मार्गदर्शन के साथ वित्तीय बाजारों में कदम रखें। हम रीयल-टाइम डेटा और चार्ट विश्लेषण प्रदान करते हैं।"
             }
 
         };
