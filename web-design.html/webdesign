@@ -1,1 +1,31 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Design | Official Manjeet</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
+</head>
+<body style="background: #0b0b0d; color: white;">
+
+    <header style="padding: 20px 8%; background: rgba(0,0,0,0.5);"><nav><div class="logo">Official<span>Manjeet</span></div><a href="index.html" class="btn-secondary">Back to Home</a></nav></header>
+
+    <section style="padding: 80px 8%; display: flex; align-items: center; gap: 50px; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 300px;">
+            <h1 style="font-size: 50px; margin-bottom: 20px;">Modern <span style="color: #00d2ff;">Web Design</span></h1>
+            <p style="color: #ccc; font-size: 18px; line-height: 1.6;">हम केवल वेबसाइट नहीं बनाते, हम आपके बिजनेस की डिजिटल पहचान बनाते हैं। हमारी वेबसाइट्स फास्ट, सिक्योर और मोबाइल-फ्रेंडली होती हैं।</p>
+            <ul style="margin: 30px 0; list-style: none; color: #00d2ff; font-weight: 600; line-height: 2;">
+                <li><i class="fas fa-check-circle"></i> Fast Loading Speed</li>
+                <li><i class="fas fa-check-circle"></i> Mobile & Tablet Responsive</li>
+                <li><i class="fas fa-check-circle"></i> Professional UI/UX Design</li>
+            </ul>
+            <a href="https://wa.me" class="btn-primary">Build My Website</a>
+        </div>
+        <div style="flex: 1; min-width: 300px;">
+            <img src="images/manjeet.png" alt="Web Design" style="width: 100%; border-radius: 20px; box-shadow: 0 0 50px rgba(0, 210, 255, 0.2);">
+        </div>
+    </section>
+</body>
+</html>
 
