@@ -164,7 +164,7 @@ Official Manjeet - Verified Final GitHub Code
     <header>
         <a href="#" class="logo" onclick="showHome()">
             <!-- I have ensured the path points to images/sel.jpg exactly -->
-            <img src="images/sel.png" alt="" class="logo-img">
+            <img src="images/sel.jpg" alt="" class="logo-img">
             <span class="white" id="logo-w">OFFICIAL</span>
             <span class="blue" id="logo-b">MANJEET</span>
         </a>
@@ -246,19 +246,11 @@ Official Manjeet - Verified Final GitHub Code
                     <i class="fas fa-arrow-left"></i> <span id="back-txt">Back to Home</span>
                 </div>
             </div>
-           <div class="detail-text">
-    <h2 id="det-title"></h2>
-    <p id="det-desc"></p>
-
-    <!-- 1. पहले Consult Me (WhatsApp) बटन -->
-    <a href="https://wa.me" class="btn-cta" id="det-cta">Consult Me</a>
-
-    <br> <!-- लाइन बदलने के लिए -->
-
-    <!-- 2. उसके नीचे Back to Home बटन -->
-    <button onclick="showHome()" class="btn-back" id="det-back">← Back to Home</button>
-</div>
-
+            <div class="detail-img">
+                <img id="det-img" src="" alt="Detail View">
+            </div>
+        </div>
+    </div>
 
     <!-- Footer with Social Links -->
     <footer>
@@ -394,32 +386,45 @@ Official Manjeet - Verified Final GitHub Code
             window.scrollTo(0,0);
         }
 
-       async function showDetail(id) {
-    // सबसे पहले चेक करें कि अभी कौन सी भाषा चुनी हुई है
-    lang = localStorage.getItem("preferredLang") || "EN"; 
-    
-    currentview = id;
-    const d = dict[lang]; // अब यह चुनी हुई भाषा का डिक्शनरी उठाएगा
-    
-    document.getElementById('home-view').style.display = 'none';
-    document.getElementById('detail-view').style.display = 'block';
+        async function showDetail(id) {
+            currentView = id;
+            const d = dict[lang];
+            document.getElementById('home-view').style.display = 'none';
+            document.getElementById('detail-view').style.display = 'block';
+            const bg = document.getElementById('main-bg');
+            bg.style.backgroundImage = 'none';
+            bg.style.background = config.detailBg;
+            bg.style.filter = 'none';
+            
+            const titleKey = id + 'T';
+            const descKey = id + 'D';
+            document.getElementById('det-title').innerText = d[titleKey] || d[id + 't'];
+            document.getElementById('det-img').src = config.imgs[id];
 
-    // बैकग्राउंड और बाकी सेटिंग्स
-    const bg = document.getElementById('main-bg');
-    bg.style.backgroundImage = 'none';
-    bg.style.background = config.detailBg;
-    bg.style.filter = 'none';
 
-    // टेक्स्ट अपडेट करना
-    const titleKey = id + 'T'; // जैसे: aboutT
-    const descKey = id + 'D';  // जैसे: aboutD
+            if (id === 'about') {
+                try {
+                    // This fetches your bio from about.html file
+                    const res = await fetch('about.html');
+                    if (res.ok) {
+                        const html = await res.text();
+                        // Extract only body content if it's a full page
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(html, 'text/html');
+                        document.getElementById('det-desc').innerHTML = doc.body.innerHTML || html;
+                    } else {
+                        document.getElementById('det-desc').innerText = d[descKey];
+                    }
+                } catch (e) {
+                    document.getElementById('det-desc').innerText = d[descKey];
+                }
+            } else {
+                document.getElementById('det-desc').innerText = d[descKey] || d[id + 'd'];
+            }
 
-    document.getElementById('det-title').innerText = d[titleKey];
-    document.getElementById('det-desc').innerHTML = d[descKey]; // innerText की जगह innerHTML ताकि <br> काम करे
-}
-
+            window.scrollTo(0,0);
+        }
     </script>
 </body>
 </html>
-
 
