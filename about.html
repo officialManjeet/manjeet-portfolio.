@@ -5,31 +5,33 @@
         <img id="det-img" src="images/bg.jpg" alt="Official Manjeet" style="width:100%; border-radius:25px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
     </div>
 
-    <!-- 2. आपका परिचय -->
+    <!-- 2. आपका परिचय (By Default Hindi) -->
     <div class="detail-text" style="flex: 1.2; min-width: 350px;">
-        <h2 id="det-title" style="color: #00d2ff; font-size: 45px; margin-bottom: 20px; font-weight: 800;">About Me</h2>
+        <h2 id="det-title" style="color: #00d2ff; font-size: 45px; margin-bottom: 20px; font-weight: 800;">मेरे बारे में</h2>
         <p id="det-desc" style="color: #ccc; font-size: 1.1rem; line-height: 1.8; margin-bottom: 30px;">
-            Loading your story...
+            नमस्ते! मैं मंजीत हूँ और आज मैं एक <b>Full Stack Developer</b> हूँ। मेरी स्कूली पढ़ाई मेरे गाँव से हुई, जिसके बाद साल 2019 में मैं दिल्ली आ गया। यहाँ से मैंने साल 2022 में <b>JB Knowledge Park, Faridabad</b> से अपना ग्रेजुएशन (BCA) पूरा किया। फिलहाल, मैं एक कंपनी में फुल स्टैक डेवलपर के तौर पर काम कर रहा हूँ।<br><br>आज की इस तेज़ी से बदलती दुनिया को देखते हुए मुझे एहसास हुआ कि अगर हम तकनीक के साथ नहीं चले, तो हम बहुत पीछे रह जाएंगे। इसीलिए मैंने फैसला किया कि मैं इस नई डिजिटल दुनिया के साथ कदम से कदम मिलाकर चलूँगा और मैं भी इस नई दुनिया का एक हिस्सा बनूँगा। यहाँ आपको डिजिटल दुनिया से जुड़ी हर तरह की एजुकेशन सपोर्ट और बिज़नेस से जुड़ी ज़रूरी जानकारियाँ मिलेंगी। तो आइए, मेरे साथ हाथ मिलाइए और इस नई दुनिया का हिस्सा बनिए ताकि हम सब मिलकर खुद को <b>आगे बढ़ा (Grow)</b> सकें। 😊
         </p>
     </div>
 </div>
 
 <script>
     function loadAboutContent() {
-        // यह चेक करेगा कि यूजर ने कौन सी भाषा चुनी है (Default: HI)
+        // 'hi' या 'HI' दोनों को चेक करेगा, वरना इंग्लिश दिखाएगा
         let lang = localStorage.getItem("preferredLang") || "HI";
         let title = document.getElementById("det-title");
         let para = document.getElementById("det-desc");
 
-        if (lang === "HI") {
-            title.innerHTML = "मेरे बारे में";
-            para.innerHTML = "नमस्ते! मैं मंजीत हूँ और आज मैं एक <b>Full Stack Developer</b> हूँ। मेरी स्कूली पढ़ाई मेरे गाँव से हुई, जिसके बाद साल 2019 में मैं दिल्ली आ गया। यहाँ से मैंने साल 2022 में <b>JB Knowledge Park, Faridabad</b> से अपना ग्रेजुएशन (BCA) पूरा किया। फिलहाल, मैं एक कंपनी में फुल स्टैक डेवलपर के तौर पर काम कर रहा हूँ।<br><br>आज की इस तेज़ी से बदलती दुनिया को देखते हुए मुझे एहसास हुआ कि अगर हम तकनीक के साथ नहीं चले, तो हम बहुत पीछे रह जाएंगे। इसीलिए मैंने फैसला किया कि मैं इस नई डिजिटल दुनिया के साथ कदम से कदम मिलाकर चलूँगा और मैं भी इस नई दुनिया का एक हिस्सा बनूँगा। यहाँ आपको डिजिटल दुनिया से जुड़ी हर तरह की एजुकेशन सपोर्ट और बिज़नेस से जुड़ी ज़रूरी जानकारियाँ मिलेंगी। तो आइए, मेरे साथ हाथ मिलाइए और इस नई दुनिया का हिस्सा बनिए ताकि हम सब मिलकर खुद को <b>आगे बढ़ा (Grow)</b> सकें। 😊";
-        } else {
+        // अगर भाषा English सेट है, तभी बदलेगा, वरना ऊपर वाला हिंदी टेक्स्ट ही रहेगा
+        if (lang.toUpperCase() === "EN") {
             title.innerHTML = "About Me";
             para.innerHTML = "Hi! I am Manjeet, and today I am a <b>Full Stack Developer</b>. I completed my schooling in my village and moved to Delhi in 2019. I graduated with a BCA in 2022 from <b>JB Knowledge Park, Faridabad</b>. Currently, I am working as a Full Stack Developer in a company.<br><br>Looking at today's fast-changing world, I realized that if we don't keep up with technology, we will be left far behind. That’s why I decided to walk hand-in-hand with this new digital world and become a part of it. Here, you will find all kinds of digital education support and essential business information. So, join hands with me and become part of this new world so that we can all <b>Grow</b> together. 😊";
         }
     }
 
-    // पेज लोड होने पर फंक्शन चलाएं
-    window.addEventListener('DOMContentLoaded', loadAboutContent);
+    // पेज लोड होते ही रन करें
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadAboutContent);
+    } else {
+        loadAboutContent();
+    }
 </script>
