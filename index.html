@@ -164,7 +164,7 @@ Official Manjeet - Verified Final GitHub Code
     <header>
         <a href="#" class="logo" onclick="showHome()">
             <!-- I have ensured the path points to images/sel.jpg exactly -->
-            <img src="images/sel.jpg" alt="" class="logo-img">
+            <img src="images/sel.png" alt="" class="logo-img">
             <span class="white" id="logo-w">OFFICIAL</span>
             <span class="blue" id="logo-b">MANJEET</span>
         </a>
@@ -228,29 +228,35 @@ Official Manjeet - Verified Final GitHub Code
     </div>
 
     <!-- Detailed Section View -->
-    <div id="detail-view" class="container">
-        <div class="detail-flex">
-            <div class="detail-text">
-                <h2 id="det-title">Service Title</h2>
-                <div id="det-box">
-                    <p id="det-desc">Details loading...</p>
-                </div>
-                
-                <!-- Action Button -->
+   <!-- Detailed Section View -->
+<div id="detail-view" class="container" style="display:none; padding-top: 150px;">
+    <div class="detail-flex">
+        <!-- टेक्स्ट और बटन वाला हिस्सा -->
+        <div class="detail-text">
+            <h2 id="det-title">Service Title</h2>
+            <div id="det-box">
+                <p id="det-desc">Details loading...</p>
+            </div>
+
+            <!-- बटन एक के नीचे एक (Stacked) -->
+            <div style="display: flex; flex-direction: column; gap: 15px; width: fit-content; margin-top: 20px;">
+                <!-- 1. Consult Now (ऊपर) -->
                 <a href="https://wa.me" target="_blank" class="btn-cta" id="cta-txt">Consult Now</a>
                 
-                <br>
-
-                <!-- Back Button BELOW Consult Now as requested -->
-                <div class="btn-back" onclick="showHome()">
+                <!-- 2. Back to Home (नीचे) -->
+                <div class="btn-back" onclick="showHome()" style="cursor: pointer;">
                     <i class="fas fa-arrow-left"></i> <span id="back-txt">Back to Home</span>
                 </div>
             </div>
-            <div class="detail-img">
-                <img id="det-img" src="" alt="Detail View">
-            </div>
+        </div>
+
+        <!-- इमेज वाला हिस्सा (bg.jpg) -->
+        <div class="detail-img">
+            <img id="det-img" src="images/bg.jpg" alt="Detail View" style="width:100%; border-radius:20px; object-fit: cover; border: 1px solid rgba(255,255,255,0.1);">
         </div>
     </div>
+</div>
+
 
     <!-- Footer with Social Links -->
     <footer>
