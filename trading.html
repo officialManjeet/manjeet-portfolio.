@@ -3,261 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Trade Desk - Official Manjeet</title>
+    <title>Trading Mastery | Manjeet</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
     <style>
-        /* --- PREMIUM BACKGROUND & DESIGN --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #0a0e17; color: white; font-family: 'Poppins', sans-serif; margin: 0; padding: 0; line-height: 1.6; }
+        .container { max-width: 1100px; margin: auto; padding: 40px 20px; text-align: center; }
         
-        body { 
-            background-color: #020202; 
-            color: white; 
-            font-family: 'Segoe UI', sans-serif; 
-            min-height: 100vh; 
-            display: flex; flex-direction: column; align-items: center; 
-            padding: 60px 20px; 
-            overflow-y: auto; 
-            overflow-x: hidden;
-            position: relative;
-        }
+        /* Buttons */
+        .btn-live { background: linear-gradient(90deg, #00d2ff, #3a7bd5); color: white; padding: 15px 35px; border: none; border-radius: 50px; font-size: 18px; cursor: pointer; font-weight: bold; box-shadow: 0 10px 20px rgba(0,210,255,0.2); transition: 0.3s; }
+        .btn-live:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(0,210,255,0.4); }
+        
+        /* Sections */
+        .section-title { color: #00d2ff; font-size: 32px; margin-top: 60px; font-weight: 800; position: relative; display: inline-block; padding-bottom: 10px; }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 25%; width: 50%; height: 3px; background: #00d2ff; border-radius: 2px; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; text-align: left; }
+        .card { background: #161b22; padding: 25px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; }
+        .card:hover { border-color: #00d2ff; transform: translateY(-5px); }
+        .card img { width: 100%; border-radius: 12px; margin-bottom: 15px; height: 180px; object-fit: cover; border: 1px solid #333; }
+        
+        /* Chart */
+        #market-section { display: none; margin-top: 30px; border-radius: 20px; overflow: hidden; height: 550px; border: 1px solid #333; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        
+        /* Book List */
+        .book-list { background: #161b22; padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); margin-top: 30px; }
+        .book-list a { color: #fff; text-decoration: none; font-size: 18px; display: block; padding: 15px; border-radius: 10px; transition: 0.2s; border-bottom: 1px solid #222; }
+        .book-list a:hover { background: rgba(0,210,255,0.1); color: #00d2ff; padding-left: 25px; }
 
-        /* Animated Trading Grid */
-        body::before {
-            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: 
-                linear-gradient(rgba(0, 255, 136, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 136, 0.05) 1px, transparent 1px);
-            background-size: 50px 50px;
-            z-index: -2;
-        }
-
-        /* Glowing Orbs */
-        .glow-orb {
-            position: fixed; width: 400px; height: 400px;
-            background: radial-gradient(circle, rgba(0, 255, 136, 0.08) 0%, transparent 70%);
-            border-radius: 50%; z-index: -1; filter: blur(80px);
-            animation: moveOrb 20s infinite alternate;
-        }
-        @keyframes moveOrb { from { transform: translate(-20%, -20%); } to { transform: translate(100%, 80%); } }
-
-        .header-section { text-align: center; margin-bottom: 40px; }
-        h1 { 
-            font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; 
-            text-transform: uppercase; letter-spacing: 8px; 
-            background: linear-gradient(to bottom, #fff, #666);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-        .subtitle { color: #00ff88; font-size: 1rem; letter-spacing: 4px; font-weight: 600; text-transform: uppercase; margin-top: 10px; }
-
-        /* --- AUTO-SLIDING CHART AREA --- */
-        .slider-container {
-            background: rgba(10, 15, 25, 0.8); 
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-            border-radius: 30px;
-            width: 100%; max-width: 900px; height: 400px; 
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            margin-bottom: 50px; position: relative; 
-            box-shadow: 0 30px 100px rgba(0,0,0,0.8);
-            backdrop-filter: blur(15px);
-        }
-
-        .candles-row { display: flex; align-items: center; gap: 20px; height: 250px; transition: 0.6s ease; }
-        .candle { width: 32px; position: relative; border-radius: 4px; }
-        .candle::before { content: ""; position: absolute; top: -20px; bottom: -20px; left: 50%; width: 3px; background: inherit; transform: translateX(-50%); opacity: 0.5; }
-        .candle.green { background: #00ff88; box-shadow: 0 0 25px rgba(0, 255, 136, 0.4); }
-        .candle.red { background: #ff4444; box-shadow: 0 0 25px rgba(255, 68, 68, 0.4); }
-
-        .movement-name { margin-top: 30px; color: #00ff88; font-weight: 800; font-size: 1.4rem; letter-spacing: 3px; text-transform: uppercase; }
-
-        /* --- STATS GRID (INTERACTIVE CARDS) --- */
-        .stats-grid { display: flex; justify-content: center; gap: 25px; width: 100%; max-width: 1100px; margin-bottom: 50px; flex-wrap: wrap; }
-        .stat-card { 
-            background: rgba(20, 20, 20, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); 
-            border-radius: 25px; padding: 40px; flex: 1; min-width: 300px; text-align: center; 
-            border-top: 4px solid #00ff88; cursor: pointer; transition: 0.4s;
-            backdrop-filter: blur(10px);
-        }
-        .stat-card:hover { transform: translateY(-15px); border-color: #00ff88; box-shadow: 0 20px 50px rgba(0, 255, 136, 0.2); }
-        .stat-label { color: #888; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 15px; display: block; letter-spacing: 2px; }
-        .stat-value { font-size: 1.6rem; font-weight: 800; color: #fff; }
-
-        /* --- ACTIONS --- */
-        .info-trigger { 
-            background: #00ff88; color: #000; border: none; padding: 18px 55px; 
-            border-radius: 50px; cursor: pointer; font-size: 1.1rem; font-weight: 800; 
-            transition: 0.3s; margin-bottom: 40px; box-shadow: 0 10px 40px rgba(0, 255, 136, 0.3);
-            text-transform: uppercase;
-        }
-        .info-trigger:hover { transform: scale(1.05); box-shadow: 0 15px 60px rgba(0, 255, 136, 0.5); }
-
-        .back-link { 
-            color: #666; text-decoration: none; font-size: 1rem; border: 1px solid #333; 
-            padding: 15px 45px; border-radius: 50px; transition: 0.3s; margin-bottom: 50px;
-        }
-        .back-link:hover { color: #fff; border-color: #fff; background: rgba(255,255,255,0.05); }
-
-        /* --- MODAL (POP-UP) FOR DETAILED STORIES --- */
-        .modal { display: none; position: fixed; z-index: 5000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); backdrop-filter: blur(25px); overflow-y: auto; }
-        .modal-content { background: #050505; margin: 40px auto; padding: 60px 8%; width: 90%; max-width: 900px; border-radius: 35px; border: 1px solid #222; position: relative; animation: slideUp 0.5s ease; }
-        @keyframes slideUp { from { transform: translateY(100px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        .close-modal { position: fixed; right: 50px; top: 40px; font-size: 55px; cursor: pointer; color: #444; z-index: 5001; }
-        .close-modal:hover { color: #fff; }
-        #modalTitle { color: #00ff88; margin-bottom: 30px; font-size: 2.8rem; border-bottom: 1px solid #222; padding-bottom: 25px; }
-        #modalDetail { line-height: 2.2; color: #ccc; font-size: 1.35rem; text-align: justify; white-space: pre-wrap; }
-
-        @media (max-width: 900px) { .stats-grid { flex-direction: column; } .slider-container { height: 350px; } }
+        /* Advice Box */
+        .advice-box { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); padding: 40px; border-radius: 25px; border-left: 6px solid #00d2ff; margin-top: 50px; position: relative; }
+        .advice-box blockquote { font-size: 1.2rem; font-style: italic; color: #eee; margin: 0; }
+        .advice-box cite { display: block; margin-top: 15px; color: #00d2ff; font-weight: 600; font-style: normal; }
     </style>
 </head>
 <body>
 
-    <div class="glow-orb"></div>
-
-    <div class="header-section">
-        <h1 id="mainTitle">THE TRADE DESK</h1>
-        <span class="subtitle" id="subTitle">Advanced Price Action Trading</span>
+<div class="container">
+    <h1 id="t-main-title">ट्रेडिंग में महारत</h1>
+    <p id="t-sub-title" style="color: #8892b0; font-size: 1.2rem;">वित्तीय बाजारों को समझें और सही निर्णय लें।</p>
+    
+    <div style="margin: 40px 0;">
+        <button onclick="showMarket()" class="btn-live" id="btn-text">लाइव मार्केट चार्ट देखें</button>
+        <br><br>
+        <a href="index.html" style="color: #666; text-decoration: none;" id="back-home">← होम पर वापस जाएँ</a>
     </div>
 
-    <!-- Animated Chart Slider -->
-    <div class="slider-container">
-        <div class="candles-row" id="candlesRow"></div>
-        <div class="movement-name" id="moveTitle">Analyzing Market...</div>
+    <!-- लाइव चार्ट -->
+    <div id="market-section">
+        <div id="tradingview_chart" style="height: 100%;"></div>
     </div>
 
-    <!-- Stats Grid -->
-    <div class="stats-grid">
-        <div class="stat-card" onclick="openDetail('market')">
-            <span class="stat-label" id="lbl1">Active Assets</span>
-            <div class="stat-value" id="val1">Crypto & Nifty 50</div>
+    <!-- कैंडलस्टिक पैटर्न -->
+    <h2 class="section-title" id="sec-patterns">कैंडलस्टिक पैटर्न (Candlestick Patterns)</h2>
+    <div class="grid">
+        <div class="card">
+            <img src="https://www.tradingview.com" alt="Hammer"> <!-- आप अपनी इमेज यहाँ डाल सकते हैं -->
+            <h3 id="p1-title">Hammer (हथौड़ा)</h3>
+            <p id="p1-desc">यह सपोर्ट लेवल पर बनता है और तेजी (Bullish) का संकेत देता है।</p>
         </div>
-        <div class="stat-card" onclick="openDetail('style')">
-            <span class="stat-label" id="lbl2">Methodology</span>
-            <div class="stat-value" id="val2">Price Action</div>
-        </div>
-        <div class="stat-card" onclick="openDetail('focus')">
-            <span class="stat-label" id="lbl3">Priority</span>
-            <div class="stat-value" id="val3">Risk Management</div>
-        </div>
-    </div>
-
-    <button class="info-trigger" onclick="openDetail('whatIsTrading')" id="infoBtn">Explore Trading Mastery 📊</button>
-    <a href="index.html" class="back-link" id="backBtn">Back to Home</a>
-
-    <!-- Modal Box -->
-    <div id="detailModal" class="modal">
-        <span class="close-modal" onclick="closeDetail()">&times;</span>
-        <div class="modal-content">
-            <h2 id="modalTitle"></h2>
-            <div id="modalDetail"></div>
+        <div class="card">
+            <img src="https://www.tradingview.com" alt="Engulfing">
+            <h3 id="p2-title">Bullish Engulfing</h3>
+            <p id="p2-desc">जब एक बड़ी हरी कैंडल पिछली लाल कैंडल को ढक ले, तो यह मजबूत तेजी का संकेत है।</p>
         </div>
     </div>
 
-    <script>
-        // Automatic Slider Data
-        const patterns = [
-            { en: "Bullish Breakout", hi: "बुलिश ब्रेकआउट", data: [['g',100],['g',140],['g',180],['g',230],['g',280]] },
-            { en: "Bearish Reversal", hi: "बेयरिश रिवर्सल", data: [['g',200],['g',170],['r',140],['r',200],['r',240]] },
-            { en: "Panic Selling", hi: "पैनिक सेलिंग", data: [['r',120],['r',190],['r',250],['r',290],['r',330]] },
-            { en: "Consolidation", hi: "साइडवेज मार्केट", data: [['g',140],['r',145],['g',135],['r',142],['g',140]] }
-        ];
+    <!-- इंडिकेटर्स -->
+    <h2 class="section-title" id="sec-indicators">महत्वपूर्ण इंडिकेटर्स (Indicators)</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>RSI Index</h3>
+            <p id="i1-desc">यह बताता है कि मार्केट कब बहुत ज्यादा खरीदा (Overbought) या बेचा (Oversold) गया है।</p>
+        </div>
+        <div class="card">
+            <h3>Moving Averages</h3>
+            <p id="i2-desc">मार्केट के लंबे समय के ट्रेंड (Up/Down) को पहचानने का सबसे आसान तरीका।</p>
+        </div>
+    </div>
 
-        let currentIndex = 0;
-        function updateSlider() {
-            const row = document.getElementById("candlesRow");
-            const title = document.getElementById("moveTitle");
-            const lang = localStorage.getItem("preferredLang") || "EN";
-            const current = patterns[currentIndex];
-            row.style.opacity = "0";
-            setTimeout(() => {
-                row.innerHTML = '';
-                current.data.forEach(c => {
-                    row.innerHTML += `<div class="candle ${c[0] === 'g' ? 'green' : 'red'}" style="height: ${c[1]}px"></div>`;
-                });
-                title.innerText = (lang === "HI") ? current.hi : current.en;
-                row.style.opacity = "1";
-            }, 500);
-            currentIndex = (currentIndex + 1) % patterns.length;
+    <!-- बुक लाइब्रेरी -->
+    <h2 class="section-title" id="sec-books">फ्री बुक लाइब्रेरी (Digital Books)</h2>
+    <div class="book-list">
+        <a id="b1" href="https://archive.org" target="_blank">1. शेयर बाज़ार की बुनियादी बातें (Basics)</a>
+        <a id="b2" href="https://archive.org" target="_blank">2. टेक्निकल एनालिसिस मास्टरक्लास</a>
+        <a id="b3" href="https://archive.org" target="_blank">3. ट्रेडिंग इन द ज़ोन - साइकोलॉजी</a>
+        <a id="b4" href="https://archive.org" target="_blank">4. चार्ट पैटर्न और तकनीकें</a>
+    </div>
+
+    <!-- मंजीत की सलाह -->
+    <h2 class="section-title" id="sec-advice">मेरी सलाह (Manjeet's Advice)</h2>
+    <div class="advice-box">
+        <blockquote id="advice-text">
+            "ट्रेडिंग कोई लॉटरी नहीं, बल्कि अनुशासन का खेल है। चार्ट को पढ़ने से पहले अपने दिमाग को पढ़ना सीखें। स्टॉपलॉस का हमेशा सम्मान करें।"
+        </blockquote>
+        <cite>- मंजीत (Full Stack Developer & Trader)</cite>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script type="text/javascript" src="https://s3.tradingview.com"></script>
+<script>
+    const tDict = {
+        HI: {
+            title: "ट्रेडिंग में महारत", sub: "वित्तीय बाजारों को समझें और सही निर्णय लें।",
+            btn: "लाइव मार्केट चार्ट देखें", back: "← होम पर वापस जाएँ",
+            sec1: "कैंडलस्टिक पैटर्न", p1T: "Hammer (हथौड़ा)", p1D: "यह सपोर्ट लेवल पर बनता है और तेजी (Bullish) का संकेत देता है।",
+            p2T: "Bullish Engulfing", p2D: "यह मजबूत तेजी आने का संकेत देता है।",
+            sec2: "महत्वपूर्ण इंडिकेटर्स", i1D: "ओवरबॉट और ओवरसोल्ड जोन की पहचान के लिए।",
+            i2D: "मार्केट के लंबे समय के ट्रेंड को पहचानने का तरीका।",
+            sec3: "फ्री बुक लाइब्रेरी (Digital Books)", b1: "1. शेयर बाज़ार की बुनियादी बातें (Basics)", b2: "2. टेक्निकल एनालिसिस मास्टरक्लास", b3: "3. ट्रेडिंग इन द ज़ोन - साइकोलॉजी", b4: "4. चार्ट पैटर्न और तकनीकें",
+            sec4: "मेरी सलाह (Manjeet's Advice)", adv: '"ट्रेडिंग कोई लॉटरी नहीं, बल्कि अनुशासन का खेल है। चार्ट को पढ़ने से पहले अपने दिमाग को पढ़ना सीखें। स्टॉपलॉस का हमेशा सम्मान करें।"'
+        },
+        EN: {
+            title: "Trading Mastery", sub: "Understand financial markets and trade with confidence.",
+            btn: "View Live Market Chart", back: "← Back to Home",
+            sec1: "Candlestick Patterns", p1T: "Hammer Pattern", p1D: "Forms at support levels and indicates a potential bullish reversal.",
+            p2T: "Bullish Engulfing", p2D: "Indicates a strong upcoming upward momentum.",
+            sec2: "Key Indicators", i1D: "Used to identify overbought and oversold conditions.",
+            i2D: "The easiest way to identify long-term market trends.",
+            sec3: "Free Digital Library", b1: "1. Stock Market Basics (Read Free)", b2: "2. Technical Analysis Masterclass", b3: "3. Trading in the Zone (Psychology)", b4: "4. Candlestick Techniques",
+            sec4: "My Advice", adv: '"Trading is not a lottery, but a game of discipline. Learn to read your mind before reading the charts. Always respect your stoploss."'
         }
-        setInterval(updateSlider, 3500);
+    };
 
-        // DETAILED STORIES DATA
-        const tradingData = {
-            HI: {
-                title: "ट्रेडिंग डेस्क", sub: "एडवांस्ड प्राइस एक्शन ट्रेडिंग",
-                l1: "पसंदीदा मार्केट", v1: "क्रिप्टो और निफ्टी 50",
-                l2: "ट्रेडिंग स्टाइल", v2: "प्राइस एक्शन",
-                l3: "मुख्य फोकस", v3: "रिस्क मैनेजमेंट",
-                infoBtn: "ट्रेडिंग क्या है? 📊", back: "← वापस होम पेज पर",
-                details: {
-                    market: { 
-                        t: "पसंदीदा मार्केट: Crypto & Nifty 50 ₿", 
-                        d: "मार्केट का चुनाव ही एक ट्रेडर की पहली जीत होती है। मैं मुख्य रूप से **Crypto** और **Nifty 50** में अपनी रणनीतियां आजमाता हूँ। \n\n1. **क्रिप्टोकरेंसी:** यह दुनिया का सबसे तेज और 24/7 चलने वाला मार्केट है। इसकी हाई वोलेटिलिटी मुझे बड़े मूव्स पकड़ने का मौका देती है। बिटकॉइन और इथेरियम जैसे कॉइन्स न सिर्फ एसेट्स हैं, बल्कि ये ग्लोबल इकोनॉमी का भविष्य भी हैं। \n\n2. **निफ्टी 50:** यह भारत की टॉप 50 कंपनियों का आईना है। यहाँ स्थिरता के साथ-साथ टेक्निकल पैटर्न्स की बहुत इज़्ज़त होती है। इन दोनों मार्केट्स का कॉम्बिनेशन मुझे एक मज़बूत और बैलेंस पोर्टफोलियो बनाने में मदद करता है।" 
-                    },
-                    style: { 
-                        t: "ट्रेडिंग स्टाइल: शुद्ध प्राइस एक्शन 📈", 
-                        d: "हज़ारों इंडिकेटर्स के बीच मेरा एक ही उसूल है—'भाव भगवान है'। मैं किसी भी लैगिंग इंडिकेटर का इस्तेमाल नहीं करता। मेरा पूरा स्टाइल चार्ट पर बन रही कैंडल्स, सपोर्ट-रेसिस्टेंस ज़ोन और सप्लाई-डिमांड के खेल को समझने पर आधारित है। \n\nबाज़ार की नब्ज़ को पहचानने के लिए आपको सिर्फ साफ़ चार्ट चाहिए। जब आप बड़े प्लेयर्स (Institutions) के फुटप्रिंट्स को चार्ट पर पढ़ना सीख जाते हैं, तो आपको किसी की टिप या न्यूज़ की ज़रूरत नहीं पड़ती। यह स्टाइल न सिर्फ साफ़-सुथरा है बल्कि बाजार की असली सच्चाई भी बताता है।" 
-                    },
-                    focus: { 
-                        t: "रिस्क मैनेजमेंट: पैसे बचाने की कला 🛡️", 
-                        d: "ट्रेडिंग में पैसा कमाना आसान है, पर उसे बचाए रखना असली चुनौती है। मेरा सबसे बड़ा फोकस हमेशा **रिस्क मैनेजमेंट** पर रहता है। \n\nमैं '1% नियम' का सख्ती से पालन करता हूँ, यानी मैं कभी भी अपनी कुल कैपिटल का 1% से ज्यादा रिस्क एक ट्रेड में नहीं लेता। स्टॉप-लॉस (Stop-Loss) मेरा सबसे वफादार दोस्त है। बाज़ार में लंबे समय तक टिकने का एक ही रास्ता है—जब आप गलत हों तो छोटा नुकसान लें, और जब आप सही हों तो बड़े मुनाफे का इंतज़ार करें। रिस्क मैनेजमेंट ही वो ढाल है जो एक जुआरी और एक प्रोफेशनल ट्रेडर के बीच का फर्क बताती है।" 
-                    },
-                    whatIsTrading: { 
-                        t: "ट्रेडिंग का संपूर्ण ज्ञान: जीरो से मास्टरी तक ✨", 
-                        d: "ट्रेडिंग कोई रातों-रात अमीर बनने की स्कीम नहीं है, यह दुनिया का सबसे अनुशासित **बिजनेस** है। आइए इसे गहराई से समझते हैं: \n\n**1. ट्रेडिंग असल में क्या है?** \nकिसी भी एसेट (स्टॉक, क्रिप्टो, गोल्ड) को कम दाम पर खरीदना और बढ़े हुए दाम पर बेचना ही ट्रेडिंग है। लेकिन यह सिर्फ खरीदने-बेचने तक सीमित नहीं है, यह संभावनाओं (Probability) का खेल है। यहाँ हम चार्ट्स और डेटा के आधार पर ये अंदाज़ा लगाते हैं कि बाज़ार का अगला कदम क्या होगा। \n\n**2. चार्ट्स और कैंडल्स की भाषा:** \nचार्ट्स पर दिखने वाली लाल और हरी कैंडल्स खरीदारों (Bulls) और विक्रेताओं (Bears) के बीच चल रहे युद्ध की कहानी बताती हैं। हरा रंग उम्मीद और खरीदारी को दिखाता है, जबकि लाल रंग डर और बिकवाली को। इन पैटर्न्स को पढ़ना एक नयी भाषा सीखने जैसा है। \n\n**3. माइंडसेट (Psychology):** \nट्रेडिंग 20% तकनीक है और 80% माइंडसेट। लालच और डर एक ट्रेडर के सबसे बड़े दुश्मन हैं। एक सफल ट्रेडर भावनाओं से नहीं, अपने नियमों से चलता है। \n\n**4. मंजीत का संदेश:** \nअगर आप इसे एक जुए की तरह लेंगे, तो बाज़ार आपको मिनटों में बाहर कर देगा। लेकिन अगर आप इसे एक कला की तरह सीखेंगे, अनुशासन बनाए रखेंगे और हमेशा अपनी रिस्क सीमा के अंदर खेलेंगे, तो बाज़ार आपको वो आज़ादी दे सकता है जो कोई और प्रोफेशन नहीं दे सकता। यह खुद को पहचानने और अपने डर पर काबू पाने का एक खूबसूरत सफर है।" 
-                    }
-                }
-            },
-            EN: {
-                title: "THE TRADE DESK", sub: "Advanced Price Action Trading",
-                l1: "Active Assets", v1: "Crypto & Nifty 50",
-                l2: "Methodology", v2: "Price Action",
-                l3: "Priority", v3: "Risk Management",
-                infoBtn: "Explore Trading Mastery 📊", back: "Back to Home",
-                details: {
-                    market: { 
-                        t: "Active Assets: Crypto & Nifty 50 ₿", 
-                        d: "Choosing the right market is the first victory for any trader. I primarily trade in **Crypto** and **Nifty 50**. \n\n1. **Cryptocurrency:** The fastest and 24/7 market. High volatility provides great opportunities to capture big moves. Bitcoin and Ethereum are not just assets; they are the future of the global economy. \n\n2. **Nifty 50:** It represents the top 50 companies in India. It is highly technical and respects price patterns beautifully. Combining both markets gives me a robust and balanced portfolio." 
-                    },
-                    style: { 
-                        t: "Methodology: Pure Price Action 📈", 
-                        d: "In a world full of complex indicators, I believe in one rule—'Price is everything'. I don't use any lagging indicators. My entire strategy is built on studying raw candlestick movements, support-resistance zones, and the supply-demand dynamics. \n\nTo understand the market's heartbeat, you need a clean chart. Once you learn to read the footprints of big institutional players, you don't need news or tips. This methodology is simple, noise-free, and reflects the true reality of the market." 
-                    },
-                    focus: { 
-                        t: "Priority: The Art of Risk Management 🛡️", 
-                        d: "In trading, making money is easy, but keeping it is the real challenge. My core focus is always on **Risk Management**. \n\nI strictly follow the '1% Rule', meaning I never risk more than 1% of my total capital on a single trade. Stop-loss is my most loyal companion. The only way to survive long-term in the market is to take small losses when wrong and hold for big profits when right. Discipline in risk is what differentiates a professional from a gambler." 
-                    },
-                    whatIsTrading: { 
-                        t: "Comprehensive Mastery Guide: Zero to Hero ✨", 
-                        d: "Trading is not a get-rich-quick scheme; it is the most disciplined **Business** in the world. \n\n**1. What is Trading?** \nIt is buying an asset at a low price and selling it at a high price. But beyond that, it is a game of probabilities. We use data and charts to forecast the market's next move. \n\n**2. The Language of Charts:** \nGreen and Red candles tell the story of the battle between Bulls (Buyers) and Bears (Sellers). Learning to read these patterns is like mastering a new language—the language of money. \n\n**3. Psychology:** \nTrading is 20% strategy and 80% mindset. Greed and Fear are your biggest enemies. A successful trader follows a plan, not their emotions. \n\n**4. Message from Manjeet:** \nIf you treat it like gambling, the market will throw you out. But if you learn it like a craft, stay disciplined, and always manage your risk, the market offers unmatched freedom. It is a spiritual journey of mastering your own mind." 
-                    }
-                }
-            }
-        };
+    function updateLanguage() {
+        let lang = (localStorage.getItem("preferredLang") || "HI").toUpperCase();
+        if(!tDict[lang]) lang = "HI";
+        
+        document.getElementById("t-main-title").innerText = tDict[lang].title;
+        document.getElementById("t-sub-title").innerText = tDict[lang].sub;
+        document.getElementById("btn-text").innerText = tDict[lang].btn;
+        document.getElementById("back-home").innerText = tDict[lang].back;
+        document.getElementById("sec-patterns").innerText = tDict[lang].sec1;
+        document.getElementById("p1-title").innerText = tDict[lang].p1T;
+        document.getElementById("p1-desc").innerText = tDict[lang].p1D;
+        document.getElementById("p2-title").innerText = tDict[lang].p2T;
+        document.getElementById("p2-desc").innerText = tDict[lang].p2D;
+        document.getElementById("sec-indicators").innerText = tDict[lang].sec2;
+        document.getElementById("i1-desc").innerText = tDict[lang].i1D;
+        document.getElementById("i2-desc").innerText = tDict[lang].i2D;
+        document.getElementById("sec-books").innerText = tDict[lang].sec3;
+        document.getElementById("b1").innerText = tDict[lang].b1;
+        document.getElementById("b2").innerText = tDict[lang].b2;
+        document.getElementById("b3").innerText = tDict[lang].b3;
+        document.getElementById("b4").innerText = tDict[lang].b4;
+        document.getElementById("sec-advice").innerText = tDict[lang].sec4;
+        document.getElementById("advice-text").innerText = tDict[lang].adv;
+    }
 
-        function applyLang() {
-            let lang = localStorage.getItem("preferredLang") || "EN";
-            let d = tradingData[lang];
-            document.getElementById("mainTitle").innerText = d.title;
-            document.getElementById("subTitle").innerText = d.sub;
-            document.getElementById("lbl1").innerText = d.l1; document.getElementById("val1").innerText = d.v1;
-            document.getElementById("lbl2").innerText = d.l2; document.getElementById("val2").innerText = d.v2;
-            document.getElementById("lbl3").innerText = d.l3; document.getElementById("val3").innerText = d.v3;
-            document.getElementById("infoBtn").innerText = d.infoBtn;
-            document.getElementById("backBtn").innerText = d.back;
-            updateSlider();
-        }
+    function showMarket() {
+        document.getElementById('market-section').style.display = 'block';
+        new TradingView.widget({
+            "width": "100%", "height": 550, "symbol": "NSE:NIFTY", "interval": "D",
+            "timezone": "Asia/Kolkata", "theme": "dark", "style": "1", "locale": "in",
+            "container_id": "tradingview_chart", "allow_symbol_change": true
+        });
+        window.scrollTo({top: 400, behavior: 'smooth'});
+    }
 
-        function openDetail(key) {
-            let lang = localStorage.getItem("preferredLang") || "EN";
-            let content = tradingData[lang].details[key];
-            document.getElementById("modalTitle").innerText = content.t;
-            document.getElementById("modalDetail").innerHTML = content.d.replace(/\n/g, '<br>');
-            document.getElementById("detailModal").style.display = "block";
-            document.body.style.overflow = "hidden";
-        }
+    // ऑटो अपडेट जब भाषा बदले
+    setInterval(updateLanguage, 1000);
+    window.onload = updateLanguage;
+</script>
 
-        function closeDetail() { document.getElementById("detailModal").style.display = "none"; document.body.style.overflow = "auto"; }
-
-        window.onload = applyLang;
-        window.onclick = (e) => { if(e.target.id == "detailModal") closeDetail(); }
-    </script>
 </body>
 </html>
