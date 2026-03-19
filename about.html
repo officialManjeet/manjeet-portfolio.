@@ -4,23 +4,12 @@
         <img src="images/bg.jpg" alt="Official Manjeet" style="width:100%; border-radius:25px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
     </div>
 
-    <!-- 2. आपका परिचय और बटन -->
+    <!-- 2. आपका परिचय (कोई बटन नहीं) -->
     <div class="detail-text" style="flex: 1.2; min-width: 350px;">
         <h2 id="aboutTitle" style="color: #00d2ff; font-size: 45px; margin-bottom: 20px; font-weight: 800;">About Me</h2>
         <p id="aboutPara" style="color: #ccc; font-size: 18px; line-height: 1.8; margin-bottom: 30px;">
-            नमस्ते! मैं मंजीत हूँ, गुड़गांव में रहने वाला एक पैशनेट **Full Stack Developer**। मेरा सफर एक छोटे से गाँव से शुरू हुआ और आज मैं बेहतरीन डिजिटल अनुभव बनाता हूँ।
+            Loading content...
         </p>
-
-        <!-- बटन का सही क्रम: Consult Me के नीचे Back to Home -->
-        <div style="display: flex; flex-direction: column; gap: 15px; width: fit-content;">
-            <a href="https://wa.me" class="btn-cta" style="display: inline-block; padding: 16px 40px; background: linear-gradient(135deg, #00d2ff, #0072ff); color: white; text-decoration: none; border-radius: 12px; font-weight: 800; text-align: center;">
-                CONSULT ME
-            </a>
-            
-            <button onclick="showHome()" class="btn-back" style="padding: 12px 25px; background: rgba(255,255,255,0.05); border: 1px solid #444; border-radius: 10px; color: white; cursor: pointer; font-weight: 700;">
-                ← Back to Home
-            </button>
-        </div>
     </div>
 </div>
 
@@ -32,7 +21,9 @@
 
     if (lang === "HI") {
         title.innerHTML = "मेरे बारे में";
-        para.innerHTML = "नमस्ते! मैं मंजीत हूँ, गुड़गांव में रहने वाला एक पैशनेट **Full Stack Developer**। मेरा लक्ष्य आपके लिए सबसे बेहतरीन वेबसाइट और डिजिटल समाधान तैयार करना है।";
+        para.innerHTML = "नमस्ते! मैं मंजीत हूँ, गुड़गांव में रहने वाला एक पैशनेट **Full Stack Developer**। मेरा सफर एक छोटे से गाँव से शुरू हुआ और आज मैं बेहतरीन डिजिटल अनुभव बनाता हूँ। मेरा लक्ष्य आपके लिए सबसे बेहतरीन वेबसाइट और डिजिटल समाधान तैयार करना है।";
+    } else {
+        title.innerHTML = "About Me";
+        para.innerHTML = "I am Manjeet, a passionate **Full Stack Developer** based in Gurgaon. My journey started in a small village, and my passion for coding drove me to become a Full Stack Developer. I love building premium digital experiences from scratch.";
     }
 </script>
-
