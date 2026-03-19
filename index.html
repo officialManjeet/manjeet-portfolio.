@@ -228,35 +228,29 @@ Official Manjeet - Verified Final GitHub Code
     </div>
 
     <!-- Detailed Section View -->
-   <!-- Detailed Section View -->
-<div id="detail-view" class="container" style="display:none; padding-top: 150px;">
-    <div class="detail-flex">
-        <!-- टेक्स्ट और बटन वाला हिस्सा -->
-        <div class="detail-text">
-            <h2 id="det-title">Service Title</h2>
-            <div id="det-box">
-                <p id="det-desc">Details loading...</p>
-            </div>
-
-            <!-- बटन एक के नीचे एक (Stacked) -->
-            <div style="display: flex; flex-direction: column; gap: 15px; width: fit-content; margin-top: 20px;">
-                <!-- 1. Consult Now (ऊपर) -->
+    <div id="detail-view" class="container">
+        <div class="detail-flex">
+            <div class="detail-text">
+                <h2 id="det-title">Service Title</h2>
+                <div id="det-box">
+                    <p id="det-desc">Details loading...</p>
+                </div>
+                
+                <!-- Action Button -->
                 <a href="https://wa.me" target="_blank" class="btn-cta" id="cta-txt">Consult Now</a>
                 
-                <!-- 2. Back to Home (नीचे) -->
-                <div class="btn-back" onclick="showHome()" style="cursor: pointer;">
+                <br>
+
+                <!-- Back Button BELOW Consult Now as requested -->
+                <div class="btn-back" onclick="showHome()">
                     <i class="fas fa-arrow-left"></i> <span id="back-txt">Back to Home</span>
                 </div>
             </div>
-        </div>
-
-        <!-- इमेज वाला हिस्सा (bg.jpg) -->
-        <div class="detail-img">
-            <img id="det-img" src="images/bg.jpg" alt="Detail View" style="width:100%; border-radius:20px; object-fit: cover; border: 1px solid rgba(255,255,255,0.1);">
+            <div class="detail-img">
+                <img id="det-img" src="" alt="Detail View">
+            </div>
         </div>
     </div>
-</div>
-
 
     <!-- Footer with Social Links -->
     <footer>
@@ -334,17 +328,7 @@ Official Manjeet - Verified Final GitHub Code
                 shopT: "ऑफिशियल शॉप", shopD: "उद्यमियों के लिए विशेष टूल्स और प्रीमियम संसाधनों का संग्रह।",
                 tradingT: "ट्रेडिंग में महारत", 
                 tradingD: "वित्तीय बाजारों में आत्मविश्वास के साथ कदम रखें। हम आपको चार्ट विश्लेषण और रिस्क मैनेजमेंट की बारीकियां सिखाते हैं।",
-const dict = {
-    hi: {
-        aboutT: "मेरे बारे में",
-        aboutD: "नमस्ते! मैं मंजीत हूँ और आज मैं एक <b>Full Stack Developer</b> हूँ। मेरी स्कूली पढ़ाई मेरे गाँव से हुई, जिसके बाद साल 2019 में मैं दिल्ली आ गया। यहाँ से मैंने साल 2022 में <b>JB Knowledge Park, Faridabad</b> से अपना ग्रेजुएशन (BCA) पूरा किया। फिलहाल, मैं एक कंपनी में फुल स्टैक डेवलपर के तौर पर काम कर रहा हूँ।<br><br>आज की इस तेज़ी से बदलती दुनिया को देखते हुए मुझे एहसास हुआ कि अगर हम तकनीक के साथ नहीं चले, तो हम बहुत पीछे रह जाएंगे। इसीलिए मैंने फैसला किया कि मैं इस नई डिजिटल दुनिया के साथ कदम से कदम मिलाकर चलूँगा और मैं भी इस नई दुनिया का एक हिस्सा बनूँगा। यहाँ आपको डिजिटल दुनिया से जुड़ी हर तरह की एजुकेशन सपोर्ट और बिज़नेस से जुड़ी ज़रूरी जानकारियाँ मिलेंगी। तो आइए, मेरे साथ हाथ मिलाइए और इस नई दुनिया का हिस्सा बनिए ताकि हम सब मिलकर खुद को <b>आगे बढ़ा (Grow)</b> सकें। 😊"
-    },
-    en: {
-        aboutT: "About Me",
-        aboutD: "Hi! I am Manjeet, a <b>Full Stack Developer</b>. I completed my schooling in my village and moved to Delhi in 2019. I graduated with a BCA in 2022 from <b>JB Knowledge Park, Faridabad</b>. Currently, I am working as a Full Stack Developer in a company.<br><br>Seeing how rapidly the world is evolving, I realized that we must keep up with technology. That's why I decided to grow with this digital world. Here, you'll find digital education support and business insights. Join me in this journey so we can all <b>Grow</b> together. 😊"
-    }
-};
-
+                aboutT: "मेरे बारे में", aboutD: "about.html से जानकारी लोड हो रही है..."
             }
         };
 
