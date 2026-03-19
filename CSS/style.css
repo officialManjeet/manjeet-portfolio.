@@ -9,7 +9,7 @@
 }
 
 body {
-    background-color: #0b0b0d; /* गहरा काला बैकग्राउंड */
+    background-color: #0b0b0d; 
     color: #ffffff;
     overflow-x: hidden;
 }
@@ -31,18 +31,13 @@ nav {
     align-items: center;
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: 800;
-}
-
-.logo span {
-    color: #00d2ff; /* इलेक्ट्रिक ब्लू */
-}
+/* Logo Section - Fixed */
 .logo {
     display: flex;
     align-items: center;
     text-decoration: none;
+    font-size: 24px;
+    font-weight: 800;
 }
 
 .logo-img { 
@@ -52,20 +47,20 @@ nav {
     margin-right: 12px; 
     border: 2px solid #00d2ff; 
     object-fit: cover; 
-    /* अगर चेहरा छिप रहा है, तो 'center' को 'top' या 'left' करके देखें */
-    object-position: left 9%; 
+    object-position: left 9%; /* आपका चेहरा दिखाने के लिए */
     display: block;
+    background: #1a1a1d;
 }
 
+.logo .white { color: #ffffff; }
+.logo .blue { color: #00d2ff; }
 
 nav ul {
     display: flex;
     list-style: none;
 }
 
-nav ul li {
-    margin-left: 30px;
-}
+nav ul li { margin-left: 30px; }
 
 nav ul li a {
     text-decoration: none;
@@ -74,8 +69,19 @@ nav ul li a {
     transition: 0.3s;
 }
 
-nav ul li a:hover {
-    color: #00d2ff;
+nav ul li a:hover { color: #00d2ff; }
+
+/* About Section Image Control - NEW FIXED CODE */
+#detail-view img, .detail-img img {
+    max-width: 100%;
+    max-height: 400px; /* इससे ज्यादा बड़ी नहीं होगी */
+    width: auto;
+    height: auto;
+    object-fit: contain; /* फोटो कटेगी नहीं */
+    border-radius: 20px;
+    display: block;
+    margin: 0 auto 20px;
+    border: 1px solid rgba(255,255,255,0.1);
 }
 
 /* Hero Section */
@@ -88,28 +94,16 @@ nav ul li a:hover {
     margin-top: 50px;
 }
 
-.hero-text h1 {
-    font-size: 55px;
-    font-weight: 800;
-    line-height: 1.2;
-}
-
+.hero-text h1 { font-size: 55px; font-weight: 800; line-height: 1.2; }
 .hero-text span {
     background: linear-gradient(90deg, #00d2ff, #9d50bb);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.hero-text p {
-    margin: 20px 0;
-    color: #aaa;
-    max-width: 500px;
-}
+.hero-text p { margin: 20px 0; color: #aaa; max-width: 500px; }
 
-.hero-btns {
-    display: flex;
-    gap: 15px;
-}
+.hero-btns { display: flex; gap: 15px; }
 
 .btn-primary {
     padding: 12px 30px;
@@ -133,129 +127,13 @@ nav ul li a:hover {
     transition: 0.3s;
 }
 
-.btn-primary:hover {
-    box-shadow: 0px 0px 20px rgba(0, 210, 255, 0.5);
-}
-
-.hero-image img {
-    width: 450px;
-    border-radius: 20px;
-}
+.hero-image img { width: 450px; border-radius: 20px; }
 
 /* Services Section */
-.services {
-    padding: 100px 8%;
-    text-align: center;
-}
+.services { padding: 100px 8%; text-align: center; }
+.services h2 { font-size: 35px; margin-bottom: 50px; }
+.services h2 span { color: #9d50bb; }
 
-.services h2 {
-    font-size: 35px;
-    margin-bottom: 50px;
-}
-
-.services h2 span {
-    color: #9d50bb;
-}
-
-.service-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.service-box {
-    background: #1a1a1d;
-    padding: 40px;
-    border-radius: 15px;
-    transition: 0.3s;
-    border: 1px solid #333;
-}
-
-.service-box:hover {
-    transform: translateY(-10px);
-    border-color: #00d2ff;
-    box-shadow: 0px 10px 30px rgba(0, 210, 255, 0.1);
-}
-
-.service-box i {
-    font-size: 40px;
-    color: #00d2ff;
-    margin-bottom: 20px;
-}
-
-/* Contact Section */
-.contact-section {
-    padding: 100px 8%;
-    background: #0e0e11;
-}
-
-.contact-container {
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.contact-container h2 span {
-    color: #00d2ff;
-}
-
-form {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-input, textarea {
-    padding: 15px;
-    background: #1a1a1d;
-    border: 1px solid #333;
-    color: white;
-    border-radius: 8px;
-    outline: none;
-}
-
-input:focus, textarea:focus {
-    border-color: #00d2ff;
-}
-
-textarea {
-    height: 120px;
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        padding-top: 150px;
-    }
-    .hero-image img {
-        width: 300px;
-        margin-top: 50px;
-    }
-    .hero-text h1 {
-        font-size: 35px;
-    }
-    nav ul {
-        display: none; /* मोबाइल के लिए बाद में मेनू बनाएंगे */
-    }
-}
-/* सर्विस लिंक का स्टाइल सही करने के लिए */
-.service-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-}
-
-.read-more {
-    display: inline-block;
-    margin-top: 15px;
-    color: #00d2ff;
-    font-weight: 600;
-    font-size: 14px;
-}
-/* सर्विस सेक्शन का मेन स्टाइल */
 .service-container {
     display: flex;
     justify-content: center;
@@ -264,77 +142,37 @@ textarea {
     margin-top: 40px;
 }
 
-.service-card {
-    width: 220px;
-    text-align: center;
-    transition: 0.3s;
-}
+.service-card { width: 220px; text-align: center; transition: 0.3s; }
 
-/* आइकन्स को छोटा और राउंड रखने के लिए (जैसा इमेज में है) */
 .icon-box {
-    width: 50px;
-    height: 50px;
-    margin: 0 auto 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
-    font-size: 20px;
+    width: 50px; height: 50px; margin: 0 auto 15px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 12px; font-size: 20px;
 }
 
-/* इमेज के हिसाब से आइकन्स के अलग-अलग रंग */
 .icon-blue { background: rgba(0, 210, 255, 0.1); color: #00d2ff; box-shadow: 0 0 15px rgba(0, 210, 255, 0.3); }
 .icon-red { background: rgba(255, 71, 87, 0.1); color: #ff4757; box-shadow: 0 0 15px rgba(255, 71, 87, 0.3); }
 .icon-purple { background: rgba(157, 80, 187, 0.1); color: #9d50bb; box-shadow: 0 0 15px rgba(157, 80, 187, 0.3); }
 .icon-cyan { background: rgba(0, 255, 255, 0.1); color: #00ffff; box-shadow: 0 0 15px rgba(0, 255, 255, 0.3); }
 
-.service-card h3 {
-    font-size: 17px;
-    margin-bottom: 8px;
-    font-weight: 600;
+/* Contact Section */
+.contact-section { padding: 100px 8%; background: #0e0e11; }
+.contact-container { max-width: 600px; margin: 0 auto; text-align: center; }
+
+form { margin-top: 30px; display: flex; flex-direction: column; gap: 15px; }
+
+input, textarea {
+    padding: 15px; background: #1a1a1d; border: 1px solid #333;
+    color: white; border-radius: 8px; outline: none;
 }
 
-.service-card p {
-    font-size: 13px;
-    color: #aaa;
-    line-height: 1.4;
-}
+input:focus, textarea:focus { border-color: #00d2ff; }
+textarea { height: 120px; }
 
-/* View Portfolio बटन का ग्रेडिएंट लुक */
-.view-portfolio-btn {
-    display: inline-block;
-    padding: 12px 35px;
-    background: linear-gradient(90deg, #3a7bd5, #00d2ff);
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 600;
-    box-shadow: 0 5px 20px rgba(0, 210, 255, 0.4);
-    transition: 0.3s;
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .hero { flex-direction: column; text-align: center; padding-top: 150px; }
+    .hero-image img { width: 300px; margin-top: 50px; }
+    .hero-text h1 { font-size: 35px; }
+    nav ul { display: none; }
 }
-
-.view-portfolio-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 210, 255, 0.6);
-}
-/* Logo Styling - Perfect Fit */
-.logo {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-}
-
-.logo-img { 
-    width: 50px !important;       /* चौड़ाई */
-    height: 50px !important;      /* लंबाई */
-    border-radius: 50%;           /* एकदम गोल करने के लिए */
-    margin-right: 12px; 
-    border: 2px solid #00d2ff;    /* नीला बॉर्डर */
-    object-fit: cover;            /* इससे चेहरा कटेगा नहीं, फिट हो जाएगा */
-    object-position: center;      /* सेंटर में रखने के लिए */
-    background: #1a1a1d;
-    display: block;
-}
-
-.logo .white { color: #ffffff; }
-.logo .blue { color: #00d2ff; }
