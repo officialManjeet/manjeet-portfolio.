@@ -4,44 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trading Mastery | Manjeet</title>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com" rel="stylesheet">
     <style>
         body { background-color: #0a0e17; color: white; font-family: 'Poppins', sans-serif; margin: 0; padding: 0; line-height: 1.6; }
         .container { max-width: 1100px; margin: auto; padding: 40px 20px; text-align: center; }
-        
-        /* Buttons */
         .btn-live { background: linear-gradient(90deg, #00d2ff, #3a7bd5); color: white; padding: 15px 35px; border: none; border-radius: 50px; font-size: 18px; cursor: pointer; font-weight: bold; box-shadow: 0 10px 20px rgba(0,210,255,0.2); transition: 0.3s; }
-        .btn-live:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(0,210,255,0.4); }
-        
-        /* Sections */
-        .section-title { color: #00d2ff; font-size: 32px; margin-top: 60px; font-weight: 800; position: relative; display: inline-block; padding-bottom: 10px; }
-        .section-title::after { content: ''; position: absolute; bottom: 0; left: 25%; width: 50%; height: 3px; background: #00d2ff; border-radius: 2px; }
-        
+        .section-title { color: #00d2ff; font-size: 32px; margin-top: 60px; font-weight: 800; border-bottom: 3px solid #00d2ff; display: inline-block; padding-bottom: 10px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; text-align: left; }
-        .card { background: #161b22; padding: 25px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; }
-        .card:hover { border-color: #00d2ff; transform: translateY(-5px); }
-        .card img { width: 100%; border-radius: 12px; margin-bottom: 15px; height: 180px; object-fit: cover; border: 1px solid #333; }
-        
-        /* Chart */
-        #market-section { display: none; margin-top: 30px; border-radius: 20px; overflow: hidden; height: 550px; border: 1px solid #333; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
-        
-        /* Book List */
-        .book-list { background: #161b22; padding: 30px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); margin-top: 30px; }
-        .book-list a { color: #fff; text-decoration: none; font-size: 18px; display: block; padding: 15px; border-radius: 10px; transition: 0.2s; border-bottom: 1px solid #222; }
-        .book-list a:hover { background: rgba(0,210,255,0.1); color: #00d2ff; padding-left: 25px; }
-
-        /* Advice Box */
-        .advice-box { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); padding: 40px; border-radius: 25px; border-left: 6px solid #00d2ff; margin-top: 50px; position: relative; }
-        .advice-box blockquote { font-size: 1.2rem; font-style: italic; color: #eee; margin: 0; }
-        .advice-box cite { display: block; margin-top: 15px; color: #00d2ff; font-weight: 600; font-style: normal; }
+        .card { background: #161b22; padding: 25px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); }
+        .card img { width: 100%; border-radius: 12px; margin-bottom: 15px; height: 200px; object-fit: contain; background: #fff; padding: 5px; }
+        #market-section { display: none; margin-top: 30px; border-radius: 20px; overflow: hidden; height: 550px; border: 1px solid #333; }
+        .book-list { background: #161b22; padding: 30px; border-radius: 20px; margin-top: 30px; }
+        .book-list a { color: #fff; text-decoration: none; font-size: 18px; display: block; padding: 15px; border-bottom: 1px solid #222; }
+        .advice-box { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); padding: 40px; border-radius: 25px; border-left: 6px solid #00d2ff; margin-top: 50px; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <h1 id="t-main-title">ट्रेडिंग में महारत</h1>
-    <p id="t-sub-title" style="color: #8892b0; font-size: 1.2rem;">वित्तीय बाजारों को समझें और सही निर्णय लें।</p>
+    <p id="t-sub-title">वित्तीय बाजारों को समझें और सही निर्णय लें।</p>
     
     <div style="margin: 40px 0;">
         <button onclick="showMarket()" class="btn-live" id="btn-text">लाइव मार्केट चार्ट देखें</button>
@@ -49,71 +31,60 @@
         <a href="index.html" style="color: #666; text-decoration: none;" id="back-home">← होम पर वापस जाएँ</a>
     </div>
 
-    <!-- लाइव चार्ट -->
     <div id="market-section">
         <div id="tradingview_chart" style="height: 100%;"></div>
     </div>
 
-    <!-- कैंडलस्टिक पैटर्न -->
-    <h2 class="section-title" id="sec-patterns">कैंडलस्टिक पैटर्न (Candlestick Patterns)</h2>
+    <!-- कैंडलस्टिक पैटर्न - अब वर्किंग इमेज के साथ -->
+    <h2 class="section-title" id="sec-patterns">कैंडलस्टिक पैटर्न</h2>
     <div class="grid">
         <div class="card">
-            <img src="https://www.tradingview.com" alt="Hammer"> <!-- आप अपनी इमेज यहाँ डाल सकते हैं -->
+            <!-- प्रो टिप इमेज 1: Hammer -->
+            <img src="https://www.warriortrading.com" alt="Hammer Pattern">
             <h3 id="p1-title">Hammer (हथौड़ा)</h3>
             <p id="p1-desc">यह सपोर्ट लेवल पर बनता है और तेजी (Bullish) का संकेत देता है।</p>
         </div>
         <div class="card">
-            <img src="https://www.tradingview.com" alt="Engulfing">
+            <!-- प्रो टिप इमेज 2: Engulfing -->
+            <img src="https://www.warriortrading.com" alt="Engulfing Pattern">
             <h3 id="p2-title">Bullish Engulfing</h3>
             <p id="p2-desc">जब एक बड़ी हरी कैंडल पिछली लाल कैंडल को ढक ले, तो यह मजबूत तेजी का संकेत है।</p>
         </div>
     </div>
 
-    <!-- इंडिकेटर्स -->
-    <h2 class="section-title" id="sec-indicators">महत्वपूर्ण इंडिकेटर्स (Indicators)</h2>
+    <h2 class="section-title" id="sec-indicators">महत्वपूर्ण इंडिकेटर्स</h2>
     <div class="grid">
-        <div class="card">
-            <h3>RSI Index</h3>
-            <p id="i1-desc">यह बताता है कि मार्केट कब बहुत ज्यादा खरीदा (Overbought) या बेचा (Oversold) गया है।</p>
-        </div>
-        <div class="card">
-            <h3>Moving Averages</h3>
-            <p id="i2-desc">मार्केट के लंबे समय के ट्रेंड (Up/Down) को पहचानने का सबसे आसान तरीका।</p>
-        </div>
+        <div class="card"><h3>RSI Index</h3><p id="i1-desc">मार्केट के ओवरबॉट/ओवरसोल्ड जोन के लिए।</p></div>
+        <div class="card"><h3>Moving Averages</h3><p id="i2-desc">ट्रेंड पहचानने का सबसे आसान तरीका।</p></div>
     </div>
 
-    <!-- बुक लाइब्रेरी -->
-    <h2 class="section-title" id="sec-books">फ्री बुक लाइब्रेरी (Digital Books)</h2>
+    <h2 class="section-title" id="sec-books">फ्री बुक लाइब्रेरी</h2>
     <div class="book-list">
-        <a id="b1" href="https://archive.org" target="_blank">1. शेयर बाज़ार की बुनियादी बातें (Basics)</a>
+        <a id="b1" href="https://archive.org" target="_blank">1. शेयर बाज़ार की बुनियादी बातें</a>
         <a id="b2" href="https://archive.org" target="_blank">2. टेक्निकल एनालिसिस मास्टरक्लास</a>
         <a id="b3" href="https://archive.org" target="_blank">3. ट्रेडिंग इन द ज़ोन - साइकोलॉजी</a>
         <a id="b4" href="https://archive.org" target="_blank">4. चार्ट पैटर्न और तकनीकें</a>
     </div>
 
-    <!-- मंजीत की सलाह -->
-    <h2 class="section-title" id="sec-advice">मेरी सलाह (Manjeet's Advice)</h2>
+    <h2 class="section-title" id="sec-advice">मेरी सलाह</h2>
     <div class="advice-box">
-        <blockquote id="advice-text">
-            "ट्रेडिंग कोई लॉटरी नहीं, बल्कि अनुशासन का खेल है। चार्ट को पढ़ने से पहले अपने दिमाग को पढ़ना सीखें। स्टॉपलॉस का हमेशा सम्मान करें।"
-        </blockquote>
-        <cite>- मंजीत (Full Stack Developer & Trader)</cite>
+        <blockquote id="advice-text">"ट्रेडिंग अनुशासन का खेल है। चार्ट से पहले अपने मन को पढ़ें।"</blockquote>
+        <cite style="color: #00d2ff;">- मंजीत</cite>
     </div>
 </div>
 
-<!-- Scripts -->
 <script type="text/javascript" src="https://s3.tradingview.com"></script>
 <script>
     const tDict = {
         HI: {
             title: "ट्रेडिंग में महारत", sub: "वित्तीय बाजारों को समझें और सही निर्णय लें।",
             btn: "लाइव मार्केट चार्ट देखें", back: "← होम पर वापस जाएँ",
-            sec1: "कैंडलस्टिक पैटर्न", p1T: "Hammer (हथौड़ा)", p1D: "यह सपोर्ट लेवल पर बनता है और तेजी (Bullish) का संकेत देता है।",
+            sec1: "कैंडलस्टिक पैटर्न", p1T: "Hammer (हथौड़ा)", p1D: "यह सपोर्ट लेवल पर बनता है और तेजी का संकेत देता है।",
             p2T: "Bullish Engulfing", p2D: "यह मजबूत तेजी आने का संकेत देता है।",
             sec2: "महत्वपूर्ण इंडिकेटर्स", i1D: "ओवरबॉट और ओवरसोल्ड जोन की पहचान के लिए।",
             i2D: "मार्केट के लंबे समय के ट्रेंड को पहचानने का तरीका।",
-            sec3: "फ्री बुक लाइब्रेरी (Digital Books)", b1: "1. शेयर बाज़ार की बुनियादी बातें (Basics)", b2: "2. टेक्निकल एनालिसिस मास्टरक्लास", b3: "3. ट्रेडिंग इन द ज़ोन - साइकोलॉजी", b4: "4. चार्ट पैटर्न और तकनीकें",
-            sec4: "मेरी सलाह (Manjeet's Advice)", adv: '"ट्रेडिंग कोई लॉटरी नहीं, बल्कि अनुशासन का खेल है। चार्ट को पढ़ने से पहले अपने दिमाग को पढ़ना सीखें। स्टॉपलॉस का हमेशा सम्मान करें।"'
+            sec3: "फ्री बुक लाइब्रेरी", b1: "1. शेयर बाज़ार की बुनियादी बातें", b2: "2. टेक्निकल एनालिसिस मास्टरक्लास", b3: "3. ट्रेडिंग इन द ज़ोन - साइकोलॉजी", b4: "4. चार्ट पैटर्न और तकनीकें",
+            sec4: "मेरी सलाह", adv: '"ट्रेडिंग कोई लॉटरी नहीं, बल्कि अनुशासन का खेल है। चार्ट को पढ़ने से पहले अपने दिमाग को पढ़ना सीखें।"'
         },
         EN: {
             title: "Trading Mastery", sub: "Understand financial markets and trade with confidence.",
@@ -122,15 +93,14 @@
             p2T: "Bullish Engulfing", p2D: "Indicates a strong upcoming upward momentum.",
             sec2: "Key Indicators", i1D: "Used to identify overbought and oversold conditions.",
             i2D: "The easiest way to identify long-term market trends.",
-            sec3: "Free Digital Library", b1: "1. Stock Market Basics (Read Free)", b2: "2. Technical Analysis Masterclass", b3: "3. Trading in the Zone (Psychology)", b4: "4. Candlestick Techniques",
-            sec4: "My Advice", adv: '"Trading is not a lottery, but a game of discipline. Learn to read your mind before reading the charts. Always respect your stoploss."'
+            sec3: "Free Digital Library", b1: "1. Stock Market Basics", b2: "2. Technical Analysis Masterclass", b3: "3. Trading in the Zone", b4: "4. Candlestick Techniques",
+            sec4: "Manjeet's Advice", adv: '"Trading is not a lottery, but a game of discipline. Learn to read your mind before reading the charts."'
         }
     };
 
     function updateLanguage() {
         let lang = (localStorage.getItem("preferredLang") || "HI").toUpperCase();
         if(!tDict[lang]) lang = "HI";
-        
         document.getElementById("t-main-title").innerText = tDict[lang].title;
         document.getElementById("t-sub-title").innerText = tDict[lang].sub;
         document.getElementById("btn-text").innerText = tDict[lang].btn;
@@ -162,10 +132,8 @@
         window.scrollTo({top: 400, behavior: 'smooth'});
     }
 
-    // ऑटो अपडेट जब भाषा बदले
     setInterval(updateLanguage, 1000);
     window.onload = updateLanguage;
 </script>
-
 </body>
 </html>
