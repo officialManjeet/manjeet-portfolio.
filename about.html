@@ -42,7 +42,8 @@
         .image-section img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            max-height: 550px;
+            object-fit: cover; 
         }
 
         .text-section {
@@ -70,7 +71,7 @@
             margin-bottom: 30px;
         }
 
-        /* बटन ग्रुप */
+        /* बटन लेआउट - एक के नीचे एक */
         .btn-group {
             display: flex;
             flex-direction: column;
@@ -83,7 +84,7 @@
             text-decoration: none;
             background: linear-gradient(to right, #38bdf8, #818cf8);
             color: white;
-            padding: 14px 35px;
+            padding: 14px 40px;
             border-radius: 50px;
             font-weight: bold;
             text-align: center;
@@ -98,8 +99,8 @@
             padding: 10px 35px;
             border-radius: 50px;
             font-weight: bold;
-            transition: 0.3s;
             text-align: center;
+            transition: 0.3s;
         }
 
         .consult-btn:hover { transform: scale(1.05); }
@@ -108,7 +109,7 @@
         @media (max-width: 768px) {
             .about-card { flex-direction: column; }
             .text-section { padding: 30px; text-align: center; }
-            .btn-group { align-self: center; }
+            .btn-group { align-self: center; width: 100%; }
             .image-section { height: 400px; }
             .text-section h1 { font-size: 2.2rem; }
         }
@@ -123,13 +124,13 @@
 
         <div class="text-section">
             <h1 id="aboutTitle">About Me</h1>
-            <p id="aboutPara">Loading...</p>
+            <p id="aboutPara">Loading content...</p>
             
             <div class="btn-group">
-                <!-- 1. Consult Me बटन -->
+                <!-- 1. Consult Me बटन ऊपर -->
                 <a href="https://wa.me" class="consult-btn" id="consultBtn">Consult Me</a>
                 
-                <!-- 2. Back to Home बटन -->
+                <!-- 2. Back to Home बटन नीचे -->
                 <a href="index.html" class="back-btn" id="backBtn">← Back to Home</a>
             </div>
         </div>
@@ -146,7 +147,7 @@
 
         if (lang === "HI") {
             title.innerHTML = "मेरे बारे में";
-            para.innerHTML = "नमस्ते! मैं मंजीत हूँ, गुड़गांव में रहने वाला एक पैशनेट **Full Stack Developer**। मेरा सफर एक छोटे से गाँव से शुरू हुआ और टेक्नोलॉजी के प्रति मेरी जिज्ञासा मुझे 2022 में **JB नॉलेज पार्क, फरीदाबाद** ले आई, जहाँ मैंने अपना **BCA** पूरा किया।<br><br>कोडिंग के प्रति मेरे जुनून ने मुझे फुल स्टैक डेवलपर बनने के लिए प्रेरित किया। मुझे चीज़ों को शुरू से 'बिल्ड' करना पसंद है। धन्यवाद।";
+            para.innerHTML = "नमस्ते! मैं मंजीत हूँ, गुड़गांव में रहने वाला एक पैशनेट **Full Stack Developer**। मेरा सफर एक छोटे से गाँव से शुरू हुआ और टेक्नोलॉजी के प्रति मेरी जिज्ञासा मुझे 2022 में **JB नॉलेज पार्क, फरीदाबाद** ले आई, जहाँ मैंने अपना **BCA** पूरा किया।<br><br>कोडिंग के प्रति मेरे जुनून ने मुझे फुल स्टैक डेवलपर बनने के लिए प्रेरित किया। मुझे चीज़ों को शुरू से 'बिल्ड' करना पसंद है। धन्यवाद।";
             if(backBtn) backBtn.innerHTML = "← वापस होम पर";
             if(consultBtn) consultBtn.innerHTML = "अभी सलाह लें";
         } else {
