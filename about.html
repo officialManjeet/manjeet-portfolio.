@@ -4,20 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me - Official Manjeet</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com" rel="stylesheet">
     <style>
-        :root {
-            --primary: #00d2ff;
-            --secondary: #0072ff;
-            --bg-dark: #050505;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background-color: var(--bg-dark); 
+            background-color: #0a0a0a; 
             color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -31,28 +24,27 @@
             width: 100%;
             display: flex;
             flex-wrap: wrap; 
-            border-radius: 30px;
+            border-radius: 25px;
             overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+            border: 1px solid #333;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
         }
 
-        /* इमेज सेक्शन */
         .image-section {
             flex: 1;
             min-width: 350px;
             background: #1a1a1a;
-            height: 550px; /* फिक्स हाइट ताकि फोटो सही दिखे */
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .image-section img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* फोटो कटेगी नहीं, फिट रहेगी */
-            object-position: center;
+            object-fit: cover;
         }
 
-        /* टेक्स्ट सेक्शन */
         .text-section {
             flex: 1.2;
             padding: 50px;
@@ -65,8 +57,8 @@
             font-size: 3rem;
             margin-bottom: 20px;
             text-transform: uppercase;
-            font-weight: 800;
-            background: linear-gradient(to right, var(--primary), #818cf8);
+            font-weight: 900;
+            background: linear-gradient(to right, #38bdf8, #818cf8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -74,8 +66,8 @@
         .text-section p {
             font-size: 1.1rem;
             line-height: 1.8;
-            color: #aaa;
-            margin-bottom: 35px;
+            color: #ccc;
+            margin-bottom: 30px;
         }
 
         /* बटन ग्रुप */
@@ -89,38 +81,35 @@
         .consult-btn {
             display: inline-block;
             text-decoration: none;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(to right, #38bdf8, #818cf8);
             color: white;
-            padding: 16px 40px;
-            border-radius: 12px;
-            font-weight: 800;
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-weight: bold;
             text-align: center;
-            transition: 0.4s;
-            box-shadow: 0 10px 20px rgba(0, 210, 255, 0.3);
+            transition: 0.3s;
         }
 
         .back-btn {
             display: inline-block;
             text-decoration: none;
-            color: #ccc;
-            border: 1px solid #333;
-            padding: 12px 35px;
-            border-radius: 12px;
-            font-weight: 700;
+            color: white;
+            border: 1px solid #555;
+            padding: 10px 35px;
+            border-radius: 50px;
+            font-weight: bold;
             transition: 0.3s;
             text-align: center;
-            background: rgba(255,255,255,0.02);
         }
 
-        .consult-btn:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0, 210, 255, 0.5); }
+        .consult-btn:hover { transform: scale(1.05); }
         .back-btn:hover { background: white; color: black; }
 
-        /* मोबाइल के लिए सुधार */
         @media (max-width: 768px) {
             .about-card { flex-direction: column; }
             .text-section { padding: 30px; text-align: center; }
-            .btn-group { align-self: center; width: 100%; }
-            .image-section { height: 350px; min-width: 100%; }
+            .btn-group { align-self: center; }
+            .image-section { height: 400px; }
             .text-section h1 { font-size: 2.2rem; }
         }
     </style>
@@ -129,18 +118,18 @@
 
     <div class="about-card">
         <div class="image-section">
-            <!-- यहाँ आपकी bg.jpg फोटो दिखेगी -->
-            <img src="images/bg.jpg" alt="Official Manjeet"> 
+            <img src="images/bg.jpg" alt="Manjeet Photo"> 
         </div>
 
         <div class="text-section">
             <h1 id="aboutTitle">About Me</h1>
-            <p id="aboutPara">Loading content...</p>
+            <p id="aboutPara">Loading...</p>
             
             <div class="btn-group">
-                <!-- Consult Me बटन (WhatsApp लिंक डालें) -->
-                <a href="https://wa.me" class="consult-btn" id="consultBtn">Consult Now</a>
-                <!-- वापस होम बटन -->
+                <!-- 1. Consult Me बटन -->
+                <a href="https://wa.me" class="consult-btn" id="consultBtn">Consult Me</a>
+                
+                <!-- 2. Back to Home बटन -->
                 <a href="index.html" class="back-btn" id="backBtn">← Back to Home</a>
             </div>
         </div>
@@ -148,7 +137,6 @@
 
 <script>
     window.onload = function() {
-        // LocalStorage से चुनी हुई भाषा उठाना
         let lang = localStorage.getItem("preferredLang") || "EN";
         
         let title = document.getElementById("aboutTitle");
@@ -158,14 +146,14 @@
 
         if (lang === "HI") {
             title.innerHTML = "मेरे बारे में";
-            para.innerHTML = "नमस्ते! मैं मंजीत हूँ, गुड़गांव में रहने वाला एक पैशनेट **Full Stack Developer**। मेरा सफर एक छोटे से गाँव से शुरू हुआ और टेक्नोलॉजी के प्रति मेरी जिज्ञासा मुझे 2022 में **JB नॉलेज पार्क, फरीदाबाद** ले आई, जहाँ मैंने अपना **BCA** पूरा किया।<br><br>कोडिंग के प्रति मेरे जुनून ने मुझे फुल स्टैक डेवलपर बनने के लिए प्रेरित किया। मुझे चीज़ों को शुरू से 'बिल्ड' करना पसंद है। मेरी इस डिजिटल यात्रा का हिस्सा बनने के लिए धन्यवाद।";
-            backBtn.innerHTML = "← वापस होम पर";
-            consultBtn.innerHTML = "अभी सलाह लें";
+            para.innerHTML = "नमस्ते! मैं मंजीत हूँ, गुड़गांव में रहने वाला एक पैशनेट **Full Stack Developer**। मेरा सफर एक छोटे से गाँव से शुरू हुआ और टेक्नोलॉजी के प्रति मेरी जिज्ञासा मुझे 2022 में **JB नॉलेज पार्क, फरीदाबाद** ले आई, जहाँ मैंने अपना **BCA** पूरा किया।<br><br>कोडिंग के प्रति मेरे जुनून ने मुझे फुल स्टैक डेवलपर बनने के लिए प्रेरित किया। मुझे चीज़ों को शुरू से 'बिल्ड' करना पसंद है। धन्यवाद।";
+            if(backBtn) backBtn.innerHTML = "← वापस होम पर";
+            if(consultBtn) consultBtn.innerHTML = "अभी सलाह लें";
         } else {
             title.innerHTML = "About Me";
-            para.innerHTML = "I am Manjeet, a passionate **Full Stack Developer** based in Gurgaon. My journey started in a small village, and my curiosity for technology led me to complete my **BCA** in 2022 from JB Knowledge Park, Faridabad.<br><br>My passion for coding drove me to become a Full Stack Developer. I love building things from scratch, whether it's complex code or a new style. Welcome to my world!";
-            backBtn.innerHTML = "← Back to Home";
-            consultBtn.innerHTML = "Consult Now";
+            para.innerHTML = "I am Manjeet, a passionate **Full Stack Developer** based in Gurgaon. My journey started in a small village, and my curiosity for technology led me to complete my **BCA** in 2022 from JB Knowledge Park, Faridabad.<br><br>My passion for coding drove me to become a Full Stack Developer. I love building things from scratch. Welcome to my world!";
+            if(backBtn) backBtn.innerHTML = "← Back to Home";
+            if(consultBtn) consultBtn.innerHTML = "Consult Me";
         }
     };
 </script>
