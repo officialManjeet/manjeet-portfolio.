@@ -5,10 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me - Official Manjeet</title>
     <style>
+        :root {
+            --primary: #00d2ff;
+            --secondary: #0072ff;
+            --bg-dark: #050505;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background-color: #0a0a0a; 
+            background-color: var(--bg-dark); 
             color: white;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
@@ -39,10 +45,13 @@
             justify-content: center;
         }
 
+        /* इमेज का साइज और फिटिंग यहाँ सेट है */
         .image-section img {
             width: 100%;
             height: 100%;
+            max-height: 550px;
             object-fit: cover; 
+            display: block;
         }
 
         .text-section {
@@ -70,27 +79,46 @@
             margin-bottom: 30px;
         }
 
+        /* बटन का लेआउट (एक के नीचे एक) */
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: fit-content;
+        }
+
+        .consult-btn {
+            display: inline-block;
+            text-decoration: none;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 15px 40px;
+            border-radius: 12px;
+            font-weight: 800;
+            text-align: center;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(0, 210, 255, 0.3);
+        }
+
         .back-btn {
             display: inline-block;
             text-decoration: none;
-            color: white;
-            border: 1px solid #555;
-            padding: 12px 35px;
-            border-radius: 50px;
+            color: #aaa;
+            border: 1px solid #444;
+            padding: 10px 30px;
+            border-radius: 10px;
             font-weight: bold;
             transition: 0.3s;
-            align-self: flex-start;
+            text-align: center;
         }
 
-        .back-btn:hover {
-            background: white;
-            color: black;
-        }
+        .consult-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0, 210, 255, 0.5); }
+        .back-btn:hover { background: white; color: black; border-color: white; }
 
         @media (max-width: 768px) {
             .about-card { flex-direction: column; }
             .text-section { padding: 30px; text-align: center; }
-            .back-btn { align-self: center; }
+            .btn-group { align-self: center; width: 100%; }
             .image-section { height: 400px; }
             .text-section h1 { font-size: 2.2rem; }
         }
@@ -100,36 +128,47 @@
 
     <div class="about-card">
         <div class="image-section">
-            <img src="images/bg.jpg" alt="Manjeet Photo"> 
+            <!-- यहाँ आपकी images/bg.jpg वाली फोटो दिखेगी -->
+            <img src="images/bg.jpg" alt="Manjeet Photo" id="aboutImg"> 
         </div>
 
         <div class="text-section">
             <h1 id="aboutTitle">About Me</h1>
-            <p id="aboutPara">
-                I am Manjeet, a passionate Full Stack Developer based in Gurgaon. My journey started in a small village, and my curiosity for technology led me to complete my BCA in 2022 from JB Knowledge Park, Faridabad.
-            </p>
-            <a href="index.html" class="back-btn" id="backBtn">← Back to Home</a>
+            <p id="aboutPara">Loading content...</p>
+            
+            <div class="btn-group">
+                <!-- अपना असली WhatsApp नंबर 91... के बाद जोड़ें -->
+                <a href="https://wa.me" class="consult-btn" id="consultBtn">Consult Me</a>
+                <a href="index.html" class="back-btn" id="backBtn">← Back to Home</a>
+            </div>
         </div>
     </div>
 
 <script>
-    window.onload = function() {
+    function updateContent() {
+        // यह चेक करेगा कि index.html में कौन सी भाषा (HI या EN) चुनी गई थी
         let lang = localStorage.getItem("preferredLang") || "EN";
         
         let title = document.getElementById("aboutTitle");
         let para = document.getElementById("aboutPara");
         let backBtn = document.getElementById("backBtn");
+        let consultBtn = document.getElementById("consultBtn");
 
         if (lang === "HI") {
             title.innerHTML = "मेरे बारे में";
-            para.innerHTML = "नमस्ते! मैं मंजीत हूँ, गुड़गांव में रहने वाला एक पैशनेट **Full Stack Developer**। मेरा सफर एक छोटे से गाँव से शुरू हुआ और टेक्नोलॉजी के प्रति मेरी जिज्ञासा मुझे 2022 में **JB नॉलेज पार्क, फरीदाबाद** ले आई, जहाँ मैंने अपना **BCA** पूरा किया।<br><br>शुरुआत में मैंने **MIS Executive** के तौर पर काम किया, लेकिन कोडिंग के प्रति मेरे जुनून ने मुझे फुल स्टैक डेवलपर बनने के लिए प्रेरित किया। मुझे चीज़ों को शुरू से 'बिल्ड' करना पसंद है, चाहे वो कोड हो या एक नया स्टाइल। मेरी इस डिजिटल यात्रा का हिस्सा बनने के लिए धन्यवाद।";
-            if(backBtn) backBtn.innerHTML = "← वापस होम पर";
+            para.innerHTML = "नमस्ते! मैं मंजीत हूँ, गुड़गांव में रहने वाला एक पैशनेट **Full Stack Developer**। मेरा सफर एक छोटे से गाँव से शुरू हुआ और टेक्नोलॉजी के प्रति मेरी जिज्ञासा मुझे 2022 में **JB नॉलेज पार्क, फरीदाबाद** ले आई, जहाँ मैंने अपना **BCA** पूरा किया।<br><br>शुरुआत में मैंने **MIS Executive** के तौर पर काम किया, लेकिन कोडिंग के प्रति मेरे जुनून ने मुझे फुल स्टैक डेवलपर बनने के लिए प्रेरित किया। मुझे चीज़ों को शुरू से 'बिल्ड' करना पसंद है। मेरी इस डिजिटल यात्रा का हिस्सा बनने के लिए धन्यवाद।";
+            backBtn.innerHTML = "← होम पर वापस";
+            consultBtn.innerHTML = "सलाह लें";
         } else {
             title.innerHTML = "About Me";
-            para.innerHTML = "I am Manjeet, a passionate **Full Stack Developer** based in Gurgaon. My journey started in a small village, and my curiosity for technology led me to complete my **BCA** in 2022 from JB Knowledge Park, Faridabad.<br><br>After starting my career as an **MIS Executive**, my passion for coding drove me to become a Full Stack Developer. I love building things from scratch, whether it's complex code or a new style. This journey takes me to new paths every day. Welcome to my world!";
-            if(backBtn) backBtn.innerHTML = "← Back to Home";
+            para.innerHTML = "I am Manjeet, a passionate **Full Stack Developer** based in Gurgaon. My journey started in a small village, and my curiosity for technology led me to complete my **BCA** in 2022 from JB Knowledge Park, Faridabad.<br><br>After starting my career as an **MIS Executive**, my passion for coding drove me to become a Full Stack Developer. I love building things from scratch, whether it's complex code or a new style. Welcome to my world!";
+            backBtn.innerHTML = "← Back to Home";
+            consultBtn.innerHTML = "Consult Me";
         }
-    };
+    }
+
+    // पेज लोड होते ही लैंग्वेज अपडेट करें
+    window.onload = updateContent;
 </script>
 
 </body>
