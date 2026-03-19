@@ -39,6 +39,22 @@ nav {
 .logo span {
     color: #00d2ff; /* इलेक्ट्रिक ब्लू */
 }
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img { 
+    width: 45px !important;       /* चौड़ाई */
+    height: 45px !important;      /* लंबाई */
+    border-radius: 50%;           /* एकदम गोल */
+    margin-right: 12px; 
+    border: 2px solid #00d2ff;    /* नीला बॉर्डर */
+    object-fit: cover;            /* चेहरे को फिट करने के लिए */
+    object-position: center;      /* सेंटर फोकस */
+    display: block;
+}
 
 nav ul {
     display: flex;
