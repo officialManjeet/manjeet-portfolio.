@@ -53,7 +53,7 @@ nav {
     border: 2px solid #00d2ff; 
     object-fit: cover; 
     /* अगर चेहरा छिप रहा है, तो 'center' को 'top' या 'left' करके देखें */
-    object-position: left; 
+    object-position: left 10%; 
     display: block;
 }
 
