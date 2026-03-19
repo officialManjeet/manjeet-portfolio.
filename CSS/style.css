@@ -299,3 +299,24 @@ textarea {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(0, 210, 255, 0.6);
 }
+/* Logo Styling - Perfect Fit */
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img { 
+    width: 50px !important;       /* चौड़ाई */
+    height: 50px !important;      /* लंबाई */
+    border-radius: 50%;           /* एकदम गोल करने के लिए */
+    margin-right: 12px; 
+    border: 2px solid #00d2ff;    /* नीला बॉर्डर */
+    object-fit: cover;            /* इससे चेहरा कटेगा नहीं, फिट हो जाएगा */
+    object-position: center;      /* सेंटर में रखने के लिए */
+    background: #1a1a1d;
+    display: block;
+}
+
+.logo .white { color: #ffffff; }
+.logo .blue { color: #00d2ff; }
