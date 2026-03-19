@@ -1,29 +1,37 @@
-<div class="detail-flex" style="display: flex; gap: 50px; align-items: center; flex-wrap: wrap;">
-    <!-- 1. आपकी फोटो (bg.jpg) -->
+<div class="detail-flex" style="display: flex; gap: 50px; align-items: center; flex-wrap: wrap; padding-top: 20px;">
+    
+    <!-- 1. आपकी फोटो (bg.jpg) - यहाँ ID 'det-img' होना ज़रूरी है -->
     <div class="detail-img" style="flex: 1; min-width: 350px;">
-        <img src="images/bg.jpg" alt="Official Manjeet" style="width:100%; border-radius:25px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+        <img id="det-img" src="images/bg.jpg" alt="Official Manjeet" style="width:100%; border-radius:25px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
     </div>
 
-    <!-- 2. आपका परिचय (बिना स्टार के) -->
+    <!-- 2. आपका परिचय - यहाँ ID 'det-title' और 'det-desc' होना ज़रूरी है -->
     <div class="detail-text" style="flex: 1.2; min-width: 350px;">
-        <h2 id="aboutTitle" style="color: #00d2ff; font-size: 45px; margin-bottom: 20px; font-weight: 800;">About Me</h2>
-        <p id="aboutPara" style="color: #ccc; font-size: 1.1rem; line-height: 1.8; margin-bottom: 30px;">
+        <h2 id="det-title" style="color: #00d2ff; font-size: 45px; margin-bottom: 20px; font-weight: 800;">About Me</h2>
+        <p id="det-desc" style="color: #ccc; font-size: 1.1rem; line-height: 1.8; margin-bottom: 30px;">
             Loading your story...
         </p>
     </div>
 </div>
 
 <script>
-    // लैंग्वेज सिस्टम: यह चेक करेगा कि index.html में कौन सी भाषा चुनी गई है
-    let lang = localStorage.getItem("preferredLang") || "EN";
-    let title = document.getElementById("aboutTitle");
-    let para = document.getElementById("aboutPara");
+    // यह हिस्सा index.html के साथ तालमेल बिठाएगा
+    function loadAboutContent() {
+        let lang = localStorage.getItem("preferredLang") || "EN";
+        let title = document.getElementById("det-title");
+        let para = document.getElementById("det-desc");
 
-    if (lang === "HI") {
-        title.innerHTML = "मेरे बारे में";
-        para.innerHTML = "नमस्ते! मैं मंजीत हूँ और आज मैं एक Full Stack Developer हूँ। मेरी स्कूली पढ़ाई मेरे गाँव से हुई, जिसके बाद साल 2019 में मैं दिल्ली आ गया। यहाँ से मैंने साल 2022 में JB Knowledge Park, Faridabad से अपना ग्रेजुएशन (BCA) पूरा किया। फिलहाल, मैं एक कंपनी में फुल स्टैक डेवलपर के तौर पर काम कर रहा हूँ।<br><br>आज की इस तेज़ी से बदलती दुनिया को देखते हुए मुझे एहसास हुआ कि अगर हम तकनीक के साथ नहीं चले, तो हम बहुत पीछे रह जाएंगे। इसीलिए मैंने फैसला किया कि मैं इस नई डिजिटल दुनिया के साथ कदम से कदम मिलाकर चलूँगा और मैं भी इस नई दुनिया का एक हिस्सा बनूँगा। यहाँ आपको डिजिटल दुनिया से जुड़ी हर तरह की एजुकेशन सपोर्ट और बिज़नेस से जुड़ी ज़रूरी जानकारियाँ मिलेंगी। तो आइए, मेरे साथ हाथ मिलाइए और इस नई दुनिया का हिस्सा बनिए ताकि हम सब मिलकर खुद को आगे बढ़ा सकें। 😊";
-    } else {
-        title.innerHTML = "About Me";
-        para.innerHTML = "I am Manjeet, a Full Stack Developer currently working in the tech industry. My journey started with schooling in my village, after which I moved to Delhi in 2019 and completed my BCA in 2022 from JB Knowledge Park, Faridabad. Currently, I am working as a Full Stack Developer in a company.<br><br>Seeing how rapidly the world is evolving today, I realized that if we don't keep up with technology, we will be left far behind. That is why I have decided to walk step-by-step with this new digital world and I will also become a part of this new era. Here, you will find all kinds of digital education support and essential business insights. So come, join hands with me and become a part of this new world so that we can all grow together. 😊";
+        if (lang === "HI") {
+            title.innerHTML = "मेरे बारे में";
+            para.innerHTML = "नमस्ते! मैं मंजीत हूँ और आज मैं एक Full Stack Developer हूँ। मेरी स्कूली पढ़ाई मेरे गाँव से हुई, जिसके बाद साल 2019 में मैं दिल्ली आ गया। यहाँ से मैंने साल 2022 में JB Knowledge Park, Faridabad से अपना ग्रेजुएशन (BCA) पूरा किया। फिलहाल, मैं एक कंपनी में फुल स्टैक डेवलपर के तौर पर काम कर रहा हूँ।<br><br>आज की इस तेज़ी से बदलती दुनिया को देखते हुए मुझे एहसास हुआ कि अगर हम तकनीक के साथ नहीं चले, तो हम बहुत पीछे रह जाएंगे। इसीलिए मैंने फैसला किया कि मैं इस नई डिजिटल दुनिया के साथ कदम से कदम मिलाकर चलूँगा और मैं भी इस नई दुनिया का एक हिस्सा बनूँगा। यहाँ आपको डिजिटल दुनिया से जुड़ी हर तरह की एजुकेशन सपोर्ट और बिज़नेस से जुड़ी ज़रूरी जानकारियाँ मिलेंगी। तो आइए, मेरे साथ हाथ मिलाइए और इस नई दुनिया का हिस्सा बनिए ताकि हम सब मिलकर खुद को आगे बढ़ा सकें। 😊";
+        } else {
+            title.innerHTML = "About Me";
+            para.innerHTML = "I am Manjeet, a Full Stack Developer currently working in the tech industry. My journey started with schooling in my village, after which I moved to Delhi in 2019 and completed my BCA in 2022 from JB Knowledge Park, Faridabad. Currently, I am working as a Full Stack Developer in a company.<br><br>Seeing how rapidly the world is evolving today, I realized that if we don't keep up with technology, we will be left far behind. That is why I have decided to walk step-by-step with this new digital world and I will also become a part of this new era. Here, you will find all kinds of digital education support and essential business insights. So come, join hands with me and become a part of this new world so that we can all grow together. 😊";
+        }
     }
+
+    // पेज लोड होते ही कंटेंट डालना
+    window.onload = loadAboutContent;
+    // अगर index.html इसे लोड कर रहा है तो तुरंत भी रन करें
+    loadAboutContent();
 </script>
