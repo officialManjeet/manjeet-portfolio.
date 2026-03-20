@@ -207,7 +207,8 @@ Official Manjeet - Verified Final GitHub Code
     <!-- Landing View -->
     <div id="home-view" class="container">
         <section class="hero">
-            <h1 id="hero-h">Elevate Your <span>Business</span></h1>
+            <div id="cards-container" class="grid"></div>
+
             <p id="hero-p">Cutting-edge digital strategies for world-class growth and dominance.</p>
             
             <a href="https://wa.me" target="_blank" class="btn-whatsapp">
@@ -397,11 +398,7 @@ s4T: "ब्रांडिंग", s4S: "एक अनूठी पहचान
 } // यहाँ showDetail फंक्शन खत्म होता है
 
 // कार्ड्स को लोड करने वाला कोड (इसे फंक्शन के बाहर रखें)
-    window.scrollTo(0, 0);
-} // यहाँ showDetail फंक्शन खत्म हुआ
-
-// कार्ड्स को लोड करने वाला कोड (इसे एकदम साफ़ रखें)
-fetch('all-cards.html')
+ fetch('./all-cards.html') // यहाँ बिंदी (.) और स्लैश (/) लगायें
     .then(response => response.text())
     .then(data => {
         const container = document.getElementById('cards-container');
@@ -412,6 +409,7 @@ fetch('all-cards.html')
             }
         }
     });
+
 
 </script>            
 </body>
