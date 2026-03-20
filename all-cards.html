@@ -1,35 +1,59 @@
-<!-- CARD #1: Targeted Ads -->
-<div class="card" onclick="showDetail('ads')"> 
-    <i class="fas fa-bullseye"></i> 
-    <h3>Targeted Ads</h3> 
-</div>
+const myCards = [
+    { id: 'ads',      title: 'Targeted Ads',    icon: 'fa-bullseye' },
+    { id: 'trading',  title: 'Trading',         icon: 'fa-chart-line' },
+    { id: 'branding', title: 'Branding',        icon: 'fa-pen-nib' },
+    { id: 'courses',  title: 'Our Courses',     icon: 'fa-graduation-cap' }
+];
 
-<!-- CARD #2: Trading -->
-<div class="card" onclick="showDetail('trading')"> 
-    <i class="fas fa-chart-line"></i> 
-    <h3>Trading</h3> 
-</div>
+const serviceData = {
+    ads: { title: "Targeted Ads", desc: "हम आपके बिजनेस के लिए हाई-कन्वर्जन फेसबुक और गूगल एड्स चलाते हैं।", img: "" },
+    trading: { title: "Trading", desc: "बेसिक से एडवांस स्टॉक मार्केट और क्रिप्टो ट्रेडिंग सीखें।", img: "" },
+    branding: { title: "Branding", desc: "लोगो डिजाइन से लेकर पूरी ब्रांडिंग स्ट्रेटेजी तक।", img: "" },
+    
+    // यहाँ है आपका मुख्य बदलाव: Web और App इसी के अंदर हैं
+    courses: { 
+        title: "Masterclass Courses 🎓", 
+        desc: `
+            <div class="course-box">
+                <h3 style="color:#00ecff">1. Web Designing (Web Dev)</h3>
+                <p>सीखें: HTML, CSS, JavaScript, React और अपनी वेबसाइट लाइव करना।</p>
+                <button onclick="alert('Redirecting to Payment...')">Enroll Now</button>
+            </div>
+            <div class="course-box">
+                <h3 style="color:#00ecff">2. App Development</h3>
+                <p>सीखें: Flutter, Android/iOS डेवलपमेंट और Play Store पर ऐप डालना।</p>
+                <button onclick="alert('Redirecting to Payment...')">Enroll Now</button>
+            </div>
+        `, 
+        img: "" 
+    }
+};
 
-<!-- CARD #3: Branding -->
-<div class="card" onclick="showDetail('branding')"> 
-    <i class="fas fa-pen-nib"></i> 
-    <h3>Branding</h3> 
-</div>
+function renderCards() {
+    let html = "";
+    myCards.forEach(card => {
+        html += `
+            <div class="card" onclick="showDetail('${card.id}')">
+                <i class="fas ${card.icon}"></i>
+                <h3>${card.title}</h3>
+            </div>`;
+    });
+    document.getElementById('cards-container').innerHTML = html;
+}
 
-<!-- CARD #4: Courses -->
-<div class="card" onclick="showDetail('courses')"> 
-    <i class="fas fa-graduation-cap"></i> 
-    <h3>Courses</h3> 
-</div>
+function showDetail(id) {
+    const data = serviceData[id];
+    document.getElementById('det-title').innerText = data.title;
+    document.getElementById('det-desc').innerHTML = data.desc;
+    
+    document.getElementById('cards-container').style.display = 'none';
+    document.getElementById('detail-view').style.display = 'block';
+}
 
-<!-- CARD #5: Web Design -->
-<div class="card" onclick="showDetail('web')"> 
-    <i class="fas fa-laptop-code"></i> 
-    <h3>Web Design</h3> 
-</div>
+function showHome() {
+    document.getElementById('cards-container').style.display = 'grid';
+    document.getElementById('detail-view').style.display = 'none';
+}
 
-<!-- CARD #6: App Development -->
-<div class="card" onclick="showDetail('apps')"> 
-    <i class="fas fa-mobile-alt"></i> 
-    <h3>App Development</h3> 
-</div>
+// सबसे जरूरी: पेज खुलते ही कार्ड्स दिखाना
+window.onload = renderCards;
