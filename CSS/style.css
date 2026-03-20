@@ -275,3 +275,31 @@ textarea { height: 120px; }
     gap: 25px !important;
     margin: 0 auto !important;
 }
+#contact {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    padding: 60px 0 !important;
+    background: transparent !important; /* अगर बैकग्राउंड चाहिए तो कलर बदल दें */
+}
+
+.social-links {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 25px !important;
+    margin-top: 20px !important;
+}
+
+.social-links a {
+    font-size: 1.8rem !important;
+    color: white !important;
+    transition: 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: scale(1.2);
+    color: #00d2ff !important;
+}
