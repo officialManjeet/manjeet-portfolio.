@@ -200,4 +200,27 @@ nav ul li a:hover { color: #00d2ff; }
     text-shadow: 0 0 15px rgba(255, 255, 255, 0.9); /* ज़्यादा चमक */
     transform: scale(1.2); /* आइकॉन थोड़ा बड़ा होगा */
 }
+/* सोशल मीडिया आइकन्स को हाईलाइट करने के लिए */
+.social-icons a i {
+    color: white !important; /* आइकॉन का रंग सफ़ेद */
+    background: rgba(255, 255, 255, 0.1); /* हल्का पारदर्शी सफ़ेद बैकग्राउंड */
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    border-radius: 50%; /* गोल बनाने के लिए */
+    font-size: 20px !important; /* आइकॉन का साइज़ */
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* बारीक सफ़ेद बॉर्डर */
+}
+
+/* माउस ले जाने पर (Hover) */
+.social-icons a i:hover {
+    background: white !important;
+    color: black !important; /* होवर पर आइकॉन काला हो जाएगा */
+    transform: translateY(-5px); /* ऊपर उठेगा */
+    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.4); /* चमक */
+}
 
