@@ -22,20 +22,45 @@ const serviceData = {
     
     // APP DEVELOPMENT: रोडमैप और इमेजेस के साथ
     apps: { 
-        title: "App Development: Basic to Advance 🚀", 
+         apps: { 
+        title: "App Development: Learn Basic to Advance 📱", 
         desc: `
-            <p>App development सीखने का रोडमैप:</p>
-            <ul style="text-align: left; color: #eee; margin-bottom: 20px;">
-                <li>✅ Basic: UI/UX Design</li>
-                <li>✅ Frameworks: React Native / Flutter</li>
-                <li>✅ Advance: Play Store Publishing</li>
-            </ul>
-            <div class="detail-gallery">
-                <img src="https://images.unsplash.com" style="width:100%; border-radius:10px; margin-top:10px;">
-                <img src="https://images.unsplash.com" style="width:100%; border-radius:10px; margin-top:10px;">
+            <div style="text-align: left; background: rgba(255,255,255,0.05); padding: 20px; border-radius: 15px; border: 1px solid rgba(0,236,255,0.3);">
+                
+                <h4 style="color: #00ecff; margin-bottom: 10px;">🚀 App Development सीखने का रोडमैप:</h4>
+                
+                <p><b>1. Basic Level (शुरुआत):</b></p>
+                <ul style="color: #ccc; margin-bottom: 15px;">
+                    <li>🔹 UI/UX Design की समझ (Figma/Adobe XD)</li>
+                    <li>🔹 HTML, CSS और JavaScript का बेसिक ज्ञान</li>
+                    <li>🔹 Mobile Responsive लेआउट बनाना</li>
+                </ul>
+
+                <p><b>2. Intermediate Level (मझला):</b></p>
+                <ul style="color: #ccc; margin-bottom: 15px;">
+                    <li>🔹 Frameworks: React Native या Flutter (Android & iOS दोनों के लिए)</li>
+                    <li>🔹 API Integration (डेटा फेच करना)</li>
+                    <li>🔹 State Management (Redux या Context API)</li>
+                </ul>
+
+                <p><b>3. Advance Level (प्रो):</b></p>
+                <ul style="color: #ccc; margin-bottom: 15px;">
+                    <li>🔹 Backend & Database (Firebase या Node.js)</li>
+                    <li>🔹 Push Notifications और Google Maps का इस्तेमाल</li>
+                    <li>🔹 Play Store और App Store पर ऐप पब्लिश करना</li>
+                </ul>
+
+                <!-- सीखने के लिए ज़रूरी इमेजेस -->
+                <div class="detail-gallery" style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
+                    <img src="https://images.unsplash.com" alt="UI Design" style="width:100%; border-radius:12px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+                    <img src="https://images.unsplash.com" alt="Coding" style="width:100%; border-radius:12px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+                    <img src="https://images.unsplash.com" alt="App Launch" style="width:100%; border-radius:12px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+                </div>
             </div>
         `, 
         img: "https://images.unsplash.com" 
+    },
+ 
     }
 };
 
