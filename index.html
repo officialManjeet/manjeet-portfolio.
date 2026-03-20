@@ -306,9 +306,23 @@ footer, #contact {
             </a>
         </section>
 
-       <!-- Services Section -->
+       <!-- Services Section Start -->
 <section>
-    <div id="cards-container" class="grid"></div>
+    <div id="cards-container" class="grid">
+        <!-- all-cards.html का डेटा यहाँ लोड होगा -->
+    </div>
+
+    <script>
+        fetch('all-cards.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('cards-container').innerHTML = data;
+        })
+        .catch(err => console.error('Error loading cards:', err));
+    </script>
+</section>
+<!-- Services Section End -->
+
 </section>
 
 <!-- Footer Section - अब यह ग्रिड से बाहर है -->
