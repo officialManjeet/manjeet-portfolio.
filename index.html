@@ -307,40 +307,104 @@ footer, #contact {
             <a href="#" id="nav-h" onclick="showHome()">Home</a>
             <!-- Clicking About will now load data from your about.html file -->
             <a href="#" id="nav-a" onclick="showDetail('about')">About</a>
-           <!-- ============================================================
-     SERVICES SECTION (सिर्फ 4 कार्ड्स वाला फ्रेश कोड)
-     ============================================================ -->
-<section id="services">
-    <div id="cards-container" class="grid">
-        <!-- कार्ड 1: Targeted Ads -->
-        <div class="card" onclick="showDetail('ads')">
-            <i class="fas fa-bullseye"></i>
-            <h3>Targeted Ads</h3>
-        </div>
+            <a href="#" id="nav-p" onclick="showDetail('portfolio')">Portfolio</a>
+   <a href="trading.html" id="nav-t" style="color: #fff; font-weight: 700; text-decoration: none; opacity: 0.7;">Trading</a>
 
-        <!-- कार्ड 2: Trading -->
-        <div class="card" onclick="showDetail('trading')">
-            <i class="fas fa-chart-line"></i>
-            <h3>Trading</h3>
-        </div>
+            <a href="#" id="nav-s" onclick="showDetail('shop')">Shop</a>
+        </nav>
 
-        <!-- कार्ड 3: Branding -->
-        <div class="card" onclick="showDetail('branding')">
-            <i class="fas fa-pen-nib"></i>
-            <h3>Branding</h3>
-        </div>
+        <div class="header-right">
+            <button id="lang-btn" onclick="toggleLang()">Hindi</button>
 
-        <!-- कार्ड 4: Courses -->
-        <div class="card" onclick="showDetail('courses')">
-            <i class="fas fa-graduation-cap"></i>
-            <h3>Courses</h3>
         </div>
+    </header>
+
+    <!-- Landing View -->
+    <div id="home-view" class="container">
+        <section class="hero">
+           <!-- Services Grid: कार्ड्स यहाँ से शुरू हो रहे हैं -->
+<div id="cards-container" class="grid">
+    <!-- CARD 1 -->
+    <div class="card" onclick="showDetail('ads')">
+        <i class="fas fa-bullseye"></i>
+        <h3>Targeted Ads</h3>
     </div>
+    <!-- CARD 2 -->
+    <div class="card" onclick="showDetail('trading')">
+        <i class="fas fa-chart-line"></i>
+        <h3>Trading</h3>
+    </div>
+    <!-- CARD 3 -->
+    <div class="card" onclick="showDetail('branding')">
+        <i class="fas fa-pen-nib"></i>
+        <h3>Branding</h3>
+    </div>
+    <!-- CARD 4 -->
+    <div class="card" onclick="showDetail('courses')">
+        <i class="fas fa-graduation-cap"></i>
+        <h3>Courses</h3>
+    </div>
+    <!-- CARD 5 -->
+    <div class="card" onclick="showDetail('web')">
+        <i class="fas fa-laptop-code"></i>
+        <h3>Web Design</h3>
+    </div>
+    <!-- CARD 6 -->
+    <div class="card" onclick="showDetail('apps')">
+        <i class="fas fa-mobile-alt"></i>
+        <h3>App Development</h3>
+    </div>
+</div>
+<!-- Services Grid End -->
+
+            <div id="cards-container" class="grid"></div>
+
+            <p id="hero-p">Cutting-edge digital strategies for world-class growth and dominance.</p>
+            
+            <a href="https://wa.me" target="_blank" class="btn-whatsapp">
+                <i class="fab fa-whatsapp"></i>
+                <span id="wa-txt">Chat on WhatsApp</span>
+            </a>
+        </section>
+
+       <!-- Services Section Start -->
+<section>
+    <div id="cards-container" class="grid">
+        <!-- all-cards.html का डेटा यहाँ लोड होगा -->
+    </div>
+
+    <script>
+        fetch('all-cards.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('cards-container').innerHTML = data;
+        })
+        .catch(err => console.error('Error loading cards:', err));
+    </script>
+</section>
+<!-- Services Section End -->
+
 </section>
 
-<!-- डेटा और क्लिक फंक्शन के लिए यह स्क्रिप्ट ज़रूरी है -->
-<script src="all-data.js"></script>
+<!-- Footer Section - अब यह ग्रिड से बाहर है -->
+<footer id="contact">
+    <h3>Connect With Me</h3>
+    <div class="social-links">
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-telegram"></i></a>
+    </div>
+</footer>
 
+
+
+
+    <script>
+        const config = {
+            homeImg: 'url("https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1920")',
+            detailBg: 'linear-gradient(135deg, #050505 0%, #001133 100%)',
+            imgs: {
                 social: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&q=80&w=800',
                 ads: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
                 web: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800',
@@ -515,4 +579,3 @@ s4T: "ब्रांडिंग", s4S: "एक अनूठी पहचान
 </script>            
 </body>
 </html>
-
