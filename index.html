@@ -117,7 +117,8 @@ Official Manjeet - Verified Final GitHub Code
 
         /* Services Grid */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
-        .card { background: var(--card-bg); padding: 50px 30px; border-radius: 35px; border: 1px solid var(--glass-border); text-align: center; cursor: pointer; transition: 0.4s ease; backdrop-filter: blur(15px); }
+ .card { background: var(--card-bg); padding: 50px 30px; border-radius: 35px; border: 1px solid var(--glass-border); text-align: center; cursor: pointer; transition: 0.4s ease; min-height: 380px; display: flex; flex-direction: column; justify-content: center; }
+
         .card:hover { transform: translateY(-12px); border-color: var(--primary); background: rgba(255,255,255,0.06); }
         .card i { font-size: 45px; color: var(--primary); margin-bottom: 25px; }
 
@@ -224,7 +225,8 @@ Official Manjeet - Verified Final GitHub Code
 
         <div class="card" onclick="showDetail('courses')">
     <i class="fas fa-graduation-cap"></i>
-    <h3 id="s6T"></h3> <!-- अब यह JS से "हमारे कोर्सेज" उठा लेगा -->
+    <h3 id="s6T">Courses</h3>
+
     <p id="s6S"></p>   <!-- अब यह JS से "अपना भविष्य सुरक्षित करें" उठा लेगा -->
 </div>
 
@@ -297,7 +299,7 @@ Official Manjeet - Verified Final GitHub Code
                 s2T: "Targeted Ads", s2S: "High conversion campaigns.",
                 s3T: "Web Design", s3S: "Fast & responsive sites.",
                 s4T: "Branding", s4S: "Build a unique identity.",
-                                        s6T: "हमारे कोर्सेज",
+                                        s6T: "Courses",
             s6S: "हमारे कोर्सेज के साथ जुड़ें और अपना भविष्य सुरक्षित करें।",
             s6Btn: "अभी जुड़ें",
 
@@ -321,9 +323,11 @@ Official Manjeet - Verified Final GitHub Code
                 waT: "व्हाट्सएप पर चैट करें",
                 s1T: "सोशल मीडिया", s1S: "अपनी ऑनलाइन उपस्थिति बढ़ाएं।",
                 s2T: "टारगेटेड विज्ञापन", s2S: "हाई कन्वर्शन विज्ञापन अभियान।",
-                s3T: "वेब डिजाइन", s3S: "तेज और रिस्पॉन्सिव साइट्स।",
-                s4T: "ब्रांडिंग", s4S: "एक अनूठी पहचान बनाएं।",
-                s5T: "ट्रेडिंग", s5S: "वित्तीय बाजार रणनीतियाँ।",
+               s3T: "वेब डिजाइन", s3S: "तेज़ और रिस्पॉन्सिव साइट्स।",
+s6T: "कोर्सेज",
+s6S: "हमारे कोर्सेज के साथ जुड़ें और अपना भविष्य सुरक्षित करें",
+s4T: "ब्रांडिंग", s4S: "एक अनूठी पहचान बनाएं।",
+
                 back: "होम पर वापस", cta: "सलाह लें", foot: "मुझसे जुड़ें",
                 socialD: "सोशल मीडिया के एल्गोरिदम में महारत हासिल करें और एक बड़ा डिजिटल समुदाय बनाएं।",
                 adsD: "सटीक डेटा के साथ विज्ञापन खर्च में अधिकतम लाभ प्राप्त करने की रणनीति।",
