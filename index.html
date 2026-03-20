@@ -226,21 +226,41 @@ footer, #contact {
             .detail-flex { flex-direction: column; text-align: center; }
             .btn-back { margin: 10px auto; }
         }
-        /* सोशल मीडिया आइकन्स को सफेद और हाईलाइट करने के लिए */
-.social-links a i {
-    color: #ffffff !important; /* आइकन्स को सफेद करेगा */
-    font-size: 25px !important; /* साइज थोड़ा बड़ा */
-    margin: 0 10px;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* सफेद ग्लो/हाइलाइट */
-    transition: 0.3s;
-}
+<style>
+    /* ... आपकी पुरानी CSS यहाँ होगी ... */
 
-/* माउस ले जाने पर और चमकेगा */
-.social-links a i:hover {
-    transform: scale(1.2);
-    text-shadow: 0 0 20px #ffffff;
-}
+    /* सोशल लिंक्स का प्रीमियम लुक - यहाँ पेस्ट करें */
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+    }
 
+    .social-links a {
+        text-decoration: none;
+    }
+
+    .social-links a i {
+        color: #ffffff !important;
+        background: rgba(255, 255, 255, 0.1);
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        border-radius: 50%;
+        font-size: 22px !important;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        transition: all 0.4s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .social-links a i:hover {
+        background: #ffffff !important;
+        color: #1a1a1a !important;
+        transform: translateY(-8px);
+        box-shadow: 0 8px 25px rgba(255, 255, 255, 0.5);
+    }
     </style>
 </head>
 <body onmousemove="moveSpotlight(event)" onload="init()">
