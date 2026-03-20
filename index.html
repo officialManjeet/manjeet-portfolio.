@@ -261,6 +261,32 @@ footer, #contact {
         transform: translateY(-8px);
         box-shadow: 0 8px 25px rgba(255, 255, 255, 0.5);
     }
+        /* गैलरी को सुंदर बनाने के लिए */
+.detail-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.detail-gallery img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border: 2px solid rgba(255,255,255,0.1);
+    transition: transform 0.3s;
+}
+
+.detail-gallery img:hover {
+    transform: scale(1.02);
+}
+
+/* मोबाइल बैक बटन और टेक्स्ट स्टाइल */
+#det-desc ul li {
+    margin-bottom: 10px;
+    color: #ddd;
+}
+
     </style>
 </head>
 <body onmousemove="moveSpotlight(event)" onload="init()">
