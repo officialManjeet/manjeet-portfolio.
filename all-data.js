@@ -26,9 +26,29 @@ const serviceData = {
         img: "courses.jpg" 
     },
     apps: { 
-        title: "App Development", 
-        desc: "कस्टम Android और iOS ऐप्स जो आपके बिजनेस को आसान बनाएंगे।", 
-        img: "apps.jpg" 
+apps: { 
+    title: "App Development: Basic to Advance 🚀", 
+    desc: `
+        <div style="text-align: left; line-height: 1.6;">
+            <p style="color: #00ecff; font-weight: bold;">App Development सीखने का सही रास्ता:</p>
+            <ul style="margin-left: 20px;">
+                <li>✅ <b>Basic:</b> HTML, CSS, JavaScript (Mobile Responsive)</li>
+                <li>✅ <b>Frameworks:</b> React Native या Flutter (Cross Platform)</li>
+                <li>✅ <b>Database:</b> Firebase या MongoDB का उपयोग</li>
+                <li>✅ <b>Advance:</b> API Integration और Play Store पर पब्लिश करना</li>
+            </ul>
+        </div>
+        
+        <!-- शानदार इमेजेस -->
+        <div class="detail-gallery">
+            <img src="https://images.unsplash.com" alt="App UI Design">
+            <img src="https://images.unsplash.com" alt="Mobile Coding">
+            <img src="https://images.unsplash.com" alt="App Roadmap">
+        </div>
+    `, 
+    img: "https://images.unsplash.com"
+},
+
     }
 };
 
