@@ -118,7 +118,23 @@ Official Manjeet - Verified Final GitHub Code
         /* Services Grid */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; align-items: stretch; }
 
- .card { background: var(--card-bg); padding: 50px 30px; border-radius: 35px; border: 1px solid var(--glass-border); text-align: center; cursor: pointer; transition: 0.4s ease; min-height: 380px; display: flex; flex-direction: column; justify-content: center; }
+.card { 
+    background: var(--card-bg); 
+    padding: 50px 30px; 
+    border-radius: 35px; 
+    border: 1px solid var(--glass-border); 
+    text-align: center; 
+    cursor: pointer; 
+    transition: 0.4s ease; 
+    
+    /* ये 4 लाइनें जादू करेंगी और सबको बराबर कर देंगी */
+    min-height: 380px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+}
+
 
 
         .card:hover { transform: translateY(-12px); border-color: var(--primary); background: rgba(255,255,255,0.06); }
@@ -201,12 +217,8 @@ Official Manjeet - Verified Final GitHub Code
         </section>
 
         <section class="grid">
-            <div class="card" onclick="showDetail('social')">
-                <i class="fas fa-users"></i>
-                <h3 id="s1-t">Social Media</h3>
+            <div id="cards-container" class="grid"></div>
 
-                <p id="s1-s">Grow your online influence.</p>
-            </div>
           
 
     <!-- Footer with Social Links -->
@@ -360,50 +372,48 @@ s4T: "ब्रांडिंग", s4S: "एक अनूठी पहचान
             bg.style.filter = 'none';
             
             const titleKey = id + 'T';
-            const descKey = id + 'D';
-            document.getElementById('det-title').innerText = d[titleKey] || d[id + 't'];
-            document.getElementById('det-img').src = config.imgs[id];
-
-
-            if (id === 'about') {
-                try {
-                    // This fetches your bio from about.html file
-                    const res = await fetch('about.html');
-                    if (res.ok) {
-                        const html = await res.text();
-                        // Extract only body content if it's a full page
-                        const parser = new DOMParser();
-                        const doc = parser.parseFromString(html, 'text/html');
-                        document.getElementById('det-desc').innerHTML = doc.body.innerHTML || html;
-                    } else {
-                        document.getElementById('det-desc').innerText = d[descKey];
-                    }
-                } catch (e) {
-                    document.getElementById('det-desc').innerText = d[descKey];
-                }
+               // यहाँ से नया और साफ़ कोड शुरू करें
+    if (id === 'about') {
+        document.getElementById('det-title').innerText = "About Me";
+        try {
+            const res = await fetch('about.html');
+            if (res.ok) {
+                const html = await res.text();
+                document.getElementById('det-desc').innerHTML = html;
             } else {
-                document.getElementById('det-desc').innerText = d[descKey] || d[id + 'd'];
+                document.getElementById('det-desc').innerText = "Information not found.";
             }
-
-            window.scrollTo(0,0);
+        } catch (e) {
+            document.getElementById('det-desc').innerText = "Error loading about section.";
         }
-           // यह कोड all-cards.html से कार्ड्स को खींचकर index.html में दिखाएगा
+    } else {
+        // बाकी सारे कार्ड्स के लिए (Trading, Courses, etc.)
+        const descKey = id + (lang === 'en' ? 'D' : 'D'); // आपके डिक्शनरी की Key के हिसाब से
+        document.getElementById('det-title').innerText = dict[lang][id + 'T'] || id;
+        document.getElementById('det-desc').innerText = dict[lang][id + 'D'] || "Details coming soon...";
+    }
+
+    window.scrollTo(0, 0);
+} // यहाँ showDetail फंक्शन खत्म होता है
+
+// कार्ड्स को लोड करने वाला कोड (इसे फंक्शन के बाहर रखें)
+    window.scrollTo(0, 0);
+} // यहाँ showDetail फंक्शन खत्म हुआ
+
+// कार्ड्स को लोड करने वाला कोड (इसे एकदम साफ़ रखें)
 fetch('all-cards.html')
     .then(response => response.text())
     .then(data => {
         const container = document.getElementById('cards-container');
         if (container) {
             container.innerHTML = data;
-            // कार्ड्स लोड होने के बाद भाषा (Hindi/English) अपडेट करने के लिए
             if (typeof updateContent === 'function') {
                 updateContent(); 
             }
         }
-    })
-    .catch(err => console.error('Cards load नहीं हो पाए:', err));
+    });
 
-    </script>
-            
+</script>            
 </body>
 </html>
 
