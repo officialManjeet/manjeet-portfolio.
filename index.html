@@ -324,37 +324,15 @@ footer, #contact {
         <section class="hero">
            <!-- Services Grid: कार्ड्स यहाँ से शुरू हो रहे हैं -->
 <div id="cards-container" class="grid">
-    <!-- CARD 1 -->
-    <div class="card" onclick="showDetail('ads')">
-        <i class="fas fa-bullseye"></i>
-        <h3>Targeted Ads</h3>
-    </div>
-    <!-- CARD 2 -->
-    <div class="card" onclick="showDetail('trading')">
-        <i class="fas fa-chart-line"></i>
-        <h3>Trading</h3>
-    </div>
-    <!-- CARD 3 -->
-    <div class="card" onclick="showDetail('branding')">
-        <i class="fas fa-pen-nib"></i>
-        <h3>Branding</h3>
-    </div>
-    <!-- CARD 4 -->
-    <div class="card" onclick="showDetail('courses')">
-        <i class="fas fa-graduation-cap"></i>
-        <h3>Courses</h3>
-    </div>
-    <!-- CARD 5 -->
-    <div class="card" onclick="showDetail('web')">
-        <i class="fas fa-laptop-code"></i>
-        <h3>Web Design</h3>
-    </div>
-    <!-- CARD 6 -->
-    <div class="card" onclick="showDetail('apps')">
-        <i class="fas fa-mobile-alt"></i>
-        <h3>App Development</h3>
-    </div>
+    <!-- यहाँ अब कुछ नहीं लिखना, सब JS से अपने आप आएगा -->
 </div>
+
+<!-- यह लाइन कार्ड्स को लोड करेगी (इसे </div> के ठीक नीचे डालें) -->
+<script src="all-data.js"></script>
+<script>
+    renderCards(); // यह फंक्शन कार्ड्स को स्क्रीन पर दिखाएगा
+</script>
+
 <!-- Services Grid End -->
 
             <div id="cards-container" class="grid"></div>
