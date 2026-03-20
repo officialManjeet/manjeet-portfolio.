@@ -226,6 +226,21 @@ footer, #contact {
             .detail-flex { flex-direction: column; text-align: center; }
             .btn-back { margin: 10px auto; }
         }
+        /* सोशल मीडिया आइकन्स को सफेद और हाईलाइट करने के लिए */
+.social-links a i {
+    color: #ffffff !important; /* आइकन्स को सफेद करेगा */
+    font-size: 25px !important; /* साइज थोड़ा बड़ा */
+    margin: 0 10px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* सफेद ग्लो/हाइलाइट */
+    transition: 0.3s;
+}
+
+/* माउस ले जाने पर और चमकेगा */
+.social-links a i:hover {
+    transform: scale(1.2);
+    text-shadow: 0 0 20px #ffffff;
+}
+
     </style>
 </head>
 <body onmousemove="moveSpotlight(event)" onload="init()">
