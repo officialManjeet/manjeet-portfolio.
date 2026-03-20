@@ -207,56 +207,7 @@ Official Manjeet - Verified Final GitHub Code
 
                 <p id="s1-s">Grow your online influence.</p>
             </div>
-            <div class="card" onclick="showDetail('ads')">
-                <i class="fas fa-bullseye"></i>
-                <h3 id="s2-t">Targeted Ads</h3>
-                <p id="s2-s">High conversion campaigns.</p>
-            </div>
-            <div class="card" onclick="showDetail('web')">
-                <i class="fas fa-laptop-code"></i>
-                <h3 id="s3-t">Web Design</h3>
-                <p id="s3-s">Fast & responsive sites.</p>
-            </div>
-            <div class="card" onclick="showDetail('trading')">
-                <i class="fas fa-chart-line"></i>
-                <h3 id="s5-t">Trading</h3>
-                <p id="s5-s">Financial market strategies.</p>
-            </div>
-            <div class="card" onclick="showDetail('branding')">
-                <i class="fas fa-pen-nib"></i>
-
-        <div class="card" onclick="showDetail('courses')">
-    <i class="fas fa-graduation-cap"></i>
-    <h3 id="s6T">Courses</h3>
-
-    <p id="s6S"></p>   <!-- अब यह JS से "अपना भविष्य सुरक्षित करें" उठा लेगा -->
-</div>
-
-
-    <!-- Detailed Section View -->
-    <div id="detail-view" class="container">
-        <div class="detail-flex">
-            <div class="detail-text">
-                <h2 id="det-title">Service Title</h2>
-                <div id="det-box">
-                    <p id="det-desc">Details loading...</p>
-                </div>
-                
-                <!-- Action Button -->
-                <a href="https://wa.me" target="_blank" class="btn-cta" id="cta-txt">Consult Now</a>
-                
-                <br>
-
-                <!-- Back Button BELOW Consult Now as requested -->
-                <div class="btn-back" onclick="showHome()">
-                    <i class="fas fa-arrow-left"></i> <span id="back-txt">Back to Home</span>
-                </div>
-            </div>
-            <div class="detail-img">
-                <img id="det-img" src="" alt="Detail View">
-            </div>
-        </div>
-    </div>
+          
 
     <!-- Footer with Social Links -->
     <footer>
@@ -436,7 +387,23 @@ s4T: "ब्रांडिंग", s4S: "एक अनूठी पहचान
 
             window.scrollTo(0,0);
         }
+           // यह कोड all-cards.html से कार्ड्स को खींचकर index.html में दिखाएगा
+fetch('all-cards.html')
+    .then(response => response.text())
+    .then(data => {
+        const container = document.getElementById('cards-container');
+        if (container) {
+            container.innerHTML = data;
+            // कार्ड्स लोड होने के बाद भाषा (Hindi/English) अपडेट करने के लिए
+            if (typeof updateContent === 'function') {
+                updateContent(); 
+            }
+        }
+    })
+    .catch(err => console.error('Cards load नहीं हो पाए:', err));
+
     </script>
+            
 </body>
 </html>
 
