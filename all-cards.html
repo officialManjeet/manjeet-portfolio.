@@ -1,1 +1,78 @@
+<!-- ============================================================
+     CARD #1: TARGETED ADS (विज्ञापन)
+     कहाँ से: यहाँ से शुरू | कहाँ तक: लाइन 8 तक
+     ============================================================ -->
+<div class="card" onclick="showDetail('ads')">
+    <i class="fas fa-bullseye"></i>
+    <h3 id="s2-t">Targeted Ads</h3>
+    <p id="s2-s">High conversion campaigns.</p>
+</div>
+
+<!-- ============================================================
+     CARD #2: WEB DESIGN (वेब डिजाइन)
+     कहाँ से: यहाँ से शुरू | कहाँ तक: लाइन 17 तक
+     ============================================================ -->
+<div class="card" onclick="showDetail('web')">
+    <i class="fas fa-laptop-code"></i>
+    <h3 id="s3-t">Web Design</h3>
+    <p id="s3-s">Fast & responsive sites.</p>
+</div>
+
+<!-- ============================================================
+     CARD #3: TRADING (ट्रेडिंग)
+     कहाँ से: यहाँ से शुरू | कहाँ तक: लाइन 26 तक
+     ============================================================ -->
+<div class="card" onclick="showDetail('trading')">
+    <i class="fas fa-chart-line"></i>
+    <h3 id="s5-t">Trading</h3>
+    <p id="s5-s">Financial market strategies.</p>
+</div>
+
+<!-- ============================================================
+     CARD #4: BRANDING (ब्रांडिंग)
+     कहाँ से: यहाँ से शुरू | कहाँ तक: लाइन 34 तक
+     ============================================================ -->
+<div class="card" onclick="showDetail('branding')">
+    <i class="fas fa-pen-nib"></i>
+    <h3 id="s4-t">Branding</h3>
+    <p id="s4-s">Unique brand identity.</p>
+</div>
+
+<!-- ============================================================
+     CARD #5: COURSES (कोर्सेज / शिक्षा)
+     कहाँ से: यहाँ से शुरू | कहाँ तक: लाइन 44 तक
+     ============================================================ -->
+<div class="card" onclick="showDetail('courses')">
+    <i class="fas fa-graduation-cap"></i>
+    <h3 id="s6T">Courses</h3>
+    <p id="s6S">Learn and Grow</p> <!-- यह JS से बदल जाएगा -->
+</div>
+
+<!-- ============================================================
+     SECTION: DETAIL VIEW (कार्ड पर क्लिक करने के बाद दिखने वाला हिस्सा)
+     नोट: इसे भी इसी फाइल में रखें ताकि बैकग्राउंड में लोड रहे
+     ============================================================ -->
+<div id="detail-view" class="container">
+    <div class="detail-flex">
+        <div class="detail-text">
+            <h2 id="det-title">Service Title</h2>
+            <div id="det-box">
+                <p id="det-desc">Details loading...</p>
+            </div>
+            
+            <!-- Action Button -->
+            <a href="https://wa.me" target="_blank" class="btn-cta" id="cta-txt">Consult Now</a>
+            
+            <br>
+
+            <!-- Back Button -->
+            <div class="btn-back" onclick="showHome()">
+                <i class="fas fa-arrow-left"></i> <span id="back-txt">Back to Home</span>
+            </div>
+        </div>
+        <div class="detail-img">
+            <img id="det-img" src="" alt="Detail View">
+        </div>
+    </div>
+</div>
 
