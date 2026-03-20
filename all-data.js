@@ -56,7 +56,7 @@ apps: {
 function showDetail(service) {
     const data = serviceData[service];
     if (data) {
-         document.getElementById('det-title').innerText = data.title;
+        document.getElementById('det-desc').innerHTML = data.desc;
         document.getElementById('det-desc').innerText = data.desc;
         document.getElementById('det-img').src = data.img;
         
