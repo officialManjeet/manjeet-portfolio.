@@ -1,68 +1,82 @@
-// मास्टर डेटा: यहीं से आप हर कार्ड की जानकारी बदलेंगे
+// ============================================================
+// 1. कार्ड्स का 'रिमोट कंट्रोल' (Order, Icon, Title यहीं से बदलें)
+// ============================================================
+const myCards = [
+    { id: 'ads',      title: 'Targeted Ads',    icon: 'fa-bullseye' },
+    { id: 'trading',  title: 'Trading',         icon: 'fa-chart-line' },
+    { id: 'branding', title: 'Branding',        icon: 'fa-pen-nib' },
+    { id: 'courses',  title: 'Courses',         icon: 'fa-graduation-cap' },
+    { id: 'web',      title: 'Web Design',      icon: 'fa-laptop-code' },
+    { id: 'apps',     title: 'App Development', icon: 'fa-mobile-alt' }
+];
+
+// ============================================================
+// 2. कार्ड्स के अंदर का डेटा (क्लिक करने पर क्या दिखेगा)
+// ============================================================
 const serviceData = {
-    ads: { 
-        title: "Targeted Ads", 
-        desc: "हम फेसबुक और गूगल पर विज्ञापन चलाकर आपके बिजनेस की सेल्स बढ़ाते हैं।", 
-        img: "https://images.unsplash.com" 
-    },
-    trading: { 
-        title: "Trading Strategies", 
-        desc: "प्रोफेशनल ट्रेडिंग कोर्स और मार्केट एनालिसिस की पूरी जानकारी यहाँ मिलेगी।", 
-        img: "https://images.unsplash.com" 
-    },
-    branding: { 
-        title: "Branding", 
-        desc: "आपके बिजनेस को एक यूनिक ब्रांड बनाने के लिए लोगो और ग्राफिक्स डिजाइन।", 
-        img: "https://images.unsplash.com" 
-    },
-    courses: { 
-        title: "Professional Courses", 
-        desc: "वेब डेवलपमेंट और ट्रेडिंग की बारीकियां सीखें हमारे एक्सपर्ट कोर्स के साथ।", 
-        img: "https://images.unsplash.com" 
-    },
-    web: { 
-        title: "Web Design", 
-        desc: "आधुनिक, फ़ास्ट और मोबाइल फ्रेंडली वेबसाइट्स आपके बिजनेस के लिए।", 
-        img: "https://images.unsplash.com" 
-    },
-    // App Development वाला खास हिस्सा
+    ads: { title: "Targeted Ads", desc: "हाई-कन्वर्जन विज्ञापन जो सेल्स बढ़ाते हैं।", img: "https://images.unsplash.com" },
+    trading: { title: "Trading Strategies", desc: "मार्केट एनालिसिस और ट्रेडिंग कोर्स की पूरी जानकारी।", img: "https://images.unsplash.com" },
+    branding: { title: "Branding", desc: "आपके बिजनेस की यूनिक पहचान और लोगो डिजाइन।", img: "https://images.unsplash.com" },
+    courses: { title: "Professional Courses", desc: "वेब डेवलपमेंट और ट्रेडिंग की बारीकियां सीखें।", img: "https://images.unsplash.com" },
+    web: { title: "Web Design", desc: "आधुनिक और रिस्पॉन्सिव वेबसाइट्स आपके बिजनेस के लिए।", img: "https://images.unsplash.com" },
+    
+    // APP DEVELOPMENT: रोडमैप और इमेजेस के साथ
     apps: { 
         title: "App Development: Basic to Advance 🚀", 
         desc: `
-            <p>App development सीखने का सही रोडमैप:</p>
+            <p>App development सीखने का रोडमैप:</p>
             <ul style="text-align: left; color: #eee; margin-bottom: 20px;">
-                <li>✅ Basic: HTML, CSS, JavaScript</li>
-                <li>✅ Frameworks: Flutter या React Native</li>
-                <li>✅ Advance: API और Play Store पब्लिशिंग</li>
+                <li>✅ Basic: UI/UX Design</li>
+                <li>✅ Frameworks: React Native / Flutter</li>
+                <li>✅ Advance: Play Store Publishing</li>
             </ul>
             <div class="detail-gallery">
-                <img src="https://images.unsplash.com" style="width:100%; border-radius:10px; margin-bottom:10px;">
-                <img src="https://images.unsplash.com" style="width:100%; border-radius:10px; margin-bottom:10px;">
+                <img src="https://images.unsplash.com" style="width:100%; border-radius:10px; margin-top:10px;">
+                <img src="https://images.unsplash.com" style="width:100%; border-radius:10px; margin-top:10px;">
             </div>
         `, 
         img: "https://images.unsplash.com" 
     }
 };
 
-// क्लिक करने पर डिटेल्स दिखाने वाला फंक्शन
+// ============================================================
+// 3. जादुई फंक्शन्स (इन्हें अब कभी नहीं छूना पड़ेगा)
+// ============================================================
+
+// कार्ड्स को स्क्रीन पर दिखाने के लिए
+function renderCards() {
+    let html = "";
+    myCards.forEach(card => {
+        html += `
+            <div class="card" onclick="showDetail('${card.id}')">
+                <i class="fas ${card.icon}"></i>
+                <h3>${card.title}</h3>
+            </div>`;
+    });
+    const container = document.getElementById('cards-container');
+    if(container) container.innerHTML = html;
+}
+
+// कार्ड पर क्लिक करने पर डिटेल्स दिखाने के लिए
 function showDetail(service) {
     const data = serviceData[service];
     if (data) {
         document.getElementById('det-title').innerText = data.title;
-        document.getElementById('det-desc').innerHTML = data.desc; // innerHTML इमेजेस के लिए जरूरी है
+        document.getElementById('det-desc').innerHTML = data.desc;
         document.getElementById('det-img').src = data.img;
         
         document.getElementById('cards-container').style.display = 'none';
         document.getElementById('detail-view').style.display = 'block';
-
         window.history.pushState({view: 'detail'}, ''); 
     }
 }
 
-// होम पेज पर वापस जाने के लिए
+// वापस होम पर जाने के लिए
 function showHome() {
-    document.getElementById('cards-container').style.display = 'grid';
+    const container = document.getElementById('cards-container');
+    if(container) container.style.display = 'grid';
     document.getElementById('detail-view').style.display = 'none';
 }
 
+// मोबाइल बैक बटन के लिए
 window.onpopstate = function() { showHome(); };
