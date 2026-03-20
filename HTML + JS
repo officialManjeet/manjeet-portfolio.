@@ -1,1 +1,37 @@
 
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Official Manjeet Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
+    <style>
+        body { background: #0a0a0a; color: white; font-family: sans-serif; text-align: center; }
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 20px; }
+        .card { background: rgba(255,255,255,0.1); padding: 40px; border-radius: 15px; cursor: pointer; transition: 0.3s; border: 1px solid rgba(255,255,255,0.1); }
+        .card:hover { background: rgba(0,236,255,0.1); border-color: #00ecff; transform: translateY(-5px); }
+        .card i { font-size: 40px; color: #00ecff; margin-bottom: 15px; }
+        #detail-view { display: none; padding: 40px; max-width: 800px; margin: auto; }
+        .back-btn { background: #00ecff; color: black; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-bottom: 20px; }
+        .course-box { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 12px; border: 1px solid #333; margin-top: 20px; text-align: left; }
+    </style>
+</head>
+<body>
+
+    <h1>Official Manjeet Services</h1>
+
+    <!-- यहाँ 4 कार्ड दिखेंगे -->
+    <div id="cards-container" class="grid-container"></div>
+
+    <!-- यहाँ डिटेल दिखेगी -->
+    <div id="detail-view">
+        <button class="back-btn" onclick="showHome()">← Back to Home</button>
+        <h2 id="det-title"></h2>
+        <img id="det-img" src="" style="width:100%; border-radius:15px; margin: 20px 0; display:none;">
+        <div id="det-desc"></div>
+    </div>
+
+    <script src="all-data.js"></script>
+</body>
+</html>
