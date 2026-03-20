@@ -154,15 +154,24 @@ Official Manjeet - Verified Final GitHub Code
 .card:hover i {
     transform: rotate(10deg); /* आइकॉन हल्का घूमेगा */
 }
+/* इसे अपनी CSS के एकदम अंत में पेस्ट करें */
 footer, #contact {
-    display: flex;
-    flex-direction: column;
-    align-items: center;    /* चौड़ाई में बीच में */
-    justify-content: center; /* ऊंचाई में बीच में */
-    text-align: center;
-    width: 100%;
-    padding: 50px 0;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;    /* चौड़ाई में एकदम बीच में */
+    justify-content: center !important; /* ऊंचाई में एकदम बीच में */
+    text-align: center !important;
+    width: 100% !important;
+    margin: 50px auto !important; /* ऊपर-नीचे गैप और साइड से ऑटो */
 }
+
+.social-links {
+    display: flex;
+    justify-content: center; /* आइकॉन को आपस में सेंटर करने के लिए */
+    gap: 20px; /* आइकॉन के बीच की दूरी */
+    margin-top: 15px;
+}
+
 
 .social-links {
     margin-top: 20px;
