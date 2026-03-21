@@ -1,59 +1,80 @@
-const myCards = [
-    { id: 'ads',      title: 'Targeted Ads',    icon: 'fa-bullseye' },
-    { id: 'trading',  title: 'Trading',         icon: 'fa-chart-line' },
-    { id: 'branding', title: 'Branding',        icon: 'fa-pen-nib' },
-    { id: 'courses',  title: 'Our Courses',     icon: 'fa-graduation-cap' }
-];
+<!-- ============================================================
+     CARD #1: TARGETED ADS (विज्ञापन)
+     ============================================================ -->
+<div class="card" onclick="showDetail('ads')">
+    <i class="fas fa-bullseye"></i>
+    <h3 id="s2-t">Targeted Ads</h3>
+    <p id="s2-s">High conversion campaigns.</p>
+</div>
 
-const serviceData = {
-    ads: { title: "Targeted Ads", desc: "हम आपके बिजनेस के लिए हाई-कन्वर्जन फेसबुक और गूगल एड्स चलाते हैं।", img: "" },
-    trading: { title: "Trading", desc: "बेसिक से एडवांस स्टॉक मार्केट और क्रिप्टो ट्रेडिंग सीखें।", img: "" },
-    branding: { title: "Branding", desc: "लोगो डिजाइन से लेकर पूरी ब्रांडिंग स्ट्रेटेजी तक।", img: "" },
-    
-    // यहाँ है आपका मुख्य बदलाव: Web और App इसी के अंदर हैं
-    courses: { 
-        title: "Masterclass Courses 🎓", 
-        desc: `
-            <div class="course-box">
-                <h3 style="color:#00ecff">1. Web Designing (Web Dev)</h3>
-                <p>सीखें: HTML, CSS, JavaScript, React और अपनी वेबसाइट लाइव करना।</p>
-                <button onclick="alert('Redirecting to Payment...')">Enroll Now</button>
+<!-- ============================================================
+     CARD #2: WEB DESIGN (वेब डिजाइन)
+     ============================================================ -->
+<div class="card" onclick="showDetail('web')">
+    <i class="fas fa-laptop-code"></i>
+    <h3 id="s3-t">Web Design</h3>
+    <p id="s3-s">Fast & responsive sites.</p>
+</div>
+
+<!-- ============================================================
+     CARD #3: TRADING (ट्रेडिंग)
+     ============================================================ -->
+<div class="card" onclick="showDetail('trading')">
+    <i class="fas fa-chart-line"></i>
+    <h3 id="s5-t">Trading</h3>
+    <p id="s5-s">Financial market strategies.</p>
+</div>
+
+<!-- ============================================================
+     CARD #4: BRANDING (ब्रांडिंग)
+     ============================================================ -->
+<div class="card" onclick="showDetail('branding')">
+    <i class="fas fa-pen-nib"></i>
+    <h3 id="s4-t">Branding</h3>
+    <p id="s4-s">Unique brand identity.</p>
+</div>
+
+<!-- ============================================================
+     CARD #5: COURSES (कोर्सेज / शिक्षा)
+     ============================================================ -->
+<div class="card" onclick="showDetail('courses')">
+    <i class="fas fa-graduation-cap"></i>
+    <h3 id="s6T">Courses</h3>
+    <p id="s6S">Learn and Grow</p>
+</div>
+
+<!-- ============================================================
+     CARD #6: APP DEVELOPMENT (नया कार्ड)
+     ============================================================ -->
+<div class="card" onclick="showDetail('apps')">
+    <i class="fas fa-mobile-alt"></i>
+    <h3 id="s7-t">App Development</h3>
+    <p id="s7-s">Custom Android & iOS apps.</p>
+</div>
+
+<!-- ============================================================
+     SECTION: DETAIL VIEW (कार्ड पर क्लिक करने के बाद दिखने वाला हिस्सा)
+     ============================================================ -->
+<div id="detail-view" class="container">
+    <div class="detail-flex">
+        <div class="detail-text">
+            <h2 id="det-title">Service Title</h2>
+            <div id="det-box">
+                <p id="det-desc">Details loading...</p>
             </div>
-            <div class="course-box">
-                <h3 style="color:#00ecff">2. App Development</h3>
-                <p>सीखें: Flutter, Android/iOS डेवलपमेंट और Play Store पर ऐप डालना।</p>
-                <button onclick="alert('Redirecting to Payment...')">Enroll Now</button>
+            
+            <!-- Action Button -->
+            <a href="https://wa.me" target="_blank" class="btn-cta" id="cta-txt">Consult Now</a>
+            
+            <br>
+
+            <!-- Back Button -->
+            <div class="btn-back" onclick="showHome()">
+                <i class="fas fa-arrow-left"></i> <span id="back-txt">Back to Home</span>
             </div>
-        `, 
-        img: "" 
-    }
-};
-
-function renderCards() {
-    let html = "";
-    myCards.forEach(card => {
-        html += `
-            <div class="card" onclick="showDetail('${card.id}')">
-                <i class="fas ${card.icon}"></i>
-                <h3>${card.title}</h3>
-            </div>`;
-    });
-    document.getElementById('cards-container').innerHTML = html;
-}
-
-function showDetail(id) {
-    const data = serviceData[id];
-    document.getElementById('det-title').innerText = data.title;
-    document.getElementById('det-desc').innerHTML = data.desc;
-    
-    document.getElementById('cards-container').style.display = 'none';
-    document.getElementById('detail-view').style.display = 'block';
-}
-
-function showHome() {
-    document.getElementById('cards-container').style.display = 'grid';
-    document.getElementById('detail-view').style.display = 'none';
-}
-
-// सबसे जरूरी: पेज खुलते ही कार्ड्स दिखाना
-window.onload = renderCards;
+        </div>
+        <div class="detail-img">
+            <img id="det-img" src="" alt="Detail View">
+        </div>
+    </div>
+</div>
