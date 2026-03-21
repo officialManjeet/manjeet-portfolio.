@@ -24,6 +24,12 @@ header {
     z-index: 1000;
     backdrop-filter: blur(10px);
 }
+#lang-btn {
+    position: relative;
+    z-index: 10001;
+    cursor: pointer;
+    pointer-events: auto;
+}
 
 nav {
     display: flex;
