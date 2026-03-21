@@ -242,29 +242,76 @@ Official Manjeet - Verified Final GitHub Code
         </div>
     </footer>
 
-   <script>
+  <script>
+    // 1. भाषा का डेटा (Dictionary)
+    let currentLang = 'en'; // शुरुआत में इंग्लिश
+
+    const translations = {
+        en: {
+            heroTitle: "Elevate Your <span>Business</span>",
+            heroDesc: "Cutting-edge digital strategies for world-class growth.",
+            waBtn: "Chat on WhatsApp",
+            connect: "Connect With Me",
+            langBtn: "HI / हिंदी"
+        },
+        hi: {
+            heroTitle: "अपने <span>व्यवसाय</span> को बढ़ाएं",
+            heroDesc: "विश्व स्तरीय विकास के लिए आधुनिक डिजिटल रणनीतियां।",
+            waBtn: "व्हाट्सएप पर चैट करें",
+            connect: "मुझसे जुड़ें",
+            langBtn: "EN / English"
+        }
+    };
+
+    // 2. कार्ड्स की लिस्ट
     const cardList = [
         { id: 'card-social', file: 'social-media.html' },
+        { id: 'card-ads', file: 'targeted-ads.html' },
         { id: 'card-trading', file: 'trading.html' },
         { id: 'card-courses', file: 'courses.html' }
     ];
 
+    // 3. भाषा बदलने का फंक्शन
+    async function changeLanguage() {
+        // भाषा बदलें
+        currentLang = (currentLang === 'en') ? 'hi' : 'en';
+        
+        // मुख्य टेक्स्ट बदलें
+        const t = translations[currentLang];
+        document.querySelector('.hero h1').innerHTML = t.heroTitle;
+        document.querySelector('.hero p').innerText = t.heroDesc;
+        document.querySelector('.btn-whatsapp span').innerText = t.waBtn;
+        document.querySelector('footer h2').innerText = t.connect;
+        document.getElementById('lang-btn').innerText = t.langBtn;
+
+        // कार्ड्स को नई भाषा में लोड करें
+        loadCards();
+    }
+
+    // 4. कार्ड्स लोड करने का फंक्शन (भाषा के फोल्डर के साथ)
     async function loadCards() {
         for (const card of cardList) {
             try {
-                const response = await fetch(`cards/${card.file}`);
+                // यह अब cards/en/ या cards/hi/ से फाइल उठाएगा
+                const response = await fetch(`cards/${currentLang}/${card.file}`);
                 if (response.ok) {
                     const html = await response.text();
                     const target = document.getElementById(card.id);
                     if (target) target.innerHTML = html;
                 }
             } catch (err) {
-                console.error("Card load fail:", err);
+                console.error("Error:", err);
             }
         }
     }
+
+    // 5. शुरुआत में कार्ड्स लोड करें
     window.addEventListener('DOMContentLoaded', loadCards);
+    
+    // बटन पर क्लिक करने का इवेंट जोड़ें
+    document.getElementById('lang-btn').addEventListener('click', changeLanguage);
 </script>
+
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
