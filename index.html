@@ -222,11 +222,14 @@ Official Manjeet - Verified Final GitHub Code
             <div class="card" onclick="showDetail('branding')">
                 <i class="fas fa-pen-nib"></i>
 
-      <!-- Courses Card Start -->
+   <!-- Courses Card Start -->
 <div class="card" onclick="showDetail('courses')">
     <i class="fas fa-graduation-cap"></i>
-    <h3>Courses</h3>
-    <p>1. Web Design <br> 2. App Development</p>
+    <h3 id="courses-t">Courses</h3>
+    <p id="courses-s">1. Web Design <br> 2. App Development</p>
+</div>
+<!-- Courses Card End -->
+
 </div>
 <!-- Courses Card End -->
 
@@ -282,6 +285,7 @@ Official Manjeet - Verified Final GitHub Code
                 portfolio: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&q=80&w=800',
                 shop: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=80&w=800',
                 trading: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&q=80&w=800',
+                courses: 'https://images.unsplash.com',
                 about: 'images/sel.jpg'
             }
         };
@@ -292,19 +296,17 @@ Official Manjeet - Verified Final GitHub Code
 
         const dict = {
             en: {
-                btn: "Hindi", logoW: "OFFICIAL", logoB: "MANJEET",
+               nH: "Home", nA: "About", nP: "Portfolio", nT: "Trading", nS: "Shop", nC: "Courses",
                 nH: "Home", nA: "About", nP: "Portfolio", nT: "Trading", nS: "Shop",
                 hH: "Elevate Your <span>Business</span>", hP: "Cutting-edge digital strategies for world-class growth and dominance.",
                 waT: "Chat on WhatsApp",
-                s1T: "Social Media", s1S: "Grow your online influence.",
+                s1T: "Social Media", s1S: "Grow your online influence.",S
                 s2T: "Targeted Ads", s2S: "High conversion campaigns.",
                 s3T: "Web Design", s3S: "Fast & responsive sites.",
                 s4T: "Branding", s4S: "Build a unique identity.",
                                         s6T: "हमारे कोर्सेज",
             s6S: "हमारे कोर्सेज के साथ जुड़ें और अपना भविष्य सुरक्षित करें।",
             s6Btn: "अभी जुड़ें",
-
-
                 back: "Back to Home", cta: "Consult Now", foot: "Connect With Me",
                 socialD: "Master Instagram and Facebook to build a massive community with professional organic reach.",
                 adsD: "Data-driven advertising strategies designed for maximum conversion and massive growth.",
@@ -316,6 +318,9 @@ Official Manjeet - Verified Final GitHub Code
                 tradingT: "Professional Trading", 
                 tradingD: "Step into the financial markets with precision. We offer advanced chart analysis, risk management strategies, and high-probability entry points. Learn to navigate the stock market with confidence and consistency.",
                 aboutT: "About Manjeet", aboutD: "Loading biography from about.html..."
+                coursesT: "Our Professional Courses",
+coursesD: "1. Web Design <br> 2. App Development",
+
             },
             hi: {
                 btn: "English", logoW: "ऑफिशियल", logoB: "मंजीत",
@@ -324,6 +329,9 @@ Official Manjeet - Verified Final GitHub Code
                 waT: "व्हाट्सएप पर चैट करें",
                 s1T: "सोशल मीडिया", s1S: "अपनी ऑनलाइन उपस्थिति बढ़ाएं।",
                 s2T: "टारगेटेड विज्ञापन", s2S: "हाई कन्वर्शन विज्ञापन अभियान।",
+            s6T: "कोर्सेज",
+s6S: "1. वेब डिजाइन <br> 2. ऐप डेवलपमेंट",
+
                 s3T: "वेब डिजाइन", s3S: "तेज और रिस्पॉन्सिव साइट्स।",
                 s4T: "ब्रांडिंग", s4S: "एक अनूठी पहचान बनाएं।",
                 s5T: "ट्रेडिंग", s5S: "वित्तीय बाजार रणनीतियाँ।",
@@ -359,6 +367,9 @@ Official Manjeet - Verified Final GitHub Code
             document.getElementById('nav-h').innerText = d.nH;
             document.getElementById('nav-a').innerText = d.nA;
             document.getElementById('nav-p').innerText = d.nP;
+            document.getElementById('courses-t').innerText = d.s6T;
+document.getElementById('courses-s').innerHTML = d.s6S;
+
             document.getElementById('nav-t').innerText = d.nT;
             document.getElementById('nav-s').innerText = d.nS;
             document.getElementById('hero-h').innerHTML = d.hH;
