@@ -223,25 +223,15 @@ Official Manjeet - Verified Final GitHub Code
                 <i class="fas fa-pen-nib"></i>
 
   <!-- Courses Card -->
-<div class="card">
-    <div class="card-content">
-        <i class="fas fa-user-graduate"></i> <!-- Courses का आइकॉन -->
-        <h3>Courses</h3>
-        <ul class="course-list">
-            <li>1. Web Design</li>
-            <li>2. App Development</li>
-        </ul>
-
-        <!-- Web Design Card इसके अंदर आ गया -->
-        <div class="inner-card">
-            <i class="fas fa-code"></i>
-            <h4>Web Design</h4>
-            <p>Fast & responsive sites</p>
-        </div>
-    </div>
+<!-- Main Cards Container -->
+<div class="cards-grid">
+    <div id="card-social"></div>
+    <div id="card-ads"></div>
+    <div id="card-web"></div>
+    <div id="card-trading"></div>
+    <div id="card-courses"></div>
 </div>
 
-<!-- Courses Card End -->
 
 
 
@@ -455,5 +445,33 @@ document.getElementById('courses-s').innerHTML = d.s6S;
             window.scrollTo(0,0);
         }
     </script>
+                <script>
+    // यह फंक्शन फोल्डर से कार्ड्स को खींचकर लाएगा
+    async function loadCards() {
+        const cards = [
+            { id: 'card-social', file: 'social-media.html' },
+            { id: 'card-ads', file: 'targeted-ads.html' },
+            { id: 'card-web', file: 'web-design.html' },
+            { id: 'card-trading', file: 'trading.html' },
+            { id: 'card-courses', file: 'courses.html' }
+        ];
+
+        for (const card of cards) {
+            try {
+               const response = await fetch(cards/${card.file});
+                if (response.ok) {
+                    const html = await response.text();
+                    document.getElementById(card.id).innerHTML = html;
+                }
+            } catch (err) {
+                console.error("Card load error:", err);
+            }
+        }
+    }
+
+    // पेज लोड होते ही फंक्शन चलाएं
+    window.onload = loadCards;
+</script>
+
 </body>
 </html>
