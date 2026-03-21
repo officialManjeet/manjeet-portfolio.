@@ -247,33 +247,40 @@ Official Manjeet - Verified Final GitHub Code
     async function loadCards() {
         const cards = [
             { id: 'card-social', file: 'social-media.html' },
-            // कार्ड्स की लिस्ट
-const cardList = [
-    { id: 'card-social', file: 'social-media.html' },
-    { id: 'card-trading', file: 'trading.html' },
-    { id: 'card-courses', file: 'courses.html' }
-];
+         <script>
+    // 1. कार्ड्स की लिस्ट और उनकी HTML फाइलें
+    const cardList = [
+        { id: 'card-social', file: 'social-media.html' },
+        { id: 'card-trading', file: 'trading.html' },
+        { id: 'card-courses', file: 'courses.html' }
+    ];
 
-async function loadCards() {
-    for (const card of cardList) {
-        try {
-            const response = await fetch(`cards/${card.file}`);
-            if (response.ok) {
-                const html = await response.text();
-                document.getElementById(card.id).innerHTML = html;
+    // 2. कार्ड्स को लोड करने वाला फंक्शन
+    async function loadCards() {
+        for (const card of cardList) {
+            try {
+                // 'cards/' फोल्डर से फाइल उठा रहा है
+                const response = await fetch(`cards/${card.file}`);
+                
+                if (response.ok) {
+                    const html = await response.text();
+                    const targetElement = document.getElementById(card.id);
+                    
+                    if (targetElement) {
+                        targetElement.innerHTML = html;
+                        console.log(`${card.id} सफलतापूर्वक लोड हो गया!`);
+                    } else {
+                        console.warn(`Error: ID "${card.id}" आपके HTML में नहीं मिली।`);
+                    }
+                } else {
+                    console.error(`Error: ${card.file} फाइल नहीं मिली (Status: ${response.status})`);
+                }
+            } catch (error) {
+                console.error("कार्ड लोड करने में दिक्कत आई:", error);
             }
-        } catch (error) {
-            console.error("Card load error:", error);
         }
     }
-}
 
-// पेज लोड होने पर फंक्शन चलाएं
-window.onload = loadCards;
-
-
-    // पेज लोड होते ही कार्ड्स लोड करें
-    window.onload = loadCards;
+    // 3. जैसे ही पेज लोड हो, फंक्शन को चलाएँ
+    window.addEventListener('DOMContentLoaded', loadCards);
 </script>
-</body>
-</html>
