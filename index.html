@@ -197,44 +197,14 @@ Official Manjeet - Verified Final GitHub Code
             </a>
         </section>
 
-        <section class="grid">
-            <div class="card" onclick="showDetail('social')">
-                <i class="fas fa-users"></i>
-                <h3 id="s1-t">Social Media</h3>
-
-                <p id="s1-s">Grow your online influence.</p>
-            </div>
-            <div class="card" onclick="showDetail('ads')">
-                <i class="fas fa-bullseye"></i>
-                <h3 id="s2-t">Targeted Ads</h3>
-                <p id="s2-s">High conversion campaigns.</p>
-            </div>
-            <div class="card" onclick="showDetail('web')">
-                <i class="fas fa-laptop-code"></i>
-                <h3 id="s3-t">Web Design</h3>
-                <p id="s3-s">Fast & responsive sites.</p>
-            </div>
-            <div class="card" onclick="showDetail('trading')">
-                <i class="fas fa-chart-line"></i>
-                <h3 id="s5-t">Trading</h3>
-                <p id="s5-s">Financial market strategies.</p>
-            </div>
-            <div class="card" onclick="showDetail('branding')">
-                <i class="fas fa-pen-nib"></i>
-
-  <!-- Courses Card -->
-<!-- Main Cards Container -->
+       <!-- बस इतना ही रखें, पुराना सब हटा दें -->
 <div class="cards-grid">
     <div id="card-social"></div>
     <div id="card-ads"></div>
     <div id="card-trading"></div>
-    <div id="card-courses"></div>
+    <div id="card-courses"></div> <!-- Web Design अब इसके अंदर है -->
 </div>
-
-
-
-
-    <!-- Detailed Section View -->
+ <!-- Detailed Section View -->
     <div id="detail-view" class="container">
         <div class="detail-flex">
             <div class="detail-text">
@@ -294,34 +264,25 @@ Official Manjeet - Verified Final GitHub Code
             }
         }
     }
-
-    // पेज लोड होते ही कार्ड्स लोड करें
-    window.onload = loadCards;
-</script>
-</body>
-</html>
-
-                <script>
-    // यह फंक्शन फोल्डर से कार्ड्स को खींचकर लाएगा
+   <script>
     async function loadCards() {
-       const cards = [
-    { id: 'card-social', file: 'social-media.html' },
-    { id: 'card-ads', file: 'targeted-ads.html' },
-    { id: 'card-trading', file: 'trading.html' },
-    { id: 'card-courses', file: 'courses.html' }
-];
-
+        const cards = [
+            { id: 'card-social', file: 'social-media.html' },
+            { id: 'card-ads', file: 'targeted-ads.html' },
+            { id: 'card-trading', file: 'trading.html' },
+            { id: 'card-courses', file: 'courses.html' }
         ];
 
         for (const card of cards) {
             try {
-               const response = await fetch(cards/${card.file});
+                // यहाँ सही Backticks (`) का उपयोग किया है
+                const response = await fetch(`cards/${card.file}`);
                 if (response.ok) {
                     const html = await response.text();
                     document.getElementById(card.id).innerHTML = html;
                 }
             } catch (err) {
-                console.error("Card load error:", err);
+                console.error("Card Loading Error:", err);
             }
         }
     }
@@ -330,5 +291,4 @@ Official Manjeet - Verified Final GitHub Code
     window.onload = loadCards;
 </script>
 
-</body>
-</html>
+
