@@ -255,43 +255,38 @@ Official Manjeet - Verified Final GitHub Code
         for (const card of cards) {
             try {
                 const response = await fetch(`cards/${card.file}`);
-                if (response.ok) {
-                    const data = await response.text();
-                    document.getElementById(card.id).innerHTML = data;
-                }
-            } catch (err) {
-                console.error("Card Loading Error:", err);
-            }
-        }
-    }
-   <script>
-    // फालतू एरर रोकने के लिए खाली फंक्शन्स
+<script>
+    // पुराने एरर रोकने के लिए
     window.init = function() {};
     window.moveSpotlight = function() {};
 
     async function loadCards() {
-        const cards = [
+        const cardList = [
             { id: 'card-social', file: 'social-media.html' },
             { id: 'card-ads', file: 'targeted-ads.html' },
             { id: 'card-trading', file: 'trading.html' },
             { id: 'card-courses', file: 'courses.html' }
         ];
 
-        for (const card of cards) {
+        for (const item of cardList) {
             try {
-                const response = await fetch(`./cards/${card.file}`);
+                // Backticks (`) का ही इस्तेमाल है यहाँ
+                const response = await fetch(`./cards/${item.file}`);
                 if (response.ok) {
-                    const data = await response.text();
-                    const el = document.getElementById(card.id);
-                    if(el) el.innerHTML = data;
+                    const htmlContent = await response.text();
+                    const container = document.getElementById(item.id);
+                    if (container) {
+                        container.innerHTML = htmlContent;
+                    }
                 }
-            } catch (err) {
-                console.error("Error:", err);
+            } catch (error) {
+                console.error("Error loading card:", error);
             }
         }
     }
-    
-    // पेज लोड होते ही कार्ड्स लोड करें
-    window.addEventListener('load', loadCards);
-</script>
 
+    // पेज लोड होते ही कार्ड्स लोड करें
+    window.onload = loadCards;
+</script>
+</body>
+</html>
