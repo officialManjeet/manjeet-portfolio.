@@ -239,21 +239,66 @@ nav ul li a:hover { color: #00d2ff; }
     letter-spacing: 2px;
     color: #fff;
 }
-.cards-grid {
+.grid {
+    display: grid;
+    /* यह कार्ड्स को एक लाइन में लाएगा और मोबाइल पर अपने आप सेट करेगा */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 25px; /* कार्ड्स के बीच की दूरी */
+    padding: 20px 0;
+/* कार्ड्स को एक लाइन में सेट करने के लिए */
+.grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    padding: 30px;
+    gap: 20px;
+    padding: 20px 0;
 }
 
+/* छोटा रेक्टेंगल डिजाइन */
 .card {
-    min-height: 350px; /* फिक्स हाइट जिससे सब बराबर दिखें */
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 25px 15px; /* कम पैडिंग ताकि साइज छोटा रहे */
+    text-align: center;
+    transition: 0.3s ease;
+    backdrop-filter: blur(10px);
+    height: 160px; /* फिक्स्ड हाइट से परफेक्ट रेक्टेंगल बनेगा */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    align-items: center;
+    cursor: pointer;
+}
+
+.card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary);
+    transform: translateY(-5px);
+}
+
+/* कार्ड के अंदर का कंटेंट छोटा और साफ */
+.card i { font-size: 26px; margin-bottom: 10px; color: var(--primary); }
+.card h3 { font-size: 18px; font-weight: 700; margin: 0; color: #fff; }
+.card p { font-size: 13px; color: #888; margin-top: 5px; }
+
+
+    text-align: center;
+    transition: 0.3s ease;
+    backdrop-filter: blur(10px);
+    height: auto; /* फालतू लम्बाई हटा दी */
+}
+
+/* कार्ड के अंदर के आइकॉन को भी छोटा करें */
+.card i {
+    font-size: 32px; 
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
 }
 /* सभी कार्ड्स को एक बराबर ऊंचाई देने के लिए */
 .card {
