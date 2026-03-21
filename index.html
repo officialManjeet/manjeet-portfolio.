@@ -284,7 +284,7 @@ Official Manjeet - Verified Final GitHub Code
     }
 
     // 4. कार्ड्स लोड करने का फंक्शन (यह हिस्सा गायब था)
-    async function loadCards() {
+      async function loadCards() {
         for (const card of cardList) {
             try {
                 const response = await fetch(`cards/${currentLang}/${card.file}`);
@@ -295,11 +295,6 @@ Official Manjeet - Verified Final GitHub Code
                 }
             } catch (err) {
                 console.error("Error loading card:", err);
-            }
-        }
-    }
-
-                console.error("Error:", err);
             }
         }
     }
