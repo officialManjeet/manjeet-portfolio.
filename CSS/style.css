@@ -223,4 +223,20 @@ nav ul li a:hover { color: #00d2ff; }
     transform: translateY(-5px); /* ऊपर उठेगा */
     box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.4); /* चमक */
 }
+/* कार्ड के अंदर वाले 'Open Page' लिंक का स्टाइल */
+.learn-more {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: #00d2ff;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.card:hover .learn-more {
+    letter-spacing: 2px;
+    color: #fff;
+}
 
