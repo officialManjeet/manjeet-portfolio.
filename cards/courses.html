@@ -1,1 +1,59 @@
+<div class="card course-card" onclick="this.classList.toggle('active')">
+    <div class="card-content">
+        <i class="fas fa-graduation-cap main-icon"></i>
+        <h3>Premium Courses</h3>
+        <p class="status-tag">Click to Expand <i class="fas fa-chevron-down"></i></p>
+
+        <!-- कोर्सेज की लिस्ट जो क्लिक पर खुलेगी -->
+        <div class="courses-container">
+            
+            <!-- 1. Web Design Item -->
+            <div class="course-item" onclick="event.stopPropagation(); window.location.href='web-design.html'">
+                <div class="item-icon"><i class="fas fa-laptop-code"></i></div>
+                <div class="item-details">
+                    <h4>Web Design</h4>
+                    <p>UI/UX & Frontend Development</p>
+                </div>
+                <div class="arrow"><i class="fas fa-arrow-right"></i></div>
+            </div>
+
+            <!-- 2. App Development Item -->
+            <div class="course-item" onclick="event.stopPropagation(); window.location.href='app-dev.html'">
+                <div class="item-icon"><i class="fas fa-mobile-alt"></i></div>
+                <div class="item-details">
+                    <h4>App Development</h4>
+                    <p>Android & iOS Apps</p>
+                </div>
+                <div class="arrow"><i class="fas fa-arrow-right"></i></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<style>
+/* प्रीमियम कोर्सेज का स्टाइल */
+.course-card { height: 350px; overflow: hidden; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; }
+.course-card.active { height: auto; min-height: 350px; background: rgba(255, 255, 255, 0.1); }
+
+.status-tag { color: #00d2ff; font-size: 0.8rem; font-weight: bold; margin-top: 5px; }
+.courses-container { display: none; margin-top: 20px; padding: 5px; }
+.course-card.active .courses-container { display: block; animation: fadeIn 0.3s ease-in; }
+
+.course-item {
+    display: flex; align-items: center; gap: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 12px; border-radius: 12px; margin-bottom: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.3s;
+}
+
+.course-item:hover { background: rgba(0, 210, 255, 0.1); transform: translateX(5px); border-color: #00d2ff; }
+.item-icon { font-size: 1.2rem; color: #00d2ff; }
+.item-details h4 { margin: 0; font-size: 0.95rem; color: #fff; }
+.item-details p { margin: 0; font-size: 0.75rem; color: #bbb; }
+.arrow { margin-left: auto; color: #555; font-size: 0.8rem; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+</style>
 
