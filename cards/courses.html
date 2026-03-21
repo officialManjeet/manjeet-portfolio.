@@ -2,26 +2,34 @@
     <div class="card-content">
         <i class="fas fa-graduation-cap"></i>
         <h3>Premium Courses</h3>
-        <p style="color: #00d2ff; font-size: 0.8rem;">Click to Explore</p>
-
-        <div class="inner-list" style="display: none; margin-top: 15px;">
-            <!-- Web Design अब यहाँ है -->
-            <div class="item" onclick="event.stopPropagation(); window.location.href='web-design.html'" style="display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.08); padding: 10px; border-radius: 10px; margin-bottom: 10px; cursor: pointer;">
-                <i class="fas fa-code"></i>
-                <div>
-                    <h4 style="margin:0; font-size: 0.9rem;">Web Design</h4>
-                    <p style="margin:0; font-size: 0.7rem; color: #bbb;">UI/UX & Code</p>
+        <p style="color: #00d2ff; font-size: 0.8rem; font-weight: bold;">Click to Expand</p>
+        
+        <div class="inner-course-list">
+            <!-- Web Design Item -->
+            <div class="course-item" onclick="event.stopPropagation(); window.location.href='web-design.html'">
+                <i class="fas fa-laptop-code"></i>
+                <div class="txt">
+                    <h4>Web Design</h4>
+                    <span>UI/UX & Code</span>
                 </div>
             </div>
-            <!-- App Dev -->
-            <div class="item" style="display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.08); padding: 10px; border-radius: 10px;">
+            <!-- App Dev Item -->
+            <div class="course-item">
                 <i class="fas fa-mobile-alt"></i>
-                <div>
-                    <h4 style="margin:0; font-size: 0.9rem;">App Dev</h4>
-                    <p style="margin:0; font-size: 0.7rem; color: #bbb;">Android & iOS</p>
+                <div class="txt">
+                    <h4>App Development</h4>
+                    <span>Android & iOS</span>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<style>.course-card.active .inner-list { display: block !important; }</style>
+
+<style>
+    .inner-course-list { display: none; margin-top: 15px; }
+    .course-card.active .inner-course-list { display: block !important; }
+    .course-item { display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.08); padding: 12px; border-radius: 12px; margin-bottom: 10px; transition: 0.3s; }
+    .course-item:hover { background: rgba(0,210,255,0.1); transform: translateX(5px); }
+    .course-item h4 { margin: 0; font-size: 0.9rem; }
+    .course-item span { font-size: 0.7rem; color: #00d2ff; }
+</style>
