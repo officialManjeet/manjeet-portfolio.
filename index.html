@@ -273,177 +273,34 @@ Official Manjeet - Verified Final GitHub Code
     </footer>
 
     <script>
-        const config = {
-            homeImg: 'url("https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1920")',
-            detailBg: 'linear-gradient(135deg, #050505 0%, #001133 100%)',
-            imgs: {
-                social: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&q=80&w=800',
-                ads: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
-                web: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800',
-                branding: 'https://images.unsplash.com/photo-1614036634955-ae5e90f9b9eb?auto=format&fit=crop&q=80&w=800',
-                portfolio: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&q=80&w=800',
-                shop: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=80&w=800',
-                trading: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&q=80&w=800',
-                courses: 'https://images.unsplash.com',
-                about: 'images/sel.jpg'
-            }
-        };
+    // यह फंक्शन फोल्डर से कार्ड्स लोड करेगा
+    async function loadCards() {
+        const cards = [
+            { id: 'card-social', file: 'social-media.html' },
+            { id: 'card-ads', file: 'targeted-ads.html' },
+            { id: 'card-trading', file: 'trading.html' },
+            { id: 'card-courses', file: 'courses.html' }
+        ];
 
-
-        let lang = 'en';
-        let currentView = 'home';
-
-        const dict = {
-            en: {
-               nH: "Home", nA: "About", nP: "Portfolio", nT: "Trading", nS: "Shop", nC: "Courses",
-                nH: "Home", nA: "About", nP: "Portfolio", nT: "Trading", nS: "Shop",
-                hH: "Elevate Your <span>Business</span>", hP: "Cutting-edge digital strategies for world-class growth and dominance.",
-                waT: "Chat on WhatsApp",
-                s1T: "Social Media", s1S: "Grow your online influence.",S
-                s2T: "Targeted Ads", s2S: "High conversion campaigns.",
-                s3T: "Web Design", s3S: "Fast & responsive sites.",
-                s4T: "Branding", s4S: "Build a unique identity.",
-                                        s6T: "हमारे कोर्सेज",
-            s6S: "हमारे कोर्सेज के साथ जुड़ें और अपना भविष्य सुरक्षित करें।",
-            s6Btn: "अभी जुड़ें",
-                back: "Back to Home", cta: "Consult Now", foot: "Connect With Me",
-                socialD: "Master Instagram and Facebook to build a massive community with professional organic reach.",
-                adsD: "Data-driven advertising strategies designed for maximum conversion and massive growth.",
-                webD: "Modern, high-speed, and conversion-focused websites that capture global attention.",
-                brandingD: "We create a unique identity for your business that resonates with your target audience.",
-
-                portfolioT: "Success Stories", portfolioD: "Check out our portfolio of elite digital solutions and business transformations.",
-                shopT: "Digital Shop", shopD: "Elite tools and resources designed to help entrepreneurs scale faster.",
-                tradingT: "Professional Trading", 
-                tradingD: "Step into the financial markets with precision. We offer advanced chart analysis, risk management strategies, and high-probability entry points. Learn to navigate the stock market with confidence and consistency.",
-                aboutT: "About Manjeet", aboutD: "Loading biography from about.html..."
-                coursesT: "Our Professional Courses",
-coursesD: "1. Web Design <br> 2. App Development",
-
-            },
-            hi: {
-                btn: "English", logoW: "ऑफिशियल", logoB: "मंजीत",
-                nH: "होम", nA: "मेरे बारे में", nP: "पोर्टफोलियो", nT: "ट्रेडिंग", nS: "शॉप",
-                hH: "अपने <span>बिजनेस</span> को आगे बढ़ाएं", hP: "विश्व स्तरीय विकास और दबदबे के लिए अत्याधुनिक डिजिटल रणनीतियाँ।",
-                waT: "व्हाट्सएप पर चैट करें",
-                s1T: "सोशल मीडिया", s1S: "अपनी ऑनलाइन उपस्थिति बढ़ाएं।",
-                s2T: "टारगेटेड विज्ञापन", s2S: "हाई कन्वर्शन विज्ञापन अभियान।",
-            s6T: "कोर्सेज",
-s6S: "1. वेब डिजाइन <br> 2. ऐप डेवलपमेंट",
-
-                s3T: "वेब डिजाइन", s3S: "तेज और रिस्पॉन्सिव साइट्स।",
-                s4T: "ब्रांडिंग", s4S: "एक अनूठी पहचान बनाएं।",
-                s5T: "ट्रेडिंग", s5S: "वित्तीय बाजार रणनीतियाँ।",
-                back: "होम पर वापस", cta: "सलाह लें", foot: "मुझसे जुड़ें",
-                socialD: "सोशल मीडिया के एल्गोरिदम में महारत हासिल करें और एक बड़ा डिजिटल समुदाय बनाएं।",
-                adsD: "सटीक डेटा के साथ विज्ञापन खर्च में अधिकतम लाभ प्राप्त करने की रणनीति।",
-
-                webD: "सुपर फास्ट वेबसाइटें जो आपके बिजनेस को एक नई ऊँचाई पर ले जाएँगी।",
-                brandingD: "प्रोफेशनल ब्रांडिंग और डिजाइन जो आपकी बाजार में एक अलग पहचान बनाएगी।",
-                portfolioT: "सफल कार्य", portfolioD: "हमारे शानदार डिजिटल समाधानों का संग्रह यहाँ देखें।",
-                shopT: "ऑफिशियल शॉप", shopD: "उद्यमियों के लिए विशेष टूल्स और प्रीमियम संसाधनों का संग्रह।",
-                tradingT: "ट्रेडिंग में महारत", 
-                tradingD: "वित्तीय बाजारों में आत्मविश्वास के साथ कदम रखें। हम आपको चार्ट विश्लेषण और रिस्क मैनेजमेंट की बारीकियां सिखाते हैं।",
-                aboutT: "मेरे बारे में", aboutD: "about.html से जानकारी लोड हो रही है..."
-            }
-        };
-
-        function moveSpotlight(e) {
-            const spotlight = document.getElementById('spotlight');
-            spotlight.style.setProperty('--x', e.clientX + 'px');
-            spotlight.style.setProperty('--y', e.clientY + 'px');
-        }
-
-        function init() { updateContent(); showHome(); }
-        function toggleLang() { lang = lang === 'en' ? 'hi' : 'en'; updateContent(); }
-
-
-        function updateContent() {
-            const d = dict[lang];
-            document.getElementById('logo-w').innerText = d.logoW;
-            document.getElementById('logo-b').innerText = d.logoB;
-            document.getElementById('lang-btn').innerText = d.btn;
-            document.getElementById('nav-h').innerText = d.nH;
-            document.getElementById('nav-a').innerText = d.nA;
-            document.getElementById('nav-p').innerText = d.nP;
-            document.getElementById('courses-t').innerText = d.s6T;
-document.getElementById('courses-s').innerHTML = d.s6S;
-
-            document.getElementById('nav-t').innerText = d.nT;
-            document.getElementById('nav-s').innerText = d.nS;
-            document.getElementById('hero-h').innerHTML = d.hH;
-            document.getElementById('hero-p').innerText = d.hP;
-            document.getElementById('wa-txt').innerText = d.waT;
-            document.getElementById('s1-t').innerText = d.s1T; document.getElementById('s1-s').innerText = d.s1S;
-            document.getElementById('s2-t').innerText = d.s2T; document.getElementById('s2-s').innerText = d.s2S;
-            document.getElementById('s3-t').innerText = d.s3T; document.getElementById('s3-s').innerText = d.s3S;
-            document.getElementById('s4-t').innerText = d.s4T; document.getElementById('s4-s').innerText = d.s4S;
-            document.getElementById('s5-t').innerText = d.s5T; document.getElementById('s5-s').innerText = d.s5S;
-            document.getElementById('back-txt').innerText = d.back;
-
-            document.getElementById('cta-txt').innerText = d.cta;
-            document.getElementById('foot-h').innerText = d.foot;
-
-            if (currentView !== 'home') {
-                const titleKey = currentView + 'T';
-                const descKey = currentView + 'D';
-                document.getElementById('det-title').innerText = d[titleKey] || d[currentView + 't'];
-                if (currentView !== 'about') {
-                    document.getElementById('det-desc').innerText = d[descKey] || d[currentView + 'd'];
+        for (const card of cards) {
+            try {
+                const response = await fetch(`cards/${card.file}`);
+                if (response.ok) {
+                    const data = await response.text();
+                    document.getElementById(card.id).innerHTML = data;
                 }
+            } catch (err) {
+                console.error("Card Loading Error:", err);
             }
         }
+    }
 
-        function showHome() {
-            currentView = 'home';
-            document.getElementById('home-view').style.display = 'block';
-            document.getElementById('detail-view').style.display = 'none';
-            const bg = document.getElementById('main-bg');
-            bg.style.backgroundImage = config.homeImg;
+    // पेज लोड होते ही कार्ड्स लोड करें
+    window.onload = loadCards;
+</script>
+</body>
+</html>
 
-            bg.style.filter = 'brightness(0.3)';
-            window.scrollTo(0,0);
-        }
-
-        async function showDetail(id) {
-            currentView = id;
-            const d = dict[lang];
-            document.getElementById('home-view').style.display = 'none';
-            document.getElementById('detail-view').style.display = 'block';
-            const bg = document.getElementById('main-bg');
-            bg.style.backgroundImage = 'none';
-            bg.style.background = config.detailBg;
-            bg.style.filter = 'none';
-            
-            const titleKey = id + 'T';
-            const descKey = id + 'D';
-            document.getElementById('det-title').innerText = d[titleKey] || d[id + 't'];
-            document.getElementById('det-img').src = config.imgs[id];
-
-
-            if (id === 'about') {
-                try {
-                    // This fetches your bio from about.html file
-                    const res = await fetch('about.html');
-                    if (res.ok) {
-                        const html = await res.text();
-                        // Extract only body content if it's a full page
-                        const parser = new DOMParser();
-                        const doc = parser.parseFromString(html, 'text/html');
-                        document.getElementById('det-desc').innerHTML = doc.body.innerHTML || html;
-                    } else {
-                        document.getElementById('det-desc').innerText = d[descKey];
-                    }
-                } catch (e) {
-                    document.getElementById('det-desc').innerText = d[descKey];
-                }
-            } else {
-                document.getElementById('det-desc').innerText = d[descKey] || d[id + 'd'];
-            }
-
-            window.scrollTo(0,0);
-        }
-    </script>
                 <script>
     // यह फंक्शन फोल्डर से कार्ड्स को खींचकर लाएगा
     async function loadCards() {
