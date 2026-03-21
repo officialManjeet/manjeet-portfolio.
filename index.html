@@ -155,7 +155,7 @@ Official Manjeet - Verified Final GitHub Code
         }
     </style>
 </head>
-<body onmousemove="moveSpotlight(event)" onload="init()">
+<body>
 
     <div id="spotlight"></div>
     <div id="main-bg"></div>
@@ -265,36 +265,33 @@ Official Manjeet - Verified Final GitHub Code
         }
     }
    <script>
-       async function loadCards() {
-    const cards = [
-        { id: 'card-social', file: 'social-media.html' },
-        { id: 'card-ads', file: 'targeted-ads.html' },
-        { id: 'card-trading', file: 'trading.html' },
-        { id: 'card-courses', file: 'courses.html' }
-    ];
+    // फालतू एरर रोकने के लिए खाली फंक्शन्स
+    window.init = function() {};
+    window.moveSpotlight = function() {};
 
-    for (const card of cards) {
-        try {
-            // यहाँ ` (Backtick) का ही इस्तेमाल हुआ है
-            const response = await fetch(`./cards/${card.file}`);
-            if (!response.ok) {
-                throw new Error(`File not found: ${card.file}`);
+    async function loadCards() {
+        const cards = [
+            { id: 'card-social', file: 'social-media.html' },
+            { id: 'card-ads', file: 'targeted-ads.html' },
+            { id: 'card-trading', file: 'trading.html' },
+            { id: 'card-courses', file: 'courses.html' }
+        ];
+
+        for (const card of cards) {
+            try {
+                const response = await fetch(`./cards/${card.file}`);
+                if (response.ok) {
+                    const data = await response.text();
+                    const el = document.getElementById(card.id);
+                    if(el) el.innerHTML = data;
+                }
+            } catch (err) {
+                console.error("Error:", err);
             }
-
-            const data = await response.text();
-            const element = document.getElementById(card.id);
-
-            if (element) {
-                element.innerHTML = data;
-            } else {
-                console.warn(`Element not found: ${card.id}`);
-            }
-
-        } catch (err) {
-            console.error("Fetch error:", err);
         }
     }
-}
+    
+    // पेज लोड होते ही कार्ड्स लोड करें
+    window.addEventListener('load', loadCards);
+</script>
 
-// यह एकदम सही तरीका है पेज लोड होने पर चलाने का
-window.addEventListener("load", loadCards);
