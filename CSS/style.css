@@ -255,4 +255,12 @@ nav ul li a:hover { color: #00d2ff; }
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
+/* सभी कार्ड्स को एक बराबर ऊंचाई देने के लिए */
+.card {
+    min-height: 350px !important; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
