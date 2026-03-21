@@ -28,7 +28,22 @@ header {
     position: relative;
     z-index: 10001;
     cursor: pointer;
-    pointer-events: auto;
+    background: var(--primary);
+    color: #000;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: 800;
+    font-size: 14px;
+    margin-left: 20px;
+    pointer-events: auto !important;
+}
+
+#lang-btn:hover {
+    background: #fff;
+    transform: scale(1.05);
+}
+
 }
 
 nav {
