@@ -25,39 +25,26 @@ header {
     backdrop-filter: blur(10px);
 }
 #lang-btn {
-    position: relative;
-    z-index: 10001;
-    cursor: pointer;
-    background: var(--primary);
-    color: #000;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-weight: 800;
-    font-size: 14px;
-    margin-left: 20px;
-    pointer-events: auto !important;
-}
-
-#lang-btn {
-    position: fixed !important; /* इसे पूरी साइट पर फिक्स कर देगा */
-    top: 20px;
-    right: 5%;
-    z-index: 999999 !important; /* सबसे ऊपर की लेयर */
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    z-index: 999999 !important;
     cursor: pointer !important;
-    background: #00d2ff; /* नीला रंग */
-    color: #000;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-weight: 800;
-    pointer-events: auto !important; /* ज़बरदस्ती क्लिक इनेबल करेगा */
+    background-color: #00d2ff !important;
+    color: #000 !important;
+    padding: 10px 20px !important;
+    border-radius: 8px !important;
+    border: none !important;
+    font-weight: 800 !important;
+    font-size: 14px !important;
+    pointer-events: auto !important;
+    display: block !important;
+    box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
 }
 
-/* बटन पर क्लिक करने का एहसास (Hover) */
 #lang-btn:hover {
-    background: #fff;
-    transform: scale(1.1);
+    background-color: #ffffff !important;
+    transform: scale(1.05);
 }
 
 }
