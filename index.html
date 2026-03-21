@@ -263,36 +263,30 @@ Official Manjeet - Verified Final GitHub Code
         }
     };
 
-    // 2. कार्ड्स की लिस्ट
-    const cardList = [
-        { id: 'card-social', file: 'social-media.html' },
-        { id: 'card-ads', file: 'targeted-ads.html' },
-        { id: 'card-trading', file: 'trading.html' },
-        { id: 'card-courses', file: 'courses.html' }
-    ];
-
     // 3. भाषा बदलने का फंक्शन
     async function changeLanguage() {
         // भाषा बदलें
         currentLang = (currentLang === 'en') ? 'hi' : 'en';
         
         // मुख्य टेक्स्ट बदलें
+          // 3. भाषा बदलने का फंक्शन
+    async function changeLanguage() {
+        currentLang = (currentLang === 'en') ? 'hi' : 'en';
         const t = translations[currentLang];
+
         document.querySelector('.hero h1').innerHTML = t.heroTitle;
         document.querySelector('.hero p').innerText = t.heroDesc;
         document.querySelector('.btn-whatsapp span').innerText = t.waBtn;
         document.querySelector('footer h2').innerText = t.connect;
         document.getElementById('lang-btn').innerText = t.langBtn;
 
-        // कार्ड्स को नई भाषा में लोड करें
-        loadCards();
+        await loadCards(); // कार्ड्स को दोबारा लोड करें
     }
 
-    // 4. कार्ड्स लोड करने का फंक्शन (भाषा के फोल्डर के साथ)
+    // 4. कार्ड्स लोड करने का फंक्शन (यह हिस्सा गायब था)
     async function loadCards() {
         for (const card of cardList) {
             try {
-                // यह अब cards/en/ या cards/hi/ से फाइल उठाएगा
                 const response = await fetch(`cards/${currentLang}/${card.file}`);
                 if (response.ok) {
                     const html = await response.text();
@@ -300,6 +294,11 @@ Official Manjeet - Verified Final GitHub Code
                     if (target) target.innerHTML = html;
                 }
             } catch (err) {
+                console.error("Error loading card:", err);
+            }
+        }
+    }
+
                 console.error("Error:", err);
             }
         }
