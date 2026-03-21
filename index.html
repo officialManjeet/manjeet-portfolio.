@@ -477,20 +477,3 @@ Official Manjeet - Verified Final GitHub Code
     // 3. पेज लोड होते ही फंक्शन चलाएं
     window.addEventListener('DOMContentLoaded', loadCards);
 </script>
-<style>
-    /* कार्ड्स के बीच की दूरी (Gap) बढ़ाने के लिए */
-    .cards-grid {
-        display: grid !important;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
-        gap: 50px !important; /* यहाँ 50px की दूरी डाल दी है ताकि कार्ड्स चिपके न */
-        padding: 50px 0 !important; /* ऊपर और नीचे से भी जगह बन जाएगी */
-        justify-items: center;
-    }
-
-    /* कार्ड के चारों तरफ थोड़ी और जगह के लिए */
-    .card {
-        width: 100% !important;
-        max-width: 320px !important;
-        margin-bottom: 20px !important;
-    }
-</style>
