@@ -492,13 +492,13 @@ const cardList = [
     { id: 'web-design-card', file: 'web-design.html' }
 ];
 
-let currentLang = 'en'; 
+let currentLang = 'en';
 
 async function loadCards() {
     for (const card of cardList) {
         try {
-            // लाइन 492 का सुधरा हुआ रूप
             const response = await fetch(`./cards/${currentLang}/${card.file}`);
+
             if (response.ok) {
                 const html = await response.text();
                 const target = document.getElementById(card.id);
@@ -507,44 +507,11 @@ async function loadCards() {
                 }
             }
         } catch (err) {
-            console.error("Error:", err);
+            console.error("Error loading card:", err);
         }
     }
 }
-// इस लाइन को सबसे नीचे जोड़ें ताकि फंक्शन चले
-window.onload = loadCards; 
 
-}
+// फंक्शन को यहाँ कॉल करें
+loadCards();
 
-                    if (target) {
-                        target.innerHTML = html;
-                    }
-                } else {
-                    console.error("फ़ाइल नहीं मिली:", card.file);
-                }
-            } catch (error) {
-                console.error("Error loading card:", error);
-            }
-        }
-    }
-
-    // 3. पेज लोड होते ही फंक्शन चलाएं
-    window.addEventListener('DOMContentLoaded', loadCards);
-</script>
-<style>
-    /* कार्ड्स के बीच की दूरी (Gap) बढ़ाने के लिए */
-    .cards-grid {
-        display: grid !important;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
-        gap: 50px !important; /* यहाँ 50px की दूरी डाल दी है ताकि कार्ड्स चिपके न */
-        padding: 50px 0 !important; /* ऊपर और नीचे से भी जगह बन जाएगी */
-        justify-items: center;
-    }
-
-    /* कार्ड के चारों तरफ थोड़ी और जगह के लिए */
-    .card {
-        width: 100% !important;
-        max-width: 320px !important;
-        margin-bottom: 20px !important;
-    }
-</style>
