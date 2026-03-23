@@ -198,27 +198,31 @@ Official Manjeet - Verified Final GitHub Code
         </section>
 
          <!-- 201 नंबर लाइन से इसे पेस्ट करना शुरू करें -->
+<!-- 1. प्रीमियम कार्ड्स सेक्शन -->
 <section class="container" style="margin-top: 50px; padding-bottom: 80px; position: relative; z-index: 10;">
     <div id="cards-wrapper" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; align-items: stretch; justify-content: center; max-width: 1200px; margin: 0 auto;">
-        <!-- ये वो 3 डिब्बे हैं जहाँ आपके कार्ड्स लोड होंगे -->
         <div id="courses-card"></div>
         <div id="social-media-card"></div>
         <div id="targetted-ads-card"></div>
     </div>
 </section>
 
-<!-- फुटर सेक्शन (जो गायब हो गया था, वो यहाँ है) -->
-<footer style="text-align: center; padding: 60px 5%; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 50px; background: rgba(0,0,0,0.5);">
-    <h2 id="footer-text" style="font-weight: 800; margin-bottom: 30px; font-size: 24px;">Connect With Me</h2>
-    <div style="display: flex; justify-content: center; gap: 25px;">
-        <a href="https://wa.me" target="_blank" style="color: #25D366; font-size: 28px;"><i class="fab fa-whatsapp"></i></a>
-        <!-- आप यहाँ अपने और भी लिंक जोड़ सकते हैं -->
+<!-- 2. फुटर और सोशल मीडिया लिंक्स (वापस आ गए) -->
+<footer style="text-align: center; padding: 60px 5%; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 50px; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);">
+    <h2 id="footer-text" style="font-weight: 800; margin-bottom: 30px; font-size: 24px; color: #fff;">Connect With Me</h2>
+    
+    <div style="display: flex; justify-content: center; gap: 30px; margin-bottom: 30px;">
+        <!-- अपना व्हाट्सएप नंबर और यूजरनेम यहाँ बदलें -->
+        <a href="https://wa.me" target="_blank" style="color: #25D366; font-size: 30px; transition: 0.3s;"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://instagram.com" target="_blank" style="color: #E1306C; font-size: 30px; transition: 0.3s;"><i class="fab fa-instagram"></i></a>
+        <a href="https://linkedin.com" target="_blank" style="color: #0077b5; font-size: 30px; transition: 0.3s;"><i class="fab fa-linkedin"></i></a>
     </div>
-    <p style="margin-top: 30px; color: #444; font-size: 12px; font-weight: 800; text-transform: uppercase;">&copy; 2026 OFFICIAL MANJEET PORTFOLIO</p>
+    
+    <p style="color: #444; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;">&copy; 2026 OFFICIAL MANJEET PORTFOLIO</p>
 </footer>
 
 <style>
-    /* कार्ड्स को एक जैसा और प्रीमियम बनाने के लिए ज़रूरी CSS */
+    /* कार्ड्स का प्रीमियम लुक और एक जैसा साइज */
     #courses-card, #social-media-card, #targetted-ads-card { display: flex; width: 100%; }
     .card {
         width: 100% !important;
@@ -236,15 +240,17 @@ Official Manjeet - Verified Final GitHub Code
     .card:hover { transform: translateY(-15px); border-color: #00d2ff !important; box-shadow: 0 20px 40px rgba(0, 210, 255, 0.2); }
 </style>
 
+<!-- 3. वर्किंग जावास्क्रिप्ट (भाषा, बटन और कार्ड्स के लिए) -->
 <script>
-// भाषा और कार्ड्स को चलाने वाला दिमाग (JavaScript)
+// भाषा डेटा
 const translations = {
-    en: { heroH1: "Elevate Your <span>Business</span>", heroP: "Cutting-edge digital strategies for growth.", waBtn: "WhatsApp", connect: "Connect With Me", langBtn: "HI" },
+    en: { heroH1: "Elevate Your <span>Business</span>", heroP: "World-class digital strategies for growth.", waBtn: "Chat", connect: "Connect With Me", langBtn: "HI" },
     hi: { heroH1: "अपने <span>व्यवसाय</span> को बढ़ाएं", heroP: "विकास के लिए अत्याधुनिक डिजिटल रणनीतियाँ।", waBtn: "व्हाट्सएप", connect: "मुझसे जुड़ें", langBtn: "EN" }
 };
 
 let currentLang = 'en';
 
+// कार्ड्स लोड करने वाला फंक्शन
 async function loadCards() {
     const cards = [
         { id: 'courses-card', file: 'courses.html' },
@@ -253,33 +259,31 @@ async function loadCards() {
     ];
     for (const card of cards) {
         try {
+            // Path: cards फोल्डर के अंदर से फाइल उठाना
             const response = await fetch(`./cards/${card.file}`);
             if (response.ok) {
                 const html = await response.text();
                 const target = document.getElementById(card.id);
                 if (target) target.innerHTML = html;
             }
-        } catch (err) { console.error(err); }
+        } catch (err) { console.error("Error:", err); }
     }
 }
 
+// भाषा बदलने वाला बटन (अब 100% काम करेगा)
 window.changeLanguage = function() {
     currentLang = (currentLang === 'en') ? 'hi' : 'en';
     const t = translations[currentLang];
-    // टेक्स्ट अपडेट करें
-    document.querySelector('.hero h1').innerHTML = t.heroH1;
-    document.querySelector('.hero p').innerText = t.heroP;
-    document.getElementById('footer-text').innerText = t.connect;
-    document.getElementById('lang-btn').innerText = t.langBtn;
+    
+    // मुख्य टेक्स्ट बदलना
+    if(document.querySelector('.hero h1')) document.querySelector('.hero h1').innerHTML = t.heroH1;
+    if(document.querySelector('.hero p')) document.querySelector('.hero p').innerText = t.heroP;
+    if(document.getElementById('footer-text')) document.getElementById('footer-text').innerText = t.connect;
+    if(document.getElementById('lang-btn')) document.getElementById('lang-btn').innerText = t.langBtn;
+    
     loadCards(); // भाषा बदलते ही कार्ड्स रिफ्रेश करें
 };
 
+// पेज लोड होते ही कार्ड्स लोड करें
 document.addEventListener('DOMContentLoaded', loadCards);
 </script>
-<!-- फाइल यहाँ खत्म होगी -->
-
- 
-    document.addEventListener('DOMContentLoaded', loadCards);
-    </script>
-</body>
-</html>
