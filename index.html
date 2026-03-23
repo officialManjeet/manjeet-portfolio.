@@ -259,16 +259,14 @@ Official Manjeet - Verified Final GitHub Code
     <div id="targetted-ads-card"></div>
     <div id="trading-card"></div>
 <script>
-// 1. कार्ड्स की लिस्ट और उनकी फाइलें
+// 1. कार्ड्स की लिस्ट
 const cardList = [
     { id: 'courses-card', file: 'courses.html' },
     { id: 'social-media-card', file: 'social-media.html' },
-    { id: 'targetted-ads-card', file: 'targetted-ads.html' },
-    { id: 'trading-card', file: 'trading.html' },
-    { id: 'web-design-card', file: 'web-design.html' }
+    { id: 'targetted-ads-card', file: 'targetted-ads.html' }
 ];
 
-// 2. कार्ड्स लोड करने का फंक्शन (Direct Path)
+// 2. कार्ड्स लोड करने वाला स्मार्ट फंक्शन (अब फोल्डर का झंझट खत्म)
 async function loadCards() {
     for (const card of cardList) {
         try {
@@ -281,13 +279,18 @@ async function loadCards() {
                     target.innerHTML = html;
                 }
             } else {
-                console.error("कार्ड फाइल नहीं मिली:", card.file);
+                console.error("कार्ड नहीं मिला:", card.file);
             }
         } catch (err) {
             console.error("लोडिंग एरर:", err);
         }
     }
 }
+
+// वेबसाइट खुलते ही कार्ड्स लोड करें
+document.addEventListener('DOMContentLoaded', loadCards);
+</script>
+
 
 // वेबसाइट खुलते ही कार्ड्स लोड करें
 document.addEventListener('DOMContentLoaded', loadCards);
