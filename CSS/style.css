@@ -1,20 +1,21 @@
-/* कार्ड्स को एक लाइन में सेट करने के लिए */
-#cards-wrapper {
+/* --- प्रीमियम कार्ड्स ग्रिड सिस्टम --- */
+.cards-grid {
     display: grid !important;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
     gap: 30px !important;
-    align-items: stretch !important; /* इससे ऊंचाई एक बराबर रहेगी */
+    align-items: stretch !important;
     justify-content: center !important;
     max-width: 1200px;
     margin: 50px auto !important;
+    padding: 0 20px;
     position: relative;
     z-index: 10;
 }
 
-/* कार्ड का प्रीमियम डिज़ाइन - सबका साइज़ एक बराबर रखेगा */
+/* कार्ड का प्रीमियम ग्लास डिज़ाइन */
 .card {
     width: 100% !important;
-    min-height: 520px !important;
+    min-height: 480px !important;
     background: rgba(255, 255, 255, 0.03) !important;
     border: 1px solid rgba(0, 210, 255, 0.15) !important;
     border-radius: 40px !important;
@@ -23,7 +24,8 @@
     flex-direction: column !important;
     justify-content: space-between !important;
     backdrop-filter: blur(20px) !important;
-    transition: 0.5s ease-in-out !important;
+    transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
 }
 
 .card:hover {
@@ -32,8 +34,8 @@
     box-shadow: 0 20px 40px rgba(0, 210, 255, 0.2) !important;
 }
 
-/* कार्ड के अंदर वाले बटन का डिज़ाइन */
-.card a, .card button {
+/* कार्ड्स के अंदर के बटन */
+.card-btn {
     display: block !important;
     width: 100% !important;
     padding: 15px !important;
@@ -43,5 +45,18 @@
     text-decoration: none !important;
     border-radius: 50px !important;
     font-weight: 800 !important;
+    text-transform: uppercase !important;
     margin-top: auto !important;
+    transition: 0.3s !important;
+}
+
+.card-btn:hover { transform: scale(1.05); }
+
+/* फुटर स्टाइल */
+.main-footer {
+    text-align: center;
+    padding: 60px 5%;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    background: rgba(0,0,0,0.8);
+    margin-top: 80px;
 }
