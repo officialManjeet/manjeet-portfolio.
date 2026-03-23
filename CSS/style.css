@@ -1,21 +1,20 @@
-/* --- प्रीमियम कार्ड्स ग्रिड सिस्टम --- */
-.cards-grid {
-    display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
-    gap: 30px !important;
-    align-items: stretch !important;
-    justify-content: center !important;
-    max-width: 1200px;
-    margin: 50px auto !important;
+/* --- वर्टिकल कार्ड्स सिस्टम (एक के नीचे एक) --- */
+.cards-container {
+    display: flex !important;
+    flex-direction: column !important; /* कार्ड्स को लाइन में लाने के लिए */
+    gap: 40px !important; /* कार्ड्स के बीच का गैप */
+    align-items: center !important; /* कार्ड्स को बीच में रखने के लिए */
+    max-width: 550px !important; /* प्रीमियम लुक के लिए चौड़ाई फिक्स की है */
+    margin: 60px auto !important;
     padding: 0 20px;
     position: relative;
     z-index: 10;
 }
 
-/* कार्ड का प्रीमियम ग्लास डिज़ाइन */
+/* कार्ड का डिज़ाइन */
 .card {
     width: 100% !important;
-    min-height: 480px !important;
+    min-height: 450px !important;
     background: rgba(255, 255, 255, 0.03) !important;
     border: 1px solid rgba(0, 210, 255, 0.15) !important;
     border-radius: 40px !important;
@@ -24,17 +23,17 @@
     flex-direction: column !important;
     justify-content: space-between !important;
     backdrop-filter: blur(20px) !important;
-    transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
+    transition: 0.4s ease-in-out !important;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4) !important;
 }
 
 .card:hover {
-    transform: translateY(-15px) !important;
+    transform: scale(1.02) !important; /* हल्का सा बड़ा होगा */
     border-color: #00d2ff !important;
-    box-shadow: 0 20px 40px rgba(0, 210, 255, 0.2) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
 }
 
-/* कार्ड्स के अंदर के बटन */
+/* बटन का डिज़ाइन */
 .card-btn {
     display: block !important;
     width: 100% !important;
@@ -46,17 +45,5 @@
     border-radius: 50px !important;
     font-weight: 800 !important;
     text-transform: uppercase !important;
-    margin-top: auto !important;
-    transition: 0.3s !important;
-}
-
-.card-btn:hover { transform: scale(1.05); }
-
-/* फुटर स्टाइल */
-.main-footer {
-    text-align: center;
-    padding: 60px 5%;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    background: rgba(0,0,0,0.8);
-    margin-top: 80px;
+    margin-top: 30px !important;
 }
