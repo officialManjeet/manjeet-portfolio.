@@ -1,8 +1,8 @@
-/* --- प्रीमियम कार्ड्स ग्रिड (एक लाइन में) --- */
+/* --- प्रीमियम कार्ड्स ग्रिड (एक लाइन में सेट करने के लिए) --- */
 .cards-container {
     display: grid !important;
-    /* यह लाइन कार्ड्स को एक लाइन में सेट करेगी */
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+    /* यह लाइन कार्ड्स को एक लाइन में लाएगी */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
     gap: 30px !important;
     max-width: 1200px !important;
     margin: 80px auto !important;
@@ -24,14 +24,15 @@
     justify-content: space-between !important;
     transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
     height: 100% !important;
-    min-height: 480px !important;
+    min-height: 480px !important; /* सबका साइज़ एक बराबर रखने के लिए */
     box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
 }
 
+/* होवर करने पर चमक और उठाव */
 .card:hover {
     transform: translateY(-15px) !important;
     border-color: #00d2ff !important;
-    box-shadow: 0 20px 40px rgba(0, 210, 255, 0.15) !important;
+    box-shadow: 0 20px 40px rgba(0, 210, 255, 0.2) !important;
     background: rgba(255, 255, 255, 0.05) !important;
 }
 
@@ -47,7 +48,7 @@
     border-radius: 50px !important;
     font-weight: 800 !important;
     text-transform: uppercase !important;
-    margin-top: auto !important;
+    margin-top: auto !important; 
     transition: 0.3s !important;
 }
 
