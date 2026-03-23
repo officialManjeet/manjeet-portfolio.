@@ -1,12 +1,13 @@
-/* --- प्रीमियम कार्ड्स ग्रिड (एक लाइन में सेट करने के लिए) --- */
+/* --- प्रीमियम कार्ड्स ग्रिड (कार्ड्स को एक बराबर और एक लाइन में लाने के लिए) --- */
 .cards-container {
     display: grid !important;
-    /* यह लाइन कार्ड्स को एक लाइन में लाएगी */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    /* यह लाइन कार्ड्स को एक लाइन में सेट करेगी (बाएँ से दाएँ) */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
     gap: 30px !important;
     max-width: 1200px !important;
     margin: 80px auto !important;
     padding: 0 20px !important;
+    /* यह लाइन पक्का करेगी कि सभी कार्ड्स की लम्बाई (Height) एक बराबर हो */
     align-items: stretch !important;
     position: relative;
     z-index: 10;
@@ -15,28 +16,29 @@
 /* कार्ड का प्रीमियम ग्लास डिज़ाइन */
 .card {
     background: rgba(255, 255, 255, 0.03) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
     border-radius: 40px !important;
     padding: 40px !important;
     backdrop-filter: blur(20px) !important;
     display: flex !important;
     flex-direction: column !important;
+    /* यह लाइन बटन को हमेशा कार्ड में सबसे नीचे रखेगी */
     justify-content: space-between !important;
     transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
     height: 100% !important;
-    min-height: 480px !important; /* सबका साइज़ एक बराबर रखने के लिए */
+    min-height: 480px !important; /* कार्ड्स का कम से कम साइज */
     box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
 }
 
-/* होवर करने पर चमक और उठाव */
+/* होवर इफ़ेक्ट */
 .card:hover {
     transform: translateY(-15px) !important;
     border-color: #00d2ff !important;
+    background: rgba(255, 255, 255, 0.06) !important;
     box-shadow: 0 20px 40px rgba(0, 210, 255, 0.2) !important;
-    background: rgba(255, 255, 255, 0.05) !important;
 }
 
-/* कार्ड्स के अंदर वाले बटन का डिज़ाइन */
+/* कार्ड्स के अंदर वाले बटन का डिज़ाइन (क्लिक करने लायक) */
 .card-btn, .card a {
     display: block !important;
     width: 100% !important;
@@ -50,9 +52,5 @@
     text-transform: uppercase !important;
     margin-top: auto !important; 
     transition: 0.3s !important;
-}
-
-.card-btn:hover {
-    transform: scale(1.05) !important;
-    box-shadow: 0 10px 20px rgba(0, 210, 255, 0.3) !important;
+    cursor: pointer !important;
 }
