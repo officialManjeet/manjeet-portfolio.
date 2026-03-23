@@ -197,124 +197,128 @@ Official Manjeet - Verified Final GitHub Code
             </a>
         </section>
 
-      <!-- प्रीमियम कार्ड्स सेक्शन (नया और साफ़ कोड) -->
-<div class="grid-layout container">
-    <div id="courses-card"></div>
-    <div id="social-media-card"></div>
-    <div id="targetted-ads-card"></div>
-</div>
-
-<style>
-    /* कार्ड्स को एक जैसा और सुंदर बनाने के लिए */
-    .grid-layout {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        margin-top: 50px;
-        align-items: stretch; /* इससे सारे कार्ड्स की ऊंचाई एक जैसी रहेगी */
-    }
-
-    /* कार्ड्स का डिज़ाइन - इसे डालने से कार्ड्स एक बराबर दिखेंगे */
-    .card {
-        background: rgba(255, 255, 255, 0.03) !important;
-        border: 1px solid rgba(0, 210, 255, 0.1) !important;
-        border-radius: 35px !important;
-        padding: 35px !important;
-        height: 100% !important;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        transition: 0.4s ease;
-    }
-
-    .card:hover {
-        transform: translateY(-10px);
-        border-color: #00d2ff !important;
-        box-shadow: 0 15px 30px rgba(0, 210, 255, 0.15);
-    }
-</style>
-
-                <h2 id="det-title">Service Title</h2>
-                <div id="det-box">
-                    <p id="det-desc">Details loading...</p>
-                </div>
-                
-                <!-- Action Button -->
-                <a href="https://wa.me" target="_blank" class="btn-cta" id="cta-txt">Consult Now</a>
-                
-                <br>
-
-                <!-- Back Button BELOW Consult Now as requested -->
-                <div class="btn-back" onclick="showHome()">
-                    <i class="fas fa-arrow-left"></i> <span id="back-txt">Back to Home</span>
-                </div>
-            </div>
-            <div class="detail-img">
-                <img id="det-img" src="" alt="Detail View">
-            </div>
+          <!-- प्रीमियम कार्ड्स ग्रिड सेक्शन -->
+    <section class="container" style="margin-top: 50px; padding-bottom: 80px;">
+        <div id="cards-wrapper" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; align-items: stretch; justify-content: center; max-width: 1200px; margin: 0 auto;">
+            <div id="courses-card"></div>
+            <div id="social-media-card"></div>
+            <div id="targetted-ads-card"></div>
         </div>
-    </div>
+    </section>
 
-    <!-- Footer with Social Links -->
-    <footer>
-        <h3 id="foot-h">Connect With Me</h3>
-        <div class="socials">
-            <a href="https://wa.me" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-            <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-            <a href="https://twitter.com" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-
-            <a href="https://t.me" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+    <!-- फुटर सेक्शन -->
+    <footer style="text-align: center; padding: 60px 0; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 50px;">
+        <h2 id="footer-text" style="font-weight: 800; margin-bottom: 30px;">Connect With Me</h2>
+        <div style="display: flex; justify-content: center; gap: 20px;">
+            <!-- अपने सोशल मीडिया लिंक यहाँ डालें -->
+            <a href="https://wa.me" style="color: #25D366; font-size: 24px;"><i class="fab fa-whatsapp"></i></a>
         </div>
+        <p style="margin-top: 30px; color: #444; font-size: 12px; font-weight: 800;">&copy; 2026 OFFICIAL MANJEET PORTFOLIO</p>
     </footer>
-<!-- यहाँ से कॉपी करें -->
-<div id="cards-container">
-    <div id="courses-card"></div>
-    <div id="trading-card"></div>
-    <div id="seo-card"></div>
-    <div id="web-design-card"></div>
-</div>
 
-<!-- 1. ये 5 खाली डिब्बे (DIVs) होने बहुत ज़रूरी हैं, वरना कार्ड नहीं दिखेंगे -->
-<div class="grid container" style="margin-top: 50px;">
-    <div id="courses-card"></div>
-    <div id="social-media-card"></div>
-    <div id="targetted-ads-card"></div>
-    <div id="trading-card"></div>
-<script>
-// 1. कार्ड्स की लिस्ट
-const cardList = [
-    { id: 'courses-card', file: 'courses.html' },
-    { id: 'social-media-card', file: 'social-media.html' },
-    { id: 'targetted-ads-card', file: 'targetted-ads.html' }
-];
+    <style>
+        /* कार्ड्स को एक बराबर (Same Size) और प्रीमियम बनाने के लिए CSS */
+        #courses-card, #social-media-card, #targetted-ads-card {
+            display: flex;
+            width: 100%;
+        }
 
-// 2. कार्ड्स लोड करने वाला स्मार्ट फंक्शन (अब फोल्डर का झंझट खत्म)
-async function loadCards() {
-    for (const card of cardList) {
-        try {
-            // यह सीधे 'cards' फोल्डर से फाइल उठाएगा
-            const response = await fetch(`./cards/${card.file}`);
-            if (response.ok) {
-                const html = await response.text();
-                const target = document.getElementById(card.id);
-                if (target) {
-                    target.innerHTML = html;
+        .card {
+            width: 100% !important;
+            min-height: 450px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: space-between !important;
+            background: rgba(255, 255, 255, 0.03) !important;
+            border: 1px solid rgba(0, 210, 255, 0.15) !important;
+            border-radius: 40px !important;
+            padding: 40px !important;
+            backdrop-filter: blur(20px) !important;
+            transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
+        }
+
+        .card:hover {
+            transform: translateY(-15px) !important;
+            border-color: #00d2ff !important;
+            box-shadow: 0 20px 40px rgba(0, 210, 255, 0.2) !important;
+            background: rgba(255, 255, 255, 0.05) !important;
+        }
+
+        /* कार्ड बटन का डिज़ाइन */
+        .card-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: #00d2ff;
+            color: #000;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: auto;
+            transition: 0.3s;
+        }
+        .card-btn:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(0, 210, 255, 0.4); }
+    </style>
+
+    <!-- स्मार्ट जावास्क्रिप्ट (भाषा और कार्ड्स के लिए) -->
+    <script>
+    const translations = {
+        en: {
+            heroH1: "Elevate Your <span>Business</span>",
+            heroP: "Cutting-edge digital strategies for world-class growth and dominance.",
+            waBtn: "Chat on WhatsApp",
+            connect: "Connect With Me",
+            langBtn: "HI"
+        },
+        hi: {
+            heroH1: "अपने <span>व्यवसाय</span> को बढ़ाएं",
+            heroP: "विश्व स्तरीय विकास और प्रभुत्व के लिए अत्याधुनिक डिजिटल रणनीतियाँ।",
+            waBtn: "व्हाट्सएप पर चैट करें",
+            connect: "मुझसे जुड़ें",
+            langBtn: "EN"
+        }
+    };
+
+    const cardList = [
+        { id: 'courses-card', file: 'courses.html' },
+        { id: 'social-media-card', file: 'social-media.html' },
+        { id: 'targetted-ads-card', file: 'targetted-ads.html' }
+    ];
+
+    let currentLang = 'en';
+
+    async function loadCards() {
+        for (const card of cardList) {
+            try {
+                const response = await fetch(`./cards/${card.file}`);
+                if (response.ok) {
+                    const html = await response.text();
+                    const target = document.getElementById(card.id);
+                    if (target) target.innerHTML = html;
                 }
-            } else {
-                console.error("कार्ड नहीं मिला:", card.file);
-            }
-        } catch (err) {
-            console.error("लोडिंग एरर:", err);
+            } catch (err) { console.error("Error loading card:", err); }
         }
     }
-}
 
-// वेबसाइट खुलते ही कार्ड्स लोड करें
-document.addEventListener('DOMContentLoaded', loadCards);
-</script>
+    window.changeLanguage = function() {
+        currentLang = (currentLang === 'en') ? 'hi' : 'en';
+        const t = translations[currentLang];
 
+        // मुख्य कंटेंट अपडेट करना
+        if(document.querySelector('.hero h1')) document.querySelector('.hero h1').innerHTML = t.heroH1;
+        if(document.querySelector('.hero p')) document.querySelector('.hero p').innerText = t.heroP;
+        if(document.querySelector('.btn-whatsapp span')) document.querySelector('.btn-whatsapp span').innerText = t.waBtn;
+        if(document.getElementById('footer-text')) document.getElementById('footer-text').innerText = t.connect;
+        if(document.getElementById('lang-btn')) document.getElementById('lang-btn').innerText = t.langBtn;
 
-// वेबसाइट खुलते ही कार्ड्स लोड करें
-document.addEventListener('DOMContentLoaded', loadCards);
-</script>
+        loadCards(); // भाषा बदलते ही कार्ड्स रिफ्रेश करें
+    };
+
+    document.addEventListener('DOMContentLoaded', loadCards);
+    </script>
+</body>
+</html>
