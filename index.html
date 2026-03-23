@@ -243,25 +243,53 @@ Official Manjeet - Verified Final GitHub Code
     </footer>
 
   <script>
-    // 1. भाषा का डेटा (Dictionary)
-    let currentLang = 'en'; // शुरुआत में इंग्लिश
+   <script>
+// 1. भाषा का डेटा (Dictionary) - अगर आपके पास पहले से है तो इसे रहने दें
+const translations = {
+    en: { title: "My Cards" },
+    hi: { title: "मेरे कार्ड्स" }
+};
 
-    const translations = {
-        en: {
-            heroTitle: "Elevate Your <span>Business</span>",
-            heroDesc: "Cutting-edge digital strategies for world-class growth.",
-            waBtn: "Chat on WhatsApp",
-            connect: "Connect With Me",
-            langBtn: "HI / हिंदी"
-        },
-        hi: {
-            heroTitle: "अपने <span>व्यवसाय</span> को बढ़ाएं",
-            heroDesc: "विश्व स्तरीय विकास के लिए आधुनिक डिजिटल रणनीतियां।",
-            waBtn: "व्हाट्सएप पर चैट करें",
-            connect: "मुझसे जुड़ें",
-            langBtn: "EN / English"
+// 2. कार्ड्स की लिस्ट और उनकी फाइलें
+const cardList = [
+    { id: 'courses-card', file: 'courses.html' },
+    { id: 'trading-card', file: 'trading.html' },
+    { id: 'seo-card', file: 'seo.html' },
+    { id: 'web-design-card', file: 'web-design.html' }
+];
+
+let currentLang = 'en'; // डिफ़ॉल्ट भाषा
+
+// 3. कार्ड्स लोड करने वाला फंक्शन
+async function loadCards() {
+    for (const card of cardList) {
+        try {
+            // पाथ का ध्यान रखें: cards फोल्डर के अंदर en/hi फोल्डर
+            const response = await fetch(`./cards/${currentLang}/${card.file}`);
+            if (response.ok) {
+                const html = await response.text();
+                const target = document.getElementById(card.id);
+                if (target) {
+                    target.innerHTML = html;
+                }
+            } else {
+                console.error("फाइल नहीं मिली:", card.file);
+            }
+        } catch (err) {
+            console.error("कार्ड लोड करने में एरर:", err);
         }
-    };
+    }
+}
+
+// 4. भाषा बदलने का फंक्शन (अगर आप बटन यूज़ कर रहे हैं)
+function changeLanguage(lang) {
+    currentLang = lang;
+    loadCards(); // भाषा बदलते ही कार्ड्स फिर से लोड होंगे
+}
+
+// वेबसाइट खुलते ही सबसे पहले कार्ड्स लोड करें
+document.addEventListener('DOMContentLoaded', loadCards);
+</script>
 
     // 3. भाषा बदलने का फंक्शन
     async function changeLanguage() {
