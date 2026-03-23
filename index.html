@@ -197,127 +197,88 @@ Official Manjeet - Verified Final GitHub Code
             </a>
         </section>
 
-          <!-- प्रीमियम कार्ड्स ग्रिड सेक्शन -->
-    <section class="container" style="margin-top: 50px; padding-bottom: 80px;">
-        <div id="cards-wrapper" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; align-items: stretch; justify-content: center; max-width: 1200px; margin: 0 auto;">
-            <div id="courses-card"></div>
-            <div id="social-media-card"></div>
-            <div id="targetted-ads-card"></div>
-        </div>
-    </section>
+         <!-- 201 नंबर लाइन से इसे पेस्ट करना शुरू करें -->
+<section class="container" style="margin-top: 50px; padding-bottom: 80px; position: relative; z-index: 10;">
+    <div id="cards-wrapper" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; align-items: stretch; justify-content: center; max-width: 1200px; margin: 0 auto;">
+        <!-- ये वो 3 डिब्बे हैं जहाँ आपके कार्ड्स लोड होंगे -->
+        <div id="courses-card"></div>
+        <div id="social-media-card"></div>
+        <div id="targetted-ads-card"></div>
+    </div>
+</section>
 
-    <!-- फुटर सेक्शन -->
-    <footer style="text-align: center; padding: 60px 0; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 50px;">
-        <h2 id="footer-text" style="font-weight: 800; margin-bottom: 30px;">Connect With Me</h2>
-        <div style="display: flex; justify-content: center; gap: 20px;">
-            <!-- अपने सोशल मीडिया लिंक यहाँ डालें -->
-            <a href="https://wa.me" style="color: #25D366; font-size: 24px;"><i class="fab fa-whatsapp"></i></a>
-        </div>
-        <p style="margin-top: 30px; color: #444; font-size: 12px; font-weight: 800;">&copy; 2026 OFFICIAL MANJEET PORTFOLIO</p>
-    </footer>
+<!-- फुटर सेक्शन (जो गायब हो गया था, वो यहाँ है) -->
+<footer style="text-align: center; padding: 60px 5%; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 50px; background: rgba(0,0,0,0.5);">
+    <h2 id="footer-text" style="font-weight: 800; margin-bottom: 30px; font-size: 24px;">Connect With Me</h2>
+    <div style="display: flex; justify-content: center; gap: 25px;">
+        <a href="https://wa.me" target="_blank" style="color: #25D366; font-size: 28px;"><i class="fab fa-whatsapp"></i></a>
+        <!-- आप यहाँ अपने और भी लिंक जोड़ सकते हैं -->
+    </div>
+    <p style="margin-top: 30px; color: #444; font-size: 12px; font-weight: 800; text-transform: uppercase;">&copy; 2026 OFFICIAL MANJEET PORTFOLIO</p>
+</footer>
 
-    <style>
-        /* कार्ड्स को एक बराबर (Same Size) और प्रीमियम बनाने के लिए CSS */
-        #courses-card, #social-media-card, #targetted-ads-card {
-            display: flex;
-            width: 100%;
-        }
+<style>
+    /* कार्ड्स को एक जैसा और प्रीमियम बनाने के लिए ज़रूरी CSS */
+    #courses-card, #social-media-card, #targetted-ads-card { display: flex; width: 100%; }
+    .card {
+        width: 100% !important;
+        min-height: 480px !important;
+        background: rgba(255, 255, 255, 0.03) !important;
+        border: 1px solid rgba(0, 210, 255, 0.15) !important;
+        border-radius: 40px !important;
+        padding: 40px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        backdrop-filter: blur(20px) !important;
+        transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+    .card:hover { transform: translateY(-15px); border-color: #00d2ff !important; box-shadow: 0 20px 40px rgba(0, 210, 255, 0.2); }
+</style>
 
-        .card {
-            width: 100% !important;
-            min-height: 450px !important;
-            display: flex !important;
-            flex-direction: column !important;
-            justify-content: space-between !important;
-            background: rgba(255, 255, 255, 0.03) !important;
-            border: 1px solid rgba(0, 210, 255, 0.15) !important;
-            border-radius: 40px !important;
-            padding: 40px !important;
-            backdrop-filter: blur(20px) !important;
-            transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
-        }
+<script>
+// भाषा और कार्ड्स को चलाने वाला दिमाग (JavaScript)
+const translations = {
+    en: { heroH1: "Elevate Your <span>Business</span>", heroP: "Cutting-edge digital strategies for growth.", waBtn: "WhatsApp", connect: "Connect With Me", langBtn: "HI" },
+    hi: { heroH1: "अपने <span>व्यवसाय</span> को बढ़ाएं", heroP: "विकास के लिए अत्याधुनिक डिजिटल रणनीतियाँ।", waBtn: "व्हाट्सएप", connect: "मुझसे जुड़ें", langBtn: "EN" }
+};
 
-        .card:hover {
-            transform: translateY(-15px) !important;
-            border-color: #00d2ff !important;
-            box-shadow: 0 20px 40px rgba(0, 210, 255, 0.2) !important;
-            background: rgba(255, 255, 255, 0.05) !important;
-        }
+let currentLang = 'en';
 
-        /* कार्ड बटन का डिज़ाइन */
-        .card-btn {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            background: #00d2ff;
-            color: #000;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: auto;
-            transition: 0.3s;
-        }
-        .card-btn:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(0, 210, 255, 0.4); }
-    </style>
-
-    <!-- स्मार्ट जावास्क्रिप्ट (भाषा और कार्ड्स के लिए) -->
-    <script>
-    const translations = {
-        en: {
-            heroH1: "Elevate Your <span>Business</span>",
-            heroP: "Cutting-edge digital strategies for world-class growth and dominance.",
-            waBtn: "Chat on WhatsApp",
-            connect: "Connect With Me",
-            langBtn: "HI"
-        },
-        hi: {
-            heroH1: "अपने <span>व्यवसाय</span> को बढ़ाएं",
-            heroP: "विश्व स्तरीय विकास और प्रभुत्व के लिए अत्याधुनिक डिजिटल रणनीतियाँ।",
-            waBtn: "व्हाट्सएप पर चैट करें",
-            connect: "मुझसे जुड़ें",
-            langBtn: "EN"
-        }
-    };
-
-    const cardList = [
+async function loadCards() {
+    const cards = [
         { id: 'courses-card', file: 'courses.html' },
         { id: 'social-media-card', file: 'social-media.html' },
         { id: 'targetted-ads-card', file: 'targetted-ads.html' }
     ];
-
-    let currentLang = 'en';
-
-    async function loadCards() {
-        for (const card of cardList) {
-            try {
-                const response = await fetch(`./cards/${card.file}`);
-                if (response.ok) {
-                    const html = await response.text();
-                    const target = document.getElementById(card.id);
-                    if (target) target.innerHTML = html;
-                }
-            } catch (err) { console.error("Error loading card:", err); }
-        }
+    for (const card of cards) {
+        try {
+            const response = await fetch(`./cards/${card.file}`);
+            if (response.ok) {
+                const html = await response.text();
+                const target = document.getElementById(card.id);
+                if (target) target.innerHTML = html;
+            }
+        } catch (err) { console.error(err); }
     }
+}
 
-    window.changeLanguage = function() {
-        currentLang = (currentLang === 'en') ? 'hi' : 'en';
-        const t = translations[currentLang];
+window.changeLanguage = function() {
+    currentLang = (currentLang === 'en') ? 'hi' : 'en';
+    const t = translations[currentLang];
+    // टेक्स्ट अपडेट करें
+    document.querySelector('.hero h1').innerHTML = t.heroH1;
+    document.querySelector('.hero p').innerText = t.heroP;
+    document.getElementById('footer-text').innerText = t.connect;
+    document.getElementById('lang-btn').innerText = t.langBtn;
+    loadCards(); // भाषा बदलते ही कार्ड्स रिफ्रेश करें
+};
 
-        // मुख्य कंटेंट अपडेट करना
-        if(document.querySelector('.hero h1')) document.querySelector('.hero h1').innerHTML = t.heroH1;
-        if(document.querySelector('.hero p')) document.querySelector('.hero p').innerText = t.heroP;
-        if(document.querySelector('.btn-whatsapp span')) document.querySelector('.btn-whatsapp span').innerText = t.waBtn;
-        if(document.getElementById('footer-text')) document.getElementById('footer-text').innerText = t.connect;
-        if(document.getElementById('lang-btn')) document.getElementById('lang-btn').innerText = t.langBtn;
+document.addEventListener('DOMContentLoaded', loadCards);
+</script>
+<!-- फाइल यहाँ खत्म होगी -->
 
-        loadCards(); // भाषा बदलते ही कार्ड्स रिफ्रेश करें
-    };
-
+ 
     document.addEventListener('DOMContentLoaded', loadCards);
     </script>
 </body>
