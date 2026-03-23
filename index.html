@@ -249,39 +249,48 @@ Official Manjeet - Verified Final GitHub Code
     <div id="web-design-card"></div>
 </div>
 
+<!-- 1. ये 5 खाली डिब्बे (DIVs) होने बहुत ज़रूरी हैं, वरना कार्ड नहीं दिखेंगे -->
+<div class="grid container" style="margin-top: 50px;">
+    <div id="courses-card"></div>
+    <div id="social-media-card"></div>
+    <div id="targetted-ads-card"></div>
+    <div id="trading-card"></div>
+    <div id="web-design-card"></div>
+</div>
+
 <script>
+// 2. आपके फोल्डर की फाइलों के एकदम सही नाम
 const cardList = [
     { id: 'courses-card', file: 'courses.html' },
+    { id: 'social-media-card', file: 'social-media.html' },
+    { id: 'targetted-ads-card', file: 'targetted-ads.html' },
     { id: 'trading-card', file: 'trading.html' },
-    { id: 'seo-card', file: 'seo.html' },
     { id: 'web-design-card', file: 'web-design.html' }
 ];
 
-// डिफ़ॉल्ट भाषा (इसे आप अपने बटन से बदल सकते हैं)
 let currentLang = 'en'; 
 
 async function loadCards() {
     for (const card of cardList) {
         try {
-            // यह लाइन cards/en/ या cards/hi/ से डेटा उठाएगी
             const response = await fetch(`./cards/${currentLang}/${card.file}`);
             if (response.ok) {
                 const html = await response.text();
                 const target = document.getElementById(card.id);
+                
+                // यह चेक करना ज़रूरी है कि ID वाला डिब्बा मौजूद है या नहीं
                 if (target) {
                     target.innerHTML = html;
+                } else {
+                    console.warn("HTML में यह ID नहीं मिली:", card.id);
                 }
-            } else {
-                console.error("फाइल नहीं मिली:", `./cards/${currentLang}/${card.file}`);
             }
         } catch (err) {
-            console.error("कार्ड लोड एरर:", err);
+            console.error("कार्ड लोड एरर:", card.file, err);
         }
     }
 }
 
 // पेज लोड होते ही फंक्शन चलाना
-window.onload = loadCards;
+document.addEventListener('DOMContentLoaded', loadCards);
 </script>
-<!-- यहाँ तक -->
-
