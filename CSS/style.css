@@ -1,40 +1,42 @@
-/* --- वर्टिकल कार्ड्स सिस्टम (एक के नीचे एक) --- */
+/* --- प्रीमियम कार्ड्स ग्रिड (एक लाइन में) --- */
 .cards-container {
-    display: flex !important;
-    flex-direction: column !important; /* कार्ड्स को लाइन में लाने के लिए */
-    gap: 40px !important; /* कार्ड्स के बीच का गैप */
-    align-items: center !important; /* कार्ड्स को बीच में रखने के लिए */
-    max-width: 550px !important; /* प्रीमियम लुक के लिए चौड़ाई फिक्स की है */
-    margin: 60px auto !important;
-    padding: 0 20px;
+    display: grid !important;
+    /* यह लाइन कार्ड्स को एक लाइन में सेट करेगी */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+    gap: 30px !important;
+    max-width: 1200px !important;
+    margin: 80px auto !important;
+    padding: 0 20px !important;
+    align-items: stretch !important;
     position: relative;
     z-index: 10;
 }
 
-/* कार्ड का डिज़ाइन */
+/* कार्ड का प्रीमियम ग्लास डिज़ाइन */
 .card {
-    width: 100% !important;
-    min-height: 450px !important;
     background: rgba(255, 255, 255, 0.03) !important;
-    border: 1px solid rgba(0, 210, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
     border-radius: 40px !important;
     padding: 40px !important;
+    backdrop-filter: blur(20px) !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
-    backdrop-filter: blur(20px) !important;
-    transition: 0.4s ease-in-out !important;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.4) !important;
+    transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+    height: 100% !important;
+    min-height: 480px !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
 }
 
 .card:hover {
-    transform: scale(1.02) !important; /* हल्का सा बड़ा होगा */
+    transform: translateY(-15px) !important;
     border-color: #00d2ff !important;
+    box-shadow: 0 20px 40px rgba(0, 210, 255, 0.15) !important;
     background: rgba(255, 255, 255, 0.05) !important;
 }
 
-/* बटन का डिज़ाइन */
-.card-btn {
+/* कार्ड्स के अंदर वाले बटन का डिज़ाइन */
+.card-btn, .card a {
     display: block !important;
     width: 100% !important;
     padding: 15px !important;
@@ -45,5 +47,11 @@
     border-radius: 50px !important;
     font-weight: 800 !important;
     text-transform: uppercase !important;
-    margin-top: 30px !important;
+    margin-top: auto !important;
+    transition: 0.3s !important;
+}
+
+.card-btn:hover {
+    transform: scale(1.05) !important;
+    box-shadow: 0 10px 20px rgba(0, 210, 255, 0.3) !important;
 }
