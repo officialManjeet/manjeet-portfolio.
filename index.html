@@ -258,7 +258,23 @@ Official Manjeet - Verified Final GitHub Code
     <div id="social-media-card"></div>
     <div id="targetted-ads-card"></div>
     <div id="trading-card"></div>
-  <script>
+ <script>
+// 1. पूरी वेबसाइट का टेक्स्ट डेटा
+const translations = {
+    en: {
+        heroH1: "Elevate Your <span>Business</span>",
+        heroP: "Cutting-edge digital strategies for world-class growth and dominance.",
+        waBtn: "Chat on WhatsApp",
+        langBtn: "HI"
+    },
+    hi: {
+        heroH1: "अपने <span>व्यवसाय</span> को बढ़ाएं",
+        heroP: "विश्व स्तरीय विकास और प्रभुत्व के लिए अत्याधुनिक डिजिटल रणनीतियाँ।",
+        waBtn: "व्हाट्सएप पर चैट करें",
+        langBtn: "EN"
+    }
+};
+
 const cardList = [
     { id: 'courses-card', file: 'courses.html' },
     { id: 'social-media-card', file: 'social-media.html' },
@@ -267,43 +283,47 @@ const cardList = [
     { id: 'web-design-card', file: 'web-design.html' }
 ];
 
-let currentLang = 'en'; 
+let currentLang = 'en';
 
-// कार्ड्स लोड करने का फंक्शन
 async function loadCards() {
     for (const card of cardList) {
         try {
-            // यहाँ बैकविक्स (`) का इस्तेमाल ज़रूरी है
+            // Path एकदम सही रखें
             const response = await fetch(`./cards/${currentLang}/${card.file}`);
+            const target = document.getElementById(card.id);
+            
             if (response.ok) {
                 const html = await response.text();
-                const target = document.getElementById(card.id);
-                if (target) {
-                    target.innerHTML = html;
-                }
+                if (target) target.innerHTML = html;
             } else {
-                console.error("फाइल नहीं मिली:", `./cards/${currentLang}/${card.file}`);
+                // अगर फाइल नहीं मिली तो डिब्बा खाली कर दें
+                if (target) target.innerHTML = ""; 
+                console.error("Missing file:", card.file);
             }
         } catch (err) {
-            console.error("लोडिंग एरर:", err);
+            console.error("Load error:", err);
         }
     }
 }
 
-// भाषा बदलने का फंक्शन
+// 2. भाषा बदलने का बटन फंक्शन
 window.changeLanguage = function() {
     currentLang = (currentLang === 'en') ? 'hi' : 'en';
-    
-    const langBtn = document.getElementById('lang-btn');
-    if (langBtn) {
-        langBtn.innerText = (currentLang === 'en') ? 'HI' : 'EN';
-    }
+    const t = translations[currentLang];
 
-    loadCards(); 
+    // वेबसाइट का मुख्य कंटेंट बदलना
+    document.querySelector('.hero h1').innerHTML = t.heroH1;
+    document.querySelector('.hero p').innerText = t.heroP;
+    document.querySelector('.btn-whatsapp span').innerText = t.waBtn;
+    document.getElementById('lang-btn').innerText = t.langBtn;
+
+    // कार्ड्स को नई भाषा (hi/en फोल्डर) से दोबारा लोड करना
+    loadCards();
 };
 
-// पेज लोड होते ही रन करें
+// पेज खुलते ही पहली बार कार्ड्स लोड करें
 document.addEventListener('DOMContentLoaded', loadCards);
 </script>
+
  
 
