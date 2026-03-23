@@ -197,17 +197,43 @@ Official Manjeet - Verified Final GitHub Code
             </a>
         </section>
 
-      <!-- प्रीमियम कार्ड्स सेक्शन -->
-<div class="grid container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 50px; justify-items: center;">
-    <div id="courses-card" style="width: 100%;"></div>
-    <div id="social-media-card" style="width: 100%;"></div>
-    <div id="targetted-ads-card" style="width: 100%;"></div>
+      <!-- प्रीमियम कार्ड्स सेक्शन (नया और साफ़ कोड) -->
+<div class="grid-layout container">
+    <div id="courses-card"></div>
+    <div id="social-media-card"></div>
+    <div id="targetted-ads-card"></div>
 </div>
 
- <!-- Detailed Section View -->
-    <div id="detail-view" class="container">
-        <div class="detail-flex">
-            <div class="detail-text">
+<style>
+    /* कार्ड्स को एक जैसा और सुंदर बनाने के लिए */
+    .grid-layout {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+        align-items: stretch; /* इससे सारे कार्ड्स की ऊंचाई एक जैसी रहेगी */
+    }
+
+    /* कार्ड्स का डिज़ाइन - इसे डालने से कार्ड्स एक बराबर दिखेंगे */
+    .card {
+        background: rgba(255, 255, 255, 0.03) !important;
+        border: 1px solid rgba(0, 210, 255, 0.1) !important;
+        border-radius: 35px !important;
+        padding: 35px !important;
+        height: 100% !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: 0.4s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        border-color: #00d2ff !important;
+        box-shadow: 0 15px 30px rgba(0, 210, 255, 0.15);
+    }
+</style>
+
                 <h2 id="det-title">Service Title</h2>
                 <div id="det-box">
                     <p id="det-desc">Details loading...</p>
