@@ -241,16 +241,15 @@ Official Manjeet - Verified Final GitHub Code
             <a href="https://t.me" target="_blank"><i class="fa-brands fa-telegram"></i></a>
         </div>
     </footer>
+<!-- यहाँ से कॉपी करें -->
+<div id="cards-container">
+    <div id="courses-card"></div>
+    <div id="trading-card"></div>
+    <div id="seo-card"></div>
+    <div id="web-design-card"></div>
+</div>
 
-  <script>
-   <script>
-// 1. भाषा का डेटा (Dictionary) - अगर आपके पास पहले से है तो इसे रहने दें
-const translations = {
-    en: { title: "My Cards" },
-    hi: { title: "मेरे कार्ड्स" }
-};
-
-// 2. कार्ड्स की लिस्ट और उनकी फाइलें
+<script>
 const cardList = [
     { id: 'courses-card', file: 'courses.html' },
     { id: 'trading-card', file: 'trading.html' },
@@ -258,13 +257,13 @@ const cardList = [
     { id: 'web-design-card', file: 'web-design.html' }
 ];
 
-let currentLang = 'en'; // डिफ़ॉल्ट भाषा
+// डिफ़ॉल्ट भाषा (इसे आप अपने बटन से बदल सकते हैं)
+let currentLang = 'en'; 
 
-// 3. कार्ड्स लोड करने वाला फंक्शन
 async function loadCards() {
     for (const card of cardList) {
         try {
-            // पाथ का ध्यान रखें: cards फोल्डर के अंदर en/hi फोल्डर
+            // यह लाइन cards/en/ या cards/hi/ से डेटा उठाएगी
             const response = await fetch(`./cards/${currentLang}/${card.file}`);
             if (response.ok) {
                 const html = await response.text();
@@ -273,273 +272,16 @@ async function loadCards() {
                     target.innerHTML = html;
                 }
             } else {
-                console.error("फाइल नहीं मिली:", card.file);
+                console.error("फाइल नहीं मिली:", `./cards/${currentLang}/${card.file}`);
             }
         } catch (err) {
-            console.error("कार्ड लोड करने में एरर:", err);
+            console.error("कार्ड लोड एरर:", err);
         }
     }
 }
 
-// 4. भाषा बदलने का फंक्शन (अगर आप बटन यूज़ कर रहे हैं)
-function changeLanguage(lang) {
-    currentLang = lang;
-    loadCards(); // भाषा बदलते ही कार्ड्स फिर से लोड होंगे
-}
-
-// वेबसाइट खुलते ही सबसे पहले कार्ड्स लोड करें
-document.addEventListener('DOMContentLoaded', loadCards);
+// पेज लोड होते ही फंक्शन चलाना
+window.onload = loadCards;
 </script>
-
-    // 3. भाषा बदलने का फंक्शन
-    async function changeLanguage() {
-        // भाषा बदलें
-        currentLang = (currentLang === 'en') ? 'hi' : 'en';
-        
-        // मुख्य टेक्स्ट बदलें
-          // 3. भाषा बदलने का फंक्शन
-    async function changeLanguage() {
-        currentLang = (currentLang === 'en') ? 'hi' : 'en';
-        const t = translations[currentLang];
-
-        document.querySelector('.hero h1').innerHTML = t.heroTitle;
-        document.querySelector('.hero p').innerText = t.heroDesc;
-        document.querySelector('.btn-whatsapp span').innerText = t.waBtn;
-        document.querySelector('footer h2').innerText = t.connect;
-        document.getElementById('lang-btn').innerText = t.langBtn;
-
-        await loadCards(); // कार्ड्स को दोबारा लोड करें
-    }
-
-    // 4. कार्ड्स लोड करने का फंक्शन (यह हिस्सा गायब था)
-      async function loadCards() {
-        for (const card of cardList) {
-            try {
-                const response = await fetch(`cards/${currentLang}/${card.file}`);
-                if (response.ok) {
-                    const html = await response.text();
-                    const target = document.getElementById(card.id);
-                    if (target) target.innerHTML = html;
-                }
-            } catch (err) {
-                console.error("Error loading card:", err);
-            }
-        }
-    }
-
-    // 5. शुरुआत में कार्ड्स लोड करें
-    window.addEventListener('DOMContentLoaded', loadCards);
-    
-    // बटन पर क्लिक करने का इवेंट जोड़ें
-    document.getElementById('lang-btn').addEventListener('click', changeLanguage);
-</script>
-
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <style>
-        :root {
-            --primary: #00d2ff;
-            --secondary: #0072ff;
-            --whatsapp: #25D366;
-            --bg-dark: #050505;
-
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            /* This is your favorite "Second First" Fluid Abstract background */
-            --home-bg: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1920');
-            --detail-bg: linear-gradient(135deg, #050505 0%, #001133 100%);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
-        
-        body { 
-            background: var(--bg-dark);
-            color: #fff; 
-            line-height: 1.6; 
-            min-height: 100vh;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-
-        /* Interactive Spotlight Effect */
-
-        #spotlight {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(0, 210, 255, 0.12) 0%, transparent 60%);
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        /* Background Layer */
-        #main-bg {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-image: var(--home-bg);
-            background-size: cover;
-            background-position: center;
-            z-index: -2;
-            filter: brightness(0.3);
-
-            transition: 0.6s ease;
-        }
-
-        /* Navigation Header */
-        header { 
-            padding: 15px 5%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            background: rgba(0, 0, 0, 0.9); 
-            position: fixed; 
-            width: 100%; 
-            top: 0; 
-            z-index: 9999; 
-            border-bottom: 1px solid var(--glass-border); 
-            backdrop-filter: blur(25px);
-        }
-        
-        /* Logo with Image images/sel.jpg */
-
-        .logo { display: flex; align-items: center; text-decoration: none; text-transform: uppercase; letter-spacing: 1.5px; font-size: 18px; font-weight: 800; }
-        .logo-img { 
-            width: 45px; 
-            height: 45px; 
-            border-radius: 50%; 
-            margin-right: 12px; 
-            border: 2px solid var(--primary); 
-            object-fit: cover; 
-            background: #111;
-            display: block;
-        }
-        .logo .white { color: #ffffff; }
-        .logo .blue { color: var(--primary); text-shadow: 0 0 15px rgba(0, 210, 255, 0.4); }
-
-        nav { display: flex; gap: 18px; align-items: center; }
-        nav a { color: #fff; text-decoration: none; font-size: 11px; opacity: 0.7; transition: 0.3s; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
-        nav a:hover { color: var(--primary); opacity: 1; }
-
-        #lang-btn { padding: 8px 15px; background: rgba(0, 210, 255, 0.1); color: var(--primary); border: 1px solid var(--primary); border-radius: 8px; cursor: pointer; font-weight: 800; font-size: 10px; text-transform: uppercase; }
-
-
-        /* Content Container */
-        .container { padding: 140px 5% 80px; position: relative; z-index: 10; width: 100%; max-width: 1200px; margin: 0 auto; }
-        #detail-view { display: none; }
-
-        /* Hero Section */
-        .hero { text-align: center; margin-bottom: 80px; }
-        .hero h1 { font-size: clamp(32px, 5vw, 60px); margin-bottom: 20px; font-weight: 800; line-height: 1.1; }
-        .hero h1 span { color: var(--primary); }
-        .hero p { color: #aaa; font-size: 18px; max-width: 700px; margin: 0 auto 35px; font-weight: 300; }
-
-        /* WhatsApp Button */
-        .btn-whatsapp { display: inline-flex; align-items: center; gap: 12px; background: var(--whatsapp); color: #fff; text-decoration: none; padding: 16px 38px; border-radius: 50px; font-weight: 800; font-size: 16px; transition: 0.4s; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); }
-        .btn-whatsapp:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(37, 211, 102, 0.5); }
-
-        /* Services Grid */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
-        .card { background: var(--card-bg); padding: 50px 30px; border-radius: 35px; border: 1px solid var(--glass-border); text-align: center; cursor: pointer; transition: 0.4s ease; backdrop-filter: blur(15px); }
-        .card:hover { transform: translateY(-12px); border-color: var(--primary); background: rgba(255,255,255,0.06); }
-        .card i { font-size: 45px; color: var(--primary); margin-bottom: 25px; }
-
-        .card h3 { font-size: 24px; margin-bottom: 12px; font-weight: 700; }
-        .card p { font-size: 15px; color: #888; }
-
-        /* Detail Page Styling */
-        .detail-flex { display: flex; gap: 50px; align-items: center; margin-top: 30px; }
-        .detail-text { flex: 1; }
-        .detail-text h2 { font-size: clamp(35px, 4vw, 55px); margin-bottom: 25px; font-weight: 800; color: var(--primary); }
-        .detail-text p { font-size: 18px; color: #ccc; margin-bottom: 35px; line-height: 1.8; }
-        .detail-img { flex: 1; }
-        .detail-img img { width: 100%; border-radius: 30px; border: 1px solid var(--glass-border); box-shadow: 0 20px 50px rgba(0,0,0,0.6); }
-
-        /* Detail Page Buttons - REORDERED */
-        .btn-cta { display: inline-block; padding: 18px 45px; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #fff; text-decoration: none; border-radius: 12px; font-weight: 800; text-transform: uppercase; font-size: 14px; box-shadow: 0 10px 25px rgba(0, 210, 255, 0.4); margin-bottom: 15px; transition: 0.3s; }
-        .btn-cta:hover { transform: scale(1.05); }
-
-        .btn-back { display: inline-flex; align-items: center; gap: 10px; padding: 12px 25px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: 10px; cursor: pointer; color: #fff; font-weight: 700; font-size: 14px; text-decoration: none; transition: 0.3s; margin-top: 5px; }
-        .btn-back:hover { background: #fff; color: #000; }
-
-        /* Social Media Icons */
-
-        footer { padding: 80px 5% 50px; text-align: center; border-top: 1px solid var(--glass-border); margin-top: 100px; }
-        .socials { display: flex; justify-content: center; gap: 30px; margin-top: 35px; }
-        .socials a { color: #fff; font-size: 30px; opacity: 0.7; transition: 0.4s; text-decoration: none; }
-        .socials a:hover { color: var(--primary); opacity: 1; transform: translateY(-8px) scale(1.2); }
-
-        @media (max-width: 768px) {
-            header { padding: 10px; flex-direction: column; height: auto; }
-            nav { margin: 15px 0; gap: 10px; flex-wrap: wrap; justify-content: center; }
-            .container { padding-top: 220px; }
-            .detail-flex { flex-direction: column; text-align: center; }
-            .btn-back { margin: 10px auto; }
-        }
-    </style>
-</head>
-<body>
-
-    <div id="spotlight"></div>
-    <div id="main-bg"></div>
-
-
-    <header>
-        <a href="#" class="logo" onclick="showHome()">
-            <!-- I have ensured the path points to images/sel.jpg exactly -->
-            <img src="images/sel.png" alt="" class="logo-img">
-            <span class="white" id="logo-w">OFFICIAL</span>
-            <span class="blue" id="logo-b">MANJEET</span>
-        </a>
-
-        <nav id="top-nav">
-            <a href="#" id="nav-h" onclick="showHome()">Home</a>
-            <!-- Clicking About will now load data from your about.html file -->
-            <a href="#" id="nav-a" onclick="showDetail('about')">About</a>
-            <a href="#" id="nav-p" onclick="showDetail('portfolio')">Portfolio</a>
-   <a href="trading.html" id="nav-t" style="color: #fff; font-weight: 700; text-decoration: none; opacity: 0.7;">Trading</a>
-
-            <a href="#" id="nav-s" onclick="showDetail('shop')">Shop</a>
-        </nav>
-
-        <div class="header-right">
-            <button id="lang-btn" onclick="toggleLang()">Hindi</button>
-
-        </div>
-    </header>
-  // लाइन 487 से यहाँ पेस्ट करना शुरू करें:
-const cardList = [
-    { id: 'courses-card', file: 'courses.html' },
-    { id: 'trading-card', file: 'trading.html' },
-    { id: 'seo-card', file: 'seo.html' },
-    { id: 'web-design-card', file: 'web-design.html' }
-];
-
-let currentLang = 'en';
-
-async function loadCards() {
-    for (const card of cardList) {
-        try {
-            const response = await fetch(`./cards/${currentLang}/${card.file}`);
-
-            if (response.ok) {
-                const html = await response.text();
-                const target = document.getElementById(card.id);
-                if (target) {
-                    target.innerHTML = html;
-                }
-            }
-        } catch (err) {
-            console.error("Error loading card:", err);
-        }
-    }
-}
-
-// फंक्शन को यहाँ कॉल करें
-loadCards();
+<!-- यहाँ तक -->
 
