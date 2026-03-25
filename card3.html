@@ -8,8 +8,9 @@
     <style>
         body {
             margin: 0; padding: 0;
-            /* Professional Dark Navy & Teal Background */
-            background: linear-gradient(135px, #080a12 0%, #111827 100%);
+            /* --- प्रीमियम डार्क ग्रेडिएंट बैकग्राउंड --- */
+            background: radial-gradient(circle at top right, #1a1f2b, #0b0e14, #05070a);
+            background-attachment: fixed;
             font-family: 'Poppins', sans-serif;
             color: white; text-align: center;
             min-height: 100vh;
@@ -18,16 +19,16 @@
         .container { max-width: 1200px; margin: auto; padding: 60px 20px; }
         
         h1 { 
-            font-size: 3.5rem; color: #00ff88; margin-bottom: 50px; 
+            font-size: 3.5rem; color: #00ff88; margin-bottom: 60px; 
             text-transform: uppercase; letter-spacing: 4px;
-            text-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+            text-shadow: 0 0 25px rgba(0, 255, 136, 0.4);
         }
 
-        /* 4 Column Layout (Design No Change) */
+        /* 4 Column Layout */
         .service-grid {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             flex-wrap: wrap;
             margin-bottom: 80px;
         }
@@ -35,53 +36,60 @@
         .service-link { text-decoration: none; color: inherit; width: 260px; }
 
         .service-card {
-            background: rgba(255, 255, 255, 0.03);
-            padding: 40px 20px;
-            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05); /* हल्का पारदर्शी कार्ड */
+            padding: 45px 25px;
+            border-radius: 25px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: 0.4s ease;
-            height: 320px;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 350px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px); /* प्रीमियम ब्लर इफ़ेक्ट */
         }
 
         .service-card:hover {
-            transform: translateY(-15px);
+            transform: translateY(-20px);
             border-color: #00ff88;
-            background: rgba(0, 255, 136, 0.05);
-            box-shadow: 0 15px 40px rgba(0, 255, 136, 0.2);
+            background: rgba(0, 255, 136, 0.08);
+            box-shadow: 0 25px 50px rgba(0, 255, 136, 0.2);
         }
 
-        .service-card i { font-size: 45px; color: #00ff88; margin-bottom: 20px; }
-        .service-card h3 { font-size: 1.4rem; margin-bottom: 12px; }
-        .service-card p { font-size: 0.85rem; line-height: 1.6; color: #9ca3af; }
+        .service-card i { font-size: 50px; color: #00ff88; margin-bottom: 25px; }
+        .service-card h3 { font-size: 1.6rem; margin-bottom: 15px; font-weight: 700; }
+        .service-card p { font-size: 0.9rem; line-height: 1.7; color: #b1b1b1; }
 
-        /* Professional Quote Button */
+        /* Professional Shine Button */
         .btn-quote {
             display: inline-block;
-            padding: 22px 60px;
-            background: #00ff88;
-            color: #000;
+            padding: 24px 80px;
+            background: linear-gradient(135px, #00ff88 0%, #00bd65 100%);
+            color: #002211;
             text-decoration: none;
-            font-weight: 800;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            transition: 0.3s;
-            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.4);
+            font-weight: 900;
+            border-radius: 100px;
+            font-size: 1.3rem;
+            transition: 0.4s;
+            box-shadow: 0 15px 40px rgba(0, 255, 136, 0.4);
             text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        .btn-quote:hover { transform: scale(1.05); box-shadow: 0 15px 45px rgba(0, 255, 136, 0.6); }
+        .btn-quote:hover { 
+            transform: scale(1.08); 
+            box-shadow: 0 20px 60px rgba(0, 255, 136, 0.6); 
+            background: #05ff8c;
+        }
 
-        /* Back Button at Bottom */
-        .footer-nav { margin-top: 60px; padding-bottom: 40px; }
+        /* Back to Home Button at Bottom */
+        .footer-nav { margin-top: 80px; padding-bottom: 40px; }
         .btn-home {
-            color: #6b7280; text-decoration: none; font-size: 1rem;
-            border: 1px solid #374151; padding: 10px 25px; border-radius: 50px;
+            color: #8b949e; text-decoration: none; font-size: 1rem;
+            border: 1px solid rgba(255,255,255,0.1); 
+            padding: 12px 35px; border-radius: 50px;
             transition: 0.3s;
+            font-weight: 600;
         }
         .btn-home:hover { color: #00ff88; border-color: #00ff88; background: rgba(0, 255, 136, 0.05); }
     </style>
@@ -94,7 +102,7 @@
     <div class="service-grid">
         <a href="web-design.html" class="service-link">
             <div class="service-card">
-                <i class="fas fa-code"></i>
+                <i class="fas fa-laptop-code"></i>
                 <h3>Web Design</h3>
                 <p>5-8 पन्नों की प्रीमियम वेबसाइट। मोबाइल और गूगल के लिए पूरी तरह से फिट।</p>
             </div>
@@ -102,7 +110,7 @@
 
         <a href="app-dev.html" class="service-link">
             <div class="service-card">
-                <i class="fas fa-mobile-alt"></i>
+                <i class="fas fa-mobile-screen-button"></i>
                 <h3>App Development</h3>
                 <p>आपका अपना एंड्राइड और iOS ऐप। बिज़नेस को लोगों की जेब तक पहुँचाएं।</p>
             </div>
@@ -125,8 +133,10 @@
         </a>
     </div>
 
+    <!-- Quote Button -->
     <a href="https://wa.me" class="btn-quote">REQUEST A QUOTE</a>
 
+    <!-- Back Button -->
     <div class="footer-nav">
         <a href="index.html" class="btn-home">BACK TO HOME</a>
     </div>
