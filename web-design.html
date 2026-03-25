@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,91 +8,91 @@
     <style>
         body {
             margin: 0; padding: 0;
-            /* Deep Charcoal Blue - Ultra Professional */
-            background-color: #1a1e23;
-            background-image: linear-gradient(135deg, #1a1e23 0%, #24292f 100%);
+            /* Aapki image jaisa abstract dark gradient */
+            background: #0a0a0c;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(76, 29, 149, 0.4) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(15, 118, 110, 0.3) 0px, transparent 50%),
+                radial-gradient(at 50% 100%, rgba(88, 28, 135, 0.4) 0px, transparent 50%);
             font-family: 'Poppins', sans-serif;
-            color: #e6edf3;
+            color: white; 
             min-height: 100vh;
         }
 
         header {
-            padding: 15px 50px;
+            padding: 20px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(26, 30, 35, 0.95);
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(15px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            position: sticky; top: 0; z-index: 1000;
         }
 
         .logo-section { display: flex; align-items: center; gap: 15px; }
         .logo-section img {
-            width: 42px; height: 42px;
+            width: 45px; height: 45px;
             border-radius: 50%;
-            border: 2px solid #c9a050; /* Gold Border */
-            object-fit: cover;
+            border: 2px solid #00ff88;
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
         }
-        .logo-section span { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 20px; letter-spacing: 0.5px; }
-        .logo-section .highlight { color: #c9a050; }
+        .logo-section span { font-weight: 800; font-size: 22px; letter-spacing: 1px; }
 
-        .container { max-width: 800px; margin: auto; padding: 60px 20px; text-align: center; }
+        .container { max-width: 900px; margin: auto; padding: 40px 20px; text-align: center; }
         
         h1 { 
-            font-family: 'Montserrat', sans-serif;
-            color: #ffffff; font-size: 2.5rem; font-weight: 700; 
-            margin-bottom: 25px; letter-spacing: -0.5px;
+            color: #ffffff; 
+            font-size: 3rem; 
+            font-weight: 800; 
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #fff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .project-image-box {
             width: 100%;
-            height: 400px;
+            max-width: 750px;
+            height: 420px;
             margin: 30px auto;
-            border-radius: 12px;
+            border-radius: 24px;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-            background: #0d1117;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            background: rgba(255, 255, 255, 0.05);
         }
-        .project-image-box img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; }
+        .project-image-box img { width: 100%; height: 100%; object-fit: cover; }
 
+        /* Glassmorphism Card Style */
         .content-info { 
             text-align: left; 
             background: rgba(255, 255, 255, 0.03); 
-            padding: 40px; 
-            border-radius: 12px; 
-            margin-top: 50px; 
-            border-left: 4px solid #c9a050; /* Gold Accent */
             backdrop-filter: blur(10px);
+            padding: 35px; 
+            border-radius: 24px; 
+            margin-top: 30px; 
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
         }
-
-        .content-info h2 { color: #c9a050; font-family: 'Montserrat', sans-serif; font-size: 1.5rem; margin-bottom: 20px; }
-        .content-info p { color: #8b949e; line-height: 1.8; font-size: 1.05rem; }
         
-        .feature-list { list-style: none; padding: 0; margin-top: 20px; }
-        .feature-list li { margin-bottom: 12px; color: #ffffff; display: flex; align-items: center; gap: 10px; font-weight: 500; }
-        .feature-list li i { color: #c9a050; }
-
         .back-btn {
             display: inline-block;
-            margin-top: 50px;
-            padding: 15px 45px;
-            background: #c9a050; /* Gold Button */
-            color: #1a1e23;
+            margin-top: 40px;
+            padding: 14px 35px;
+            background: #00ff88;
+            color: #000;
             text-decoration: none;
-            border-radius: 4px; /* Professional Square-ish corners */
+            border-radius: 50px;
             font-weight: 700;
-            font-family: 'Montserrat', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
+            transition: 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.2);
         }
         .back-btn:hover { 
-            background: #e2b65f;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 255, 136, 0.4);
         }
+
+        ul { list-style: none; padding: 0; line-height: 2.5; color: #00ff88; font-weight: 600; }
     </style>
 </head>
 <body>
@@ -100,7 +100,7 @@
 <header>
     <div class="logo-section">
         <img src="images/sel.png" alt="Manjeet">
-        <span>Official<span class="highlight">Manjeet</span></span>
+        <span>Official<span style="color: #00ff88;">Manjeet</span></span>
     </div>
 </header>
 
@@ -108,16 +108,16 @@
     <h1>Web Design Showcase</h1>
     
     <div class="project-image-box">
-        <img src="https://images.unsplash.com" alt="Web Project">
+        <img src="https://images.unsplash.com" alt="Web Project Sample">
     </div>
 
     <div class="content-info">
-        <h2>Why Choose Our Web Design?</h2>
-        <p>हम आपके बिज़नेस के लिए ऐसी वेबसाइट बनाते हैं जो न केवल दिखने में अच्छी हो, बल्कि गूगल पर रैंक भी करे।</p>
-        <ul class="feature-list">
-            <li><span style="color: #c9a050;">✔</span> 100% Mobile Responsive</li>
-            <li><span style="color: #c9a050;">✔</span> Ultra Fast Loading Speed</li>
-            <li><span style="color: #c9a050;">✔</span> SEO Optimized Layout</li>
+        <h2 style="color: #fff; font-size: 1.8rem; margin-bottom: 15px;">Why Choose Our Web Design?</h2>
+        <p style="color: #a0a0a0; margin-bottom: 20px;">हम आपके बिज़नेस के लिए ऐसी वेबसाइट बनाते हैं जो न केवल दिखने में अच्छी हो, बल्कि गूगल पर रैंक भी करे।</p>
+        <ul>
+            <li>✅ 100% Mobile Responsive</li>
+            <li>✅ Ultra Fast Loading Speed</li>
+            <li>✅ SEO Optimized Layout</li>
         </ul>
     </div>
 
