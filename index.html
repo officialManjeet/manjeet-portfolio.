@@ -422,12 +422,35 @@ window.changeLanguage = function() {
     if(document.getElementById('footer-text')) document.getElementById('footer-text').innerText = t.connect;
     if(document.getElementById('lang-btn')) document.getElementById('lang-btn').innerText = t.langBtn;
     
-    loadCards();
-};
-
-document.addEventListener('DOMContentLoaded', loadCards);
-</script>
 <script>
+// 1. बटन क्लिक करने पर भाषा बदलने वाला फंक्शन
+function updateWebsiteLanguage() {
+    // चेक करें अभी क्या सेव है, डिफ़ॉल्ट 'en'
+    let current = localStorage.getItem('userLang') === 'hi' ? 'hi' : 'en';
+    let next = (current === 'en') ? 'hi' : 'en';
+    
+    // ब्राउज़र की मेमोरी में सेव करें ताकि 'Web Design' पेज भी इसे पढ़ सके
+    localStorage.setItem('userLang', next);
+    
+    // पूरे पेज का टेक्स्ट बदलें
+    applyLanguage(next);
+}
+
+// 2. टेक्स्ट को स्क्रीन पर दिखाने वाला फंक्शन
+function applyLanguage(lang) {
+    document.querySelectorAll('.lang-text').forEach(el => {
+        const txt = el.getAttribute(`data-${lang}`);
+        if (txt) el.innerText = txt;
+    });
+}
+
+// 3. पेज लोड होते ही चुनी हुई भाषा सेट करें
+document.addEventListener('DOMContentLoaded', () => {
+    const saved = localStorage.getItem('userLang') || 'en';
+    applyLanguage(saved);
+});
+</script>
+
 // 1. कार्ड को खोलने और बंद करने वाला फंक्शन
 function toggleCard(id) {
     const list = document.getElementById(id);
