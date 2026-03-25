@@ -1,37 +1,124 @@
-<div class="glass-card premium-style" onclick="toggleDetails('price-list')">
-    <div class="card-content">
-        <span class="card-icon">💎</span>
-        <!-- टाइटल अब सिर्फ Our Services है -->
-        <h3 class="lang-text" data-en="Our Services" data-hi="हमारी सेवाएँ">Our Services</h3>
-        <p class="lang-text" data-en="Check project details & fees." data-hi="प्रोजेक्ट विवरण और फीस देखें।">Check project details & fees.</p>
-        
-        <div id="price-list" class="details-list" style="display: none; padding-top: 15px;">
-            <div class="service-item">
-                <h4 class="lang-text" data-en="📱 Mobile App Development" data-hi="📱 मोबाइल ऐप डेवलपमेंट">Mobile App Development</h4>
-                <p class="lang-text" data-en="Standard App (5-10 Pages): ₹15,000+" data-hi="स्टैंडर्ड ऐप (5-10 पेज): ₹15,000+">Standard App (5-10 Pages): ₹15,000+</p>
-                <p class="lang-text" data-en="Delivery: 15-20 Days" data-hi="डिलीवरी: 15-20 दिन">Delivery: 15-20 Days</p>
-            </div>
-            
-            <div class="service-item" style="margin-top:15px; border-top: 1px solid rgba(255,255,255,0.1); padding-top:10px;">
-                <h4 class="lang-text" data-en="🌐 Web Design (Portfolio/Business)" data-hi="🌐 वेब डिज़ाइन (पोर्टफोलियो/बिज़नेस)">Web Design (Portfolio/Business)</h4>
-                <p class="lang-text" data-en="Basic Web: ₹5,000 (3 Pages)" data-hi="बेसिक वेब: ₹5,000 (3 पेज)">Basic Web: ₹5,000 (3 पेज)</p>
-                <p class="lang-text" data-en="Delivery: 5-7 Days" data-hi="डिलीवरी: 5-7 दिन">Delivery: 5-7 Days</p>
-            </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Official Manjeet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0f0c29; /* Deep space gradient */
+            background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            text-align: center;
+        }
 
-            <div class="suggestions">
-                <p style="font-size: 11px; color: #00ff88; margin-top: 10px;" class="lang-text" 
-                   data-en="*Suggestion: E-commerce, School Management, or Gym App available." 
-                   data-hi="*सुझाव: ई-कॉमर्स, स्कूल मैनेजमेंट, या जिम ऐप उपलब्ध हैं।">*Suggestion: E-commerce, School Management, or Gym App available.</p>
-            </div>
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        h1 { font-size: 3rem; margin-bottom: 10px; color: #00ff88; }
+        p.subtitle { opacity: 0.7; margin-bottom: 50px; }
+
+        /* Service List Grid */
+        .service-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .service-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            text-align: left;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            border-color: #00ff88;
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2);
+        }
+
+        .service-item i {
+            font-size: 40px;
+            color: #00ff88;
+            margin-bottom: 20px;
+        }
+
+        .service-item h3 { margin: 0 0 15px 0; font-size: 1.5rem; }
+        .service-item p { font-size: 0.9rem; opacity: 0.8; line-height: 1.6; }
+
+        /* Request Quote Button */
+        .quote-btn {
+            display: inline-block;
+            margin-top: 50px;
+            padding: 15px 40px;
+            background: #00ff88;
+            color: #000;
+            text-decoration: none;
+            font-weight: 800;
+            border-radius: 50px;
+            text-transform: uppercase;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.4);
+        }
+
+        .quote-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 255, 136, 0.6);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Our Services</h1>
+    <p class="subtitle">We help businesses grow online with high-quality digital solutions.</p>
+
+    <div class="service-list">
+        <!-- Web Design -->
+        <div class="service-item">
+            <i class="fas fa-laptop-code"></i>
+            <h3>Web Design</h3>
+            <p>5-8 Pages professional websites. Fully responsive and SEO friendly to represent your brand globally.</p>
+        </div>
+
+        <!-- App Development -->
+        <div class="service-item">
+            <i class="fas fa-mobile-alt"></i>
+            <h3>App Development</h3>
+            <p>Custom Android & iOS apps tailored to your business needs with smooth UI/UX experience.</p>
+        </div>
+
+        <!-- SEO Optimization -->
+        <div class="service-item">
+            <i class="fas fa-search-dollar"></i>
+            <h3>SEO Services</h3>
+            <p>Rank your business on the first page of Google and get organic traffic and leads daily.</p>
+        </div>
+
+        <!-- Google Analytics -->
+        <div class="service-item">
+            <i class="fas fa-chart-line"></i>
+            <h3>Google Analytics</h3>
+            <p>Track your audience behavior and optimize your marketing strategy with data-driven insights.</p>
         </div>
     </div>
+
+    <!-- WhatsApp Link for Request Quote -->
+    <a href="https://wa.me?" class="quote-btn">
+        <i class="fab fa-whatsapp"></i> Request A Quote
+    </a>
 </div>
 
-<script>
-// कार्ड के अंदर की लिस्ट को खोलने/बंद करने के लिए छोटा फंक्शन
-function toggleDetails(id) {
-    const list = document.getElementById(id);
-    list.style.display = (list.style.display === "none" || list.style.display === "") ? "block" : "none";
-}
-</script>
-
+</body>
+</html>
