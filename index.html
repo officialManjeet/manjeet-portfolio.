@@ -200,12 +200,32 @@ Official Manjeet - Verified Final GitHub Code
          <!-- 201 नंबर लाइन से इसे पेस्ट करना शुरू करें -->
 <!-- प्रीमियम वर्टिकल कार्ड्स सेक्शन -->
 <section class="container" style="padding-bottom: 100px;">
-    <div id="cards-wrapper" class="cards-container">
-        <div id="courses-card"></div>
-        <div id="social-media-card"></div>
-        <div id="targetted-ads-card"></div>
+    <!-- मुख्य प्रीमियम कोर्स कार्ड -->
+    <div id="premium-courses-card" class="main-card" onclick="toggleCourseList()">
+        <h2 style="color: #fff; margin-bottom: 10px;">Premium Courses</h2>
+        <p style="color: #ccc; font-size: 0.9rem;">हमारे कोर्सेज देखने के लिए यहाँ क्लिक करें</p>
+        
+        <!-- कोर्स की लिस्ट (शुरुआत में छिपी रहेगी) -->
+        <ul id="course-dropdown" style="display: none; list-style: none; padding: 20px 0 0 0; text-align: left;">
+            <li style="margin: 10px 0;"><a href="web-design.html" style="color: #00d4ff; text-decoration: none;">Web Design Course</a></li>
+            <li style="margin: 10px 0;"><a href="app-development.html" style="color: #00d4ff; text-decoration: none;">App Development</a></li>
+            <li style="margin: 10px 0;"><a href="seo.html" style="color: #00d4ff; text-decoration: none;">SEO Optimization</a></li>
+            <li style="margin: 10px 0;"><a href="trading.html" style="color: #00d4ff; text-decoration: none;">Trading Masterclass</a></li>
+        </ul>
     </div>
 </section>
+
+<script>
+// कार्ड पर क्लिक करने पर लिस्ट दिखाने के लिए फंक्शन
+function toggleCourseList() {
+    var list = document.getElementById("course-dropdown");
+    if (list.style.display === "none") {
+        list.style.display = "block";
+    } else {
+        list.style.display = "none";
+    }
+}
+</script>
 
 <!-- फुटर और सोशल मीडिया -->
 <footer style="text-align: center; padding: 60px 0; border-top: 1px solid rgba(255,255,255,0.05); background: rgba(0,0,0,0.9);">
