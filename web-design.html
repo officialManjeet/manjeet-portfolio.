@@ -1,98 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Design Solutions | Manjeet</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
-         body {
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+    <style>
+        body {
             margin: 0; padding: 0;
-            /* Ek professional dark navy-charcoal background */
-            background-color: #0f172a; 
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(15, 23, 42, 1) 0, transparent 50%), 
-                radial-gradient(at 100% 0%, rgba(30, 41, 59, 1) 0, transparent 50%);
+            /* Deep Charcoal Blue - Ultra Professional */
+            background-color: #1a1e23;
+            background-image: linear-gradient(135deg, #1a1e23 0%, #24292f 100%);
             font-family: 'Poppins', sans-serif;
-            color: #f1f5f9; 
+            color: #e6edf3;
             min-height: 100vh;
         }
 
-        /* Header ko thoda aur sleek banaya */
         header {
-            padding: 15px 40px;
+            padding: 15px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(12px);
+            background: rgba(26, 30, 35, 0.95);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            position: sticky; top: 0; z-index: 1000;
         }
 
+        .logo-section { display: flex; align-items: center; gap: 15px; }
         .logo-section img {
-            width: 42px;
-            height: 42px;
+            width: 42px; height: 42px;
             border-radius: 50%;
-            border: 2px solid #00ff88;
+            border: 2px solid #c9a050; /* Gold Border */
             object-fit: cover;
         }
+        .logo-section span { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 20px; letter-spacing: 0.5px; }
+        .logo-section .highlight { color: #c9a050; }
 
-        .container { max-width: 900px; margin: auto; padding: 60px 20px; text-align: center; }
+        .container { max-width: 800px; margin: auto; padding: 60px 20px; text-align: center; }
         
-        h1 { color: #00ff88; font-size: 2.8rem; font-weight: 700; margin-bottom: 20px; letter-spacing: -1px; }
+        h1 { 
+            font-family: 'Montserrat', sans-serif;
+            color: #ffffff; font-size: 2.5rem; font-weight: 700; 
+            margin-bottom: 25px; letter-spacing: -0.5px;
+        }
         
         .project-image-box {
             width: 100%;
-            max-width: 750px;
-            height: 420px;
-            margin: 40px auto;
-            border-radius: 24px;
+            height: 400px;
+            margin: 30px auto;
+            border-radius: 12px;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            background: #1e293b;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            background: #0d1117;
         }
+        .project-image-box img { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; }
 
-        /* Content box ko premium card look diya */
         .content-info { 
             text-align: left; 
-            background: rgba(30, 41, 59, 0.5); 
+            background: rgba(255, 255, 255, 0.03); 
             padding: 40px; 
-            border-radius: 24px; 
-            margin-top: 40px; 
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px; 
+            margin-top: 50px; 
+            border-left: 4px solid #c9a050; /* Gold Accent */
             backdrop-filter: blur(10px);
         }
+
+        .content-info h2 { color: #c9a050; font-family: 'Montserrat', sans-serif; font-size: 1.5rem; margin-bottom: 20px; }
+        .content-info p { color: #8b949e; line-height: 1.8; font-size: 1.05rem; }
         
+        .feature-list { list-style: none; padding: 0; margin-top: 20px; }
+        .feature-list li { margin-bottom: 12px; color: #ffffff; display: flex; align-items: center; gap: 10px; font-weight: 500; }
+        .feature-list li i { color: #c9a050; }
+
         .back-btn {
             display: inline-block;
-            margin-top: 40px;
-            padding: 14px 35px;
-            background: transparent;
-            color: #00ff88;
-            border: 1.5px solid #00ff88;
+            margin-top: 50px;
+            padding: 15px 45px;
+            background: #c9a050; /* Gold Button */
+            color: #1a1e23;
             text-decoration: none;
-            border-radius: 12px; /* Thoda modern square-round mix */
-            font-weight: 600;
+            border-radius: 4px; /* Professional Square-ish corners */
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             transition: all 0.3s ease;
         }
         .back-btn:hover { 
-            background: #00ff88; 
-            color: #0f172a; 
-            box-shadow: 0 10px 20px -10px #00ff88;
+            background: #e2b65f;
             transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
-
+    </style>
 </head>
 <body>
 
-<!-- Header with your Photo and Name -->
 <header>
     <div class="logo-section">
         <img src="images/sel.png" alt="Manjeet">
-        <span>Official<span style="color: #00ff88;">Manjeet</span></span>
+        <span>Official<span class="highlight">Manjeet</span></span>
     </div>
 </header>
 
@@ -100,21 +108,20 @@
     <h1>Web Design Showcase</h1>
     
     <div class="project-image-box">
-        <img src="https://images.unsplash.com" alt="Web Project Sample">
+        <img src="https://images.unsplash.com" alt="Web Project">
     </div>
-    <p style="color: #8b949e; font-size: 12px;">(ऊपर दी गई इमेज को बदलने के लिए कोड में img src="images/photo.jpg" लिखें)</p>
 
     <div class="content-info">
         <h2>Why Choose Our Web Design?</h2>
         <p>हम आपके बिज़नेस के लिए ऐसी वेबसाइट बनाते हैं जो न केवल दिखने में अच्छी हो, बल्कि गूगल पर रैंक भी करे।</p>
-        <ul style="color: #00ff88; line-height: 2; list-style: none; padding: 0;">
-            <li>✅ 100% Mobile Responsive</li>
-            <li>✅ Ultra Fast Loading Speed</li>
-            <li>✅ SEO Optimized Layout</li>
+        <ul class="feature-list">
+            <li><span style="color: #c9a050;">✔</span> 100% Mobile Responsive</li>
+            <li><span style="color: #c9a050;">✔</span> Ultra Fast Loading Speed</li>
+            <li><span style="color: #c9a050;">✔</span> SEO Optimized Layout</li>
         </ul>
     </div>
 
-    <a href="card3.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Services</a>
+    <a href="card3.html" class="back-btn">Back to Services</a>
 </div>
 
 </body>
