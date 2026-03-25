@@ -447,96 +447,55 @@ async function loadComponents() {
     
     // कार्ड्स लोड होने के बाद भाषा (Language) सेट करें
     if (typeof syncLanguage === 'function') syncLanguage();
-}
-
-// पेज लोड होते ही कार्ड्स लोड करें
-document.addEventListener('DOMContentLoaded', loadComponents);
-
-// कार्ड के अंदर की लिस्ट को खोलने/बंद करने का फ़ंक्शन
-function toggleDetails(id) {
-    const list = document.getElementById(id);
-    if(list) {
-        list.style.display = (list.style.display === "none" || list.style.display === "") ? "block" : "none";
 <script>
-// 1. कार्ड्स को फाइलों (card1.html आदि) से खींचने वाला फ़ंक्शन
-async function loadComponents() {
-    const cardFiles = [
+// 1. कार्ड्स को अलग-अलग फाइलों से लोड करने का फंक्शन
+async function loadAllComponents() {
+    const cards = [
         { id: 'card-1-container', file: 'card1.html' },
         { id: 'card-2-container', file: 'card2.html' },
         { id: 'card-3-container', file: 'card3.html' }
     ];
 
-    for (const item of cardFiles) {
-        const container = document.getElementById(item.id);
+    for (const card of cards) {
+        const container = document.getElementById(card.id);
         if (container) {
             try {
-                const response = await fetch(`./${item.file}`);
-                if (response.ok) {
-                    container.innerHTML = await response.text();
-                    console.log(`${item.file} लोड हो गया!`);
+                const res = await fetch(`./${card.file}`);
+                if (res.ok) {
+                    container.innerHTML = await res.text();
                 } else {
-                    console.error(`${item.file} फ़ाइल नहीं मिली!`);
+                    console.error("File not found:", card.file);
                 }
             } catch (err) {
-                console.error("Fetch Error:", err);
+                console.error("Error loading card:", err);
             }
         }
     }
-    
-    // कार्ड लोड होने के बाद भाषा सिंक करें
-    if (typeof syncLanguage === 'function') syncLanguage();
-<script>
-// 1. कार्ड्स को अलग-अलग फाइलों (card1, card2, card3) से लोड करने वाला फंक्शन
-async function loadComponents() {
-    const cardFiles = [
-        { id: 'card-1-container', file: 'card1.html' },
-        { id: 'card-2-container', file: 'card2.html' },
-        { id: 'card-3-container', file: 'card3.html' }
-    ];
-
-    for (const item of cardFiles) {
-        const container = document.getElementById(item.id);
-        if (container) {
-            try {
-                // फ़ाइल को खींचना (Fetch)
-                const response = await fetch(`./${item.file}`);
-                if (response.ok) {
-                    container.innerHTML = await response.text();
-                    console.log(`${item.file} लोड हो गया!`);
-                } else {
-                    console.error(`${item.file} नहीं मिली!`);
-                }
-            } catch (err) {
-                console.error("कार्ड लोड करने में एरर:", err);
-            }
-        }
-    }
-    // कार्ड्स लोड होने के बाद भाषा (Language) सेट करें
-    syncLanguage();
+    // लोड होने के बाद भाषा (Language) सेट करें
+    syncPageLanguage();
 }
 
-// 2. भाषा को सिंक करने वाला फंक्शन
-function syncLanguage() {
+// 2. भाषा सिंक करने का फंक्शन
+function syncPageLanguage() {
     const savedLang = localStorage.getItem('userLang') || 'en';
     document.querySelectorAll('.lang-text').forEach(el => {
         const txt = el.getAttribute(`data-${savedLang}`);
-        if(txt) el.innerText = txt;
+        if (txt) el.innerText = txt;
     });
 }
 
-// 3. कार्ड के अंदर की लिस्ट को खोलने/बंद करने वाला फंक्शन
+// 3. कार्ड की लिस्ट खोलने/बंद करने का फंक्शन
 function toggleDetails(id) {
     const list = document.getElementById(id);
-    if(list) {
-        // अगर लिस्ट बंद है तो खोलो, खुली है तो बंद करो
-        list.style.display = (list.style.display === "none" || list.style.display === "") ? "block" : "none";
+    if (list) {
+        const isHidden = list.style.display === "none" || list.style.display === "";
+        list.style.display = isHidden ? "block" : "none";
     }
 }
 
-// जैसे ही पूरा पेज लोड हो, कार्ड्स लोड करना शुरू करें
-window.onload = loadComponents;
+// पेज लोड होते ही सब कुछ शुरू करें
+window.onload = loadAllComponents;
 </script>
 
-<!-- ✅ यहाँ फ़ाइल ख़त्म हो रही है -->
 </body>
 </html>
