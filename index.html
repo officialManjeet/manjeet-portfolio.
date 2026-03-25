@@ -235,18 +235,46 @@ SOfficial Manjeet - Verified Final GitHub Code
     </div>
 </div>
 
-<!-- पक्का करें कि कोड इन दो टैग्स के बीच में हो -->
 <style>
     .premium-card {
         text-decoration: none;
         color: white;
-        /* ... बाकी सारा CSS कोड ... */
+        width: 280px;
+        height: 350px;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.4s ease;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .premium-card:hover {
+        transform: translateY(-15px);
+        background: rgba(255, 255, 255, 0.15);
+        border-color: #00ff88; /* Greenish glow */
+        box-shadow: 0 15px 40px rgba(0, 255, 136, 0.2);
+    }
+
+    .card-content .icon {
+        font-size: 50px;
+        margin-bottom: 20px;
     }
 
     .card-content h3 {
         font-size: 1.5rem;
+        margin-bottom: 10px;
+        font-weight: 600;
     }
-</style> <!-- यह लाइन चेक करें कि बंद है या नहीं -->
+
+    .card-content p {
+        font-size: 0.9rem;
+        opacity: 0.7;
+    }
+</style>
 
 <!-- 📦 Components Section END -->
         <div class="pro-card premium-border" onclick="togglecard('course-list')">
