@@ -420,27 +420,46 @@ window.changeLanguage = function() {
     if(document.getElementById('footer-text')) document.getElementById('footer-text').innerText = t.connect;
     if(document.getElementById('lang-btn')) document.getElementById('lang-btn').innerText = t.langBtn;
     
-// कार्ड्स को अलग-अलग फ़ाइलों से लोड करने वाला फंक्शन
+// ✅ कार्ड्स को अलग-अलग फ़ाइलों से लोड करने वाला फ़ंक्शन
 async function loadComponents() {
-    try {
-        // कार्ड 1 लोड करें
-        const res1 = await fetch('card1.html');
-        document.getElementById('card-1-container').innerHTML = await res1.text();
+    const cardFiles = [
+        { id: 'card-1-container', file: 'card1.html' },
+        { id: 'card-2-container', file: 'card2.html' },
+        { id: 'card-3-container', file: 'card3.html' }
+    ];
 
-        // कार्ड 2 लोड करें
-        const res2 = await fetch('card2.html');
-        document.getElementById('card-2-container').innerHTML = await res2.text();
-
-        // कार्ड 3 लोड करें
-        const res3 = await fetch('card3.html');
-        document.getElementById('card-3-container').innerHTML = await res3.text();
-
-        // कार्ड्स लोड होने के बाद भाषा (Language) सेट करें
-        if(typeof syncLanguage === 'function') syncLanguage();
-
-    } catch (err) {
-        console.error("Card लोड करने में दिक्कत हुई:", err);
+    for (const item of cardFiles) {
+        const container = document.getElementById(item.id);
+        if (container) {
+            try {
+                const response = await fetch(`./${item.file}`);
+                if (response.ok) {
+                    container.innerHTML = await response.text();
+                    console.log(`${item.file} लोड हो गया!`);
+                } else {
+                    console.error(`${item.file} फ़ाइल नहीं मिली!`);
+                }
+            } catch (err) {
+                console.error("कार्ड लोड करने में दिक्कत हुई:", err);
+            }
+        }
     }
+    
+    // कार्ड्स लोड होने के बाद भाषा (Language) सेट करें
+    if (typeof syncLanguage === 'function') syncLanguage();
+}
+
+// पेज लोड होते ही कार्ड्स लोड करें
+document.addEventListener('DOMContentLoaded', loadComponents);
+
+// कार्ड के अंदर की लिस्ट को खोलने/बंद करने का फ़ंक्शन
+function toggleDetails(id) {
+    const list = document.getElementById(id);
+    if(list) {
+        list.style.display = (list.style.display === "none" || list.style.display === "") ? "block" : "none";
+    }
+}
+
 }
 
 // पेज खुलते ही कार्ड्स लोड करें
