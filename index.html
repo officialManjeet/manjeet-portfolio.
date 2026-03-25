@@ -213,21 +213,6 @@ Official Manjeet - Verified Final GitHub Code
 
 </section>
 <!-- 📦 Components Section END -->
-
-        <!-- Advertisement Card -->
-        <div class="pro-card" onclick="toggleCard('ad-list')">
-            <div class="card-glow"></div>
-            <span class="card-icon">🚀</span>
-            <h3 class="lang-text" data-en="Advertisement" data-hi="विज्ञापन">Advertisement</h3>
-            <p class="lang-text" data-en="Result-oriented ad campaigns." data-hi="परिणाम-उन्मुख विज्ञापन अभियान।">Result-oriented ad campaigns.</p>
-            <div id="ad-list" class="expandable-list">
-                <ul>
-                    <li class="lang-text" data-en="Google Ads" data-hi="गूगल एड्स">Google Ads</li>
-                    <li class="lang-text" data-en="Meta Ads" data-hi="मेटा एड्स">Meta Ads</li>
-                </ul>
-            </div>
-        </div>
-
         <!-- Premium Courses Card -->
         <div class="pro-card premium-border" onclick="toggleCard('course-list')">
             <div class="card-glow"></div>
@@ -449,34 +434,35 @@ async function loadComponents() {
     if (typeof syncLanguage === 'function') syncLanguage();
 <script>
 // 1. कार्ड्स को अलग-अलग फाइलों से लोड करने का फंक्शन
-async function loadAllComponents() {
-    const cards = [
+async function loadComponents() {
+    const cardFiles = [
         { id: 'card-1-container', file: 'card1.html' },
         { id: 'card-2-container', file: 'card2.html' },
         { id: 'card-3-container', file: 'card3.html' }
     ];
 
-    for (const card of cards) {
-        const container = document.getElementById(card.id);
+    for (const item of cardFiles) {
+        const container = document.getElementById(item.id);
         if (container) {
             try {
-                const res = await fetch(`./${card.file}`);
-                if (res.ok) {
-                    container.innerHTML = await res.text();
+                const response = await fetch(`./${item.file}`);
+                if (response.ok) {
+                    container.innerHTML = await response.text();
+                    console.log(item.file + " लोड हो गया!");
                 } else {
-                    console.error("File not found:", card.file);
+                    console.error(item.file + " फ़ाइल नहीं मिली!");
                 }
             } catch (err) {
-                console.error("Error loading card:", err);
+                console.error("कार्ड लोड करने में दिक्कत:", err);
             }
         }
     }
     // लोड होने के बाद भाषा (Language) सेट करें
-    syncPageLanguage();
+    syncLanguage();
 }
 
-// 2. भाषा सिंक करने का फंक्शन
-function syncPageLanguage() {
+// 2. भाषा सिंक करने वाला फंक्शन
+function syncLanguage() {
     const savedLang = localStorage.getItem('userLang') || 'en';
     document.querySelectorAll('.lang-text').forEach(el => {
         const txt = el.getAttribute(`data-${savedLang}`);
@@ -494,7 +480,7 @@ function toggleDetails(id) {
 }
 
 // पेज लोड होते ही सब कुछ शुरू करें
-window.onload = loadAllComponents;
+window.onload = loadComponents;
 </script>
 
 </body>
