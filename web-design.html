@@ -73,6 +73,27 @@
     <footer style="padding: 40px 8%; text-align: center; border-top: 1px solid #222;">
         <p style="color: #666;">&copy; 2026 Official Manjeet. All Rights Reserved.</p>
     </footer>
+<!-- 🌐 Global Language Support Script -->
+<script>
+    function applyLanguage(lang) {
+        document.querySelectorAll('.lang-text').forEach(el => {
+            const newText = el.getAttribute(`data-${lang}`);
+            if(newText) el.innerText = newText;
+        });
+        localStorage.setItem('userLang', lang); // भाषा को याद रखने के लिए
+    }
+
+    // पेज लोड होते ही चुनी हुई भाषा चेक करें
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedLang = localStorage.getItem('userLang') || 'en';
+        applyLanguage(savedLang);
+    });
+
+    // होम पेज के बटन के लिए (इसे सिर्फ होम पेज पर रहने दें)
+    function changeLanguage(lang) {
+        applyLanguage(lang);
+    }
+</script>
 
 </body>
 </html>
