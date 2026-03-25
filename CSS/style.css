@@ -54,3 +54,30 @@
     transition: 0.3s !important;
     cursor: pointer !important;
 }
+/* कार्ड का प्रोफेशनल लुक */
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    padding: 30px;
+    width: 330px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    color: white;
+    margin: 15px;
+    display: inline-block;
+}
+
+/* 🟢 Mouse Hover पर ग्रीन चमक (Green Glow) */
+.glass-card:hover {
+    transform: translateY(-12px);
+    border-color: #00ff88;
+    box-shadow: 0 0 35px rgba(0, 255, 136, 0.4); 
+    background: rgba(0, 255, 136, 0.03);
+}
+
+.card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 10px; }
+.card-icon { font-size: 2.2rem; }
+.glass-card h3 { margin: 0; font-size: 1.3rem; }
+.glass-card p { color: #bbb; font-size: 0.9rem; margin-top: 5px; line-height: 1.4; }
