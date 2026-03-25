@@ -6,16 +6,24 @@
     <title>Our Services | Official Manjeet</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
     <style>
-        /* 1. Premium Professional Background */
+        /* 1. Colorful Premium Background */
         body {
             margin: 0; padding: 0;
-            background: radial-gradient(circle at top, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            background: linear-gradient(135deg, #120c29 0%, #302b63 25%, #24243e 50%, #1a1a2e 75%, #0f3460 100%);
+            background-size: 400% 400%;
+            animation: gradientMove 15s ease infinite;
             font-family: 'Poppins', sans-serif;
             color: white; text-align: center;
             min-height: 100vh;
         }
 
-        /* 2. Floating Home Button (At Bottom Right) */
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* 2. Floating Home Button (अब एकदम साफ दिखेगा) */
         .home-btn {
             position: fixed;
             bottom: 30px;
@@ -23,147 +31,136 @@
             z-index: 1000;
             background: #00ff88;
             color: #000;
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            font-size: 24px;
-            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.4);
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 2px solid #fff;
+            font-size: 28px;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+            border: 3px solid #fff;
+            transition: 0.4s;
         }
-        .home-btn:hover { 
-            transform: scale(1.2) rotate(360deg); 
-            box-shadow: 0 15px 40px rgba(0, 255, 136, 0.6);
-        }
+        .home-btn:hover { transform: scale(1.1); box-shadow: 0 0 30px #00ff88; }
 
         .container { max-width: 1100px; margin: auto; padding: 60px 20px 100px; }
         
-        h1 { font-size: 3.5rem; color: #00ff88; margin-bottom: 10px; text-shadow: 0 0 20px rgba(0,255,136,0.3); }
-        .subtitle { opacity: 0.8; font-size: 1.1rem; margin-bottom: 60px; color: #e0e0e0; }
+        /* Language Style */
+        .lang-text[data-lang="hi"] { display: none; } /* शुरुआती तौर पर हिंदी छुपा रहेगा */
 
-        /* Why Go Online Section */
+        h1 { font-size: 3.5rem; color: #00ff88; text-shadow: 0 0 15px rgba(0,255,136,0.3); }
+
         .why-online {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
             border-radius: 30px;
             padding: 40px;
-            margin-bottom: 80px;
-            border: 1px solid rgba(0, 255, 136, 0.2);
+            margin: 60px 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        .why-online h2 { color: #00ff88; margin-bottom: 25px; font-size: 1.8rem; }
-        .benefits { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 20px; }
-        .benefit-item { font-size: 0.9rem; background: rgba(0,255,136,0.1); padding: 12px 22px; border-radius: 50px; border: 1px solid rgba(0,255,136,0.3); }
 
-        /* Service Cards Grid */
         .service-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 30px;
-            margin-bottom: 80px;
+            gap: 25px;
+            margin-bottom: 60px;
         }
-        
-        .service-link { text-decoration: none; color: inherit; }
 
         .service-card {
-            background: rgba(255, 255, 255, 0.07);
-            backdrop-filter: blur(15px);
-            padding: 45px 25px;
-            border-radius: 28px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            padding: 40px 20px;
+            border-radius: 25px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: 0.5s ease;
+            transition: 0.4s;
             height: 100%;
         }
-        
-        .service-card:hover {
-            transform: translateY(-15px);
-            border-color: #00ff88;
-            background: rgba(0, 255, 136, 0.05);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
-        }
+        .service-card:hover { transform: translateY(-10px); border-color: #00ff88; }
+        .service-card i { font-size: 50px; color: #00ff88; margin-bottom: 20px; }
 
-        .service-card i { font-size: 55px; color: #00ff88; margin-bottom: 30px; display: block; }
-        .service-card h3 { font-size: 1.6rem; margin-bottom: 15px; font-weight: 700; }
-        .service-card p { font-size: 0.95rem; line-height: 1.7; color: rgba(255,255,255,0.7); }
-
-        /* Request Quote Button */
         .btn-quote {
             display: inline-block;
-            padding: 20px 60px;
+            padding: 18px 50px;
             background: #00ff88;
             color: #000;
+            font-weight: 800;
+            border-radius: 50px;
             text-decoration: none;
-            font-weight: 900;
-            border-radius: 100px;
-            font-size: 1.3rem;
-            letter-spacing: 1px;
-            box-shadow: 0 10px 40px rgba(0, 255, 136, 0.4);
-            transition: 0.4s;
+            font-size: 1.2rem;
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
         }
-        .btn-quote:hover { transform: scale(1.1); box-shadow: 0 15px 50px rgba(0, 255, 136, 0.6); }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>Our Services</h1>
-        <p class="subtitle">Elevating your business through digital excellence.</p>
-
-        <div class="why-online">
-            <h2>अपने बिज़नेस को ऑनलाइन क्यों लाएं?</h2>
-            <p>आज के समय में अगर आपका बिज़नेस इंटरनेट पर नहीं है, तो आप हर दिन सैकड़ों ग्राहक खो रहे हैं।</p>
-            <div class="benefits">
-                <div class="benefit-item">✅ 24/7 दुकान खुली रहेगी</div>
-                <div class="benefit-item">✅ पूरे भारत से ग्राहक मिलेंगे</div>
-                <div class="benefit-item">✅ ब्रांड वैल्यू बढ़ेगी</div>
-                <div class="benefit-item">✅ सेल्स 3 गुना बढ़ेगी</div>
-            </div>
-        </div>
-
-        <div class="service-grid">
-            <a href="web-design.html" class="service-link">
-                <div class="service-card">
-                    <i class="fas fa-laptop-code"></i>
-                    <h3>Web Design</h3>
-                    <p>5-8 पन्नों की प्रीमियम वेबसाइट। मोबाइल और गूगल के लिए पूरी तरह से फिट।</p>
-                </div>
-            </a>
-
-            <a href="app-dev.html" class="service-link">
-                <div class="service-card">
-                    <i class="fas fa-mobile-alt"></i>
-                    <h3>App Development</h3>
-                    <p>आपका अपना एंड्राइड और iOS ऐप। बिज़नेस को लोगों की जेब तक पहुँचाएं।</p>
-                </div>
-            </a>
-
-            <a href="seo-services.html" class="service-link">
-                <div class="service-card">
-                    <i class="fas fa-rocket"></i>
-                    <h3>SEO Services</h3>
-                    <p>गूगल के पहले पेज पर आएं। बिना पैसे खर्च किए हजारों ग्राहक पाएं।</p>
-                </div>
-            </a>
-
-            <a href="analytics.html" class="service-link">
-                <div class="service-card">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Analytics</h3>
-                    <p>समझें आपके ग्राहक क्या चाहते हैं। डेटा देखकर अपने बिज़नेस के फैसले लें।</p>
-                </div>
-            </a>
-        </div>
-
-        <a href="https://wa.me" class="btn-quote">REQUEST A QUOTE</a>
-    </div>
-
-    <!-- Floating Home Button at Bottom Right -->
+    <!-- Floating Home Button -->
     <a href="index.html" class="home-btn" title="Back to Home">
         <i class="fas fa-home"></i>
     </a>
 
+    <div class="container">
+        <!-- Headline -->
+        <h1 class="lang-text" data-lang="en">Our Services</h1>
+        <h1 class="lang-text" data-lang="hi">हमारी सेवाएं</h1>
+        
+        <p class="subtitle lang-text" data-lang="en">Elevating your business through digital excellence.</p>
+        <p class="subtitle lang-text" data-lang="hi">डिजिटल उत्कृष्टता के माध्यम से आपके व्यवसाय को आगे बढ़ाना।</p>
+
+        <!-- Why Online Section -->
+        <div class="why-online">
+            <h2 class="lang-text" data-lang="en" style="color: #00ff88;">Why Bring Your Business Online?</h2>
+            <h2 class="lang-text" data-lang="hi" style="color: #00ff88;">अपने बिज़नेस को ऑनलाइन क्यों लाएं?</h2>
+            
+            <p class="lang-text" data-lang="en">If your business is not on the internet, you are losing customers every day.</p>
+            <p class="lang-text" data-lang="hi">आज के समय में अगर आपका बिज़नेस इंटरनेट पर नहीं है, तो आप ग्राहक खो रहे हैं।</p>
+        </div>
+
+        <!-- Service Cards -->
+        <div class="service-grid">
+            <!-- Card 1 -->
+            <a href="web-design.html" style="text-decoration: none; color: inherit;">
+                <div class="service-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3 class="lang-text" data-lang="en">Web Design</h3>
+                    <h3 class="lang-text" data-lang="hi">वेब डिज़ाइन</h3>
+                    <p class="lang-text" data-lang="en">Premium 5-8 page websites. Mobile friendly and SEO ready.</p>
+                    <p class="lang-text" data-lang="hi">प्रीमियम 5-8 पेज की वेबसाइटें। मोबाइल और गूगल के लिए फिट।</p>
+                </div>
+            </a>
+
+            <!-- Card 2 -->
+            <a href="app-dev.html" style="text-decoration: none; color: inherit;">
+                <div class="service-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3 class="lang-text" data-lang="en">App Development</h3>
+                    <h3 class="lang-text" data-lang="hi">ऐप डेवलपमेंट</h3>
+                    <p class="lang-text" data-lang="en">Custom Android & iOS apps to reach everyone's pocket.</p>
+                    <p class="lang-text" data-lang="hi">कस्टम एंड्रॉइड और iOS ऐप लोगों के फोन तक पहुँचने के लिए।</p>
+                </div>
+            </a>
+            
+            <!-- Card 3 & 4 भी इसी तरह बनेंगे (SEO, Analytics) -->
+        </div>
+
+        <a href="https://wa.me" class="btn-quote lang-text" data-lang="en">REQUEST A QUOTE</a>
+        <a href="https://wa.me" class="btn-quote lang-text" data-lang="hi">कोटेशन मांगें</a>
+    </div>
+
+    <!-- Script to Handle Language Toggle from Home Page -->
+    <script>
+        function updateLanguage() {
+            const currentLang = localStorage.getItem('selectedLanguage') || 'en';
+            document.querySelectorAll('.lang-text').forEach(el => {
+                el.style.display = (el.getAttribute('data-lang') === currentLang) ? 'block' : 'none';
+            });
+        }
+
+        // लोड होने पर भाषा चेक करें
+        window.onload = updateLanguage;
+        // अगर होम पेज पर भाषा बदले, तो यहाँ भी अपडेट हो
+        window.addEventListener('storage', updateLanguage);
+    </script>
 </body>
 </html>
