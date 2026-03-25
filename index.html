@@ -198,41 +198,125 @@ Official Manjeet - Verified Final GitHub Code
         </section>
 
          <!-- 201 नंबर लाइन से इसे पेस्ट करना शुरू करें -->
-<!-- मुख्य कार्ड्स सेक्शन (3 कार्ड्स) -->
-<section class="container" style="padding-bottom: 80px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+<!-- प्रीमियम और प्रोफेशनल कार्ड्स सेक्शन -->
+<section class="container" style="padding: 50px 0; display: flex; flex-wrap: wrap; gap: 25px; justify-content: center;">
 
     <!-- 1. सोशल मीडिया कार्ड -->
-    <div class="card-box" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 25px; width: 300px; color: white;">
-        <h3 style="color: #00d4ff;">Social Media</h3>
-        <p style="font-size: 0.9rem; color: #ccc;">Social media management services.</p>
-        <a href="#" style="color: #00d4ff; text-decoration: none; font-weight: bold;">Learn More →</a>
-    </div>
-
-    <!-- 2. एडवरटाइजमेंट कार्ड -->
-    <div class="card-box" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 25px; width: 300px; color: white;">
-        <h3 style="color: #ff00ff;">Advertisement</h3>
-        <p style="font-size: 0.9rem; color: #ccc;">Professional ad campaign services.</p>
-        <a href="#" style="color: #ff00ff; text-decoration: none; font-weight: bold;">Learn More →</a>
-    </div>
-
-    <!-- 3. प्रीमियम कोर्सेज कार्ड (क्लिक करने पर लिस्ट खुलेगी) -->
-    <div id="premium-card-trigger" onclick="toggleCourses()" style="background: rgba(255, 255, 255, 0.08); border: 2px solid #6c5ce7; border-radius: 15px; padding: 25px; width: 300px; color: white; cursor: pointer; transition: 0.3s;">
-        <h3 style="color: #6c5ce7; margin-bottom: 5px;">Premium Courses</h3>
-        <p id="tap-text" style="font-size: 0.8rem; color: #bbb;">कोर्सेज देखने के लिए यहाँ क्लिक करें ▼</p>
-
-        <!-- कोर्सेज की छिपी हुई लिस्ट -->
-        <div id="course-dropdown-list" style="display: none; margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 10px; text-align: left;">
-            <ul style="list-style: none; padding: 0; margin: 0;">
-                <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05);"><a href="web-design.html" style="color: #fff; text-decoration: none; font-size: 0.9rem;">Web Design Course</a></li>
-                <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05);"><a href="app-development.html" style="color: #fff; text-decoration: none; font-size: 0.9rem;">App Development</a></li>
-                <li style="padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05);"><a href="seo.html" style="color: #fff; text-decoration: none; font-size: 0.9rem;">SEO Optimization</a></li>
-                <li style="padding: 8px 0;"><a href="trading.html" style="color: #fff; text-decoration: none; font-size: 0.9rem;">Trading Masterclass</a></li>
+    <div class="glass-card" onclick="toggleDetails('sm-list')">
+        <div class="card-header">
+            <span class="icon">📱</span>
+            <h3>Social Media</h3>
+        </div>
+        <p>Expert management for your social presence.</p>
+        <div id="sm-list" class="content-list">
+            <ul>
+                <li>• Content Creation</li>
+                <li>• Page Growth</li>
+                <li>• Engagement Strategy</li>
             </ul>
         </div>
     </div>
+
+    <!-- 2. एडवरटाइजमेंट कार्ड -->
+    <div class="glass-card" onclick="toggleDetails('ad-list')">
+        <div class="card-header">
+            <span class="icon">🚀</span>
+            <h3>Advertisement</h3>
+        </div>
+        <p>Result-oriented ad campaigns.</p>
+        <div id="ad-list" class="content-list">
+            <ul>
+                <li>• Google Ads</li>
+                <li>• Facebook & Insta Ads</li>
+                <li>• Lead Generation</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 3. प्रीमियम कोर्सेज कार्ड -->
+    <div class="glass-card premium" onclick="toggleDetails('course-list')">
+        <div class="card-header">
+            <span class="icon">💎</span>
+            <h3>Premium Courses</h3>
+        </div>
+        <p>Learn high-demand digital skills.</p>
+        <div id="course-list" class="content-list">
+            <ul>
+                <li><a href="web-design.html">• Web Design Masterclass</a></li>
+                <li><a href="app-development.html">• App Development</a></li>
+                <li><a href="seo.html">• SEO Optimization</a></li>
+                <li><a href="trading.html">• Trading Course</a></li>
+            </ul>
+        </div>
+    </div>
+
 </section>
 
+<!-- इन कार्ड्स को सुंदर बनाने के लिए CSS (इसे आप <style> टैग में या अपनी CSS फाइल में डाल सकते हैं) -->
+<style>
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    width: 320px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
 
+.glass-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.glass-card.premium {
+    border: 1px solid rgba(108, 92, 231, 0.4);
+    box-shadow: 0 0 20px rgba(108, 92, 231, 0.1);
+}
+
+.card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 10px; }
+.icon { font-size: 1.5rem; }
+.glass-card h3 { margin: 0; font-size: 1.4rem; color: #fff; }
+.glass-card p { color: #bbb; font-size: 0.9rem; margin-top: 5px; }
+
+.content-list {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+}
+
+.content-list ul {
+    list-style: none;
+    padding: 15px 0 0 0;
+    margin-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.content-list li { padding: 8px 0; color: #00d4ff; font-size: 0.9rem; }
+.content-list a { color: #00d4ff; text-decoration: none; display: block; }
+.content-list a:hover { color: #fff; }
+
+.show { max-height: 300px !important; }
+</style>
+
+<script>
+function toggleDetails(id) {
+    // पहले वाली सभी खुली हुई लिस्ट को बंद करने के लिए
+    document.querySelectorAll('.content-list').forEach(el => {
+        if(el.id !== id) el.classList.remove('show');
+    });
+    
+    // चुनी हुई लिस्ट को खोलने/बंद करने के लिए
+    const selectedList = document.getElementById(id);
+    selectedList.classList.toggle('show');
+}
+</script>
+
+    
 <script>
 // कार्ड पर क्लिक करने पर लिस्ट दिखाने के लिए फंक्शन
 function toggleCourseList() {
