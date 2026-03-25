@@ -354,60 +354,70 @@ function toggleCourseList() {
 
 <!-- फुटर और सोशल मीडिया -->
 <!-- Interactive Social Footer -->
+<!-- Premium Glow Social Footer -->
 <footer style="text-align: center; padding: 60px 0; background: transparent;">
-    <h2 style="font-weight: 800; margin-bottom: 30px; font-size: 24px; color: #fff;">Connect With Me</h2>
+    <h2 style="font-weight: 800; margin-bottom: 40px; font-size: 26px; color: #fff; letter-spacing: 1px;">Connect With Me</h2>
     
-    <div style="display: flex; justify-content: center; gap: 35px; margin-bottom: 30px;">
+    <div style="display: flex; justify-content: center; gap: 40px; margin-bottom: 40px;">
         
         <!-- Facebook -->
-        <a href="https://www.facebook.com" target="_blank" class="social-icon fb">
-            <i class="fab fa-facebook" style="font-size: 35px; color: #1877F2;"></i>
+        <a href="https://www.facebook.com" target="_blank" class="social-glow-icon">
+            <i class="fab fa-facebook-f"></i>
         </a>
 
         <!-- Instagram -->
-        <a href="https://www.instagram.com" target="_blank" class="social-icon insta">
-            <i class="fab fa-instagram" style="font-size: 35px; color: #E1306C;"></i>
+        <a href="https://www.instagram.com" target="_blank" class="social-glow-icon">
+            <i class="fab fa-instagram"></i>
         </a>
 
         <!-- X (Twitter) -->
-        <a href="https://x.com" target="_blank" class="social-icon x-twitter">
-            <i class="fab fa-x-twitter" style="font-size: 35px; color: #fff;"></i>
+        <a href="https://x.com" target="_blank" class="social-glow-icon">
+            <i class="fab fa-x-twitter"></i>
         </a>
 
         <!-- Telegram -->
-        <a href="https://t.me" target="_blank" class="social-icon telegram">
-            <i class="fab fa-telegram" style="font-size: 35px; color: #0088cc;"></i>
+        <a href="https://t.me" target="_blank" class="social-glow-icon">
+            <i class="fab fa-telegram-plane"></i>
         </a>
 
     </div>
     
-    <p style="color: rgba(255,255,255,0.3); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;">
+    <p style="color: rgba(255,255,255,0.2); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">
         &copy; 2026 OFFICIAL MANJEET PORTFOLIO
     </p>
 
-    <!-- Animation CSS -->
+    <!-- Premium Glow CSS -->
     <style>
-        .social-icon {
-            transition: transform 0.3s ease;
-            display: inline-block;
+        .social-glow-icon {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-decoration: none;
+            font-size: 28px;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* माउस ले जाने पर हिलने वाला इफेक्ट */
-        .social-icon:hover {
-            animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
-            transform: scale(1.2); /* थोड़ा बड़ा भी होगा */
+        /* माउस ले जाने पर ऊपर उठना और ग्रीन लाइट जलना */
+        .social-glow-icon:hover {
+            transform: translateY(-12px); /* ऊपर उठेगा */
+            background: rgba(0, 255, 136, 0.1);
+            border-color: #00ff88; /* ग्रीन बॉर्डर */
+            box-shadow: 0 0 25px rgba(0, 255, 136, 0.6); /* ग्रीन ग्लो लाइट */
+            color: #00ff88; /* आइकन का रंग भी ग्रीन होगा */
         }
 
-        @keyframes shake {
-            10%, 90% { transform: translate3d(-1px, 0, 0) scale(1.2); }
-            20%, 80% { transform: translate3d(2px, 0, 0) scale(1.2); }
-            30%, 50%, 70% { transform: translate3d(-4px, 0, 0) scale(1.2); }
-            40%, 60% { transform: translate3d(4px, 0, 0) scale(1.2); }
+        .social-glow-icon i {
+            transition: all 0.4s ease;
         }
     </style>
 </footer>
-
 
 <script>
 const translations = {
