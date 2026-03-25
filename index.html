@@ -198,59 +198,106 @@ Official Manjeet - Verified Final GitHub Code
         </section>
 
          <!-- 201 नंबर लाइन से इसे पेस्ट करना शुरू करें -->
-<!-- प्रीमियम और प्रोफेशनल कार्ड्स सेक्शन -->
-<section class="container" style="padding: 50px 0; display: flex; flex-wrap: wrap; gap: 25px; justify-content: center;">
+<!-- प्रोफेशनल कार्ड्स सेक्शन -->
+<section class="services-container">
+    <div class="cards-wrapper">
+        
+        <!-- Social Media Card -->
+        <div class="pro-card" onclick="toggleCard('social-list')">
+            <div class="card-glow"></div>
+            <span class="card-icon">📱</span>
+            <h3 class="lang-text" data-en="Social Media" data-hi="सोशल मीडिया">Social Media</h3>
+            <p class="lang-text" data-en="Expert management for your social presence." data-hi="आपकी सोशल मीडिया उपस्थिति का विशेषज्ञ प्रबंधन।">Expert management for your social presence.</p>
+            <div id="social-list" class="expandable-list">
+                <ul>
+                    <li class="lang-text" data-en="Content Strategy" data-hi="कंटेंट रणनीति">Content Strategy</li>
+                    <li class="lang-text" data-en="Growth Hacking" data-hi="ग्रोथ हैकिंग">Growth Hacking</li>
+                </ul>
+            </div>
+        </div>
 
-    <!-- 1. सोशल मीडिया कार्ड -->
-    <div class="glass-card" onclick="toggleDetails('sm-list')">
-        <div class="card-header">
-            <span class="icon">📱</span>
-            <h3>Social Media</h3>
+        <!-- Advertisement Card -->
+        <div class="pro-card" onclick="toggleCard('ad-list')">
+            <div class="card-glow"></div>
+            <span class="card-icon">🚀</span>
+            <h3 class="lang-text" data-en="Advertisement" data-hi="विज्ञापन">Advertisement</h3>
+            <p class="lang-text" data-en="Result-oriented ad campaigns." data-hi="परिणाम-उन्मुख विज्ञापन अभियान।">Result-oriented ad campaigns.</p>
+            <div id="ad-list" class="expandable-list">
+                <ul>
+                    <li class="lang-text" data-en="Google Ads" data-hi="गूगल एड्स">Google Ads</li>
+                    <li class="lang-text" data-en="Meta Ads" data-hi="मेटा एड्स">Meta Ads</li>
+                </ul>
+            </div>
         </div>
-        <p>Expert management for your social presence.</p>
-        <div id="sm-list" class="content-list">
-            <ul>
-                <li>• Content Creation</li>
-                <li>• Page Growth</li>
-                <li>• Engagement Strategy</li>
-            </ul>
+
+        <!-- Premium Courses Card -->
+        <div class="pro-card premium-border" onclick="toggleCard('course-list')">
+            <div class="card-glow"></div>
+            <span class="card-icon">💎</span>
+            <h3 class="lang-text" data-en="Premium Courses" data-hi="प्रीमियम कोर्सेज">Premium Courses</h3>
+            <p class="lang-text" data-en="Learn high-demand digital skills." data-hi="उच्च-मांग वाले डिजिटल कौशल सीखें।">Learn high-demand digital skills.</p>
+            <div id="course-list" class="expandable-list">
+                <ul>
+                    <li><a href="web-design.html" class="lang-text" data-en="• Web Design" data-hi="• वेब डिज़ाइन">Web Design</a></li>
+                    <li><a href="app-dev.html" class="lang-text" data-en="• App Development" data-hi="• ऐप डेवलपमेंट">App Development</a></li>
+                    <li><a href="seo.html" class="lang-text" data-en="• SEO Expert" data-hi="• एसईओ एक्सपर्ट">SEO Expert</a></li>
+                </ul>
+            </div>
         </div>
+
     </div>
-
-    <!-- 2. एडवरटाइजमेंट कार्ड -->
-    <div class="glass-card" onclick="toggleDetails('ad-list')">
-        <div class="card-header">
-            <span class="icon">🚀</span>
-            <h3>Advertisement</h3>
-        </div>
-        <p>Result-oriented ad campaigns.</p>
-        <div id="ad-list" class="content-list">
-            <ul>
-                <li>• Google Ads</li>
-                <li>• Facebook & Insta Ads</li>
-                <li>• Lead Generation</li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- 3. प्रीमियम कोर्सेज कार्ड -->
-    <div class="glass-card premium" onclick="toggleDetails('course-list')">
-        <div class="card-header">
-            <span class="icon">💎</span>
-            <h3>Premium Courses</h3>
-        </div>
-        <p>Learn high-demand digital skills.</p>
-        <div id="course-list" class="content-list">
-            <ul>
-                <li><a href="web-design.html">• Web Design Masterclass</a></li>
-                <li><a href="app-development.html">• App Development</a></li>
-                <li><a href="seo.html">• SEO Optimization</a></li>
-                <li><a href="trading.html">• Trading Course</a></li>
-            </ul>
-        </div>
-    </div>
-
 </section>
+
+<style>
+/* मॉडर्न बैकग्राउंड और कार्ड स्टाइल */
+body {
+    background: radial-gradient(circle at top right, #1e0030, #0a0a0a); /* प्रीमियम डार्क बैकग्राउंड */
+    color: white;
+}
+
+.cards-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 50px 20px;
+    flex-wrap: wrap;
+}
+
+.pro-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px); /* ग्लास इफेक्ट */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 35px;
+    width: 320px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.5s ease;
+    overflow: hidden;
+}
+
+.pro-card:hover {
+    transform: translateY(-15px);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.premium-border { border: 1px solid rgba(0, 212, 255, 0.3); }
+
+.card-icon { font-size: 2rem; display: block; margin-bottom: 15px; }
+
+.expandable-list {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.expandable-list.open { max-height: 300px; padding-top: 20px; }
+
+.expandable-list ul { list-style: none; padding: 0; border-top: 1px solid rgba(255,255,255,0.1); }
+.expandable-list li, .expandable-list a { padding: 10px 0; color: #00d4ff; text-decoration: none; display: block; font-size: 0.95rem; }
+</style>
+
 
 <!-- इन कार्ड्स को सुंदर बनाने के लिए CSS (इसे आप <style> टैग में या अपनी CSS फाइल में डाल सकते हैं) -->
 <style>
@@ -380,3 +427,32 @@ window.changeLanguage = function() {
 
 document.addEventListener('DOMContentLoaded', loadCards);
 </script>
+<script>
+// 1. कार्ड को खोलने और बंद करने वाला फंक्शन
+function toggleCard(id) {
+    const list = document.getElementById(id);
+    // एक बार में एक ही लिस्ट खुले, इसके लिए बाकी सबको बंद करें
+    document.querySelectorAll('.expandable-list').forEach(el => {
+        if(el.id !== id) el.classList.remove('open');
+    });
+    list.classList.toggle('open');
+}
+
+// 2. आपके पुराने changeLanguage फंक्शन को सपोर्ट करने के लिए अपडेट
+// इसे आपके मौजूदा script के अंदर भी जोड़ा जा सकता है
+const originalChangeLang = window.changeLanguage;
+window.changeLanguage = function() {
+    if (typeof originalChangeLang === 'function') originalChangeLang();
+    
+    // नए कार्ड्स की भाषा बदलने के लिए
+    const lang = (currentLang === 'en') ? 'en' : 'hi'; 
+    document.querySelectorAll('.lang-text').forEach(el => {
+        const newText = el.getAttribute(`data-${currentLang}`);
+        if(newText) el.innerText = newText;
+    });
+};
+</script>
+
+<!-- अगर टैग्स गायब हैं तो ये भी डाल दें -->
+</body>
+</html>
