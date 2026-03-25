@@ -199,22 +199,20 @@ Official Manjeet - Verified Final GitHub Code
 
          <!-- 201 नंबर लाइन से इसे पेस्ट करना शुरू करें -->
 <!-- प्रोफेशनल कार्ड्स सेक्शन -->
-<section class="services-container">
-    <div class="cards-wrapper">
-        
-        <!-- Social Media Card -->
-        <div class="pro-card" onclick="toggleCard('social-list')">
-            <div class="card-glow"></div>
-            <span class="card-icon">📱</span>
-            <h3 class="lang-text" data-en="Social Media" data-hi="सोशल मीडिया">Social Media</h3>
-            <p class="lang-text" data-en="Expert management for your social presence." data-hi="आपकी सोशल मीडिया उपस्थिति का विशेषज्ञ प्रबंधन।">Expert management for your social presence.</p>
-            <div id="social-list" class="expandable-list">
-                <ul>
-                    <li class="lang-text" data-en="Content Strategy" data-hi="कंटेंट रणनीति">Content Strategy</li>
-                    <li class="lang-text" data-en="Growth Hacking" data-hi="ग्रोथ हैकिंग">Growth Hacking</li>
-                </ul>
-            </div>
-        </div>
+<!-- 📦 Components Section START -->
+<section class="container" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; padding: 50px 0;">
+    
+    <!-- कार्ड 1 यहाँ लोड होगा -->
+    <div id="card-1-container"></div>
+
+    <!-- कार्ड 2 यहाँ लोड होगा -->
+    <div id="card-2-container"></div>
+
+    <!-- कार्ड 3 यहाँ लोड होगा -->
+    <div id="card-3-container"></div>
+
+</section>
+<!-- 📦 Components Section END -->
 
         <!-- Advertisement Card -->
         <div class="pro-card" onclick="toggleCard('ad-list')">
@@ -423,33 +421,33 @@ window.changeLanguage = function() {
     if(document.getElementById('lang-btn')) document.getElementById('lang-btn').innerText = t.langBtn;
     
 <script>
-// 1. बटन क्लिक करने पर भाषा बदलने वाला फंक्शन
-function updateWebsiteLanguage() {
-    // चेक करें अभी क्या सेव है, डिफ़ॉल्ट 'en'
-    let current = localStorage.getItem('userLang') === 'hi' ? 'hi' : 'en';
-    let next = (current === 'en') ? 'hi' : 'en';
-    
-    // ब्राउज़र की मेमोरी में सेव करें ताकि 'Web Design' पेज भी इसे पढ़ सके
-    localStorage.setItem('userLang', next);
-    
-    // पूरे पेज का टेक्स्ट बदलें
-    applyLanguage(next);
+// कार्ड्स को अलग-अलग फ़ाइलों से लोड करने वाला फंक्शन
+async function loadComponents() {
+    try {
+        // कार्ड 1 लोड करें
+        const res1 = await fetch('card1.html');
+        document.getElementById('card-1-container').innerHTML = await res1.text();
+
+        // कार्ड 2 लोड करें
+        const res2 = await fetch('card2.html');
+        document.getElementById('card-2-container').innerHTML = await res2.text();
+
+        // कार्ड 3 लोड करें
+        const res3 = await fetch('card3.html');
+        document.getElementById('card-3-container').innerHTML = await res3.text();
+
+        // कार्ड्स लोड होने के बाद भाषा (Language) सेट करें
+        if(typeof syncLanguage === 'function') syncLanguage();
+
+    } catch (err) {
+        console.error("Card लोड करने में दिक्कत हुई:", err);
+    }
 }
 
-// 2. टेक्स्ट को स्क्रीन पर दिखाने वाला फंक्शन
-function applyLanguage(lang) {
-    document.querySelectorAll('.lang-text').forEach(el => {
-        const txt = el.getAttribute(`data-${lang}`);
-        if (txt) el.innerText = txt;
-    });
-}
-
-// 3. पेज लोड होते ही चुनी हुई भाषा सेट करें
-document.addEventListener('DOMContentLoaded', () => {
-    const saved = localStorage.getItem('userLang') || 'en';
-    applyLanguage(saved);
-});
+// पेज खुलते ही कार्ड्स लोड करें
+document.addEventListener('DOMContentLoaded', loadComponents);
 </script>
+
 
 // 1. कार्ड को खोलने और बंद करने वाला फंक्शन
 function toggleCard(id) {
