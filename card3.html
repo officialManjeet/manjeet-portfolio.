@@ -1,1 +1,37 @@
+<div class="glass-card premium-style" onclick="toggleDetails('price-list')">
+    <div class="card-content">
+        <span class="card-icon">💎</span>
+        <!-- टाइटल अब सिर्फ Our Services है -->
+        <h3 class="lang-text" data-en="Our Services" data-hi="हमारी सेवाएँ">Our Services</h3>
+        <p class="lang-text" data-en="Check project details & fees." data-hi="प्रोजेक्ट विवरण और फीस देखें।">Check project details & fees.</p>
+        
+        <div id="price-list" class="details-list" style="display: none; padding-top: 15px;">
+            <div class="service-item">
+                <h4 class="lang-text" data-en="📱 Mobile App Development" data-hi="📱 मोबाइल ऐप डेवलपमेंट">Mobile App Development</h4>
+                <p class="lang-text" data-en="Standard App (5-10 Pages): ₹15,000+" data-hi="स्टैंडर्ड ऐप (5-10 पेज): ₹15,000+">Standard App (5-10 Pages): ₹15,000+</p>
+                <p class="lang-text" data-en="Delivery: 15-20 Days" data-hi="डिलीवरी: 15-20 दिन">Delivery: 15-20 Days</p>
+            </div>
+            
+            <div class="service-item" style="margin-top:15px; border-top: 1px solid rgba(255,255,255,0.1); padding-top:10px;">
+                <h4 class="lang-text" data-en="🌐 Web Design (Portfolio/Business)" data-hi="🌐 वेब डिज़ाइन (पोर्टफोलियो/बिज़नेस)">Web Design (Portfolio/Business)</h4>
+                <p class="lang-text" data-en="Basic Web: ₹5,000 (3 Pages)" data-hi="बेसिक वेब: ₹5,000 (3 पेज)">Basic Web: ₹5,000 (3 पेज)</p>
+                <p class="lang-text" data-en="Delivery: 5-7 Days" data-hi="डिलीवरी: 5-7 दिन">Delivery: 5-7 Days</p>
+            </div>
+
+            <div class="suggestions">
+                <p style="font-size: 11px; color: #00ff88; margin-top: 10px;" class="lang-text" 
+                   data-en="*Suggestion: E-commerce, School Management, or Gym App available." 
+                   data-hi="*सुझाव: ई-कॉमर्स, स्कूल मैनेजमेंट, या जिम ऐप उपलब्ध हैं।">*Suggestion: E-commerce, School Management, or Gym App available.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// कार्ड के अंदर की लिस्ट को खोलने/बंद करने के लिए छोटा फंक्शन
+function toggleDetails(id) {
+    const list = document.getElementById(id);
+    list.style.display = (list.style.display === "none" || list.style.display === "") ? "block" : "none";
+}
+</script>
 
