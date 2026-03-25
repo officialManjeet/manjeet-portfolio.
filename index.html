@@ -448,15 +448,31 @@ document.addEventListener('DOMContentLoaded', loadComponents);
 </script>
 
 
-// 1. कार्ड को खोलने और बंद करने वाला फंक्शन
+<script>
+// 1. कार्ड की लिस्ट को खोलने और बंद करने वाला सही फंक्शन
 function toggleCard(id) {
     const list = document.getElementById(id);
-    // एक बार में एक ही लिस्ट खुले, इसके लिए बाकी सबको बंद करें
-    document.querySelectorAll('.expandable-list').forEach(el => {
-        if(el.id !== id) el.classList.remove('open');
+    if (!list) return; // अगर लिस्ट न मिले तो रुक जाए
+
+    // एक बार में एक ही लिस्ट खुले, इसके लिए बाकी सभी खुली लिस्ट को बंद करें
+    document.querySelectorAll('.expandable-list, .details-list').forEach(el => {
+        if(el.id !== id) {
+            el.classList.remove('open');
+            el.style.display = "none"; // सुरक्षा के लिए
+        }
     });
-    list.classList.toggle('open');
+
+    // चुनी हुई लिस्ट को टॉगल करें
+    if (list.classList.contains('open')) {
+        list.classList.remove('open');
+        list.style.display = "none";
+    } else {
+        list.classList.add('open');
+        list.style.display = "block";
+    }
 }
+</script>
+
 
 // 2. आपके पुराने changeLanguage फंक्शन को सपोर्ट करने के लिए अपडेट
 // इसे आपके मौजूदा script के अंदर भी जोड़ा जा सकता है
