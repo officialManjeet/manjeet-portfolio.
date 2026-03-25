@@ -4,155 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Services | Official Manjeet</title>
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
     <style>
-        /* --- Modern Premium Mesh Background --- */
         body {
             margin: 0; padding: 0;
-            background-color: #0b0e14;
-            /* कालापन हटाकर कोनों में हल्का हरा और नीला ग्लो दिया है */
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(0, 255, 136, 0.12) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(0, 189, 101, 0.12) 0px, transparent 50%);
-            background-attachment: fixed;
+            /* Professional Dark Navy & Teal Background */
+            background: linear-gradient(135px, #080a12 0%, #111827 100%);
             font-family: 'Poppins', sans-serif;
-            color: white; 
-            text-align: center;
-            overflow-x: hidden;
+            color: white; text-align: center;
+            min-height: 100vh;
         }
 
-        .container { max-width: 1100px; margin: auto; padding: 80px 20px; position: relative; }
+        .container { max-width: 1200px; margin: auto; padding: 60px 20px; }
         
-        /* --- High-Lighted Floating Back Button --- */
-        .back-btn-top {
-            position: absolute;
-            top: 30px;
-            left: 20px;
-            padding: 12px 24px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid #00ff88;
-            border-radius: 50px;
-            color: #00ff88;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 700;
-            transition: 0.4s;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            backdrop-filter: blur(15px);
-            box-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
-        }
-        .back-btn-top:hover {
-            background: #00ff88;
-            color: #000;
-            box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
-            transform: translateX(5px);
-        }
-
         h1 { 
-            font-size: 3.8rem; 
-            color: #00ff88; 
-            margin-bottom: 50px; 
-            text-shadow: 0 0 35px rgba(0,255,136,0.4); 
-            text-transform: uppercase;
-            letter-spacing: 3px;
+            font-size: 3.5rem; color: #00ff88; margin-bottom: 50px; 
+            text-transform: uppercase; letter-spacing: 4px;
+            text-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
         }
 
-        /* --- Service Cards Layout --- */
+        /* 4 Column Layout (Design No Change) */
         .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 30px;
-            margin-bottom: 120px;
-        }
-        
-        .service-link { text-decoration: none; color: inherit; display: block; }
-
-        .service-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            padding: 45px 25px;
-            border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            height: 100%;
-        }
-        .service-card:hover {
-            transform: translateY(-18px);
-            border-color: #00ff88;
-            background: rgba(0, 255, 136, 0.06);
-            box-shadow: 0 25px 50px rgba(0, 255, 136, 0.15);
-        }
-        .service-card i { font-size: 50px; color: #00ff88; margin-bottom: 25px; display: block; }
-        .service-card h3 { font-size: 1.6rem; margin-bottom: 15px; font-weight: 700; }
-        .service-card p { font-size: 0.95rem; line-height: 1.7; color: #b1b1b1; }
-
-        /* --- Ultra Professional Glow & Shine Quote Button --- */
-        .btn-quote-wrapper {
-            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
             margin-bottom: 80px;
         }
         
+        .service-link { text-decoration: none; color: inherit; width: 260px; }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 40px 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.4s ease;
+            height: 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            border-color: #00ff88;
+            background: rgba(0, 255, 136, 0.05);
+            box-shadow: 0 15px 40px rgba(0, 255, 136, 0.2);
+        }
+
+        .service-card i { font-size: 45px; color: #00ff88; margin-bottom: 20px; }
+        .service-card h3 { font-size: 1.4rem; margin-bottom: 12px; }
+        .service-card p { font-size: 0.85rem; line-height: 1.6; color: #9ca3af; }
+
+        /* Professional Quote Button */
         .btn-quote {
             display: inline-block;
-            padding: 26px 90px;
-            background: linear-gradient(135px, #00ff88 0%, #00bd65 100%);
-            color: #002211;
-            text-decoration: none;
-            font-weight: 900;
-            border-radius: 100px;
-            font-size: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-            box-shadow: 0 15px 45px rgba(0, 255, 136, 0.4), 
-                        inset 0 -5px 10px rgba(0, 0, 0, 0.15);
-            border: 2px solid rgba(255, 255, 255, 0.25);
-        }
-
-        /* बटन के अंदर चमकने वाली लहर (Shine Effect) */
-        .btn-quote::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -150%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.5), transparent);
-            transition: all 0.7s;
-        }
-
-        .btn-quote:hover::before {
-            left: 150%;
-        }
-
-        .btn-quote:hover {
-            transform: translateY(-10px) scale(1.07);
-            background: linear-gradient(135px, #05ff8c 0%, #00d672 100%);
-            box-shadow: 0 25px 70px rgba(0, 255, 136, 0.6);
+            padding: 22px 60px;
+            background: #00ff88;
             color: #000;
+            text-decoration: none;
+            font-weight: 800;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            transition: 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.4);
+            text-transform: uppercase;
         }
 
-        .btn-quote:active { transform: translateY(-2px) scale(0.97); }
+        .btn-quote:hover { transform: scale(1.05); box-shadow: 0 15px 45px rgba(0, 255, 136, 0.6); }
 
+        /* Back Button at Bottom */
+        .footer-nav { margin-top: 60px; padding-bottom: 40px; }
+        .btn-home {
+            color: #6b7280; text-decoration: none; font-size: 1rem;
+            border: 1px solid #374151; padding: 10px 25px; border-radius: 50px;
+            transition: 0.3s;
+        }
+        .btn-home:hover { color: #00ff88; border-color: #00ff88; background: rgba(0, 255, 136, 0.05); }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- Highlighted Back Button -->
-    <a href="index.html" class="back-btn-top">
-        <i class="fas fa-arrow-left"></i> BACK TO HOME
-    </a>
-
     <h1>Our Services</h1>
 
     <div class="service-grid">
-        <!-- Web Design -->
         <a href="web-design.html" class="service-link">
             <div class="service-card">
                 <i class="fas fa-code"></i>
@@ -161,16 +100,14 @@
             </div>
         </a>
 
-        <!-- App Development -->
         <a href="app-dev.html" class="service-link">
             <div class="service-card">
-                <i class="fas fa-mobile-screen-button"></i>
+                <i class="fas fa-mobile-alt"></i>
                 <h3>App Development</h3>
                 <p>आपका अपना एंड्राइड और iOS ऐप। बिज़नेस को लोगों की जेब तक पहुँचाएं।</p>
             </div>
         </a>
 
-        <!-- SEO Services -->
         <a href="seo-services.html" class="service-link">
             <div class="service-card">
                 <i class="fas fa-arrow-trend-up"></i>
@@ -179,7 +116,6 @@
             </div>
         </a>
 
-        <!-- Google Analytics -->
         <a href="analytics.html" class="service-link">
             <div class="service-card">
                 <i class="fas fa-chart-pie"></i>
@@ -189,12 +125,10 @@
         </a>
     </div>
 
-    <!-- Professional Quote Button Section -->
-    <div class="btn-quote-wrapper">
-        <!-- अपना व्हाट्सएप नंबर यहाँ 91XXXXXXXXXX की जगह डालें -->
-        <a href="https://wa.me." class="btn-quote">
-            Request A Quote
-        </a>
+    <a href="https://wa.me" class="btn-quote">REQUEST A QUOTE</a>
+
+    <div class="footer-nav">
+        <a href="index.html" class="btn-home">BACK TO HOME</a>
     </div>
 </div>
 
