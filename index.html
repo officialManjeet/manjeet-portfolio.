@@ -474,20 +474,24 @@ function toggleCard(id) {
 </script>
 
 
+<!-- लाइन 477 के ऊपर यह जोड़ो -->
+<script> 
+
 // 2. आपके पुराने changeLanguage फंक्शन को सपोर्ट करने के लिए अपडेट
-// इसे आपके मौजूदा script के अंदर भी जोड़ा जा सकता है
 const originalChangeLang = window.changeLanguage;
 window.changeLanguage = function() {
     if (typeof originalChangeLang === 'function') originalChangeLang();
     
     // नए कार्ड्स की भाषा बदलने के लिए
-    const lang = (currentLang === 'en') ? 'en' : 'hi'; 
+    const lang = (localStorage.getItem('userLang') === 'hi') ? 'hi' : 'en'; 
     document.querySelectorAll('.lang-text').forEach(el => {
-        const newText = el.getAttribute(`data-${currentLang}`);
+        const newText = el.getAttribute(`data-${lang}`);
         if(newText) el.innerText = newText;
     });
 };
-</script>
+
+</script> <!-- यह लाइन 490 पर पहले से है -->
+
 
 <!-- अगर टैग्स गायब हैं तो ये भी डाल दें -->
         <!-- 🌐 Global Language Support Script -->
