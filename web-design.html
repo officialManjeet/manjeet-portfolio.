@@ -7,46 +7,48 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
     
     <style>
-        /* --- Premium Professional Background --- */
+        /* --- Clean Professional White Background --- */
         body {
             margin: 0; padding: 0;
-            background: #050a0f; 
-            background-image: radial-gradient(circle at 50% 50%, #0a1118 0%, #050a0f 100%);
+            background: #ffffff;
             font-family: 'Poppins', sans-serif;
-            color: white; min-height: 100vh; overflow-x: hidden;
+            color: #333;
+            min-height: 100vh; overflow-x: hidden;
         }
 
         header {
             padding: 15px 40px; display: flex; justify-content: space-between; align-items: center;
-            background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(20px);
-            position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: #ffffff; border-bottom: 1px solid #eee;
+            position: sticky; top: 0; z-index: 1000;
         }
 
-        .logo-box { display: flex; align-items: center; gap: 10px; text-decoration: none; color: white; }
-        .logo-box img { width: 35px; height: 35px; border-radius: 50%; border: 1.5px solid #00ff88; }
+        .logo-box { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #333; }
+        .logo-box img { width: 35px; height: 35px; border-radius: 50%; border: 2px solid #00ff88; }
+        .logo-box span { font-weight: 800; text-transform: uppercase; font-size: 1rem; }
 
         #lang-btn {
-            background: rgba(0, 255, 136, 0.1); color: #00ff88; border: 1px solid #00ff88;
+            background: #00ff88; color: #000; border: none;
             padding: 8px 25px; border-radius: 50px; cursor: pointer; font-weight: 700;
         }
 
-        .container { width: 100%; padding-top: 40px; text-align: center; }
+        .container { width: 100%; padding-top: 30px; text-align: center; }
 
-        h1 { font-size: clamp(1.8rem, 5vw, 2.5rem); font-weight: 800; color: #00ff88; margin-bottom: 10px; }
-        .tagline { font-size: 1.1rem; color: #aaa; margin-bottom: 30px; }
+        h1 { font-size: 2.5rem; font-weight: 800; color: #00bd65; margin-bottom: 10px; }
+        .tagline { font-size: 1.1rem; color: #666; margin-bottom: 40px; }
 
-        /* --- FULL SCREEN SLIDER (NO BOX) --- */
+        /* --- FULL SCREEN SLIDER --- */
         .slider-wrapper {
             position: relative;
-            width: 100vw; /* Poori screen ki chaudai */
-            height: 500px; /* Aapke hisab se height set ki hai */
+            width: 100vw;
+            height: 500px;
             margin: auto;
             overflow: hidden;
+            background: #f9f9f9;
         }
 
         .slider-track {
             display: flex;
-            width: 500%; /* 5 pages ke liye */
+            width: 500%; 
             height: 100%;
             transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
         }
@@ -60,60 +62,72 @@
             align-items: center;
         }
 
-        /* Responsive Mockup images */
+        /* Responsive Mockup images using reliable Picsum CDN */
         .mockup-img {
             width: 90%;
-            max-width: 1200px;
-            height: 80%;
+            max-width: 1100px;
+            height: 85%;
             object-fit: cover;
-            border-radius: 15px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            background: #111; /* Agar image load na ho to black dikhega */
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border: 1px solid #ddd;
+            background: #eee;
         }
 
         .slide-info {
-            margin-top: 20px;
+            margin-top: 15px;
             font-size: 1.2rem;
-            color: #00ff88;
+            color: #00bd65;
             font-weight: 700;
             text-transform: uppercase;
         }
 
-        /* --- TRANSPARENT NAVIGATION BUTTONS --- */
+        /* --- TRANSPARENT SYMBOLS < > --- */
         .nav-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
             background: transparent;
-            color: rgba(0, 255, 136, 0.4);
+            color: rgba(0, 189, 101, 0.3);
             border: none;
-            font-size: 80px; /* Bade symbols */
+            font-size: 100px; 
             cursor: pointer;
             z-index: 10;
             transition: 0.3s;
             font-family: serif;
+            padding: 0 20px;
         }
 
-        .nav-btn:hover { color: #00ff88; scale: 1.1; }
-        .nav-btn:disabled { color: rgba(255, 255, 255, 0.1); cursor: not-allowed; }
+        .nav-btn:hover:not(:disabled) { color: #00bd65; transform: translateY(-50%) scale(1.1); }
+        .nav-btn:disabled { color: #eee; cursor: not-allowed; }
 
-        .prev { left: 30px; }
-        .next { right: 30px; }
+        .prev { left: 20px; }
+        .next { right: 20px; }
 
-        /* --- Actions --- */
+        /* --- Action Buttons --- */
         .btn-quote {
             display: inline-block; padding: 18px 60px; background: #00ff88;
             color: #000; text-decoration: none; font-weight: 800; border-radius: 50px;
-            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3); transition: 0.4s; margin-top: 40px;
+            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.2); transition: 0.4s; margin-top: 40px;
+            text-transform: uppercase;
         }
+        .btn-quote:hover { transform: scale(1.05); }
 
-        .btn-back { display: inline-block; margin-top: 30px; color: #666; text-decoration: none; font-weight: 600; padding: 10px 20px; }
-        .btn-back:hover { color: #00ff88; }
+        .back-nav { margin-top: 30px; padding-bottom: 40px; }
+        .btn-back { display: inline-block; color: #999; text-decoration: none; font-weight: 600; padding: 10px 20px; }
+
+        @keyframes wobble {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-4px) rotate(-1deg); }
+            50% { transform: translateX(4px) rotate(1deg); }
+            100% { transform: translateX(0); }
+        }
+        .btn-back:hover { color: #00bd65; animation: wobble 0.5s infinite; }
 
         @media (max-width: 768px) {
             .slider-wrapper { height: 350px; }
-            .nav-btn { font-size: 50px; }
-            .prev { left: 10px; } .next { right: 10px; }
+            .nav-btn { font-size: 60px; }
+            .prev { left: 5px; } .next { right: 5px; }
         }
     </style>
 </head>
@@ -122,7 +136,7 @@
 <header>
     <a href="index.html" class="logo-box">
         <img src="images/sel.png" alt="Logo">
-        <span>Official<span style="color: #00ff88;">Manjeet</span></span>
+        <span>Official<span style="color: #00bd65;">Manjeet</span></span>
     </a>
     <button id="lang-btn" onclick="toggleLang()">English</button>
 </header>
@@ -132,35 +146,31 @@
     <p class="tagline" id="main-tagline">अपने बिज़नेस को <span>ऑनलाइन</span> लाएं और कहीं से भी <span>हैंडल</span> करें।</p>
 
     <div class="slider-wrapper">
-        <!-- Transparent < > Symbols -->
+        <!-- Transparent Symbols -->
         <button class="nav-btn prev" id="prevBtn" onclick="moveSlide(-1)">&#10094;</button>
         <button class="nav-btn next" id="nextBtn" onclick="moveSlide(1)">&#10095;</button>
 
         <div class="slider-track" id="track">
-            <!-- Slide 1 -->
+            <!-- 5 High-Quality Tech Placeholders -->
             <div class="slide">
-                <img src="https://picsum.photos" class="mockup-img" alt="Template 1">
-                <div class="slide-info" id="c1">1. Home Page & Business Overview</div>
+                <img src="https://picsum.photos" class="mockup-img">
+                <div class="slide-info" id="c1">1. Home Page & Business Intro</div>
             </div>
-            <!-- Slide 2 -->
             <div class="slide">
-                <img src="https://picsum.photos" class="mockup-img" alt="Template 2">
-                <div class="slide-info" id="c2">2. Our Services & Package Details</div>
+                <img src="https://picsum.photos" class="mockup-img">
+                <div class="slide-info" id="c2">2. Services & Expertise Section</div>
             </div>
-            <!-- Slide 3 -->
             <div class="slide">
-                <img src="https://picsum.photos" class="mockup-img" alt="Template 3">
-                <div class="slide-info" id="c3">3. Work Portfolio & Gallery</div>
+                <img src="https://picsum.photos" class="mockup-img">
+                <div class="slide-info" id="c3">3. Modern Work Portfolio</div>
             </div>
-            <!-- Slide 4 -->
             <div class="slide">
-                <img src="https://picsum.photos" class="mockup-img" alt="Template 4">
-                <div class="slide-info" id="c4">4. Contact Us & Enquiry Form</div>
+                <img src="https://picsum.photos" class="mockup-img">
+                <div class="slide-info" id="c4">4. Contact & Enquiry System</div>
             </div>
-            <!-- Slide 5 -->
             <div class="slide">
-                <img src="https://picsum.photos" class="mockup-img" alt="Template 5">
-                <div class="slide-info" id="c5">5. Business Dashboard & Analytics</div>
+                <img src="https://picsum.photos" class="mockup-img">
+                <div class="slide-info" id="c5">5. Advanced Business Dashboard</div>
             </div>
         </div>
     </div>
@@ -181,49 +191,38 @@
 
     function moveSlide(dir) {
         current += dir;
+        if (current >= total - 1) { current = total - 1; nextBtn.disabled = true; } 
+        else { nextBtn.disabled = false; }
 
-        // Logic: Agar last pe pahunch gaya to aage nahi jayega
-        if (current >= total - 1) {
-            current = total - 1;
-            nextBtn.disabled = true; // Button disable ho jayega
-        } else {
-            nextBtn.disabled = false;
-        }
-
-        if (current <= 0) {
-            current = 0;
-            prevBtn.disabled = true;
-        } else {
-            prevBtn.disabled = false;
-        }
+        if (current <= 0) { current = 0; prevBtn.disabled = true; } 
+        else { prevBtn.disabled = false; }
 
         track.style.transform = `translateX(-${current * 100}vw)`;
     }
 
-    // Initial button state check
+    // Initial load
     moveSlide(0);
 
-    // Language Toggle
     let lang = 'hi';
     const ui = {
         hi: {
             title: "प्रीमियम वेबसाइट ओवरव्यू",
             tagline: "अपने बिज़नेस को <span>ऑनलाइन</span> लाएं और कहीं से भी <span>हैंडल</span> करें।",
-            c1: "1. मुख्य पृष्ठ और बिज़नेस ओवरव्यू",
-            c2: "2. हमारी सेवाएं और पैकेज विवरण",
-            c3: "3. वर्क पोर्टफोलियो और गैलरी",
-            c4: "4. संपर्क फ़ॉर्म और पूछताछ",
-            c5: "5. बिज़नेस डैशबोर्ड और एनालिटिक्स",
+            c1: "1. मुख्य पृष्ठ और परिचय",
+            c2: "2. सेवाएं और विशेषज्ञता",
+            c3: "3. मॉडर्न वर्क पोर्टफोलियो",
+            c4: "4. संपर्क और पूछताछ सिस्टम",
+            c5: "5. एडवांस बिज़नेस डैशबोर्ड",
             btn: "अभी रेट पूछें", back: "← होम पर वापस जाएं", langBtn: "English"
         },
         en: {
             title: "Premium Website Overview",
             tagline: "Bring your business <span>Online</span> and <span>Handle</span> it easily from anywhere.",
-            c1: "1. Home Page & Business Overview",
-            c2: "2. Our Services & Package Details",
-            c3: "3. Work Portfolio & Gallery",
-            c4: "4. Contact Us & Enquiry Form",
-            c5: "5. Business Dashboard & Analytics",
+            c1: "1. Home Page & Business Intro",
+            c2: "2. Services & Expertise Section",
+            c3: "3. Modern Work Portfolio",
+            c4: "4. Contact & Enquiry System",
+            c5: "5. Advanced Business Dashboard",
             btn: "Request Quote Now", back: "← Back to Home", langBtn: "Hindi"
         }
     };
