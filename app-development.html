@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Development Course | OfficialManjeet</title>
+    <title>App Development Course | Official Manjeet</title>
     
     <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
     
     <style>
@@ -17,129 +16,167 @@
             --border: rgba(255, 255, 255, 0.08);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         
         body { 
             background: var(--bg-dark); 
             color: #fff; 
             line-height: 1.6; 
-            padding: 40px 5%;
-            background-image: radial-gradient(circle at top right, rgba(0, 210, 255, 0.05), transparent);
+            padding: 20px 5% 100px;
+            background-image: radial-gradient(circle at top right, rgba(0, 210, 255, 0.07), transparent);
         }
 
-        /* Back Button */
-        .back-nav { margin-bottom: 40px; }
+        /* Header Navigation */
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 40px; padding: 20px 0;
+        }
+
         .back-btn { 
             display: inline-flex; align-items: center; gap: 10px;
             color: var(--primary); text-decoration: none; font-weight: 700;
-            font-size: 14px; text-transform: uppercase; border: 1px solid var(--primary);
-            padding: 10px 25px; border-radius: 50px; transition: 0.3s;
+            font-size: 13px; text-transform: uppercase; border: 1px solid var(--primary);
+            padding: 10px 20px; border-radius: 50px; transition: 0.3s;
         }
         .back-btn:hover { background: var(--primary); color: #000; }
 
-        /* Course Header */
-        .hero { text-align: center; max-width: 800px; margin: 0 auto 60px; }
-        .hero h1 { font-size: clamp(32px, 5vw, 54px); font-weight: 800; margin-bottom: 20px; }
+        .lang-btn {
+            background: rgba(255,255,255,0.1); color: #fff; border: 1px solid var(--border);
+            padding: 8px 20px; border-radius: 50px; cursor: pointer; font-weight: 600;
+        }
+
+        /* Hero Image & Title */
+        .hero { text-align: center; max-width: 900px; margin: 0 auto 60px; }
+        .hero img { 
+            width: 100%; max-width: 700px; border-radius: 30px; 
+            margin-bottom: 30px; box-shadow: 0 20px 50px rgba(0, 210, 255, 0.2);
+            border: 1px solid var(--border);
+        }
+        .hero h1 { font-size: clamp(30px, 5vw, 50px); font-weight: 800; margin-bottom: 15px; line-height: 1.2; }
         .hero h1 span { color: var(--primary); }
         .badge { 
-            background: rgba(0, 210, 255, 0.1); color: var(--primary); 
-            padding: 8px 20px; border-radius: 50px; font-weight: 800; font-size: 12px;
+            background: rgba(0, 210, 255, 0.15); color: var(--primary); 
+            padding: 6px 18px; border-radius: 50px; font-weight: 800; font-size: 12px;
+            display: inline-block; margin-bottom: 15px;
         }
 
         /* Details Card */
         .main-card {
-            max-width: 900px; margin: 0 auto; background: var(--glass);
+            max-width: 950px; margin: 0 auto; background: var(--glass);
             border: 1px solid var(--border); border-radius: 40px; padding: 50px;
             backdrop-filter: blur(20px);
         }
 
         .duration-box {
-            background: rgba(255,255,255,0.02); border: 2px dashed #333;
-            padding: 25px; border-radius: 25px; text-align: center; margin-bottom: 40px;
+            background: rgba(0, 210, 255, 0.05); border: 2px dashed rgba(0, 210, 255, 0.3);
+            padding: 20px; border-radius: 20px; text-align: center; margin-bottom: 50px;
         }
-        .duration-box h2 { font-size: 28px; color: var(--primary); font-weight: 800; }
-        .duration-box p { font-size: 12px; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+        .duration-box h2 { font-size: 26px; color: var(--primary); font-weight: 800; }
 
-        /* Syllabus Grid */
-        .content-section { margin-bottom: 40px; }
-        .content-section h3 { font-size: 22px; margin-bottom: 25px; display: flex; align-items: center; gap: 12px; }
-        .content-section h3 i { color: var(--primary); }
-
-        .list-items { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        /* Sections Styling */
+        .content-section { margin-bottom: 50px; }
+        .content-section h3 { font-size: 22px; margin-bottom: 25px; display: flex; align-items: center; gap: 12px; color: var(--primary); }
+        
+        .list-items { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
         .list-items div { 
-            background: rgba(255,255,255,0.02); padding: 20px; border-radius: 20px;
-            border: 1px solid var(--border); font-size: 15px; display: flex; align-items: center; gap: 12px;
+            background: rgba(255,255,255,0.03); padding: 18px; border-radius: 15px;
+            border: 1px solid var(--border); font-size: 14px; display: flex; align-items: center; gap: 12px;
+            transition: 0.3s;
         }
-        .list-items div i { color: var(--primary); font-size: 14px; }
+        .list-items div:hover { background: rgba(0, 210, 255, 0.05); border-color: var(--primary); }
 
-        /* Roadmap */
-        .roadmap { display: flex; flex-direction: column; gap: 15px; }
-        .step { display: flex; gap: 20px; align-items: center; background: rgba(0,210,255,0.03); padding: 15px 25px; border-radius: 15px; border-left: 4px solid var(--primary); }
-        .step b { color: var(--primary); min-width: 80px; }
+        /* Roadmap Steps */
+        .roadmap { display: flex; flex-direction: column; gap: 12px; }
+        .step { background: rgba(255,255,255,0.02); padding: 15px 20px; border-radius: 12px; border-left: 4px solid var(--primary); font-size: 15px; }
+        .step b { color: var(--primary); margin-right: 10px; }
+
+        /* App Delivery Points (What we give for an App) */
+        .delivery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .delivery-item { background: rgba(0, 255, 136, 0.03); border: 1px solid rgba(0, 255, 136, 0.1); padding: 20px; border-radius: 20px; }
+        .delivery-item h4 { color: #00ff88; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
 
         /* CTA */
-        .cta-box { text-align: center; margin-top: 50px; }
+        .cta-box { text-align: center; margin-top: 40px; }
         .cta-btn { 
             display: inline-block; background: var(--primary); color: #000;
             text-decoration: none; padding: 18px 50px; border-radius: 50px;
-            font-weight: 800; font-size: 18px; transition: 0.4s;
-            box-shadow: 0 10px 20px rgba(0, 210, 255, 0.2);
+            font-weight: 800; font-size: 17px; transition: 0.4s;
         }
-        .cta-btn:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0, 210, 255, 0.4); }
+        .cta-btn:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(0, 210, 255, 0.4); }
 
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             .main-card { padding: 30px 20px; }
-            .list-items { grid-template-columns: 1fr; }
+            .delivery-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="back-nav">
-        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> होम पेज पर वापस जाएँ</a>
-    </nav>
+    <header>
+        <a href="index.html" class="back-btn" id="backBtn"><i class="fas fa-arrow-left"></i> Home Page</a>
+        <button class="lang-btn" onclick="toggleLang()" id="langBtn">English</button>
+    </header>
 
     <div class="hero">
-        <span class="badge">Masterclass 2026</span>
-        <h1>App <span>Development</span></h1>
-        <p>Android और iOS के लिए हाई-परफॉरमेंस ऐप्स बनाना सीखें। यह कोर्स आपको बेसिक कोडिंग से लेकर ऐप स्टोर पब्लिशिंग तक का एक्सपर्ट बना देगा।</p>
+        <span class="badge" id="badgeText">Masterclass 2026</span>
+        <img src="https://images.unsplash.com" alt="App Development">
+        <h1 id="heroTitle">App <span>Development</span></h1>
+        <p id="heroPara">Android और iOS के लिए हाई-परफॉरमेंस ऐप्स बनाना सीखें। बेसिक कोडिंग से ऐप स्टोर तक का सफर।</p>
     </div>
 
     <div class="main-card">
-        <!-- Duration Info -->
+        <!-- Duration Box -->
         <div class="duration-box">
-            <p>कोर्स की कुल अवधि</p>
-            <h2>90 दिन (3 महीने)</h2>
+            <p id="durPara">कोर्स की कुल अवधि</p>
+            <h2 id="durTitle">90 दिन (3 महीने)</h2>
         </div>
 
-        <!-- What we cover -->
+        <!-- Syllabus -->
         <div class="content-section">
-            <h3><i class="fas fa-layer-group"></i> हम क्या-क्या कवर करेंगे?</h3>
-            <div class="list-items">
+            <h3><i class="fas fa-terminal"></i> <span id="syllabusTitle">कोर्स का सिलेबस</span></h3>
+            <div class="list-items" id="syllabusItems">
                 <div><i class="fas fa-check"></i> UI/UX Design (Figma)</div>
-                <div><i class="fas fa-check"></i> Flutter / React Native</div>
-                <div><i class="fas fa-check"></i> Firebase Backend Integration</div>
-                <div><i class="fas fa-check"></i> REST API & Database</div>
-                <div><i class="fas fa-check"></i> Google Play Store Publishing</div>
-                <div><i class="fas fa-check"></i> App Store Optimization</div>
+                <div><i class="fas fa-check"></i> Flutter & Dart</div>
+                <div><i class="fas fa-check"></i> Firebase & Auth</div>
+                <div><i class="fas fa-check"></i> Play Store Publishing</div>
             </div>
         </div>
 
-        <hr style="border: 0; border-top: 1px solid var(--border); margin-bottom: 40px;">
+        <!-- App Features (What we give) -->
+        <div class="content-section">
+            <h3><i class="fas fa-box-open"></i> <span id="giveTitle">ऐप के साथ आपको क्या मिलेगा?</span></h3>
+            <div class="delivery-grid" id="giveItems">
+                <div class="delivery-item">
+                    <h4><i class="fas fa-code"></i> Source Code</h4>
+                    <p style="font-size: 13px; color: #aaa;">पूरा क्लीन सोर्स कोड आपके पास रहेगा।</p>
+                </div>
+                <div class="delivery-item">
+                    <h4><i class="fas fa-rocket"></i> Deployment</h4>
+                    <p style="font-size: 13px; color: #aaa;">Play Store और App Store पर लाइव सेटअप।</p>
+                </div>
+                <div class="delivery-item">
+                    <h4><i class="fas fa-life-ring"></i> Support</h4>
+                    <p style="font-size: 13px; color: #aaa;">6 महीने का फ्री टेक्निकल सपोर्ट।</p>
+                </div>
+                <div class="delivery-item">
+                    <h4><i class="fas fa-chart-line"></i> Analytics</h4>
+                    <p style="font-size: 13px; color: #aaa;">यूजर ट्रैकिंग और रिपोर्टिंग टूल्स इंटीग्रेशन।</p>
+                </div>
+            </div>
+        </div>
 
         <!-- Learning Roadmap -->
         <div class="content-section">
-            <h3><i class="fas fa-map-signs"></i> लर्निंग रोडमैप</h3>
-            <div class="roadmap">
-                <div class="step"><b>महीना 1:</b> डिजाइनिंग और बेसिक प्रोग्रामिंग का ज्ञान।</div>
-                <div class="step"><b>महीना 2:</b> एडवांस्ड फीचर्स और डेटाबेस का इस्तेमाल।</div>
-                <div class="step"><b>महीना 3:</b> 2 लाइव प्रोजेक्ट्स और स्टोर पर ऐप पब्लिश करना।</div>
+            <h3><i class="fas fa-map-signs"></i> <span id="roadmapTitle">लर्निंग रोडमैप</span></h3>
+            <div class="roadmap" id="roadmapItems">
+                <div class="step"><b>महीना 1:</b> डिजाइनिंग और बेसिक प्रोग्रामिंग।</div>
+                <div class="step"><b>महीना 2:</b> डेटाबेस और रियल-टाइम फीचर्स।</div>
+                <div class="step"><b>महीना 3:</b> 2 लाइव प्रोजेक्ट्स और पब्लिशिंग।</div>
             </div>
         </div>
 
         <div class="cta-box">
-            <p style="margin-bottom: 20px; color: #aaa;">क्या आप अपना पहला ऐप बनाने के लिए तैयार हैं?</p>
-            <a href="https://wa.me" class="cta-btn">कोर्स अभी जॉइन करें</a>
+            <a href="https://wa.me" class="cta-btn" id="ctaBtn">कोर्स अभी जॉइन करें</a>
         </div>
     </div>
 
@@ -147,6 +184,84 @@
         &copy; 2026 OFFICIAL MANJEET PORTFOLIO
     </footer>
 
+    <script>
+        let currentLang = 'hi';
+        const translations = {
+            en: {
+                back: '← BACK TO HOME',
+                lang: 'Hindi',
+                badge: 'Masterclass 2026',
+                title: 'App <span>Development</span>',
+                hero: 'Learn to build high-performance apps for Android & iOS. Journey from zero to App Store.',
+                durP: 'Total Course Duration',
+                durT: '90 Days (3 Months)',
+                syllT: 'Course Syllabus',
+                syllI: ['UI/UX Design (Figma)', 'Flutter & Dart', 'Firebase & Auth', 'Play Store Publishing'],
+                giveT: 'What will you get with the App?',
+                giveI: [
+                    {h: 'Source Code', p: 'Clean and fully owned source code.'},
+                    {h: 'Deployment', p: 'Live setup on Play Store & App Store.'},
+                    {h: 'Support', p: '6 months of free technical support.'},
+                    {h: 'Analytics', p: 'User tracking and reporting tools.'}
+                ],
+                roadT: 'Learning Roadmap',
+                roadI: ['<b>Month 1:</b> Design & Basic Programming.', '<b>Month 2:</b> Database & Real-time Features.', '<b>Month 3:</b> 2 Live Projects & Publishing.'],
+                cta: 'JOIN COURSE NOW'
+            },
+            hi: {
+                back: '← होम पेज पर वापस जाएँ',
+                lang: 'English',
+                badge: 'Masterclass 2026',
+                title: 'App <span>Development</span>',
+                hero: 'Android और iOS के लिए हाई-परफॉरमेंस ऐप्स बनाना सीखें। बेसिक कोडिंग से ऐप स्टोर तक का सफर।',
+                durP: 'कोर्स की कुल अवधि',
+                durT: '90 दिन (3 महीने)',
+                syllT: 'कोर्स का सिलेबस',
+                syllI: ['UI/UX Design (Figma)', 'Flutter & Dart', 'Firebase & Auth', 'Play Store Publishing'],
+                giveT: 'ऐप के साथ आपको क्या मिलेगा?',
+                giveI: [
+                    {h: 'Source Code', p: 'पूरा क्लीन सोर्स कोड आपके पास रहेगा।'},
+                    {h: 'Deployment', p: 'Play Store और App Store पर लाइव सेटअप।'},
+                    {h: 'Support', p: '6 महीने का फ्री टेक्निकल सपोर्ट।'},
+                    {h: 'Analytics', p: 'यूजर ट्रैकिंग और रिपोर्टिंग टूल्स इंटीग्रेशन।'}
+                ],
+                roadT: 'लर्निंग रोडमैप',
+                roadI: ['<b>महीना 1:</b> डिजाइनिंग और बेसिक प्रोग्रामिंग।', '<b>महीना 2:</b> डेटाबेस और रियल-टाइम फीचर्स।', '<b>महीना 3:</b> 2 लाइव प्रोजेक्ट्स और पब्लिशिंग।'],
+                cta: 'कोर्स अभी जॉइन करें'
+            }
+        };
+
+        function toggleLang() {
+            currentLang = currentLang === 'hi' ? 'en' : 'hi';
+            const t = translations[currentLang];
+
+            document.getElementById('backBtn').innerText = t.back;
+            document.getElementById('langBtn').innerText = t.lang;
+            document.getElementById('badgeText').innerText = t.badge;
+            document.getElementById('heroTitle').innerHTML = t.title;
+            document.getElementById('heroPara').innerText = t.hero;
+            document.getElementById('durPara').innerText = t.durP;
+            document.getElementById('durTitle').innerText = t.durT;
+            document.getElementById('syllabusTitle').innerText = t.syllT;
+            document.getElementById('giveTitle').innerText = t.giveT;
+            document.getElementById('roadmapTitle').innerText = t.roadT;
+            document.getElementById('ctaBtn').innerText = t.cta;
+
+            // Update Lists
+            const syllBox = document.getElementById('syllabusItems');
+            syllBox.innerHTML = t.syllI.map(item => `<div><i class="fas fa-check"></i> ${item}</div>`).join('');
+
+            const roadBox = document.getElementById('roadmapItems');
+            roadBox.innerHTML = t.roadI.map(item => `<div class="step">${item}</div>`).join('');
+
+            const giveBox = document.getElementById('giveItems');
+            giveBox.innerHTML = t.giveI.map(item => `
+                <div class="delivery-item">
+                    <h4><i class="fas fa-code"></i> ${item.h}</h4>
+                    <p style="font-size: 13px; color: #aaa;">${item.p}</p>
+                </div>
+            `).join('');
+        }
+    </script>
 </body>
 </html>
-
