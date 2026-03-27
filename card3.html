@@ -4,54 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Services | Official Manjeet</title>
+    <!-- Sabse Latest FontAwesome Link (Icons dikhne ke liye) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
     <style>
-        /* --- EXACT HOME PAGE VIBE BACKGROUND --- */
+        /* --- Exact Wave Mix Background (Inspired by your Image) --- */
         body {
             margin: 0; padding: 0;
-            background: #05060a; 
+            background: #050a0f; 
             background-image: 
-                radial-gradient(circle at 10% 20%, rgba(131, 33, 117, 0.4) 0%, transparent 45%),
-                radial-gradient(circle at 90% 80%, rgba(63, 43, 150, 0.35) 0%, transparent 45%),
-                radial-gradient(circle at 50% 15%, rgba(255, 30, 80, 0.12) 0%, transparent 50%);
+                radial-gradient(circle at 100% 0%, #3a2a1d 0%, transparent 40%), /* Brownish Wave */
+                radial-gradient(circle at 0% 100%, #004d4d 0%, transparent 50%), /* Teal Wave */
+                radial-gradient(circle at 50% 50%, #050a0f 0%, #020508 100%);
             background-attachment: fixed;
             font-family: 'Poppins', sans-serif;
             color: white; min-height: 100vh;
             overflow-x: hidden;
         }
 
-        /* --- Header Fix --- */
+        /* --- Fixed Top Header --- */
         header.header-bar {
             position: fixed; top: 0; left: 0; width: 100%;
-            padding: 12px 35px; display: flex; align-items: center;
-            background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(20px);
+            padding: 12px 30px; display: flex; align-items: center;
+            background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(15px);
             z-index: 1000; box-sizing: border-box;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
         .brand img { width: 35px; height: 35px; border-radius: 50%; border: 1.5px solid #00a8e8; }
-        .brand-text { font-size: 1.1rem; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
+        .brand-text { font-size: 1.1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
         .brand-text .white { color: #ffffff; }
         .brand-text .blue { color: #00a8e8; }
 
-        /* --- Main Layout --- */
+        /* --- Content Container --- */
         .container { 
             max-width: 1250px; margin: auto; 
-            padding: 130px 20px 60px; text-align: center; 
+            padding: 120px 20px 50px; text-align: center; 
         }
         
         h1 { 
-            font-size: clamp(2.2rem, 5vw, 3.2rem); margin-bottom: 60px; font-weight: 800;
-            color: #fff; letter-spacing: 2px;
-            text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 50px; font-weight: 800;
+            color: #fff; text-shadow: 0 0 20px rgba(0, 168, 232, 0.4);
         }
 
         /* --- Responsive 4-Column Grid --- */
         .service-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 20px; margin-bottom: 70px;
+            gap: 20px; margin-bottom: 60px;
         }
 
         @media (max-width: 1100px) { .service-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -59,77 +59,75 @@
         
         .service-link { text-decoration: none; color: inherit; }
 
-        /* --- Premium Glass Cards --- */
+        /* --- Glowing Glass Cards --- */
         .service-card {
             background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(25px);
-            padding: 45px 25px;
-            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            padding: 40px 20px;
+            border-radius: 25px;
             border: 1px solid rgba(255, 255, 255, 0.08);
             transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            min-height: 380px;
+            min-height: 350px;
             display: flex; flex-direction: column;
             align-items: center; justify-content: center;
         }
 
         .service-card:hover {
             transform: translateY(-15px);
-            background: rgba(255, 255, 255, 0.06);
-            border-color: #ff1e50; 
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 30, 80, 0.15);
+            background: rgba(0, 168, 232, 0.05);
+            border-color: #00a8e8;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 168, 232, 0.3);
         }
 
-        /* Relevant Icons */
+        /* Big Glowing Icons */
         .service-card i { 
-            font-size: 55px; margin-bottom: 25px; color: #fff;
-            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
-            transition: 0.4s;
+            font-size: 55px; color: #00a8e8; margin-bottom: 25px;
+            filter: drop-shadow(0 0 15px rgba(0, 168, 232, 0.6)); /* Chamakne wala effect */
         }
-
-        .service-card:hover i { transform: scale(1.15); color: #ff1e50; }
         
-        .service-card h3 { font-size: 1.5rem; margin-bottom: 15px; color: #fff; font-weight: 700; }
-        .service-card p { font-size: 0.9rem; line-height: 1.7; color: #aaa; }
+        .service-card h3 { font-size: 1.4rem; margin-bottom: 12px; color: #fff; font-weight: 700; }
+        .service-card p { font-size: 0.85rem; line-height: 1.6; color: #bbb; }
 
-        /* --- Request Quote Button --- */
+        /* --- Buttons --- */
         .btn-quote {
-            display: inline-block; padding: 18px 65px;
-            background: linear-gradient(135deg, #ff1e50, #ff5e3a);
-            color: #fff; text-decoration: none;
-            font-weight: 800; border-radius: 50px; transition: 0.4s;
-            box-shadow: 0 10px 30px rgba(255, 30, 80, 0.3);
-            text-transform: uppercase; letter-spacing: 1px;
+            display: inline-block; padding: 16px 50px;
+            background: #00a8e8; color: #fff; text-decoration: none;
+            font-weight: 700; border-radius: 50px; transition: 0.4s;
+            box-shadow: 0 10px 30px rgba(0, 168, 232, 0.3);
+            text-transform: uppercase;
         }
 
-        .btn-quote:hover { transform: scale(1.05); box-shadow: 0 15px 40px rgba(255, 30, 80, 0.5); }
+        .btn-quote:hover { transform: scale(1.05); box-shadow: 0 15px 40px rgba(0, 168, 232, 0.5); }
 
-        /* --- Interactive Back Button --- */
+        /* --- Wobble Back Button --- */
         .footer-nav { margin-top: 40px; padding-bottom: 40px; }
         
         .btn-home {
             display: inline-block;
-            color: #777; text-decoration: none; font-size: 0.95rem;
-            padding: 10px 25px; transition: 0.3s ease;
-            font-weight: 600; text-transform: uppercase;
+            color: #888; text-decoration: none; font-size: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            padding: 12px 40px; border-radius: 50px;
+            transition: 0.3s ease; font-weight: 600;
         }
 
         @keyframes wobble {
             0% { transform: translateX(0); }
-            25% { transform: translateX(-4px) rotate(-1deg); }
-            50% { transform: translateX(4px) rotate(1deg); }
+            25% { transform: translateX(-5px) rotate(-1deg); }
+            50% { transform: translateX(5px) rotate(1deg); }
             100% { transform: translateX(0); }
         }
 
         .btn-home:hover { 
             color: #00a8e8; 
-            animation: wobble 0.5s ease infinite;
+            border-color: #00a8e8;
+            animation: wobble 0.5s ease infinite; /* Wobble Effect */
+            background: rgba(0, 168, 232, 0.05);
         }
 
     </style>
 </head>
 <body>
 
-<!-- TOP NAVIGATION -->
 <header class="header-bar">
     <a href="index.html" class="brand">
         <img src="images/sel.png" alt="Logo">
@@ -140,51 +138,50 @@
 </header>
 
 <div class="container">
-    <h1>Explore Our Services</h1>
+    <h1>Our Premium Services</h1>
 
     <div class="service-grid">
-        <!-- Web Design -->
+        <!-- Web Design Icon -->
         <a href="web-design.html" class="service-link">
             <div class="service-card">
-                <i class="fas fa-laptop-code"></i>
+                <i class="fa-solid fa-laptop-code"></i>
                 <h3>Web Design</h3>
                 <p>5-8 पन्नों की प्रीमियम वेबसाइट। मोबाइल और गूगल के लिए पूरी तरह से फिट।</p>
             </div>
         </a>
 
-        <!-- App Development -->
+        <!-- App Development Icon -->
         <a href="app-dev.html" class="service-link">
             <div class="service-card">
-                <i class="fas fa-mobile-screen-button"></i>
+                <i class="fa-solid fa-mobile-screen-button"></i>
                 <h3>App Development</h3>
                 <p>आपका अपना एंड्राइड और iOS ऐप। बिज़नेस को लोगों की जेब तक पहुँचाएं।</p>
             </div>
         </a>
 
-        <!-- SEO Services -->
+        <!-- SEO Icon -->
         <a href="seo-services.html" class="service-link">
             <div class="service-card">
-                <i class="fas fa-rocket"></i>
+                <i class="fa-solid fa-rocket"></i>
                 <h3>SEO Services</h3>
                 <p>गूगल के पहले पेज पर आएं। बिना पैसे खर्च किए हजारों ग्राहक पाएं।</p>
             </div>
         </a>
 
-        <!-- Analytics (New Growth Chart Icon) -->
+        <!-- Analytics Icon -->
         <a href="analytics.html" class="service-link">
             <div class="service-card">
-                <i class="fas fa-chart-line"></i>
+                <i class="fa-solid fa-chart-line"></i>
                 <h3>Analytics</h3>
                 <p>समझें आपके ग्राहक क्या चाहते हैं। डेटा देखकर अपने बिज़नेस के फैसले लें।</p>
             </div>
         </a>
     </div>
 
-    <!-- Main Button -->
     <a href="https://wa.me" class="btn-quote">Request A Quote</a>
 
     <div class="footer-nav">
-        <a href="index.html" class="btn-home">— BACK TO HOME —</a>
+        <a href="index.html" class="btn-home">← BACK TO HOME</a>
     </div>
 </div>
 
