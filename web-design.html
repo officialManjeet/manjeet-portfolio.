@@ -3,269 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Design Solutions | Manjeet</title>
-    <!-- Font Link -->
-    <link href="https://fonts.googleapis.com" rel="stylesheet">
-    
+    <title>Web Design Services | Official Manjeet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
     <style>
+        /* --- Exact Wave Mix Background --- */
         body {
             margin: 0; padding: 0;
-            /* Exact match background jaisa aapne image mein dikhaya */
-            background-color: #0b0e14;
+            background: #050a0f;
             background-image: 
-                radial-gradient(at 50% 0%, rgba(0, 255, 136, 0.15) 0px, transparent 50%),
-                radial-gradient(at 50%<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Design Solutions | Manjeet</title>
-    
-    <!-- Google Font Link (Sahi wala) -->
-    <link href="https://fonts.googleapis.com" rel="stylesheet">
-    
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            /* Professional Dark Green Glow Background */
-            background-color: #0b0e14 !important;
-            background-image: 
-                radial-gradient(at 50% 0%, rgba(0, 255, 136, 0.2) 0px, transparent 50%),
-                radial-gradient(at 50% 100%, rgba(0, 255, 136, 0.15) 0px, transparent 50%) !important;
+                radial-gradient(circle at 100% 0%, #3a2a1d 0%, transparent 45%),
+                radial-gradient(circle at 0% 100%, #004d4d 0%, transparent 55%),
+                radial-gradient(circle at 50% 50%, #050a0f 0%, #020508 100%);
             background-attachment: fixed;
             font-family: 'Poppins', sans-serif;
-            color: white; 
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            color: white; min-height: 100vh;
         }
 
         header {
-            padding: 15px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(0, 255, 136, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            padding: 15px 30px; display: flex; align-items: center;
+            background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: sticky; top: 0; z-index: 1000;
         }
 
-        .logo-section { display: flex; align-items: center; gap: 12px; }
-        .logo-section img {
-            width: 45px; height: 45px;
-            border-radius: 50%;
-            border: 2px solid #00ff88;
-            box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
-            object-fit: cover;
-        }
-        .logo-section span { font-weight: 800; font-size: 22px; letter-spacing: 1px; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: white; font-weight: 800; }
+        .logo img { width: 35px; border-radius: 50%; border: 1.5px solid #00a8e8; }
 
-        .container { max-width: 800px; margin: auto; padding: 50px 20px; text-align: center; }
+        .container { max-width: 900px; margin: auto; padding: 60px 20px; text-align: center; }
+
+        h1 { font-size: 2.8rem; margin-bottom: 20px; color: #00a8e8; text-transform: uppercase; }
+
+        .service-info-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(25px);
+            padding: 40px; border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: left; box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        }
+
+        .feature-list { list-style: none; padding: 0; margin-top: 30px; }
+        .feature-list li { 
+            margin-bottom: 20px; font-size: 1.1rem; display: flex; align-items: center; gap: 15px; 
+            background: rgba(255,255,255,0.02); padding: 15px; border-radius: 15px;
+        }
+        .feature-list i { color: #00ff88; font-size: 1.3rem; }
+
+        /* --- Price Quote Button --- */
+        .btn-whatsapp {
+            display: inline-block; margin-top: 40px;
+            padding: 20px 60px; background: #25d366;
+            color: #fff; text-decoration: none; font-weight: 800;
+            border-radius: 50px; font-size: 1.2rem;
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+            transition: 0.4s; text-transform: uppercase;
+        }
+
+        .btn-whatsapp:hover { transform: scale(1.05); box-shadow: 0 20px 50px rgba(37, 211, 102, 0.6); }
+
+        .back-btn { display: inline-block; margin-top: 30px; color: #888; text-decoration: none; font-weight: 600; }
         
-        h1 { 
-            color: #00ff88; 
-            font-size: 2.8rem; 
-            font-weight: 800;
-            text-transform: uppercase;
-            text-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
-            margin-bottom: 30px;
+        @keyframes wobble {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            100% { transform: translateX(0); }
         }
-        
-        .project-image-box {
-            width: 100%;
-            height: 400px;
-            margin-bottom: 35px;
-            border-radius: 24px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
-            background: #161b22;
-        }
-        .project-image-box img { width: 100%; height: 100%; object-fit: cover; }
-
-        .content-info { 
-            text-align: left; 
-            background: rgba(255, 255, 255, 0.03); 
-            padding: 35px; 
-            border-radius: 24px; 
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(12px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-        }
-
-        .content-info h2 { font-size: 1.6rem; margin-bottom: 15px; color: #fff; }
-        .content-info p { color: #94a3b8; margin-bottom: 25px; line-height: 1.6; }
-        
-        ul { list-style: none; }
-        li { color: #00ff88; margin-bottom: 12px; font-weight: 600; font-size: 1.1rem; }
-
-        .back-btn {
-            display: inline-block;
-            margin-top: 45px;
-            padding: 14px 40px;
-            border: 2px solid #00ff88;
-            color: #00ff88;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-        }
-        .back-btn:hover { 
-            background: #00ff88; 
-            color: #000; 
-            box-shadow: 0 0 25px rgba(0, 255, 136, 0.6);
-            transform: translateY(-3px);
-        }
-
-        @media (max-width: 600px) {
-            h1 { font-size: 2rem; }
-            .project-image-box { height: 250px; }
-        }
+        .back-btn:hover { color: #00a8e8; animation: wobble 0.5s infinite; }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo-section">
-        <img src="images/sel.png" alt="Manjeet">
-        <span>Official<span style="color: #00ff88;">Manjeet</span></span>
-    </div>
+    <a href="index.html" class="logo">
+        <img src="images/sel.png" alt="Logo">
+        OFFICIAL <span style="color: #00a8e8;">MANJEET</span>
+    </a>
 </header>
 
 <div class="container">
-    <h1>Web Design Showcase</h1>
+    <h1>Web Design Services</h1>
     
-    <div class="project-image-box">
-        <img src="https://images.unsplash.com" alt="Work Sample">
-    </div>
-
-    <div class="content-info">
-        <h2>Why Choose Our Web Design?</h2>
-        <p>हम आपके बिज़नेस के लिए ऐसी वेबसाइट बनाते हैं जो न केवल दिखने में अच्छी हो, बल्कि गूगल पर रैंक भी करे।</p>
-        <ul>
-            <li>✅ 100% Mobile Responsive</li>
-            <li>✅ Ultra Fast Loading Speed</li>
-            <li>✅ SEO Optimized Layout</li>
+    <div class="service-info-card">
+        <h2>Aapki Website, Aapki Pehchan!</h2>
+        <p style="color: #aaa; line-height: 1.6;">Hum aapke business ke liye aisi website banate hain jo fast ho, modern ho aur Google par rank kare. Hamari website se aapka business 24/7 online dikhega.</p>
+        
+        <ul class="feature-list">
+            <li><i class="fas fa-check-circle"></i> 5-8 Premium Pages (Home, About, Services, etc.)</li>
+            <li><i class="fas fa-check-circle"></i> Fully Mobile & Tablet Responsive Design</li>
+            <li><i class="fas fa-check-circle"></i> Ultra-Fast Loading (Speed Optimization)</li>
+            <li><i class="fas fa-check-circle"></i> Google SEO Friendly Structure</li>
+            <li><i class="fas fa-check-circle"></i> Contact Forms & Map Integration</li>
+            <li><i class="fas fa-check-circle"></i> 1 Year Free Support & Maintenance</li>
         </ul>
+
+        <p style="margin-top: 30px; font-weight: 600; color: #00a8e8;">* Note: Rate aapki requirement ke hisab se finalize honge.</p>
     </div>
 
-    <a href="card3.html" class="back-btn">Back to Services</a>
-</div>
+    <!-- WhatsApp Quote Button (Update with your Number) -->
+    <a href="https://wa.me Manjeet, I am interested in Web Design service. Please share the rates." class="btn-whatsapp">
+        <i class="fab fa-whatsapp"></i> Get Rates & Details
+    </a>
 
-</body>
-</html>
- 100%, rgba(0, 255, 136, 0.1) 0px, transparent 50%);
-            font-family: 'Poppins', sans-serif;
-            color: white; 
-            min-height: 100vh;
-        }
-
-        header {
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 255, 136, 0.1);
-        }
-
-        .logo-section { display: flex; align-items: center; gap: 15px; }
-        .logo-section img {
-            width: 45px; height: 45px;
-            border-radius: 50%;
-            border: 2px solid #00ff88;
-            object-fit: cover;
-            box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
-        }
-
-        .logo-section span { font-weight: 800; font-size: 22px; letter-spacing: 1px; }
-
-        .container { max-width: 900px; margin: auto; padding: 40px 20px; text-align: center; }
-        
-        /* Glowing Title jaisa image mein "OUR SERVICES" hai */
-        h1 { 
-            color: #00ff88; 
-            font-size: 2.8rem; 
-            margin-bottom: 20px; 
-            text-transform: uppercase;
-            text-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
-            font-weight: 800;
-        }
-        
-        .project-image-box {
-            width: 100%;
-            max-width: 750px;
-            height: 400px;
-            margin: 30px auto;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid rgba(0, 255, 136, 0.2);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-            background: #161b22;
-        }
-        .project-image-box img { width: 100%; height: 100%; object-fit: cover; }
-
-        /* Card look jaisa image mein hai */
-        .content-info { 
-            text-align: left; 
-            background: rgba(255,255,255,0.03); 
-            padding: 35px; 
-            border-radius: 20px; 
-            margin-top: 30px; 
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-        
-        .back-btn {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 12px 35px;
-            background: transparent;
-            color: #00ff88;
-            border: 1.5px solid #00ff88;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-        .back-btn:hover { background: #00ff88; color: #000; box-shadow: 0 0 20px rgba(0, 255, 136, 0.4); }
-
-        ul { list-style: none; padding: 0; line-height: 2.5; color: #00ff88; }
-    </style>
-</head>
-<body>
-
-<header>
-    <div class="logo-section">
-        <img src="images/sel.png" alt="Manjeet">
-        <span>Official<span style="color: #00ff88;">Manjeet</span></span>
-    </div>
-</header>
-
-<div class="container">
-    <h1>Web Design Showcase</h1>
-    
-    <div class="project-image-box">
-        <img src="https://images.unsplash.com" alt="Sample">
-    </div>
-
-    <div class="content-info">
-        <h2 style="color: white;">Why Choose Our Web Design?</h2>
-        <p style="color: #8b949e;">हम आपके बिज़नेस के लिए ऐसी वेबसाइट बनाते हैं जो न केवल दिखने में अच्छी हो, बल्कि गूगल पर रैंक भी करे।</p>
-        <ul>
-            <li>✅ 100% Mobile Responsive</li>
-            <li>✅ Ultra Fast Loading Speed</li>
-            <li>✅ SEO Optimized Layout</li>
-        </ul>
-    </div>
-
-    <a href="card3.html" class="back-btn">Back to Services</a>
+    <br>
+    <a href="services.html" class="back-btn">← Back to Services</a>
 </div>
 
 </body>
