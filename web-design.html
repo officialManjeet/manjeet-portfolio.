@@ -3,169 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Design Services | Official Manjeet</title>
-    <!-- Latest FontAwesome for Icons -->
+    <title>Web Solutions | Official Manjeet</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
-    
     <style>
-        /* --- Premium Tech Image Background --- */
+        /* --- Dark Premium Background --- */
         body {
             margin: 0; padding: 0;
-            background: #050a0f;
-            /* Professional Tech Image with Dark Overlay */
-            background-image: linear-gradient(rgba(5, 10, 15, 0.8), rgba(5, 10, 15, 0.95)), 
-                              url('https://images.unsplash.com');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background: #0b0e14;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 255, 136, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 168, 232, 0.05) 0%, transparent 40%);
             font-family: 'Poppins', sans-serif;
-            color: white; 
-            min-height: 100vh;
-            overflow-x: hidden;
+            color: white; min-height: 100vh; overflow-x: hidden;
         }
 
-        /* --- Header Fix --- */
         header {
-            padding: 15px 35px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            position: sticky; top: 0; z-index: 1000;
+            padding: 15px 40px; display: flex; justify-content: space-between; align-items: center;
+            background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(15px);
+            position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .logo-box { display: flex; align-items: center; gap: 10px; text-decoration: none; color: white; }
-        .logo-box img { width: 38px; height: 38px; border-radius: 50%; border: 2px solid #00ff88; }
-        .logo-box span { font-weight: 800; font-size: 1.1rem; text-transform: uppercase; }
+        .logo-box img { width: 35px; border-radius: 50%; border: 1.5px solid #00ff88; }
 
-        /* Language Button */
         #lang-btn {
-            background: rgba(0, 255, 136, 0.15);
+            background: rgba(0, 255, 136, 0.1); color: #00ff88; border: 1px solid #00ff88;
+            padding: 8px 25px; border-radius: 50px; cursor: pointer; font-weight: 700;
+        }
+
+        .container { max-width: 1200px; margin: auto; padding: 60px 20px; text-align: center; }
+
+        h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 800; color: #00ff88; margin-bottom: 40px; }
+
+        /* --- IMAGE SLIDER SECTION --- */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 25px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .main-slider {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .slide-box {
+            min-width: 100%;
+            background: #fff;
+            position: relative;
+        }
+
+        /* Image jaisi visual look */
+        .slide-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        /* Nav Buttons */
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
             color: #00ff88;
             border: 1px solid #00ff88;
-            padding: 8px 22px;
-            border-radius: 50px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
             cursor: pointer;
+            z-index: 10;
+            font-size: 1.2rem;
+            transition: 0.3s;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .nav-btn:hover { background: #00ff88; color: #000; }
+        .prev { left: 20px; }
+        .next { right: 20px; }
+
+        /* Slide Captions */
+        .caption-bar {
+            background: #161b22;
+            padding: 20px;
+            color: #00ff88;
             font-weight: 700;
-            transition: 0.3s;
-        }
-        #lang-btn:hover { background: #00ff88; color: #000; }
-
-        .container { max-width: 1100px; margin: auto; padding: 60px 20px; text-align: center; }
-
-        h1 { 
-            font-size: clamp(2rem, 5vw, 3rem); 
-            font-weight: 800; 
-            margin-bottom: 50px; 
-            color: #fff; 
-            text-shadow: 0 10px 20px rgba(0,0,0,0.5);
-        }
-
-        /* --- Clickable Poster Grid --- */
-        .poster-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-
-        .poster-link { text-decoration: none; color: inherit; }
-
-        .service-poster {
-            height: 280px;
-            border-radius: 25px;
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 30px;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            text-align: center;
-        }
-
-        .service-poster:hover {
-            transform: translateY(-15px);
-            border-color: #00ff88;
-            background: rgba(0, 255, 136, 0.05);
-            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.15);
-        }
-
-        .service-poster h2 { font-size: 1.8rem; color: #00ff88; margin-bottom: 15px; }
-        .service-poster p { font-size: 1rem; color: #bbb; line-height: 1.6; }
-
-        /* --- Info Section --- */
-        .info-card {
-            background: rgba(255, 255, 255, 0.02);
-            padding: 40px;
-            border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            text-align: left;
-            margin-bottom: 50px;
-        }
-
-        .info-card h2 { font-size: 1.6rem; color: #fff; margin-bottom: 30px; }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            list-style: none;
-            padding: 0;
-        }
-
-        .feature-grid li { display: flex; align-items: center; gap: 12px; color: #aaa; font-weight: 500; }
-        .feature-grid i { color: #00ff88; font-size: 1.1rem; }
-
-        /* --- Interactive Buttons --- */
-        .btn-quote {
-            display: inline-block;
-            padding: 18px 60px;
-            background: #00ff88;
-            color: #000;
-            text-decoration: none;
-            font-weight: 800;
-            border-radius: 50px;
-            font-size: 1.1rem;
             text-transform: uppercase;
-            transition: 0.4s;
-            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
-        }
-        .btn-quote:hover { transform: scale(1.05); box-shadow: 0 15px 45px rgba(0, 255, 136, 0.5); }
-
-        /* --- Back Button with Wobble --- */
-        .back-nav { margin-top: 40px; padding-bottom: 40px; }
-        
-        .btn-back {
-            display: inline-block;
-            color: #777;
-            text-decoration: none;
-            font-weight: 600;
-            padding: 10px 30px;
-            transition: 0.3s;
+            letter-spacing: 1px;
         }
 
-        @keyframes wobble {
-            0% { transform: translateX(0); }
-            25% { transform: translateX(-4px) rotate(-1deg); }
-            50% { transform: translateX(4px) rotate(1deg); }
-            100% { transform: translateX(0); }
+        /* --- Footer Info --- */
+        .tagline { margin: 40px 0; font-size: 1.2rem; color: #aaa; }
+        .btn-quote {
+            display: inline-block; padding: 18px 60px; background: #00ff88;
+            color: #000; text-decoration: none; font-weight: 800; border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3); transition: 0.3s;
         }
+        .btn-back { display: inline-block; margin-top: 30px; color: #666; text-decoration: none; }
 
-        .btn-back:hover { 
-            color: #00ff88; 
-            animation: wobble 0.5s infinite; 
-        }
-
-        /* Responsive Mobile Fix */
-        @media (max-width: 600px) {
-            header { padding: 12px 20px; }
-            .container { padding: 40px 15px; }
-            .service-poster { height: auto; padding: 40px 20px; }
-        }
     </style>
 </head>
 <body>
@@ -179,89 +119,80 @@
 </header>
 
 <div class="container">
-    <h1 id="main-title">हमारी वेब सेवाएं</h1>
+    <h1 id="main-title">वेबसाइट डिज़ाइन टेम्पलेट्स</h1>
 
-    <div class="poster-grid">
-        <!-- WordPress Card -->
-        <a href="wordpress-details.html" class="poster-link">
-            <div class="service-poster">
-                <div class="p-content">
-                    <h2 id="p1-h">WordPress Specialists</h2>
-                    <p id="p1-p">हम WordPress का उपयोग करके आसानी से मैनेज होने वाली प्रीमियम साइट्स बनाते हैं।</p>
-                </div>
+    <div class="slider-container">
+        <button class="nav-btn prev" onclick="moveSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+        <button class="nav-btn next" onclick="moveSlide(1)"><i class="fas fa-chevron-right"></i></button>
+
+        <div class="main-slider" id="slider">
+            <!-- Slide 1: Career Page Overview -->
+            <div class="slide-box">
+                <img src="https://images.unsplash.com" alt="Career Page">
+                <div class="caption-bar" id="cap1">Career & Job Portal Overview</div>
             </div>
-        </a>
-
-        <!-- Custom Dev Card -->
-        <a href="custom-dev-details.html" class="poster-link">
-            <div class="service-poster">
-                <div class="p-content">
-                    <h2 id="p2-h">Custom Development</h2>
-                    <p id="p2-p">बिज़नेस की जरूरत के हिसाब से सुपर-फास्ट और डायनामिक वेब कोडिंग समाधान।</p>
-                </div>
+            <!-- Slide 2: Contact Page Design -->
+            <div class="slide-box">
+                <img src="https://images.unsplash.com" alt="Contact Design">
+                <div class="caption-bar" id="cap2">Modern Contact & Enquiry Form</div>
             </div>
-        </a>
+            <!-- Slide 3: Mobile View Template -->
+            <div class="slide-box">
+                <img src="https://images.unsplash.com" alt="Mobile Template">
+                <div class="caption-bar" id="cap3">100% Responsive Mobile Interface</div>
+            </div>
+        </div>
     </div>
 
-    <div class="info-card">
-        <h2 id="info-h">पैकेज में क्या शामिल है?</h2>
-        <ul class="feature-grid">
-            <li id="f1"><i class="fas fa-check-circle"></i> Mobile & Tablet Responsive</li>
-            <li id="f2"><i class="fas fa-check-circle"></i> High Performance Speed</li>
-            <li id="f3"><i class="fas fa-check-circle"></i> SEO & Search Engine Ready</li>
-            <li id="f4"><i class="fas fa-check-circle"></i> Advanced Security & SSL</li>
-            <li id="f5"><i class="fas fa-check-circle"></i> Priority 24/7 Support</li>
-            <li id="f6"><i class="fas fa-check-circle"></i> WP, PHP & React Options</li>
-        </ul>
-    </div>
+    <p class="tagline" id="main-tagline">अपने बिज़नेस को <b>ऑनलाइन</b> लाएं और दुनिया के किसी भी कोने से आसानी से <b>हैंडल</b> करें।</p>
 
-    <!-- Replace with your actual WhatsApp Number -->
-    <a href="https://wa.me Manjeet, I want to discuss Web Design rates." class="btn-quote" id="quote-btn">Request Your Quote Now</a>
-
-    <div class="back-nav">
-        <!-- Back Button Fix: Points to index.html -->
-        <a href="index.html" class="btn-back" id="back-btn">← Back to Home</a>
-    </div>
+    <a href="https://wa.me" class="btn-quote" id="quote-btn">अभी रेट पूछें</a>
+    <br>
+    <a href="index.html" class="btn-back" id="back-btn">← होम पर वापस जाएं</a>
 </div>
 
 <script>
-    // --- Functional Language Toggle ---
+    let currentSlide = 0;
+    const slider = document.getElementById('slider');
+    const totalSlides = 3;
+
+    function moveSlide(step) {
+        currentSlide = (currentSlide + step + totalSlides) % totalSlides;
+        slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    // Auto-Slide every 5 seconds
+    setInterval(() => moveSlide(1), 5000);
+
+    // Language Toggle
     let lang = 'hi';
     const ui = {
         hi: {
-            title: "हमारी वेब सेवाएं",
-            p1h: "WordPress Specialists",
-            p1p: "हम WordPress का उपयोग करके आसानी से मैनेज होने वाली प्रीमियम साइट्स बनाते हैं।",
-            p2h: "Custom Development",
-            p2p: "बिज़नेस की जरूरत के हिसाब से सुपर-फास्ट और डायनामिक वेब कोडिंग समाधान।",
-            infoh: "पैकेज में क्या शामिल है?",
-            btn: "अभी रेट पूछें",
-            back: "← होम पर वापस जाएं",
-            langBtn: "English"
+            title: "वेबसाइट डिज़ाइन टेम्पलेट्स",
+            tagline: "अपने बिज़नेस को <b>ऑनलाइन</b> लाएं और दुनिया के किसी भी कोने से आसानी से <b>हैंडल</b> करें।",
+            c1: "कैरियर और जॉब पोर्टल ओवरव्यू",
+            c2: "मॉडर्न कांटेक्ट और इन्क्वायरी फॉर्म",
+            c3: "100% रिस्पॉन्सिव मोबाइल इंटरफ़ेस",
+            btn: "अभी रेट पूछें", back: "← होम पर वापस जाएं", langBtn: "English"
         },
         en: {
-            title: "Our Web Solutions",
-            p1h: "WordPress Specialists",
-            p1p: "We build easy-to-manage and professional websites using WordPress.",
-            p2h: "Custom Development",
-            p2p: "Super-fast dynamic websites with hand-crafted custom coding.",
-            infoh: "What's Included in Package?",
-            btn: "Request Your Quote Now",
-            back: "← Back to Home",
-            langBtn: "Hindi"
+            title: "Website Design Templates",
+            tagline: "Bring your business <b>Online</b> and <b>Handle</b> it easily from anywhere.",
+            c1: "Career & Job Portal Overview",
+            c2: "Modern Contact & Enquiry Form",
+            c3: "100% Responsive Mobile UI",
+            btn: "Request Quote Now", back: "← Back to Home", langBtn: "Hindi"
         }
     };
 
     function toggleLang() {
         lang = lang === 'hi' ? 'en' : 'hi';
         const d = ui[lang];
-
         document.getElementById('main-title').innerText = d.title;
-        document.getElementById('p1-h').innerText = d.p1h;
-        document.getElementById('p1-p').innerText = d.p1p;
-        document.getElementById('p2-h').innerText = d.p2h;
-        document.getElementById('p2-p').innerText = d.p2p;
-        document.getElementById('info-h').innerText = d.infoh;
+        document.getElementById('main-tagline').innerHTML = d.tagline;
+        document.getElementById('cap1').innerText = d.c1;
+        document.getElementById('cap2').innerText = d.c2;
+        document.getElementById('cap3').innerText = d.c3;
         document.getElementById('quote-btn').innerText = d.btn;
         document.getElementById('back-btn').innerText = d.back;
         document.getElementById('lang-btn').innerText = d.langBtn;
