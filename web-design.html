@@ -65,13 +65,19 @@
         }
 
       .mockup-img {
-    width: 100%;       /* Full width lega */
-    height: auto;      /* Height content ke hisaab se adjust hogi, kategi nahi */
-    display: block;    /* Neeche ka extra space khatam karne ke liye */
-    object-fit: contain; /* Pura image frame ke andar fit rahega */
-    object-position: top; 
+    width: 100%;
+    height: 350px;       /* Ek fix height dein taaki button na chhupe */
+    object-fit: cover;   /* Image ko area mein barabar fill karega */
+    object-position: top;/* Hamesha header dikhayega */
+    display: block;
     transition: 0.5s;
 }
+
+/* Jab mouse image par jaye to niche scroll ho (Hover Effect) */
+.mockup-img:hover {
+    object-position: bottom; 
+}
+
 
 }
         }
