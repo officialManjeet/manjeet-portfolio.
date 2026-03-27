@@ -45,20 +45,20 @@
             font-weight: 600; font-size: 0.9rem;
         }
 
-        /* --- VERTICAL SLIDER SECTION --- */
+        /* --- WIDE SLIDER SECTION (Lenth Badha Di Hai) --- */
         .slider-section {
             padding: 40px 0;
             text-align: center;
             position: relative;
         }
 
-        h1 { font-size: 1.8rem; color: #00bd65; margin-bottom: 5px; font-weight: 800; }
+        h1 { font-size: 2rem; color: #00bd65; margin-bottom: 5px; font-weight: 800; }
         .tagline { color: #888; font-size: 0.9rem; margin-bottom: 30px; }
 
         .slider-outer {
             position: relative; 
-            width: 50%;           /* Width kam ki hai taaki vertical dikhe */
-            max-width: 600px;     /* Mobile mockup style */
+            width: 85%;           /* Width (Lenth) badha kar 85% kar di */
+            max-width: 1200px;    /* Max choudai badha di */
             margin: auto;
         }
 
@@ -66,29 +66,29 @@
         .slider-track { 
             display: flex; 
             transition: transform 0.7s cubic-bezier(0.2, 1, 0.2, 1); 
-            gap: 60px;
+            gap: 40px;
         }
 
         .slide { 
             min-width: 100%; 
             display: flex; 
             justify-content: center; 
-            opacity: 0.15;         /* Side slides ko halka rakha hai */
+            opacity: 0.2; 
             transition: 0.6s;
         }
         .slide.active { opacity: 1; }
 
         .mockup-img {
             width: 100%;
-            height: 650px;        /* Height badha di hai (Vertical Look) */
-            object-fit: cover;    /* Screenshot ko upar se fit karega */
+            height: 480px;        /* Height kam rakhi hai taki vertical na lage */
+            object-fit: cover;    /* Screenshot ko length mein fit karega */
             object-position: top;
-            transition: 5s ease-in-out; /* Smooth scroll animation */
+            transition: 5s ease-in-out; 
             cursor: pointer;
             border-radius: 15px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            box-shadow: 0 15px 45px rgba(0,0,0,0.1);
         }
-        /* Hover par poori website niche tak dikhegi */
+        /* Hover par image scroll hogi */
         .mockup-img:hover { object-position: bottom; }
 
         /* --- BUTTONS ON SCREEN EDGES --- */
@@ -96,39 +96,39 @@
             position: fixed; 
             top: 50%; 
             transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.85); 
+            background: rgba(0, 0, 0, 0.8); 
             color: #fff;
             border: none; 
-            font-size: 28px; 
+            font-size: 30px; 
             z-index: 3000;
-            width: 55px; height: 55px; border-radius: 50%;
+            width: 60px; height: 60px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             cursor: pointer; transition: 0.3s;
         }
-        .prev { left: 30px; } 
-        .next { right: 30px; }
+        .prev { left: 20px; } 
+        .next { right: 20px; }
         .nav-btn:hover { background: #00bd65; scale: 1.1; }
 
         /* --- INFO SECTION --- */
         .info-section {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 60px auto;
             padding: 0 20px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            gap: 50px;
             text-align: left;
         }
-        .info-box h3 { color: #00bd65; margin-bottom: 15px; font-size: 1.3rem; }
-        .info-box li { list-style: none; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; font-size: 0.95rem; }
+        .info-box h3 { color: #00bd65; margin-bottom: 15px; font-size: 1.4rem; }
+        .info-box li { list-style: none; margin-bottom: 10px; display: flex; align-items: center; gap: 12px; font-size: 1rem; }
         .info-box li i { color: #00bd65; }
 
         /* --- BOTTOM ACTIONS --- */
         .action-area { text-align: center; margin-bottom: 80px; }
         .btn-quote {
-            display: inline-block; padding: 16px 50px; background: #00ff88;
+            display: inline-block; padding: 18px 60px; background: #00ff88;
             color: #000; text-decoration: none; font-weight: 800; border-radius: 50px;
-            text-transform: uppercase; margin-bottom: 30px; box-shadow: 0 10px 20px rgba(0,255,136,0.3);
+            text-transform: uppercase; margin-bottom: 30px; box-shadow: 0 10px 25px rgba(0,255,136,0.3);
         }
         .btn-back-bottom {
             display: block; background: none; border: none; color: #999;
@@ -136,11 +136,11 @@
         }
 
         @media (max-width: 768px) {
-            .slider-outer { width: 85%; }
-            .mockup-img { height: 450px; }
+            .slider-outer { width: 90%; }
+            .mockup-img { height: 350px; }
             .info-section { grid-template-columns: 1fr; }
             .nav-btn { width: 45px; height: 45px; font-size: 20px; }
-            .prev { left: 10px; } .next { right: 10px; }
+            .prev { left: 5px; } .next { right: 5px; }
         }
     </style>
 </head>
@@ -148,7 +148,7 @@
 
 <header>
     <div class="logo-area">
-        <button onclick="window.history.back()" class="back-link-btn"><i class="fas fa-arrow-left"></i></button>
+        <button onclick="window.history.back()" class="back-link-btn" title="Back"><i class="fas fa-arrow-left"></i></button>
         <img src="./images/sel.png" alt="Logo">
         <span>Official <b>Manjeet</b></span>
     </div>
@@ -157,15 +157,16 @@
 
 <div class="slider-section">
     <h1>प्रीमियम वेबसाइट ओवरव्यू</h1>
-    <p class="tagline">Vertical Mockup - Hover to scroll through design</p>
+    <p class="tagline">Explore our wide range of professional designs</p>
     
-    <!-- Screen Edge Navigation -->
+    <!-- Screen Edge Navigation Arrows -->
     <button class="nav-btn prev" onclick="moveSlide(-1)">❮</button>
     <button class="nav-btn next" onclick="moveSlide(1)">❯</button>
 
     <div class="slider-outer">
         <div class="slider-track-container">
             <div class="slider-track" id="track">
+                <!-- Slides -->
                 <div class="slide active"><img src="./images/p1.jpg" class="mockup-img"></div>
                 <div class="slide"><img src="./images/p2.jpg" class="mockup-img"></div>
                 <div class="slide"><img src="./images/p3.jpg" class="mockup-img"></div>
@@ -181,24 +182,24 @@
     <div class="info-box">
         <h3>वेबसाइट क्यों बनवाएं?</h3>
         <ul>
-            <li><i class="fas fa-check-circle"></i> 24/7 ऑनलाइन प्रेजेंस।</li>
-            <li><i class="fas fa-check-circle"></i> कस्टमर का भरोसा और ब्रांडिंग।</li>
-            <li><i class="fas fa-check-circle"></i> बिजनेस को डिजिटल स्केल करने के लिए।</li>
+            <li><i class="fas fa-check-circle"></i> अपना बिजनेस ऑनलाइन ले जाएं।</li>
+            <li><i class="fas fa-check-circle"></i> ग्राहकों का भरोसा और बेहतर ब्रांडिंग।</li>
+            <li><i class="fas fa-check-circle"></i> डिजिटल मार्केटिंग से बिजनेस बढ़ाएं।</li>
         </ul>
     </div>
     <div class="info-box">
-        <h3>पैकेज में क्या मिलेगा?</h3>
+        <h3>आपको क्या-क्या मिलेगा?</h3>
         <ul>
-            <li><i class="fas fa-star"></i> प्रीमियम .com डोमेन + होस्टिंग।</li>
-            <li><i class="fas fa-star"></i> रिस्पॉन्सिव मोबाइल-फ्रेंडली डिज़ाइन।</li>
-            <li><i class="fas fa-star"></i> 1 साल का मेंटेनेंस सपोर्ट।</li>
+            <li><i class="fas fa-star"></i> फ्री डोमेन और हाई-स्पीड होस्टिंग।</li>
+            <li><i class="fas fa-star"></i> मॉडर्न और रिस्पॉन्सिव डिज़ाइन।</li>
+            <li><i class="fas fa-star"></i> फ्री SSL और लाइफटाइम सपोर्ट।</li>
         </ul>
     </div>
 </div>
 
 <div class="action-area">
     <a href="https://wa.me" class="btn-quote">Request Quote Now</a>
-    <button onclick="window.history.back()" class="btn-back-bottom">← BACK TO HOME</button>
+    <button onclick="window.history.back()" class="btn-back-bottom">← BACK TO PORTFOLIO</button>
 </div>
 
 <script>
@@ -211,12 +212,13 @@
         if (current < 0) current = slides.length - 1;
         if (current >= slides.length) current = 0;
         
-        const gap = 60; 
+        const gap = 40; 
         const slideWidth = track.offsetWidth;
         const move = current * (slideWidth + gap);
         
         track.style.transform = `translateX(-${move}px)`;
 
+        // Update active class for fade effect
         slides.forEach((slide, index) => {
             slide.classList.toggle('active', index === current);
         });
