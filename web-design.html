@@ -8,14 +8,13 @@
     
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: #ffffff; font-family: 'Poppins', sans-serif; color: #333; overflow-x: hidden; padding-bottom: 80px; }
+        body { background: #ffffff; font-family: 'Poppins', sans-serif; color: #333; overflow-x: hidden; }
 
         /* --- HEADER --- */
         header {
             padding: 15px 5%; display: flex; justify-content: space-between; align-items: center;
             background: #fff; border-bottom: 1px solid #f0f0f0; position: sticky; top: 0; z-index: 2000;
         }
-
         .logo-area { display: flex; align-items: center; gap: 12px; }
         .logo-area img { width: 42px; height: 42px; border-radius: 50%; border: 2px solid #00bd65; object-fit: cover; }
         .logo-area span { font-weight: 800; font-size: 1.1rem; color: #000; text-transform: uppercase; }
@@ -43,7 +42,7 @@
         }
         .mockup-img:hover { object-position: bottom; }
 
-        /* --- SIDE NAV BUTTONS --- */
+        /* --- NAV BUTTONS --- */
         .nav-btn {
             position: fixed; top: 50%; transform: translateY(-50%);
             background: rgba(0,0,0,0.85); color: #fff; border: none; font-size: 32px;
@@ -57,21 +56,23 @@
         .info-box h3 { color: #00bd65; margin-bottom: 18px; font-size: 1.5rem; }
         .info-box li { list-style: none; margin-bottom: 12px; display: flex; align-items: center; gap: 15px; font-size: 1.05rem; }
 
-        /* --- STICKY FOOTER BACK BUTTON --- */
-        footer {
-            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
-            z-index: 2000; width: auto;
+        /* --- FINAL FOOTER BACK BUTTON (Fix) --- */
+        .footer-area {
+            text-align: center;
+            padding: 50px 0 80px; /* Neeche space di hai taaki buttons ke niche na dabe */
         }
+        
         .footer-back-btn {
-            background: #00bd65; color: #fff; border: none; padding: 12px 30px;
+            background: #00bd65; color: #fff; border: none; padding: 15px 45px;
             border-radius: 50px; cursor: pointer; font-weight: 700; font-size: 1rem;
-            box-shadow: 0 5px 15px rgba(0, 189, 101, 0.4); display: flex; align-items: center; gap: 10px;
+            box-shadow: 0 5px 15px rgba(0, 189, 101, 0.4); 
+            display: inline-flex; align-items: center; gap: 10px;
             transition: 0.3s; text-transform: uppercase;
         }
         .footer-back-btn:hover { background: #000; transform: translateY(-3px); }
 
         .btn-quote { 
-            display: block; width: fit-content; margin: 0 auto 100px; padding: 20px 65px; 
+            display: block; width: fit-content; margin: 0 auto 30px; padding: 20px 65px; 
             background: #00ff88; color:#000; text-decoration:none; font-weight:800; 
             border-radius:50px; transition: 0.3s; box-shadow: 0 10px 25px rgba(0, 255, 136, 0.3);
         }
@@ -133,39 +134,29 @@
     </div>
 </div>
 
-<a href="https://wa.me" class="btn-quote" id="quote-btn">अभी कोटेशन लें</a>
-
-<!-- Final Footer Back Button -->
-<footer>
+<div class="footer-area">
+    <a href="https://wa.me" class="btn-quote" id="quote-btn">अभी कोटेशन लें</a>
+    <br>
+    <!-- Ab ye Button Content ke bad niche hi rahega -->
     <button onclick="window.history.back()" class="footer-back-btn" id="footer-back">
         <i class="fas fa-arrow-left"></i> वापस जाएं
     </button>
-</footer>
+</div>
 
 <script>
     let currentLang = 'hi';
     const translations = {
         en: {
-            title: 'Premium Website Overview',
-            tagline: 'Explore our wide range of professional designs',
-            whyTitle: 'Why build a website?',
-            whyList: ['Take your business online.', 'Customer trust and better branding.', 'Grow business with digital marketing.'],
-            whatTitle: 'What will you get?',
-            whatList: ['Free domain and high-speed hosting.', 'Modern and responsive design.', 'Free SSL and lifetime support.'],
-            btn: 'Hindi',
-            quote: 'REQUEST QUOTE NOW',
-            back: 'Go Back'
+            title: 'Premium Website Overview', tagline: 'Explore our wide range of professional designs',
+            whyTitle: 'Why build a website?', whyList: ['Take your business online.', 'Customer trust and better branding.', 'Grow business with digital marketing.'],
+            whatTitle: 'What will you get?', whatList: ['Free domain and high-speed hosting.', 'Modern and responsive design.', 'Free SSL and lifetime support.'],
+            btn: 'Hindi', quote: 'REQUEST QUOTE NOW', back: 'Go Back'
         },
         hi: {
-            title: 'प्रीमियम वेबसाइट ओवरव्यू',
-            tagline: 'बेहतरीन और प्रोफेशनल डिजाइनों की हमारी विस्तृत श्रृंखला देखें',
-            whyTitle: 'वेबसाइट क्यों बनवाएं?',
-            whyList: ['अपना बिजनेस ऑनलाइन ले जाएं।', 'ग्राहकों का भरोसा और बेहतर ब्रांडिंग।', 'डिजिटल मार्केटिंग से बिजनेस बढ़ाएं।'],
-            whatTitle: 'आपको क्या-क्या मिलेगा?',
-            whatList: ['फ्री डोमेन और हाई-स्पीड होस्टिंग।', 'मॉडर्न और रिस्पॉन्सिव डिज़ाइन।', 'फ्री SSL और लाइफटाइम सपोर्ट।'],
-            btn: 'English',
-            quote: 'अभी कोटेशन लें',
-            back: 'वापस जाएं'
+            title: 'प्रीमियम वेबसाइट ओवरव्यू', tagline: 'बेहतरीन और प्रोफेशनल डिजाइनों की हमारी विस्तृत श्रृंखला देखें',
+            whyTitle: 'वेबसाइट क्यों बनवाएं?', whyList: ['अपना बिजनेस ऑनलाइन ले जाएं।', 'ग्राहकों का भरोसा और बेहतर ब्रांडिंग।', 'डिजिटल मार्केटिंग से बिजनेस बढ़ाएं।'],
+            whatTitle: 'आपको क्या-क्या मिलेगा?', whatList: ['फ्री डोमेन और हाई-स्पीड होस्टिंग।', 'मॉडर्न और रिस्पॉन्सिव डिज़ाइन।', 'फ्री SSL और लाइफटाइम सपोर्ट।'],
+            btn: 'English', quote: 'अभी कोटेशन लें', back: 'वापस जाएं'
         }
     };
 
@@ -189,12 +180,9 @@
     let current = 0;
     const track = document.getElementById('track');
     const slides = document.querySelectorAll('.slide');
-
     function moveSlide(dir) {
         current = (current + dir + slides.length) % slides.length;
-        const gap = 40;
-        const move = current * (track.offsetWidth + gap);
-        track.style.transform = `translateX(-${move}px)`;
+        track.style.transform = `translateX(-${current * (track.offsetWidth / slides.length + 40)}px)`;
         slides.forEach((s, i) => s.classList.toggle('active', i === current));
     }
 </script>
