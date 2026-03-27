@@ -6,27 +6,65 @@
     <title>Our Services | Official Manjeet</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
     <style>
-        /* --- Updated Premium Image Background --- */
+        /* --- Premium Tech Background --- */
         body {
-    margin: 0; padding: 0;
-    /* Dark Abstract Tech Background - Neon Green ke saath match karega */
-    background: linear-gradient(rgba(10, 14, 20, 0.8), rgba(10, 14, 20, 0.9)), 
-                url('https://images.unsplash.com');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    font-family: 'Poppins', sans-serif;
-    color: white; text-align: center;
-    min-height: 100vh;
-}
+            margin: 0; padding: 0;
+            background: linear-gradient(rgba(10, 14, 20, 0.88), rgba(10, 14, 20, 0.95)), 
+                        url('https://images.unsplash.com');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            min-height: 100vh;
+        }
 
+        /* --- TOP HEADER (Logo + Name) --- */
+        header.header-bar {
+            position: fixed; /* Top par fix rahega */
+            top: 0; left: 0;
+            width: 100%;
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.3); /* Halka glass effect */
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
 
-        .container { max-width: 1200px; margin: auto; padding: 80px 20px; }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: white;
+        }
+
+        .brand img {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 2px solid #00ff88;
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+        }
+
+        .brand-text {
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .brand-text span { color: #00ff88; }
+
+        /* --- Main Content --- */
+        .container { max-width: 1200px; margin: auto; padding: 150px 20px 80px; text-align: center; }
         
         h1 { 
-            font-size: 3.5rem; color: #00ff88; margin-bottom: 60px; 
-            text-transform: uppercase; letter-spacing: 6px;
-            text-shadow: 0 0 30px rgba(0, 255, 136, 0.6);
+            font-size: 3.2rem; color: #00ff88; margin-bottom: 60px; 
+            text-transform: uppercase; letter-spacing: 5px;
+            text-shadow: 0 0 25px rgba(0, 255, 136, 0.5);
         }
 
         .service-grid {
@@ -34,79 +72,80 @@
             justify-content: center;
             gap: 25px;
             flex-wrap: wrap;
-            margin-bottom: 100px;
+            margin-bottom: 80px;
         }
         
         .service-link { text-decoration: none; color: inherit; width: 270px; }
 
         .service-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(15px);
-            padding: 50px 25px;
-            border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            height: 380px;
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            padding: 40px 25px;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: 0.4s;
+            height: 350px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
         }
 
         .service-card:hover {
-            transform: translateY(-20px);
+            transform: translateY(-15px);
             border-color: #00ff88;
-            background: rgba(0, 255, 136, 0.1);
-            box-shadow: 0 25px 60px rgba(0, 255, 136, 0.3);
+            background: rgba(0, 255, 136, 0.08);
+            box-shadow: 0 20px 50px rgba(0, 255, 136, 0.2);
         }
 
         .service-card i { 
-            font-size: 55px; color: #00ff88; margin-bottom: 30px;
-            filter: drop-shadow(0 0 15px rgba(0, 255, 136, 0.6));
+            font-size: 50px; color: #00ff88; margin-bottom: 25px;
+            filter: drop-shadow(0 0 10px rgba(0, 255, 136, 0.4));
         }
         
-        .service-card h3 { font-size: 1.6rem; margin-bottom: 15px; font-weight: 700; color: #fff; }
-        .service-card p { font-size: 0.95rem; line-height: 1.7; color: #ccc; text-align: center; }
+        .service-card h3 { font-size: 1.5rem; margin-bottom: 12px; }
+        .service-card p { font-size: 0.9rem; line-height: 1.6; color: #bbb; }
 
-        /* --- New Modern Style for Button --- */
+        /* --- NEW BUTTON STYLE --- */
         .btn-quote {
             display: inline-block;
-            padding: 20px 60px;
-            background: rgba(0, 255, 136, 0.1); /* Transparent look */
+            padding: 18px 55px;
+            background: transparent;
             color: #00ff88;
             text-decoration: none;
             font-weight: 700;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            transition: 0.4s;
-            border: 2px solid #00ff88;
+            border-radius: 100px;
+            font-size: 1.1rem;
+            border: 2.5px solid #00ff88;
             text-transform: uppercase;
             letter-spacing: 2px;
-            backdrop-filter: blur(10px);
+            transition: 0.4s all;
         }
 
         .btn-quote:hover { 
             background: #00ff88;
             color: #000;
+            box-shadow: 0 0 35px rgba(0, 255, 136, 0.6);
             transform: scale(1.05);
-            box-shadow: 0 0 40px rgba(0, 255, 136, 0.6);
         }
 
-        /* Back Button Footer */
-        .footer-nav { margin-top: 80px; padding-bottom: 50px; }
+        .footer-nav { margin-top: 80px; padding-bottom: 40px; }
         .btn-home {
-            color: #8b949e; text-decoration: none; font-size: 1rem;
+            color: #777; text-decoration: none; font-size: 0.9rem;
             border: 1px solid rgba(255,255,255,0.1); 
-            padding: 12px 40px; border-radius: 50px;
-            transition: 0.3s;
-            font-weight: 600;
+            padding: 10px 30px; border-radius: 50px;
         }
-        .btn-home:hover { color: #00ff88; border-color: #00ff88; background: rgba(0, 255, 136, 0.05); }
-
     </style>
 </head>
 <body>
+
+<!-- FIXED HEADER TOP-LEFT -->
+<header class="header-bar">
+    <a href="index.html" class="brand">
+        <img src="images/sel.png" alt="Logo">
+        <div class="brand-text">OFFICIAL<span>MANJEET</span></div>
+    </a>
+</header>
 
 <div class="container">
     <h1>Our Services</h1>
@@ -145,10 +184,9 @@
         </a>
     </div>
 
-    <!-- Updated Button -->
+    <!-- New Style Button -->
     <a href="https://wa.me" class="btn-quote">Request A Quote</a>
 
-    <!-- Back Button -->
     <div class="footer-nav">
         <a href="index.html" class="btn-home">BACK TO HOME</a>
     </div>
