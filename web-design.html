@@ -5,107 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Solutions | Official Manjeet</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
+    
     <style>
-        /* --- Dark Premium Background --- */
+        /* --- Premium Wave Mix Background --- */
         body {
             margin: 0; padding: 0;
-            background: #0b0e14;
+            background: #050a0f; 
             background-image: 
-                radial-gradient(circle at 10% 20%, rgba(0, 255, 136, 0.05) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(0, 168, 232, 0.05) 0%, transparent 40%);
+                radial-gradient(circle at 100% 0%, #3a2a1d 0%, transparent 45%), 
+                radial-gradient(circle at 0% 100%, #004d4d 0%, transparent 55%),
+                radial-gradient(circle at 50% 50%, #050a0f 0%, #020508 100%);
+            background-attachment: fixed;
             font-family: 'Poppins', sans-serif;
             color: white; min-height: 100vh; overflow-x: hidden;
         }
 
         header {
             padding: 15px 40px; display: flex; justify-content: space-between; align-items: center;
-            background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(15px);
+            background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(20px);
             position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .logo-box { display: flex; align-items: center; gap: 10px; text-decoration: none; color: white; }
-        .logo-box img { width: 35px; border-radius: 50%; border: 1.5px solid #00ff88; }
+        .logo-box img { width: 35px; height: 35px; border-radius: 50%; border: 1.5px solid #00ff88; }
+        .logo-box span { font-weight: 800; text-transform: uppercase; font-size: 1rem; }
 
         #lang-btn {
             background: rgba(0, 255, 136, 0.1); color: #00ff88; border: 1px solid #00ff88;
-            padding: 8px 25px; border-radius: 50px; cursor: pointer; font-weight: 700;
+            padding: 8px 25px; border-radius: 50px; cursor: pointer; font-weight: 700; transition: 0.3s;
         }
 
         .container { max-width: 1200px; margin: auto; padding: 60px 20px; text-align: center; }
 
-        h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 800; color: #00ff88; margin-bottom: 40px; }
+        h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; color: #00ff88; margin-bottom: 10px; }
+        .tagline { font-size: 1.2rem; color: #aaa; margin-bottom: 40px; }
+        .tagline span { color: #fff; font-weight: 600; border-bottom: 2px solid #00ff88; }
 
-        /* --- IMAGE SLIDER SECTION --- */
-        .slider-container {
-            position: relative;
-            width: 100%;
-            max-width: 1000px;
-            margin: auto;
-            overflow: hidden;
-            border-radius: 25px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-            border: 1px solid rgba(255,255,255,0.08);
+        /* --- 5-PAGE PREMIUM SLIDER --- */
+        .slider-outer {
+            position: relative; width: 100%; max-width: 1100px; margin: auto;
+            border-radius: 30px; overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.8);
+            border: 1px solid rgba(255,255,255,0.05); background: #111;
         }
 
-        .main-slider {
-            display: flex;
-            transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-        }
+        .slider-track { display: flex; transition: transform 0.7s cubic-bezier(0.19, 1, 0.22, 1); }
 
-        .slide-box {
-            min-width: 100%;
-            background: #fff;
-            position: relative;
-        }
+        .slide { min-width: 100%; display: flex; flex-direction: column; }
 
-        /* Image jaisi visual look */
-        .slide-box img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: contain;
-        }
+        .mockup-display { display: flex; gap: 15px; padding: 20px; height: 450px; background: #e0e0e0; }
+        .desktop-view { flex: 2; background: #fff; border-radius: 10px; overflow: hidden; }
+        .side-view { flex: 1; background: #fff; border-radius: 10px; overflow: hidden; }
+        .mockup-display img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
 
-        /* Nav Buttons */
+        .slide-info { background: #161b22; padding: 20px; color: #00ff88; font-weight: 700; text-transform: uppercase; }
+
         .nav-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.6);
-            color: #00ff88;
-            border: 1px solid #00ff88;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            z-index: 10;
-            font-size: 1.2rem;
-            transition: 0.3s;
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(0,0,0,0.7); color: #00ff88; border: 1px solid #00ff88;
+            width: 50px; height: 50px; border-radius: 50%; cursor: pointer; z-index: 10;
             display: flex; align-items: center; justify-content: center;
         }
-        .nav-btn:hover { background: #00ff88; color: #000; }
-        .prev { left: 20px; }
-        .next { right: 20px; }
 
-        /* Slide Captions */
-        .caption-bar {
-            background: #161b22;
-            padding: 20px;
-            color: #00ff88;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+        .prev { left: 20px; } .next { right: 20px; }
 
-        /* --- Footer Info --- */
-        .tagline { margin: 40px 0; font-size: 1.2rem; color: #aaa; }
+        /* --- Buttons --- */
         .btn-quote {
-            display: inline-block; padding: 18px 60px; background: #00ff88;
-            color: #000; text-decoration: none; font-weight: 800; border-radius: 50px;
-            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3); transition: 0.3s;
+            display: inline-block; padding: 18px 60px; background: #25d366;
+            color: #fff; text-decoration: none; font-weight: 800; border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3); transition: 0.4s; margin-top: 50px;
         }
-        .btn-back { display: inline-block; margin-top: 30px; color: #666; text-decoration: none; }
 
+        .back-nav { margin-top: 40px; padding-bottom: 40px; }
+        .btn-back { display: inline-block; color: #888; text-decoration: none; font-weight: 600; padding: 10px 30px; transition: 0.3s; }
+
+        @keyframes wobble {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-4px) rotate(-1deg); }
+            50% { transform: translateX(4px) rotate(1deg); }
+            100% { transform: translateX(0); }
+        }
+        .btn-back:hover { color: #00ff88; animation: wobble 0.5s infinite; }
+
+        @media (max-width: 768px) {
+            .mockup-display { flex-direction: column; height: auto; }
+            .desktop-view, .side-view { height: 250px; }
+        }
     </style>
 </head>
 <body>
@@ -119,68 +103,92 @@
 </header>
 
 <div class="container">
-    <h1 id="main-title">वेबसाइट डिज़ाइन टेम्पलेट्स</h1>
+    <h1 id="main-title">प्रीमियम वेबसाइट ओवरव्यू</h1>
+    <p class="tagline" id="main-tagline">अपने बिज़नेस को <span>ऑनलाइन</span> लाएं और दुनिया के किसी भी कोने से आसानी से <span>हैंडल</span> करें।</p>
 
-    <div class="slider-container">
-        <button class="nav-btn prev" onclick="moveSlide(-1)"><i class="fas fa-chevron-left"></i></button>
-        <button class="nav-btn next" onclick="moveSlide(1)"><i class="fas fa-chevron-right"></i></button>
+    <div class="slider-outer">
+        <button class="nav-btn prev" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+        <button class="nav-btn next" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
 
-        <div class="main-slider" id="slider">
-            <!-- Slide 1: Career Page Overview -->
-            <div class="slide-box">
-                <img src="https://images.unsplash.com" alt="Career Page">
-                <div class="caption-bar" id="cap1">Career & Job Portal Overview</div>
+        <div class="slider-track" id="track">
+            <!-- 5 Slides -->
+            <div class="slide">
+                <div class="mockup-display">
+                    <div class="desktop-view"><img src="https://images.unsplash.com"></div>
+                    <div class="side-view"><img src="https://images.unsplash.com"></div>
+                </div>
+                <div class="slide-info" id="c1">1. Home Page & Business Overview</div>
             </div>
-            <!-- Slide 2: Contact Page Design -->
-            <div class="slide-box">
-                <img src="https://images.unsplash.com" alt="Contact Design">
-                <div class="caption-bar" id="cap2">Modern Contact & Enquiry Form</div>
+            <div class="slide">
+                <div class="mockup-display">
+                    <div class="desktop-view"><img src="https://images.unsplash.com"></div>
+                    <div class="side-view"><img src="https://images.unsplash.com"></div>
+                </div>
+                <div class="slide-info" id="c2">2. Our Services & Package Details</div>
             </div>
-            <!-- Slide 3: Mobile View Template -->
-            <div class="slide-box">
-                <img src="https://images.unsplash.com" alt="Mobile Template">
-                <div class="caption-bar" id="cap3">100% Responsive Mobile Interface</div>
+            <div class="slide">
+                <div class="mockup-display">
+                    <div class="desktop-view"><img src="https://images.unsplash.com"></div>
+                    <div class="side-view"><img src="https://images.unsplash.com"></div>
+                </div>
+                <div class="slide-info" id="c3">3. Work Portfolio & Gallery</div>
+            </div>
+            <div class="slide">
+                <div class="mockup-display">
+                    <div class="desktop-view"><img src="https://images.unsplash.com"></div>
+                    <div class="side-view"><img src="https://images.unsplash.com"></div>
+                </div>
+                <div class="slide-info" id="c4">4. Contact Us & Enquiry Form</div>
+            </div>
+            <div class="slide">
+                <div class="mockup-display">
+                    <div class="desktop-view"><img src="https://images.unsplash.com"></div>
+                    <div class="side-view"><img src="https://images.unsplash.com"></div>
+                </div>
+                <div class="slide-info" id="c5">5. Business Dashboard & Analytics</div>
             </div>
         </div>
     </div>
 
-    <p class="tagline" id="main-tagline">अपने बिज़नेस को <b>ऑनलाइन</b> लाएं और दुनिया के किसी भी कोने से आसानी से <b>हैंडल</b> करें।</p>
-
     <a href="https://wa.me" class="btn-quote" id="quote-btn">अभी रेट पूछें</a>
-    <br>
-    <a href="index.html" class="btn-back" id="back-btn">← होम पर वापस जाएं</a>
+    
+    <div class="back-nav">
+        <a href="index.html" class="btn-back" id="back-btn">← BACK TO HOME</a>
+    </div>
 </div>
 
 <script>
-    let currentSlide = 0;
-    const slider = document.getElementById('slider');
-    const totalSlides = 3;
+    let current = 0;
+    const total = 5;
+    const track = document.getElementById('track');
 
-    function moveSlide(step) {
-        currentSlide = (currentSlide + step + totalSlides) % totalSlides;
-        slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+    function changeSlide(dir) {
+        current = (current + dir + total) % total;
+        track.style.transform = `translateX(-${current * 100}%)`;
     }
 
-    // Auto-Slide every 5 seconds
-    setInterval(() => moveSlide(1), 5000);
+    setInterval(() => changeSlide(1), 6000);
 
-    // Language Toggle
     let lang = 'hi';
     const ui = {
         hi: {
-            title: "वेबसाइट डिज़ाइन टेम्पलेट्स",
-            tagline: "अपने बिज़नेस को <b>ऑनलाइन</b> लाएं और दुनिया के किसी भी कोने से आसानी से <b>हैंडल</b> करें।",
-            c1: "कैरियर और जॉब पोर्टल ओवरव्यू",
-            c2: "मॉडर्न कांटेक्ट और इन्क्वायरी फॉर्म",
-            c3: "100% रिस्पॉन्सिव मोबाइल इंटरफ़ेस",
+            title: "प्रीमियम वेबसाइट ओवरव्यू",
+            tagline: "अपने बिज़नेस को <span>ऑनलाइन</span> लाएं और दुनिया के किसी भी कोने से आसानी से <span>हैंडल</span> करें।",
+            c1: "1. मुख्य पृष्ठ और बिज़नेस ओवरव्यू",
+            c2: "2. हमारी सेवाएं और पैकेज विवरण",
+            c3: "3. वर्क पोर्टफोलियो और गैलरी",
+            c4: "4. संपर्क फ़ॉर्म और पूछताछ",
+            c5: "5. बिज़नेस डैशबोर्ड और एनालिटिक्स",
             btn: "अभी रेट पूछें", back: "← होम पर वापस जाएं", langBtn: "English"
         },
         en: {
-            title: "Website Design Templates",
-            tagline: "Bring your business <b>Online</b> and <b>Handle</b> it easily from anywhere.",
-            c1: "Career & Job Portal Overview",
-            c2: "Modern Contact & Enquiry Form",
-            c3: "100% Responsive Mobile UI",
+            title: "Premium Website Overview",
+            tagline: "Bring your business <span>Online</span> and <span>Handle</span> it easily from anywhere.",
+            c1: "1. Home Page & Business Overview",
+            c2: "2. Our Services & Package Details",
+            c3: "3. Work Portfolio & Gallery",
+            c4: "4. Contact Us & Enquiry Form",
+            c5: "5. Business Dashboard & Analytics",
             btn: "Request Quote Now", back: "← Back to Home", langBtn: "Hindi"
         }
     };
@@ -190,14 +198,15 @@
         const d = ui[lang];
         document.getElementById('main-title').innerText = d.title;
         document.getElementById('main-tagline').innerHTML = d.tagline;
-        document.getElementById('cap1').innerText = d.c1;
-        document.getElementById('cap2').innerText = d.c2;
-        document.getElementById('cap3').innerText = d.c3;
+        document.getElementById('c1').innerText = d.c1;
+        document.getElementById('c2').innerText = d.c2;
+        document.getElementById('c3').innerText = d.c3;
+        document.getElementById('c4').innerText = d.c4;
+        document.getElementById('c5').innerText = d.c5;
         document.getElementById('quote-btn').innerText = d.btn;
         document.getElementById('back-btn').innerText = d.back;
         document.getElementById('lang-btn').innerText = d.langBtn;
     }
 </script>
-
 </body>
 </html>
