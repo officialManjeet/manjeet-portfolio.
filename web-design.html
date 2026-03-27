@@ -8,7 +8,7 @@
     
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: #ffffff; font-family: 'Poppins', sans-serif; color: #333; overflow-x: hidden; }
+        body { background: #ffffff; font-family: 'Poppins', sans-serif; color: #333; overflow-x: hidden; padding-bottom: 80px; }
 
         /* --- HEADER --- */
         header {
@@ -17,16 +17,6 @@
         }
 
         .logo-area { display: flex; align-items: center; gap: 12px; }
-
-        /* --- STYLISH ROUND BACK BUTTON (TOP ONLY) --- */
-        .back-link-btn {
-            background: #f4f4f4; border: none; color: #333; width: 45px; height: 45px;
-            border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;
-            transition: 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-right: 5px; font-size: 1.2rem;
-        }
-        .back-link-btn:hover { background: #00bd65; color: #fff; transform: scale(1.1); }
-
-        /* --- ROUND LOGO --- */
         .logo-area img { width: 42px; height: 42px; border-radius: 50%; border: 2px solid #00bd65; object-fit: cover; }
         .logo-area span { font-weight: 800; font-size: 1.1rem; color: #000; text-transform: uppercase; }
         .logo-area span b { color: #00bd65; }
@@ -35,7 +25,6 @@
             background: #00bd65; color: #fff; border: none; padding: 10px 22px;
             border-radius: 50px; cursor: pointer; font-weight: 600; transition: 0.3s;
         }
-        .lang-btn:hover { background: #000; }
 
         /* --- SLIDER AREA --- */
         .slider-section { padding: 40px 0; text-align: center; position: relative; }
@@ -54,33 +43,41 @@
         }
         .mockup-img:hover { object-position: bottom; }
 
-        /* --- NAV BUTTONS ON SCREEN EDGES --- */
+        /* --- SIDE NAV BUTTONS --- */
         .nav-btn {
             position: fixed; top: 50%; transform: translateY(-50%);
             background: rgba(0,0,0,0.85); color: #fff; border: none; font-size: 32px;
-            width: 65px; height: 65px; border-radius: 50%; z-index: 3000; cursor: pointer;
+            width: 65px; height: 65px; border-radius: 50%; z-index: 1500; cursor: pointer;
             display: flex; align-items: center; justify-content: center; transition: 0.3s;
         }
         .prev { left: 25px; } .next { right: 25px; }
-        .nav-btn:hover { background: #00bd65; transform: translateY(-50%) scale(1.1); }
 
-        /* --- INFO AREA --- */
+        /* --- INFO SECTION --- */
         .info-section { max-width: 1100px; margin: 60px auto; padding: 0 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; text-align: left; }
         .info-box h3 { color: #00bd65; margin-bottom: 18px; font-size: 1.5rem; }
         .info-box li { list-style: none; margin-bottom: 12px; display: flex; align-items: center; gap: 15px; font-size: 1.05rem; }
-        .info-box li i { font-size: 1.2rem; }
 
-        .action-area { text-align: center; margin-bottom: 80px; }
-        .btn-quote { 
-            display: inline-block; padding: 20px 65px; background: #00ff88; color:#000; 
-            text-decoration:none; font-weight:800; border-radius:50px; transition: 0.3s;
-            box-shadow: 0 10px 25px rgba(0, 255, 136, 0.3);
+        /* --- STICKY FOOTER BACK BUTTON --- */
+        footer {
+            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+            z-index: 2000; width: auto;
         }
-        .btn-quote:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0, 255, 136, 0.4); }
+        .footer-back-btn {
+            background: #00bd65; color: #fff; border: none; padding: 12px 30px;
+            border-radius: 50px; cursor: pointer; font-weight: 700; font-size: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 189, 101, 0.4); display: flex; align-items: center; gap: 10px;
+            transition: 0.3s; text-transform: uppercase;
+        }
+        .footer-back-btn:hover { background: #000; transform: translateY(-3px); }
+
+        .btn-quote { 
+            display: block; width: fit-content; margin: 0 auto 100px; padding: 20px 65px; 
+            background: #00ff88; color:#000; text-decoration:none; font-weight:800; 
+            border-radius:50px; transition: 0.3s; box-shadow: 0 10px 25px rgba(0, 255, 136, 0.3);
+        }
 
         @media (max-width: 768px) { 
-            .info-section { grid-template-columns: 1fr; gap: 30px; } 
-            .slider-outer { width: 90%; } 
+            .info-section { grid-template-columns: 1fr; } 
             .nav-btn { width: 50px; height: 50px; font-size: 22px; }
             .prev { left: 10px; } .next { right: 10px; }
         }
@@ -90,10 +87,6 @@
 
 <header>
     <div class="logo-area">
-        <!-- Working Back Button Next to Logo -->
-        <button onclick="window.history.back()" class="back-link-btn" title="Back">
-            <i class="fas fa-chevron-left"></i>
-        </button>
         <img src="./images/sel.png" alt="Logo">
         <span>OFFICIAL <b>MANJEET</b></span>
     </div>
@@ -140,12 +133,16 @@
     </div>
 </div>
 
-<div class="action-area">
-    <a href="https://wa.me" class="btn-quote" id="quote-btn">अभी कोटेशन लें</a>
-</div>
+<a href="https://wa.me" class="btn-quote" id="quote-btn">अभी कोटेशन लें</a>
+
+<!-- Final Footer Back Button -->
+<footer>
+    <button onclick="window.history.back()" class="footer-back-btn" id="footer-back">
+        <i class="fas fa-arrow-left"></i> वापस जाएं
+    </button>
+</footer>
 
 <script>
-    // --- Language Toggle Logic ---
     let currentLang = 'hi';
     const translations = {
         en: {
@@ -156,7 +153,8 @@
             whatTitle: 'What will you get?',
             whatList: ['Free domain and high-speed hosting.', 'Modern and responsive design.', 'Free SSL and lifetime support.'],
             btn: 'Hindi',
-            quote: 'REQUEST QUOTE NOW'
+            quote: 'REQUEST QUOTE NOW',
+            back: 'Go Back'
         },
         hi: {
             title: 'प्रीमियम वेबसाइट ओवरव्यू',
@@ -166,29 +164,28 @@
             whatTitle: 'आपको क्या-क्या मिलेगा?',
             whatList: ['फ्री डोमेन और हाई-स्पीड होस्टिंग।', 'मॉडर्न और रिस्पॉन्सिव डिज़ाइन।', 'फ्री SSL और लाइफटाइम सपोर्ट।'],
             btn: 'English',
-            quote: 'अभी कोटेशन लें'
+            quote: 'अभी कोटेशन लें',
+            back: 'वापस जाएं'
         }
     };
 
     function toggleLang() {
         currentLang = currentLang === 'hi' ? 'en' : 'hi';
         const t = translations[currentLang];
-        
         document.getElementById('main-title').innerText = t.title;
         document.getElementById('main-tagline').innerText = t.tagline;
         document.getElementById('why-title').innerText = t.whyTitle;
         document.getElementById('what-title').innerText = t.whatTitle;
         document.getElementById('langBtn').innerText = t.btn;
         document.getElementById('quote-btn').innerText = t.quote;
+        document.getElementById('footer-back').innerHTML = `<i class="fas fa-arrow-left"></i> ${t.back}`;
 
         const whyItems = document.getElementById('why-list').querySelectorAll('li');
         whyItems.forEach((li, i) => li.innerHTML = `<i class="fas fa-check-circle"></i> ${t.whyList[i]}`);
-        
         const whatItems = document.getElementById('what-list').querySelectorAll('li');
         whatItems.forEach((li, i) => li.innerHTML = `<i class="fas fa-star"></i> ${t.whatList[i]}`);
     }
 
-    // --- Slider Logic ---
     let current = 0;
     const track = document.getElementById('track');
     const slides = document.querySelectorAll('.slide');
