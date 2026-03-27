@@ -4,120 +4,209 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Design Services | Official Manjeet</title>
+    <!-- Latest FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
+    
     <style>
-        /* --- Background with Image Layer --- */
+        /* --- Premium Tech Image Background --- */
         body {
             margin: 0; padding: 0;
             background: #050a0f;
-            /* Yahan ek professional tech background image lagayi hai */
-            background-image: linear-gradient(rgba(5, 10, 15, 0.85), rgba(5, 10, 15, 0.95)), 
+            /* Professional Tech Image with Dark Overlay */
+            background-image: linear-gradient(rgba(5, 10, 15, 0.8), rgba(5, 10, 15, 0.95)), 
                               url('https://images.unsplash.com');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             font-family: 'Poppins', sans-serif;
-            color: white; min-height: 100vh;
+            color: white; 
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
+        /* --- Header Fix --- */
         header {
-            padding: 15px 30px; display: flex; justify-content: space-between; align-items: center;
-            background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(15px);
-            position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 15px 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: sticky; top: 0; z-index: 1000;
         }
 
-        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: white; font-weight: 800; }
-        .logo img { width: 35px; border-radius: 50%; border: 1.5px solid #00ff88; }
+        .logo-box { display: flex; align-items: center; gap: 10px; text-decoration: none; color: white; }
+        .logo-box img { width: 38px; height: 38px; border-radius: 50%; border: 2px solid #00ff88; }
+        .logo-box span { font-weight: 800; font-size: 1.1rem; text-transform: uppercase; }
 
+        /* Language Button */
         #lang-btn {
-            background: rgba(0, 255, 136, 0.1); color: #00ff88; border: 1px solid #00ff88;
-            padding: 8px 20px; border-radius: 50px; cursor: pointer; font-weight: 600;
+            background: rgba(0, 255, 136, 0.15);
+            color: #00ff88;
+            border: 1px solid #00ff88;
+            padding: 8px 22px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: 0.3s;
         }
+        #lang-btn:hover { background: #00ff88; color: #000; }
 
         .container { max-width: 1100px; margin: auto; padding: 60px 20px; text-align: center; }
 
-        /* --- Clickable Service Cards --- */
-        .poster-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 50px; }
-        
-        .card-link { text-decoration: none; color: inherit; }
+        h1 { 
+            font-size: clamp(2rem, 5vw, 3rem); 
+            font-weight: 800; 
+            margin-bottom: 50px; 
+            color: #fff; 
+            text-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        /* --- Clickable Poster Grid --- */
+        .poster-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .poster-link { text-decoration: none; color: inherit; }
 
         .service-poster {
-            height: 280px; border-radius: 25px; overflow: hidden; position: relative;
-            border: 1px solid rgba(255, 255, 255, 0.1); transition: 0.4s ease;
-            display: flex; align-items: center; justify-content: center; text-align: center;
-            background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px);
+            height: 280px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: center;
         }
 
         .service-poster:hover {
-            transform: translateY(-12px); border-color: #00ff88;
-            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.2);
+            transform: translateY(-15px);
+            border-color: #00ff88;
             background: rgba(0, 255, 136, 0.05);
+            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.15);
         }
 
-        .poster-content { padding: 30px; }
-        .poster-content h2 { font-size: 1.8rem; color: #00ff88; margin-bottom: 15px; }
-        .poster-content p { font-size: 1rem; color: #ccc; line-height: 1.5; }
+        .service-poster h2 { font-size: 1.8rem; color: #00ff88; margin-bottom: 15px; }
+        .service-poster p { font-size: 1rem; color: #bbb; line-height: 1.6; }
 
-        /* --- Package Info --- */
+        /* --- Info Section --- */
         .info-card {
-            background: rgba(255, 255, 255, 0.02); padding: 40px; border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.05); text-align: left;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 40px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: left;
+            margin-bottom: 50px;
         }
-        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; list-style: none; padding: 0; }
-        .feature-grid li { display: flex; align-items: center; gap: 12px; color: #aaa; }
-        .feature-grid i { color: #00ff88; }
 
-        /* --- Buttons --- */
+        .info-card h2 { font-size: 1.6rem; color: #fff; margin-bottom: 30px; }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-grid li { display: flex; align-items: center; gap: 12px; color: #aaa; font-weight: 500; }
+        .feature-grid i { color: #00ff88; font-size: 1.1rem; }
+
+        /* --- Interactive Buttons --- */
         .btn-quote {
-            display: inline-block; margin-top: 50px; padding: 18px 60px; background: #00ff88;
-            color: #000; text-decoration: none; font-weight: 800; border-radius: 50px; font-size: 1.1rem;
-            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3); transition: 0.3s;
+            display: inline-block;
+            padding: 18px 60px;
+            background: #00ff88;
+            color: #000;
+            text-decoration: none;
+            font-weight: 800;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            transition: 0.4s;
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
         }
-        .btn-quote:hover { transform: scale(1.05); box-shadow: 0 15px 40px rgba(0, 255, 136, 0.5); }
+        .btn-quote:hover { transform: scale(1.05); box-shadow: 0 15px 45px rgba(0, 255, 136, 0.5); }
 
-        .back-link { display: inline-block; margin-top: 30px; color: #666; text-decoration: none; font-weight: 600; }
+        /* --- Back Button with Wobble --- */
+        .back-nav { margin-top: 40px; padding-bottom: 40px; }
         
+        .btn-back {
+            display: inline-block;
+            color: #777;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 30px;
+            transition: 0.3s;
+        }
+
+        @keyframes wobble {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-4px) rotate(-1deg); }
+            50% { transform: translateX(4px) rotate(1deg); }
+            100% { transform: translateX(0); }
+        }
+
+        .btn-back:hover { 
+            color: #00ff88; 
+            animation: wobble 0.5s infinite; 
+        }
+
+        /* Responsive Mobile Fix */
+        @media (max-width: 600px) {
+            header { padding: 12px 20px; }
+            .container { padding: 40px 15px; }
+            .service-poster { height: auto; padding: 40px 20px; }
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <a href="index.html" class="logo">
+    <a href="index.html" class="logo-box">
         <img src="images/sel.png" alt="Logo">
-        OFFICIAL <span style="color: #00ff88;">MANJEET</span>
+        <span>Official<span style="color: #00ff88;">Manjeet</span></span>
     </a>
     <button id="lang-btn" onclick="toggleLang()">English</button>
 </header>
 
 <div class="container">
-    <h1 id="page-title" style="margin-bottom: 50px; font-weight: 800;">हमारी वेब सेवाएं</h1>
+    <h1 id="main-title">हमारी वेब सेवाएं</h1>
 
     <div class="poster-grid">
-        <!-- Card 1: WordPress (Link to Detail Page) -->
-        <a href="wordpress-details.html" class="card-link">
+        <!-- WordPress Card -->
+        <a href="wordpress-details.html" class="poster-link">
             <div class="service-poster">
-                <div class="poster-content">
+                <div class="p-content">
                     <h2 id="p1-h">WordPress Specialists</h2>
-                    <p id="p1-p">हम WordPress का उपयोग करके प्रोफेशनल और आसानी से मैनेज होने वाली साइट्स बनाते हैं।</p>
+                    <p id="p1-p">हम WordPress का उपयोग करके आसानी से मैनेज होने वाली प्रीमियम साइट्स बनाते हैं।</p>
                 </div>
             </div>
         </a>
 
-        <!-- Card 2: Custom Development (Link to Detail Page) -->
-        <a href="custom-dev-details.html" class="card-link">
+        <!-- Custom Dev Card -->
+        <a href="custom-dev-details.html" class="poster-link">
             <div class="service-poster">
-                <div class="poster-content">
+                <div class="p-content">
                     <h2 id="p2-h">Custom Development</h2>
-                    <p id="p2-p">हाथ से लिखी कोडिंग के साथ सुपर-फास्ट और डायनामिक वेबसाइट्स का निर्माण।</p>
+                    <p id="p2-p">बिज़नेस की जरूरत के हिसाब से सुपर-फास्ट और डायनामिक वेब कोडिंग समाधान।</p>
                 </div>
             </div>
         </a>
     </div>
-    
+
     <div class="info-card">
-        <h2 id="info-h" style="margin-bottom: 30px; color: #fff;">पैकेज में क्या शामिल है?</h2>
+        <h2 id="info-h">पैकेज में क्या शामिल है?</h2>
         <ul class="feature-grid">
-            <li id="f1"><i class="fas fa-check-circle"></i> Responsive on All Devices</li>
+            <li id="f1"><i class="fas fa-check-circle"></i> Mobile & Tablet Responsive</li>
             <li id="f2"><i class="fas fa-check-circle"></i> High Performance Speed</li>
             <li id="f3"><i class="fas fa-check-circle"></i> SEO & Search Engine Ready</li>
             <li id="f4"><i class="fas fa-check-circle"></i> Advanced Security & SSL</li>
@@ -126,24 +215,28 @@
         </ul>
     </div>
 
-    <a href="https://wa.me" class="btn-quote" id="quote-btn">Request Your Quote Now</a>
-    <br>
-    <a href="services.html" class="back-link" id="back-btn">← Go Back to Services</a>
+    <!-- Replace with your actual WhatsApp Number -->
+    <a href="https://wa.me Manjeet, I want to discuss Web Design rates." class="btn-quote" id="quote-btn">Request Your Quote Now</a>
+
+    <div class="back-nav">
+        <!-- Back Button Fix: Points to index.html -->
+        <a href="index.html" class="btn-back" id="back-btn">← Back to Home</a>
+    </div>
 </div>
 
 <script>
-    // --- Language Switcher Logic ---
-    let currentLang = 'hi';
-    const content = {
+    // --- Functional Language Toggle ---
+    let lang = 'hi';
+    const ui = {
         hi: {
             title: "हमारी वेब सेवाएं",
             p1h: "WordPress Specialists",
-            p1p: "हम WordPress का उपयोग करके प्रोफेशनल और आसानी से मैनेज होने वाली साइट्स बनाते हैं।",
+            p1p: "हम WordPress का उपयोग करके आसानी से मैनेज होने वाली प्रीमियम साइट्स बनाते हैं।",
             p2h: "Custom Development",
-            p2p: "हाथ से लिखी कोडिंग के साथ सुपर-फास्ट और डायनामिक वेबसाइट्स का निर्माण।",
+            p2p: "बिज़नेस की जरूरत के हिसाब से सुपर-फास्ट और डायनामिक वेब कोडिंग समाधान।",
             infoh: "पैकेज में क्या शामिल है?",
             btn: "अभी रेट पूछें",
-            back: "← सेवाओं पर वापस जाएं",
+            back: "← होम पर वापस जाएं",
             langBtn: "English"
         },
         en: {
@@ -154,24 +247,24 @@
             p2p: "Super-fast dynamic websites with hand-crafted custom coding.",
             infoh: "What's Included in Package?",
             btn: "Request Your Quote Now",
-            back: "← Go Back to Services",
+            back: "← Back to Home",
             langBtn: "Hindi"
         }
     };
 
     function toggleLang() {
-        currentLang = currentLang === 'hi' ? 'en' : 'hi';
-        const data = content[currentLang];
+        lang = lang === 'hi' ? 'en' : 'hi';
+        const d = ui[lang];
 
-        document.getElementById('page-title').innerText = data.title;
-        document.getElementById('p1-h').innerText = data.p1h;
-        document.getElementById('p1-p').innerText = data.p1p;
-        document.getElementById('p2-h').innerText = data.p2h;
-        document.getElementById('p2-p').innerText = data.p2p;
-        document.getElementById('info-h').innerText = data.infoh;
-        document.getElementById('quote-btn').innerText = data.btn;
-        document.getElementById('back-btn').innerText = data.back;
-        document.getElementById('lang-btn').innerText = data.langBtn;
+        document.getElementById('main-title').innerText = d.title;
+        document.getElementById('p1-h').innerText = d.p1h;
+        document.getElementById('p1-p').innerText = d.p1p;
+        document.getElementById('p2-h').innerText = d.p2h;
+        document.getElementById('p2-p').innerText = d.p2p;
+        document.getElementById('info-h').innerText = d.infoh;
+        document.getElementById('quote-btn').innerText = d.btn;
+        document.getElementById('back-btn').innerText = d.back;
+        document.getElementById('lang-btn').innerText = d.langBtn;
     }
 </script>
 
