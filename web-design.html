@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Official Manjeet | Web Solutions</title>
 
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
@@ -45,6 +45,15 @@ header{
 
 .logo-area b{color:#00bd65;}
 
+.lang-btn{
+    background:#00bd65;
+    color:#fff;
+    border:none;
+    padding:8px 18px;
+    border-radius:30px;
+    cursor:pointer;
+}
+
 /* HERO */
 .hero{
     text-align:center;
@@ -53,12 +62,18 @@ header{
 
 .hero h2{
     color:#00bd65;
+    margin-bottom:10px;
+}
+
+.hero p{
+    color:#555;
 }
 
 /* SLIDER */
 .slider-section{
     text-align:center;
     position:relative;
+    margin-bottom:30px;
 }
 
 .slider-track{
@@ -70,7 +85,7 @@ header{
     min-width:100%;
     display:flex;
     justify-content:center;
-    padding:0 60px;
+    padding:0 40px;
 }
 
 .slide img{
@@ -91,6 +106,8 @@ header{
     width:40px;
     height:40px;
     border-radius:50%;
+    cursor:pointer;
+    z-index:10;
 }
 
 .prev{left:10px;}
@@ -128,7 +145,7 @@ header{
 .form input,.form textarea{
     width:90%;
     padding:10px;
-    margin:8px;
+    margin:8px 0;
     border:1px solid #ccc;
     border-radius:8px;
 }
@@ -140,92 +157,87 @@ header{
     border-radius:25px;
     border:none;
     font-weight:700;
+    cursor:pointer;
 }
 
 /* MOBILE */
 @media(max-width:768px){
 .slide{padding:0 20px;}
+.portfolio img{width:120px;}
+.card{margin:10px 0;}
 }
 </style>
-
 </head>
 
 <body>
 
 <header>
 <div class="logo-area">
-<img src="./images/sel.png">
+<img src="./images/sel.png" alt="Logo">
 <span>OFFICIAL <b>MANJEET</b></span>
 </div>
+<button class="lang-btn" onclick="toggleLang()" id="langBtn">English</button>
 </header>
 
 <!-- HERO -->
-
 <div class="hero">
-<h2>🚀 Grow Your Business Online</h2>
-<p>हम ऐसी वेबसाइट बनाते हैं जो client लेकर आए 💰</p>
+<h2 id="heroTitle">🚀 Grow Your Business Online</h2>
+<p id="heroText">We create websites that bring clients 💰</p>
 </div>
 
 <!-- SLIDER -->
-
 <div class="slider-section">
-
-<button class="nav-btn prev" onclick="move(-1)">❮</button> <button class="nav-btn next" onclick="move(1)">❯</button>
+<button class="nav-btn prev" onclick="move(-1)">❮</button>
+<button class="nav-btn next" onclick="move(1)">❯</button>
 
 <div class="slider-track" id="track">
-<div class="slide"><img src="./images/p1.jpg"></div>
-<div class="slide"><img src="./images/p2.jpg"></div>
-<div class="slide"><img src="./images/p3.jpg"></div>
+<div class="slide"><img src="./images/p1.jpg" alt="Slide 1"></div>
+<div class="slide"><img src="./images/p2.jpg" alt="Slide 2"></div>
+<div class="slide"><img src="./images/p3.jpg" alt="Slide 3"></div>
 </div>
-
 </div>
 
 <!-- PRICING -->
-
 <div class="pricing">
-<h2>💰 Pricing</h2>
+<h2 id="pricingTitle">💰 Pricing</h2>
 
 <div class="card">
 <h3>₹4999</h3>
-<p>Basic Website</p>
+<p id="basic">Basic Website</p>
 </div>
 
 <div class="card">
 <h3>₹9999</h3>
-<p>Standard Website</p>
+<p id="standard">Standard Website</p>
 </div>
 
 <div class="card">
 <h3>₹14999</h3>
-<p>Premium Website</p>
+<p id="premium">Premium Website</p>
 </div>
-
 </div>
 
 <!-- PORTFOLIO -->
-
 <div class="portfolio">
-<h2>🎨 Our Work</h2>
-<img src="./images/p1.jpg">
-<img src="./images/p2.jpg">
-<img src="./images/p3.jpg">
+<h2 id="portfolioTitle">🎨 Our Work</h2>
+<img src="./images/p1.jpg" alt="Portfolio 1">
+<img src="./images/p2.jpg" alt="Portfolio 2">
+<img src="./images/p3.jpg" alt="Portfolio 3">
 </div>
 
 <!-- FORM -->
-
 <div class="form">
-
-<h2>📩 Get Quote</h2>
+<h2 id="formTitle">📩 Get Quote</h2>
 
 <input type="text" id="name" placeholder="Your Name">
 <input type="text" id="phone" placeholder="Your Phone">
 <textarea id="msg" placeholder="Your Requirement"></textarea>
 
-<button onclick="send()" class="btn">Send on WhatsApp</button>
-
+<button onclick="send()" class="btn" id="sendBtn">Send on WhatsApp</button>
 </div>
 
 <script>
+/* SLIDER */
 let i=0;
 const track=document.getElementById("track");
 const slides=document.querySelectorAll(".slide");
@@ -234,7 +246,6 @@ function move(d){
 i=(i+d+slides.length)%slides.length;
 track.style.transform=`translateX(-${i*100}%)`;
 }
-
 setInterval(()=>move(1),3000);
 
 /* WHATSAPP SEND */
@@ -243,11 +254,45 @@ let name=document.getElementById("name").value;
 let phone=document.getElementById("phone").value;
 let msg=document.getElementById("msg").value;
 
-let text = `Hello, I want website\n\nName: ${name}\nPhone: ${phone}\nRequirement: ${msg}`;
+if(!name || !phone || !msg){
+    alert("Please fill all fields!");
+    return;
+}
 
+let text = `Hello, I want a website\n\nName: ${name}\nPhone: ${phone}\nRequirement: ${msg}`;
 let url = "https://wa.me/917079216939?text=" + encodeURIComponent(text);
-
 window.open(url, "_blank");
+}
+
+/* LANGUAGE TOGGLE */
+let lang="en"; // Default English
+
+function toggleLang(){
+if(lang==="en"){
+  lang="hi";
+  document.getElementById("heroTitle").innerText="🚀 अपने बिजनेस को ऑनलाइन बढ़ाएं";
+  document.getElementById("heroText").innerText="हम ऐसी वेबसाइट बनाते हैं जो client लेकर आए 💰";
+  document.getElementById("pricingTitle").innerText="💰 कीमतें";
+  document.getElementById("basic").innerText="बेसिक वेबसाइट";
+  document.getElementById("standard").innerText="स्टैंडर्ड वेबसाइट";
+  document.getElementById("premium").innerText="प्रीमियम वेबसाइट";
+  document.getElementById("portfolioTitle").innerText="🎨 हमारा काम";
+  document.getElementById("formTitle").innerText="📩 कोटेशन प्राप्त करें";
+  document.getElementById("sendBtn").innerText="व्हाट्सएप पर भेजें";
+  document.getElementById("langBtn").innerText="English";
+}else{
+  lang="en";
+  document.getElementById("heroTitle").innerText="🚀 Grow Your Business Online";
+  document.getElementById("heroText").innerText="We create websites that bring clients 💰";
+  document.getElementById("pricingTitle").innerText="💰 Pricing";
+  document.getElementById("basic").innerText="Basic Website";
+  document.getElementById("standard").innerText="Standard Website";
+  document.getElementById("premium").innerText="Premium Website";
+  document.getElementById("portfolioTitle").innerText="🎨 Our Work";
+  document.getElementById("formTitle").innerText="📩 Get Quote";
+  document.getElementById("sendBtn").innerText="Send on WhatsApp";
+  document.getElementById("langBtn").innerText="Hindi";
+}
 }
 </script>
 
