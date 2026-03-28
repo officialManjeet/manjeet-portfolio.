@@ -4,10 +4,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Web Solutions | Official Manjeet</title>
+<title>Official Manjeet | Web Solutions</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -24,201 +23,120 @@ header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background:#fff;
-    position:sticky;
-    top:0;
-    z-index:1000;
     border-bottom:1px solid #eee;
 }
 
-.logo-area{
-    display:flex;
-    align-items:center;
-    gap:10px;
-}
-
-.logo-area img{
-    width:38px;
-    height:38px;
-    border-radius:50%;
-    border:2px solid #00bd65;
-}
-
-.logo-area span{
+.logo{
     font-weight:800;
-    font-size:1rem;
 }
+.logo span{color:#00bd65;}
 
-.logo-area b{color:#00bd65;}
-
-.lang-btn{
-    background:#00bd65;
-    color:#fff;
-    border:none;
-    padding:8px 18px;
-    border-radius:30px;
-    cursor:pointer;
+/* HERO */
+.hero{
+    text-align:center;
+    padding:25px 15px;
+}
+.hero h2{
+    color:#00bd65;
+}
+.hero p{
+    color:#666;
+    font-size:0.9rem;
 }
 
 /* SLIDER */
 .slider-section{
     text-align:center;
-    padding:30px 10px;
     position:relative;
-}
-
-h1{
-    font-size:1.6rem;
-    color:#00bd65;
-}
-
-.tagline{
-    font-size:0.9rem;
-    color:#777;
-    margin-bottom:20px;
-}
-
-.slider-container{
-    overflow:hidden;
-    max-width:100%;
 }
 
 .slider-track{
     display:flex;
-    transition:0.5s ease;
+    transition:0.5s;
 }
 
 .slide{
     min-width:100%;
-    padding:0 50px; /* side space */
     display:flex;
     justify-content:center;
+    padding:0 60px;
 }
 
-/* ✅ IMAGE FULL SHOW (NO CUT) */
 .slide img{
     width:100%;
-    max-width:600px; /* control width */
-    max-height:300px;
-    object-fit:contain; /* FULL IMAGE SHOW */
-    background:#f5f5f5;
+    max-width:500px;
+    height:auto;
     border-radius:15px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.1);
 }
 
-/* NAV BUTTON */
+/* BUTTON */
 .nav-btn{
     position:absolute;
     top:50%;
     transform:translateY(-50%);
-    background:rgba(0,0,0,0.8);
+    background:#000;
     color:#fff;
     border:none;
-    width:45px;
-    height:45px;
+    width:40px;
+    height:40px;
     border-radius:50%;
-    cursor:pointer;
-    z-index:100;
 }
 
 .prev{left:10px;}
 .next{right:10px;}
 
-/* INFO */
-.info-section{
+/* PRICING */
+.pricing{
     padding:30px 15px;
-}
-
-.info-box{
-    margin-bottom:25px;
-}
-
-.info-box h3{
-    color:#00bd65;
-    margin-bottom:10px;
-}
-
-.info-box li{
-    list-style:none;
-    margin:8px 0;
-}
-
-/* BUTTON */
-.btn-quote{
-    display:block;
-    width:90%;
-    margin:20px auto;
     text-align:center;
-    padding:15px;
+}
+
+.card{
+    border:1px solid #ddd;
+    padding:20px;
+    margin:10px;
+    border-radius:10px;
+}
+
+/* PORTFOLIO */
+.portfolio{
+    padding:20px;
+    text-align:center;
+}
+.portfolio img{
+    width:180px;
+    margin:5px;
+    border-radius:10px;
+}
+
+/* FORM */
+.form{
+    padding:30px 15px;
+    text-align:center;
+}
+.form input,.form textarea{
+    width:90%;
+    padding:10px;
+    margin:8px;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+/* CTA */
+.btn{
     background:#00ff88;
-    border-radius:30px;
-    text-decoration:none;
-    font-weight:700;
-    color:#000;
-}
-
-/* BACK */
-.footer-back-btn{
-    display:block;
-    margin:20px auto;
-    background:#00bd65;
-    color:#fff;
-    border:none;
     padding:12px 25px;
-    border-radius:30px;
+    border-radius:25px;
+    text-decoration:none;
+    color:#000;
+    font-weight:700;
+    display:inline-block;
 }
 
-/* DESKTOP */
-@media(min-width:768px){
-
-h1{font-size:2.2rem;}
-.tagline{font-size:1rem;}
-
-.info-section{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:40px;
-}
-
-.slide img{
-    max-width:700px;
-    max-height:400px;
-}
-
-.nav-btn{
-    width:60px;
-    height:60px;
-    font-size:22px;
-}
-}
-
-/* MOBILE FIX */
+/* MOBILE */
 @media(max-width:768px){
-
-.slide{
-    padding:0 30px;
+.slide{padding:0 20px;}
 }
-
-.slide img{
-    max-width:100%;
-    max-height:200px;
-    object-fit:contain;
-}
-
-.nav-btn{
-    width:40px;
-    height:40px;
-}
-
-h1{
-    font-size:1.4rem;
-}
-
-.tagline{
-    font-size:0.85rem;
-}
-}
-
 </style>
 
 </head>
@@ -226,97 +144,96 @@ h1{
 <body>
 
 <header>
-<div class="logo-area">
-<img src="./images/sel.png">
-<span>OFFICIAL <b>MANJEET</b></span>
-</div>
-<button class="lang-btn" onclick="toggleLang()" id="langBtn">English</button>
+<div class="logo">Official <span>Manjeet</span></div>
 </header>
+
+<!-- HERO -->
+
+<div class="hero">
+<h2>🚀 Grow Your Business Online</h2>
+<p>हम ऐसी वेबसाइट बनाते हैं जो client लेकर आए 💰</p>
+</div>
+
+<!-- SLIDER -->
 
 <div class="slider-section">
 
-<h1 id="title">प्रीमियम वेबसाइट ओवरव्यू</h1>
-<p class="tagline" id="tagline">बेहतरीन डिज़ाइन देखें</p>
-
 <button class="nav-btn prev" onclick="move(-1)">❮</button> <button class="nav-btn next" onclick="move(1)">❯</button>
 
-<div class="slider-container">
 <div class="slider-track" id="track">
 
 <div class="slide"><img src="./images/p1.jpg"></div>
 <div class="slide"><img src="./images/p2.jpg"></div>
 <div class="slide"><img src="./images/p3.jpg"></div>
-<div class="slide"><img src="./images/p4.jpg"></div>
-<div class="slide"><img src="./images/p5.jpg"></div>
-<div class="slide"><img src="./images/p6.jpg"></div>
 
 </div>
 </div>
 
+<!-- PRICING -->
+
+<div class="pricing">
+<h2>💰 Pricing</h2>
+
+<div class="card">
+<h3>₹4999</h3>
+<p>Basic Website</p>
 </div>
 
-<div class="info-section">
-
-<div class="info-box">
-<h3 id="why">वेबसाइट क्यों?</h3>
-<ul>
-<li>✔ बिजनेस ऑनलाइन करें</li>
-<li>✔ भरोसा बढ़ाएं</li>
-<li>✔ ज्यादा ग्राहक पाएं</li>
-</ul>
+<div class="card">
+<h3>₹9999</h3>
+<p>Standard Website</p>
 </div>
 
-<div class="info-box">
-<h3 id="what">आपको क्या मिलेगा?</h3>
-<ul>
-<li>⭐ फ्री डोमेन</li>
-<li>⭐ मॉडर्न डिजाइन</li>
-<li>⭐ लाइफटाइम सपोर्ट</li>
-</ul>
+<div class="card">
+<h3>₹14999</h3>
+<p>Premium Website</p>
 </div>
 
 </div>
 
-<a href="https://wa.me/917079216939" class="btn-quote" id="quote">अभी कोटेशन लें</a>
+<!-- PORTFOLIO -->
 
-<button onclick="history.back()" class="footer-back-btn" id="backBtn">⬅ वापस जाएं</button>
+<div class="portfolio">
+<h2>🎨 Our Work</h2>
+<img src="./images/p1.jpg">
+<img src="./images/p2.jpg">
+<img src="./images/p3.jpg">
+</div>
+
+<!-- FORM -->
+
+<div class="form">
+
+<h2>📩 Get Quote</h2>
+
+<input type="text" placeholder="Name">
+<input type="text" placeholder="Phone">
+<textarea placeholder="Requirement"></textarea>
+
+<button onclick="send()" class="btn">Send on WhatsApp</button>
+
+</div>
 
 <script>
-
-let index=0;
+let i=0;
 const track=document.getElementById("track");
 const slides=document.querySelectorAll(".slide");
 
-function move(dir){
-    index=(index+dir+slides.length)%slides.length;
-    track.style.transform=`translateX(-${index*100}%)`;
+function move(d){
+i=(i+d+slides.length)%slides.length;
+track.style.transform=`translateX(-${i*100}%)`;
 }
 
-/* AUTO SLIDE */
-setInterval(()=>{move(1)},3000);
+setInterval(()=>move(1),3000);
 
-/* LANGUAGE */
-let lang="hi";
+function send(){
+let n=document.querySelectorAll("input")[0].value;
+let p=document.querySelectorAll("input")[1].value;
+let m=document.querySelector("textarea").value;
 
-function toggleLang(){
-
-lang=lang==="hi"?"en":"hi";
-
-if(lang==="en"){
-document.getElementById("title").innerText="Premium Website Overview";
-document.getElementById("tagline").innerText="Explore best designs";
-document.getElementById("why").innerText="Why Website?";
-document.getElementById("what").innerText="What You Get?";
-document.getElementById("quote").innerText="REQUEST NOW";
-document.getElementById("backBtn").innerText="Go Back";
-document.getElementById("langBtn").innerText="Hindi";
+let url="https://wa.me/917079216939?text=Name:"+n+" Phone:"+p+" Msg:"+m;
+window.open(url);
 }
-else{
-location.reload();
-}
-
-}
-
 </script>
 
 </body>
