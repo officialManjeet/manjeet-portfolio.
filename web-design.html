@@ -26,22 +26,33 @@ header{
     border-bottom:1px solid #eee;
 }
 
-.logo{
-    font-weight:800;
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:10px;
 }
-.logo span{color:#00bd65;}
+
+.logo-area img{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+}
+
+.logo-area span{
+    font-weight:800;
+    font-size:1rem;
+}
+
+.logo-area b{color:#00bd65;}
 
 /* HERO */
 .hero{
     text-align:center;
-    padding:25px 15px;
+    padding:20px;
 }
+
 .hero h2{
     color:#00bd65;
-}
-.hero p{
-    color:#666;
-    font-size:0.9rem;
 }
 
 /* SLIDER */
@@ -69,7 +80,7 @@ header{
     border-radius:15px;
 }
 
-/* BUTTON */
+/* NAV */
 .nav-btn{
     position:absolute;
     top:50%;
@@ -87,7 +98,7 @@ header{
 
 /* PRICING */
 .pricing{
-    padding:30px 15px;
+    padding:20px;
     text-align:center;
 }
 
@@ -111,7 +122,7 @@ header{
 
 /* FORM */
 .form{
-    padding:30px 15px;
+    padding:20px;
     text-align:center;
 }
 .form input,.form textarea{
@@ -122,15 +133,13 @@ header{
     border-radius:8px;
 }
 
-/* CTA */
+/* BUTTON */
 .btn{
     background:#00ff88;
     padding:12px 25px;
     border-radius:25px;
-    text-decoration:none;
-    color:#000;
+    border:none;
     font-weight:700;
-    display:inline-block;
 }
 
 /* MOBILE */
@@ -144,7 +153,10 @@ header{
 <body>
 
 <header>
-<div class="logo">Official <span>Manjeet</span></div>
+<div class="logo-area">
+<img src="./images/sel.png">
+<span>OFFICIAL <b>MANJEET</b></span>
+</div>
 </header>
 
 <!-- HERO -->
@@ -161,12 +173,11 @@ header{
 <button class="nav-btn prev" onclick="move(-1)">❮</button> <button class="nav-btn next" onclick="move(1)">❯</button>
 
 <div class="slider-track" id="track">
-
 <div class="slide"><img src="./images/p1.jpg"></div>
 <div class="slide"><img src="./images/p2.jpg"></div>
 <div class="slide"><img src="./images/p3.jpg"></div>
-
 </div>
+
 </div>
 
 <!-- PRICING -->
@@ -206,9 +217,9 @@ header{
 
 <h2>📩 Get Quote</h2>
 
-<input type="text" placeholder="Name">
-<input type="text" placeholder="Phone">
-<textarea placeholder="Requirement"></textarea>
+<input type="text" id="name" placeholder="Your Name">
+<input type="text" id="phone" placeholder="Your Phone">
+<textarea id="msg" placeholder="Your Requirement"></textarea>
 
 <button onclick="send()" class="btn">Send on WhatsApp</button>
 
@@ -226,13 +237,17 @@ track.style.transform=`translateX(-${i*100}%)`;
 
 setInterval(()=>move(1),3000);
 
+/* WHATSAPP SEND */
 function send(){
-let n=document.querySelectorAll("input")[0].value;
-let p=document.querySelectorAll("input")[1].value;
-let m=document.querySelector("textarea").value;
+let name=document.getElementById("name").value;
+let phone=document.getElementById("phone").value;
+let msg=document.getElementById("msg").value;
 
-let url="https://wa.me/917079216939?text=Name:"+n+" Phone:"+p+" Msg:"+m;
-window.open(url);
+let text = `Hello, I want website\n\nName: ${name}\nPhone: ${phone}\nRequirement: ${msg}`;
+
+let url = "https://wa.me/917079216939?text=" + encodeURIComponent(text);
+
+window.open(url, "_blank");
 }
 </script>
 
