@@ -1,190 +1,286 @@
 <!DOCTYPE html>
+
 <html lang="hi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Solutions | Official Manjeet</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
-    
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: #ffffff; font-family: 'Poppins', sans-serif; color: #333; overflow-x: hidden; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Solutions | Official Manjeet</title>
 
-        /* --- HEADER --- */
-        header {
-            padding: 15px 5%; display: flex; justify-content: space-between; align-items: center;
-            background: #fff; border-bottom: 1px solid #f0f0f0; position: sticky; top: 0; z-index: 2000;
-        }
-        .logo-area { display: flex; align-items: center; gap: 12px; }
-        .logo-area img { width: 42px; height: 42px; border-radius: 50%; border: 2px solid #00bd65; object-fit: cover; }
-        .logo-area span { font-weight: 800; font-size: 1.1rem; color: #000; text-transform: uppercase; }
-        .logo-area span b { color: #00bd65; }
+<!-- Google Font -->
 
-        .lang-btn {
-            background: #00bd65; color: #fff; border: none; padding: 10px 22px;
-            border-radius: 50px; cursor: pointer; font-weight: 600; transition: 0.3s;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-        /* --- SLIDER AREA --- */
-        .slider-section { padding: 40px 0; text-align: center; position: relative; }
-        h1 { font-size: 2.2rem; color: #00bd65; font-weight: 800; margin-bottom: 8px; }
-        .tagline { color: #888; font-size: 1rem; margin-bottom: 35px; }
+<!-- Font Awesome -->
 
-        .slider-outer { position: relative; width: 85%; max-width: 1150px; margin: auto; }
-        .slider-track-container { width: 100%; overflow: visible; }
-        .slider-track { display: flex; transition: transform 0.7s ease; gap: 40px; }
-        .slide { min-width: 100%; display: flex; justify-content: center; opacity: 0.2; transition: 0.5s; }
-        .slide.active { opacity: 1; }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-        .mockup-img {
-            width: 100%; height: 500px; object-fit: cover; object-position: top;
-            transition: 5s ease-in-out; border-radius: 20px; box-shadow: 0 15px 45px rgba(0,0,0,0.1);
-        }
-        .mockup-img:hover { object-position: bottom; }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
 
-        /* --- NAV BUTTONS --- */
-        .nav-btn {
-            position: fixed; top: 50%; transform: translateY(-50%);
-            background: rgba(0,0,0,0.85); color: #fff; border: none; font-size: 32px;
-            width: 65px; height: 65px; border-radius: 50%; z-index: 1500; cursor: pointer;
-            display: flex; align-items: center; justify-content: center; transition: 0.3s;
-        }
-        .prev { left: 25px; } .next { right: 25px; }
+body{
+    font-family:'Poppins',sans-serif;
+    background:#fff;
+    color:#333;
+}
 
-        /* --- INFO SECTION --- */
-        .info-section { max-width: 1100px; margin: 60px auto; padding: 0 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; text-align: left; }
-        .info-box h3 { color: #00bd65; margin-bottom: 18px; font-size: 1.5rem; }
-        .info-box li { list-style: none; margin-bottom: 12px; display: flex; align-items: center; gap: 15px; font-size: 1.05rem; }
+/* HEADER */
+header{
+    padding:12px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#fff;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    border-bottom:1px solid #eee;
+}
 
-        /* --- FINAL FOOTER BACK BUTTON (Fix) --- */
-        .footer-area {
-            text-align: center;
-            padding: 50px 0 80px; /* Neeche space di hai taaki buttons ke niche na dabe */
-        }
-        
-        .footer-back-btn {
-            background: #00bd65; color: #fff; border: none; padding: 15px 45px;
-            border-radius: 50px; cursor: pointer; font-weight: 700; font-size: 1rem;
-            box-shadow: 0 5px 15px rgba(0, 189, 101, 0.4); 
-            display: inline-flex; align-items: center; gap: 10px;
-            transition: 0.3s; text-transform: uppercase;
-        }
-        .footer-back-btn:hover { background: #000; transform: translateY(-3px); }
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
 
-        .btn-quote { 
-            display: block; width: fit-content; margin: 0 auto 30px; padding: 20px 65px; 
-            background: #00ff88; color:#000; text-decoration:none; font-weight:800; 
-            border-radius:50px; transition: 0.3s; box-shadow: 0 10px 25px rgba(0, 255, 136, 0.3);
-        }
+.logo-area img{
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    border:2px solid #00bd65;
+}
 
-        @media (max-width: 768px) { 
-            .info-section { grid-template-columns: 1fr; } 
-            .nav-btn { width: 50px; height: 50px; font-size: 22px; }
-            .prev { left: 10px; } .next { right: 10px; }
-        }
-    </style>
+.logo-area span{
+    font-weight:800;
+    font-size:1rem;
+}
+
+.logo-area b{color:#00bd65;}
+
+.lang-btn{
+    background:#00bd65;
+    color:#fff;
+    border:none;
+    padding:8px 18px;
+    border-radius:30px;
+    cursor:pointer;
+}
+
+/* SLIDER */
+.slider-section{
+    text-align:center;
+    padding:30px 10px;
+}
+
+h1{
+    font-size:1.6rem;
+    color:#00bd65;
+}
+
+.tagline{
+    font-size:0.9rem;
+    color:#777;
+    margin-bottom:20px;
+}
+
+.slider-container{
+    overflow:hidden;
+    max-width:100%;
+}
+
+.slider-track{
+    display:flex;
+    transition:0.5s;
+}
+
+.slide{
+    min-width:100%;
+    padding:0 10px;
+}
+
+.slide img{
+    width:100%;
+    height:auto;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* NAV BUTTON */
+.nav-btn{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:#000;
+    color:#fff;
+    border:none;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    cursor:pointer;
+}
+
+.prev{left:10px;}
+.next{right:10px;}
+
+/* INFO */
+.info-section{
+    padding:30px 15px;
+}
+
+.info-box{
+    margin-bottom:25px;
+}
+
+.info-box h3{
+    color:#00bd65;
+    margin-bottom:10px;
+}
+
+.info-box li{
+    list-style:none;
+    margin:8px 0;
+}
+
+/* BUTTON */
+.btn-quote{
+    display:block;
+    width:90%;
+    margin:20px auto;
+    text-align:center;
+    padding:15px;
+    background:#00ff88;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:700;
+    color:#000;
+}
+
+/* BACK */
+.footer-back-btn{
+    display:block;
+    margin:20px auto;
+    background:#00bd65;
+    color:#fff;
+    border:none;
+    padding:12px 25px;
+    border-radius:30px;
+}
+
+/* DESKTOP */
+@media(min-width:768px){
+
+h1{font-size:2.2rem;}
+.tagline{font-size:1rem;}
+
+.info-section{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+}
+
+.nav-btn{
+    width:60px;
+    height:60px;
+    font-size:22px;
+}
+}
+</style>
+
 </head>
+
 <body>
 
 <header>
-    <div class="logo-area">
-        <img src="./images/sel.png" alt="Logo">
-        <span>OFFICIAL <b>MANJEET</b></span>
-    </div>
-    <button class="lang-btn" id="langBtn" onclick="toggleLang()">English</button>
+<div class="logo-area">
+<img src="./images/sel.png">
+<span>OFFICIAL <b>MANJEET</b></span>
+</div>
+<button class="lang-btn" onclick="toggleLang()" id="langBtn">English</button>
 </header>
 
 <div class="slider-section">
-    <h1 id="main-title">प्रीमियम वेबसाइट ओवरव्यू</h1>
-    <p class="tagline" id="main-tagline">बेहतरीन और प्रोफेशनल डिजाइनों की हमारी विस्तृत श्रृंखला देखें</p>
-    
-    <button class="nav-btn prev" onclick="moveSlide(-1)">❮</button>
-    <button class="nav-btn next" onclick="moveSlide(1)">❯</button>
 
-    <div class="slider-outer">
-        <div class="slider-track-container">
-            <div class="slider-track" id="track">
-                <div class="slide active"><img src="./images/p1.jpg" class="mockup-img"></div>
-                <div class="slide"><img src="./images/p2.jpg" class="mockup-img"></div>
-                <div class="slide"><img src="./images/p3.jpg" class="mockup-img"></div>
-                <div class="slide"><img src="./images/p4.jpg" class="mockup-img"></div>
-                <div class="slide"><img src="./images/p5.jpg" class="mockup-img"></div>
-                <div class="slide"><img src="./images/p6.jpg" class="mockup-img"></div>
-            </div>
-        </div>
-    </div>
+<h1 id="title">प्रीमियम वेबसाइट ओवरव्यू</h1>
+<p class="tagline" id="tagline">बेहतरीन डिज़ाइन देखें</p>
+
+<button class="nav-btn prev" onclick="move(-1)">❮</button> <button class="nav-btn next" onclick="move(1)">❯</button>
+
+<div class="slider-container">
+<div class="slider-track" id="track">
+
+<div class="slide"><img src="./images/p1.jpg"></div>
+<div class="slide"><img src="./images/p2.jpg"></div>
+<div class="slide"><img src="./images/p3.jpg"></div>
+<div class="slide"><img src="./images/p4.jpg"></div>
+<div class="slide"><img src="./images/p5.jpg"></div>
+<div class="slide"><img src="./images/p6.jpg"></div>
+
+</div>
+</div>
+
 </div>
 
 <div class="info-section">
-    <div class="info-box">
-        <h3 id="why-title">वेबसाइट क्यों बनवाएं?</h3>
-        <ul id="why-list">
-            <li><i class="fas fa-check-circle"></i> अपना बिजनेस ऑनलाइन ले जाएं।</li>
-            <li><i class="fas fa-check-circle"></i> ग्राहकों का भरोसा और बेहतर ब्रांडिंग।</li>
-            <li><i class="fas fa-check-circle"></i> डिजिटल मार्केटिंग से बिजनेस बढ़ाएं।</li>
-        </ul>
-    </div>
-    <div class="info-box">
-        <h3 id="what-title">आपको क्या-क्या मिलेगा?</h3>
-        <ul id="what-list">
-            <li><i class="fas fa-star"></i> फ्री डोमेन और हाई-स्पीड होस्टिंग।</li>
-            <li><i class="fas fa-star"></i> मॉडर्न और रिस्पॉन्सिव डिज़ाइन।</li>
-            <li><i class="fas fa-star"></i> फ्री SSL और लाइफटाइम सपोर्ट।</li>
-        </ul>
-    </div>
+
+<div class="info-box">
+<h3 id="why">वेबसाइट क्यों?</h3>
+<ul id="whyList">
+<li>✔ बिजनेस ऑनलाइन करें</li>
+<li>✔ भरोसा बढ़ाएं</li>
+<li>✔ ज्यादा ग्राहक पाएं</li>
+</ul>
 </div>
 
-<div class="footer-area">
-    <a href="https://wa.me" class="btn-quote" id="quote-btn">अभी कोटेशन लें</a>
-    <br>
-    <!-- Ab ye Button Content ke bad niche hi rahega -->
-    <button onclick="window.history.back()" class="footer-back-btn" id="footer-back">
-        <i class="fas fa-arrow-left"></i> वापस जाएं
-    </button>
+<div class="info-box">
+<h3 id="what">आपको क्या मिलेगा?</h3>
+<ul id="whatList">
+<li>⭐ फ्री डोमेन</li>
+<li>⭐ मॉडर्न डिजाइन</li>
+<li>⭐ लाइफटाइम सपोर्ट</li>
+</ul>
 </div>
+
+</div>
+
+<a href="https://wa.me/917079216939" class="btn-quote" id="quote">अभी कोटेशन लें</a>
+
+<button onclick="history.back()" class="footer-back-btn" id="backBtn">⬅ वापस जाएं</button>
 
 <script>
-    let currentLang = 'hi';
-    const translations = {
-        en: {
-            title: 'Premium Website Overview', tagline: 'Explore our wide range of professional designs',
-            whyTitle: 'Why build a website?', whyList: ['Take your business online.', 'Customer trust and better branding.', 'Grow business with digital marketing.'],
-            whatTitle: 'What will you get?', whatList: ['Free domain and high-speed hosting.', 'Modern and responsive design.', 'Free SSL and lifetime support.'],
-            btn: 'Hindi', quote: 'REQUEST QUOTE NOW', back: 'Go Back'
-        },
-        hi: {
-            title: 'प्रीमियम वेबसाइट ओवरव्यू', tagline: 'बेहतरीन और प्रोफेशनल डिजाइनों की हमारी विस्तृत श्रृंखला देखें',
-            whyTitle: 'वेबसाइट क्यों बनवाएं?', whyList: ['अपना बिजनेस ऑनलाइन ले जाएं।', 'ग्राहकों का भरोसा और बेहतर ब्रांडिंग।', 'डिजिटल मार्केटिंग से बिजनेस बढ़ाएं।'],
-            whatTitle: 'आपको क्या-क्या मिलेगा?', whatList: ['फ्री डोमेन और हाई-स्पीड होस्टिंग।', 'मॉडर्न और रिस्पॉन्सिव डिज़ाइन।', 'फ्री SSL और लाइफटाइम सपोर्ट।'],
-            btn: 'English', quote: 'अभी कोटेशन लें', back: 'वापस जाएं'
-        }
-    };
 
-    function toggleLang() {
-        currentLang = currentLang === 'hi' ? 'en' : 'hi';
-        const t = translations[currentLang];
-        document.getElementById('main-title').innerText = t.title;
-        document.getElementById('main-tagline').innerText = t.tagline;
-        document.getElementById('why-title').innerText = t.whyTitle;
-        document.getElementById('what-title').innerText = t.whatTitle;
-        document.getElementById('langBtn').innerText = t.btn;
-        document.getElementById('quote-btn').innerText = t.quote;
-        document.getElementById('footer-back').innerHTML = `<i class="fas fa-arrow-left"></i> ${t.back}`;
+let index=0;
+const track=document.getElementById("track");
+const slides=document.querySelectorAll(".slide");
 
-        const whyItems = document.getElementById('why-list').querySelectorAll('li');
-        whyItems.forEach((li, i) => li.innerHTML = `<i class="fas fa-check-circle"></i> ${t.whyList[i]}`);
-        const whatItems = document.getElementById('what-list').querySelectorAll('li');
-        whatItems.forEach((li, i) => li.innerHTML = `<i class="fas fa-star"></i> ${t.whatList[i]}`);
-    }
+function move(dir){
+    index=(index+dir+slides.length)%slides.length;
+    track.style.transform=`translateX(-${index*100}%)`;
+}
 
-    let current = 0;
-    const track = document.getElementById('track');
-    const slides = document.querySelectorAll('.slide');
-    function moveSlide(dir) {
-        current = (current + dir + slides.length) % slides.length;
-        track.style.transform = `translateX(-${current * (track.offsetWidth / slides.length + 40)}px)`;
-        slides.forEach((s, i) => s.classList.toggle('active', i === current));
-    }
+/* AUTO SLIDE */
+setInterval(()=>{move(1)},3000);
+
+/* LANGUAGE */
+let lang="hi";
+
+function toggleLang(){
+
+lang=lang==="hi"?"en":"hi";
+
+if(lang==="en"){
+document.getElementById("title").innerText="Premium Website Overview";
+document.getElementById("tagline").innerText="Explore best designs";
+document.getElementById("why").innerText="Why Website?";
+document.getElementById("what").innerText="What You Get?";
+document.getElementById("quote").innerText="REQUEST NOW";
+document.getElementById("backBtn").innerText="Go Back";
+document.getElementById("langBtn").innerText="Hindi";
+}
+else{
+location.reload();
+}
+
+}
+
 </script>
 
 </body>
