@@ -24,6 +24,10 @@ header{
     justify-content:space-between;
     align-items:center;
     border-bottom:1px solid #eee;
+    position:sticky;
+    top:0;
+    background:#fff;
+    z-index:100;
 }
 
 .logo-area{
@@ -58,6 +62,7 @@ header{
 .hero{
     text-align:center;
     padding:20px;
+    position:relative;
 }
 
 .hero h2{
@@ -67,6 +72,34 @@ header{
 
 .hero p{
     color:#555;
+    margin-bottom:15px;
+}
+
+/* PRO UPGRADE BADGE */
+.pro-badge{
+    display:inline-block;
+    background:#ff4d4d;
+    color:#fff;
+    padding:5px 15px;
+    border-radius:20px;
+    font-weight:700;
+    position:absolute;
+    top:10px;
+    right:10px;
+    font-size:0.8rem;
+}
+
+/* NEXT LEVEL BANNER */
+.next-level{
+    display:block;
+    background:linear-gradient(90deg, #00bd65, #00ff88);
+    color:#fff;
+    padding:12px 20px;
+    margin:15px auto;
+    width:90%;
+    border-radius:25px;
+    font-weight:700;
+    text-align:center;
 }
 
 /* SLIDER */
@@ -74,6 +107,11 @@ header{
     text-align:center;
     position:relative;
     margin-bottom:30px;
+}
+
+.slider-container{
+    overflow:hidden;
+    max-width:100%;
 }
 
 .slider-track{
@@ -85,12 +123,12 @@ header{
     min-width:100%;
     display:flex;
     justify-content:center;
-    padding:0 40px;
+    padding:0 15px;
 }
 
 .slide img{
     width:100%;
-    max-width:500px;
+    max-width:600px; /* बढ़ा दी चौड़ाई */
     height:auto;
     border-radius:15px;
 }
@@ -103,8 +141,8 @@ header{
     background:#000;
     color:#fff;
     border:none;
-    width:40px;
-    height:40px;
+    width:45px;
+    height:45px;
     border-radius:50%;
     cursor:pointer;
     z-index:10;
@@ -162,9 +200,11 @@ header{
 
 /* MOBILE */
 @media(max-width:768px){
-.slide{padding:0 20px;}
+.slide{padding:0 10px;}
+.slide img{max-width:95%;} /* मोबाइल में adjust */
 .portfolio img{width:120px;}
 .card{margin:10px 0;}
+.next-level{width:95%;}
 }
 </style>
 </head>
@@ -183,6 +223,8 @@ header{
 <div class="hero">
 <h2 id="heroTitle">🚀 Grow Your Business Online</h2>
 <p id="heroText">We create websites that bring clients 💰</p>
+<span class="pro-badge">Pro Upgrade</span>
+<div class="next-level" id="nextLevelBanner">🔥 अगला Level – Upgrade Now!</div>
 </div>
 
 <!-- SLIDER -->
@@ -190,10 +232,12 @@ header{
 <button class="nav-btn prev" onclick="move(-1)">❮</button>
 <button class="nav-btn next" onclick="move(1)">❯</button>
 
+<div class="slider-container">
 <div class="slider-track" id="track">
 <div class="slide"><img src="./images/p1.jpg" alt="Slide 1"></div>
 <div class="slide"><img src="./images/p2.jpg" alt="Slide 2"></div>
 <div class="slide"><img src="./images/p3.jpg" alt="Slide 3"></div>
+</div>
 </div>
 </div>
 
@@ -280,6 +324,7 @@ if(lang==="en"){
   document.getElementById("formTitle").innerText="📩 कोटेशन प्राप्त करें";
   document.getElementById("sendBtn").innerText="व्हाट्सएप पर भेजें";
   document.getElementById("langBtn").innerText="English";
+  document.getElementById("nextLevelBanner").innerText="🔥 अगला Level – अभी Upgrade करें!";
 }else{
   lang="en";
   document.getElementById("heroTitle").innerText="🚀 Grow Your Business Online";
@@ -292,6 +337,7 @@ if(lang==="en"){
   document.getElementById("formTitle").innerText="📩 Get Quote";
   document.getElementById("sendBtn").innerText="Send on WhatsApp";
   document.getElementById("langBtn").innerText="Hindi";
+  document.getElementById("nextLevelBanner").innerText="🔥 Next Level – Upgrade Now!";
 }
 }
 </script>
