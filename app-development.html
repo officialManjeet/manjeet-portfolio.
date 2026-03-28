@@ -5,253 +5,104 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Professional App Development | Official Manjeet</title>
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com">
 
 <style>
 :root {
     --primary: #00d2ff;
     --secondary: #00ff88;
     --bg-dark: #050505;
-    --glass: rgba(255, 255, 255, 0.03);
-    --border: rgba(255, 255, 255, 0.08);
-    --transition: 0.4s;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{background:var(--bg-dark);color:#fff;line-height:1.6;scroll-behavior:smooth;background-image:radial-gradient(circle at top right, rgba(0,210,255,0.07), transparent);}
 
-/* Header */
-header{display:flex; justify-content:space-between; align-items:center; padding:15px 5%; position:sticky; top:0; z-index:1000; background: rgba(5,5,5,0.95);}
-header .logo-area{display:flex; align-items:center; gap:10px;}
-header .logo-area img{width:45px; height:45px; border-radius:50%; border:2px solid var(--secondary);}
-header .logo-area span{font-weight:800; font-size:1rem;}
-header .logo-area b{color:var(--secondary);}
-.lang-btn{background: var(--primary); color:#000; border:none; padding:8px 20px; border-radius:30px; cursor:pointer; font-weight:600; transition: var(--transition);}
-.lang-btn:hover{transform:scale(1.05);}
-
-/* Hero Slider */
-.hero-slider{position:relative; max-width:900px; margin:50px auto 40px; overflow:hidden; border-radius:30px; box-shadow:0 20px 50px rgba(0,210,255,0.3);}
-.hero-slide{display:flex; transition:0.7s ease;}
-.hero-slide img{width:100%; flex-shrink:0; object-fit:cover; border-radius:30px;}
-.slider-btn{position:absolute; top:50%; transform:translateY(-50%); background: rgba(0,0,0,0.5); color:#fff; border:none; padding:12px; cursor:pointer; font-size:22px; border-radius:50%; transition: var(--transition);}
-.slider-btn:hover{background: var(--primary); color:#000;}
-.slider-btn.left{left:10px;} .slider-btn.right{right:10px;}
-
-/* Hero Text */
-.hero-text{text-align:center; margin:20px 15px; animation:fadeIn 1.2s;}
-.hero-text h1{font-size:clamp(30px,5vw,50px); font-weight:800; margin-bottom:15px;}
-.hero-text h1 span{color:var(--primary);}
-.hero-text p{font-size:16px; margin-bottom:25px; color:#aaa;}
-.hero-text .cta-btn{background: var(--secondary); color:#000; text-decoration:none; padding:18px 50px; border-radius:50px; font-weight:800; font-size:17px; transition: var(--transition);}
-.hero-text .cta-btn:hover{transform:scale(1.05); box-shadow:0 10px 30px rgba(0,255,136,0.4);}
-
-/* Benefits Section */
-.benefits{max-width:1000px; margin:0 auto 60px; padding:0 15px; display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:20px;}
-.benefit-card{background: var(--glass); border:1px solid var(--border); padding:25px; border-radius:25px; text-align:center; transition: var(--transition);}
-.benefit-card:hover{background: rgba(0,210,255,0.05);border-color: var(--primary); transform:translateY(-5px);}
-.benefit-card i{font-size:30px; color: var(--primary); margin-bottom:10px;}
-.benefit-card h3{margin-bottom:10px; font-size:18px; color:var(--primary);}
-.benefit-card p{font-size:14px; color:#aaa;}
-
-/* Professional Features */
-.professional{max-width:1000px; margin:0 auto 60px; padding:0 15px;}
-.professional h2{text-align:center; margin-bottom:30px; color: var(--primary);}
-.professional-grid{display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:20px;}
-.professional-card{background: var(--glass); border:1px solid var(--border); padding:20px; border-radius:20px; text-align:center; transition: var(--transition);}
-.professional-card:hover{transform:translateY(-5px); border-color:var(--secondary);}
-.professional-card i{font-size:28px; color:var(--primary); margin-bottom:10px;}
-.professional-card h3{margin-bottom:8px; color:var(--primary);}
-.professional-card p{font-size:14px; color:#aaa;}
-
-/* 3-Step Process */
-.process{max-width:900px; margin:0 auto 60px; padding:0 15px; text-align:center;}
-.process h2{color:var(--primary); margin-bottom:30px;}
-.process-steps{display:flex; flex-wrap:wrap; justify-content:center; gap:20px;}
-.step-card{background: var(--glass); border:1px solid var(--border); padding:25px; border-radius:25px; flex:1 1 250px; text-align:center; transition: var(--transition);}
-.step-card:hover{transform:translateY(-5px); border-color:var(--secondary);}
-.step-card i{font-size:30px; color:var(--secondary); margin-bottom:10px;}
-.step-card h3{margin-bottom:8px; color:var(--primary);}
-.step-card p{font-size:14px; color:#aaa;}
-
-/* Portfolio */
-.portfolio{max-width:1000px; margin:0 auto 60px; padding:0 15px;}
-.portfolio h2{text-align:center; margin-bottom:30px; color:var(--primary);}
-.portfolio-grid{display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:20px;}
-.portfolio-card{border-radius:20px; overflow:hidden; position:relative; transition: var(--transition);}
-.portfolio-card img{width:100%; height:200px; object-fit:cover; display:block;}
-.portfolio-card::after{content:"देखें"; position:absolute;top:0;left:0;width:100%;height:100%; display:flex; justify-content:center; align-items:center; font-weight:800; font-size:20px; color:#000; background:rgba(0,210,255,0.2); opacity:0; transition: var(--transition);}
-.portfolio-card:hover::after{opacity:1;}
-
-/* Testimonials */
-.testimonials{max-width:900px; margin:0 auto 60px; padding:0 15px; text-align:center;}
-.testimonials h2{color:var(--primary); margin-bottom:30px;}
-.testimonial-slide{background:var(--glass); border:1px solid var(--border); padding:25px; border-radius:25px; margin-bottom:20px; opacity:0; transition: var(--transition); transform:translateY(20px);}
-.testimonial-slide.active{opacity:1; transform:translateY(0);}
-.testimonial-slide p{font-size:14px; color:#aaa; margin-bottom:15px;}
-.testimonial-slide h4{color:var(--secondary); font-weight:700;}
-
-/* Pricing */
-.pricing{max-width:900px; margin:0 auto 60px; padding:0 15px; text-align:center;}
-.pricing h2{color:var(--primary); margin-bottom:30px;}
-.pricing-grid{display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:20px;}
-.price-card{background: var(--glass); border:1px solid var(--border); padding:25px; border-radius:25px; transition: var(--transition);}
-.price-card:hover{transform:translateY(-5px); border-color:var(--secondary);}
-.price-card h3{margin-bottom:10px; color:var(--primary);}
-.price-card p{font-size:14px; color:#aaa;}
-.price-card .price{font-size:22px; font-weight:800; margin-top:15px; color:var(--secondary);}
-
-/* FAQ */
-.faq{max-width:900px; margin:0 auto 60px; padding:0 15px;}
-.faq h2{text-align:center; color:var(--primary); margin-bottom:30px;}
-.faq-item{background:var(--glass); border:1px solid var(--border); padding:20px; border-radius:25px; margin-bottom:15px; cursor:pointer; transition: var(--transition);}
-.faq-item:hover{border-color:var(--secondary);}
-.faq-item p{display:none; font-size:14px; color:#aaa; margin-top:10px;}
-
-/* CTA Floating Button */
-.floating-cta{position:fixed; bottom:20px; right:20px; background: var(--secondary); color:#000; border-radius:50px; padding:15px 20px; font-weight:700; font-size:16px; text-decoration:none; z-index:999; box-shadow:0 5px 20px rgba(0,255,136,0.4); transition: var(--transition);}
-.floating-cta:hover{transform:scale(1.05);}
-
-/* Footer */
-footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:700;}
-
-/* Animations */
-@keyframes fadeIn{from{opacity:0; transform:translateY(20px);}to{opacity:1; transform:translateY(0);}}
-.hero-text{animation:fadeIn 1.2s ease forwards;}
-
-/* Responsive */
-@media(max-width:768px){
-    .hero-slide img{width:100%;}
-    .benefits,.professional-grid,.process-steps,.portfolio-grid,.pricing-grid{grid-template-columns:1fr;}
+body {
+    /* White Professional Background Image */
+    background: url('https://images.unsplash.com') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    line-height: 1.6;
 }
+
+/* Overlay to make text readable on white BG */
+.overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); z-index: -1; }
+
+header{display:flex; justify-content:space-between; align-items:center; padding:15px 5%; position:sticky; top:0; z-index:1000; background: rgba(5,5,5,0.95); border-bottom: 1px solid rgba(255,255,255,0.1);}
+.logo-area{display:flex; align-items:center; gap:10px;}
+.logo-area img{width:45px; height:45px; border-radius:50%; border:2px solid var(--secondary);}
+
+/* Header Buttons */
+.nav-buttons { display: flex; gap: 15px; align-items: center; }
+.back-btn { color: #fff; text-decoration: none; font-weight: 600; font-size: 14px; border: 1px solid #444; padding: 5px 15px; border-radius: 20px; transition: 0.3s; }
+.back-btn:hover { background: #fff; color: #000; }
+.lang-btn { background: var(--primary); color:#000; border:none; padding:6px 15px; border-radius:20px; cursor:pointer; font-weight:600; }
+
+/* Portfolio Grid */
+.portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+.project-card { border-radius: 15px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); transition: 0.4s; }
+.project-card:hover { transform: translateY(-10px); border-color: var(--secondary); }
+.project-card img { width: 100%; height: 200px; object-fit: cover; }
+.project-info { padding: 15px; text-align: center; }
+
+section { text-align: center; padding: 50px 20px; }
+h1 span { color: var(--primary); }
+footer { text-align: center; padding: 30px; border-top: 1px solid rgba(255,255,255,0.1); color: #888; }
 </style>
 </head>
 <body>
+
+<div class="overlay"></div>
 
 <header>
     <div class="logo-area">
         <img src="./images/sel.png" alt="Logo">
         <span>OFFICIAL <b>MANJEET</b></span>
     </div>
-    <button class="lang-btn" onclick="toggleLang()" id="langBtn">English</button>
+    <div class="nav-buttons">
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> वापस जाएं</a>
+        <button class="lang-btn" onclick="toggleLang()">EN / HI</button>
+    </div>
 </header>
 
-<!-- Hero Slider -->
-<section class="hero-slider">
-    <div class="hero-slide" id="heroSlide">
-        <img src="https://images.unsplash.com/photo-1591696331114-9b33b16544be?auto=format&fit=crop&w=800&q=80" alt="">
-        <img src="https://images.unsplash.com/photo-1611095961271-5e1c051efc10?auto=format&fit=crop&w=800&q=80" alt="">
-        <img src="https://images.unsplash.com/photo-1606761561475-2cde1a514c6d?auto=format&fit=crop&w=800&q=80" alt="">
-    </div>
-    <button class="slider-btn left" onclick="prevSlide()">&#10094;</button>
-    <button class="slider-btn right" onclick="nextSlide()">&#10095;</button>
+<section>
+    <h1 id="main-title">Professional <span>App Development</span></h1>
+    <p id="main-desc">हम आपके बिजनेस के लिए हाई-क्वालिटी मोबाइल ऐप्स बनाते हैं।</p>
 </section>
 
-<!-- Hero Text -->
-<section class="hero-text">
-    <h1 id="heroTitle">अपने <span>App</span> को बनवाएँ</h1>
-    <p id="heroPara">Android और iOS के लिए हाई-परफॉरमेंस ऐप्स बनवाएं। डिज़ाइन से लॉन्च तक पूरा सपोर्ट।</p>
-    <a href="https://wa.me/917079216939?text=Hello! मैं आपके साथ अपना ऐप बनवाना चाहता हूँ।" class="cta-btn" id="ctaBtn">कोटेशन लें</a>
-</section>
-
-<!-- Benefits -->
-<section class="benefits">
-    <div class="benefit-card"><i class="fas fa-code"></i><h3>Source Code</h3><p>पूरा ownership आपके पास रहेगा।</p></div>
-    <div class="benefit-card"><i class="fas fa-rocket"></i><h3>Deployment</h3><p>Play Store और App Store पर लाइव सेटअप।</p></div>
-    <div class="benefit-card"><i class="fas fa-life-ring"></i><h3>Support</h3><p>6 महीने का फ्री technical support।</p></div>
-    <div class="benefit-card"><i class="fas fa-chart-line"></i><h3>Analytics</h3><p>यूजर ट्रैकिंग और रिपोर्टिंग टूल्स integration।</p></div>
-</section>
-
-<!-- Professional -->
-<section class="professional">
-<h2>Professional Features</h2>
-<div class="professional-grid">
-    <div class="professional-card"><i class="fas fa-laptop-code"></i><h3>High Quality Code</h3><p>Clean, scalable और optimized code।</p></div>
-    <div class="professional-card"><i class="fas fa-vials"></i><h3>Testing</h3><p>Full QA और bug-free delivery।</p></div>
-    <div class="professional-card"><i class="fas fa-headset"></i><h3>Post-launch Support</h3><p>6 महीने तक free support।</p></div>
-    <div class="professional-card"><i class="fas fa-award"></i><h3>Experienced Team</h3><p>6+ साल का professional अनुभव।</p></div>
-</div>
-</section>
-
-<!-- 3-Step Process -->
-<section class="process">
-<h2>Our 3-Step Process</h2>
-<div class="process-steps">
-    <div class="step-card"><i class="fas fa-lightbulb"></i><h3>Idea</h3><p>आपका idea समझना और plan करना।</p></div>
-    <div class="step-card"><i class="fas fa-pencil-ruler"></i><h3>Design & Development</h3><p>UI/UX और coding का पूरा process।</p></div>
-    <div class="step-card"><i class="fas fa-rocket"></i><h3>Launch</h3><p>Play Store & App Store पर release।</p></div>
-</div>
-</section>
-
-<!-- Portfolio -->
-<section class="portfolio">
-<h2>हमारे प्रोजेक्ट्स</h2>
+<!-- Projects Gallery -->
+<h2 style="text-align:center; color:var(--secondary);">Our Latest Projects</h2>
 <div class="portfolio-grid">
-    <div class="portfolio-card"><img src="https://images.unsplash.com/photo-1581091012184-6a7b4e4cd0e0?auto=format&fit=crop&w=400&q=80" alt=""></div>
-    <div class="portfolio-card"><img src="https://images.unsplash.com/photo-1606761561475-2cde1a514c6d?auto=format&fit=crop&w=400&q=80" alt=""></div>
-    <div class="portfolio-card"><img src="https://images.unsplash.com/photo-1591696331114-9b33b16544be?auto=format&fit=crop&w=400&q=80" alt=""></div>
-    <div class="portfolio-card"><img src="https://images.unsplash.com/photo-1611095961271-5e1c051efc10?auto=format&fit=crop&w=400&q=80" alt=""></div>
+    <div class="project-card">
+        <img src="https://images.unsplash.com" alt="E-commerce App">
+        <div class="project-info"><h3>E-commerce App</h3><p>Online Shopping Solution</p></div>
+    </div>
+    <div class="project-card">
+        <img src="https://images.unsplash.com" alt="Fintech App">
+        <div class="project-info"><h3>Fintech App</h3><p>Trading & Finance UI</p></div>
+    </div>
+    <div class="project-card">
+        <img src="https://images.unsplash.com" alt="Social Media">
+        <div class="project-info"><h3>Social App</h3><p>Connect with World</p></div>
+    </div>
 </div>
-</section>
 
-<!-- Testimonials -->
-<section class="testimonials">
-<h2>Client Reviews</h2>
-<div class="testimonial-slide active"><p>"बहुत professional service! मेरा app बहुत smooth और fast है।"</p><h4>- Rahul Sharma</h4></div>
-<div class="testimonial-slide"><p>"Design और support दोनों excellent थे। Highly recommended."</p><h4>- Priya Verma</h4></div>
-<div class="testimonial-slide"><p>"Launch से पहले testing perfect थी। 100% satisfied!"</p><h4>- Aman Singh</h4></div>
-</section>
-
-<!-- Pricing -->
-<section class="pricing">
-<h2>Packages</h2>
-<div class="pricing-grid">
-<div class="price-card"><h3>Basic</h3><p>Simple app with basic features</p><div class="price">₹5,999</div></div>
-<div class="price-card"><h3>Standard</h3><p>App with UI/UX + Analytics</p><div class="price">₹15,999</div></div>
-<div class="price-card"><h3>Premium</h3><p>Full app + support + deployment</p><div class="price">₹29,999</div></div>
-</div>
-</section>
-
-<!-- FAQ -->
-<section class="faq">
-<h2>FAQs</h2>
-<div class="faq-item"><strong>App delivery में कितना समय लगेगा?</strong><p>Standard apps के लिए 15-20 दिन, complex apps के लिए 30+ दिन।</p></div>
-<div class="faq-item"><strong>Support कितना मिलता है?</strong><p>Launch के बाद 6 महीने तक free technical support।</p></div>
-<div class="faq-item"><strong>Code ownership किसके पास रहेगा?</strong><p>पूरा source code आपको मिलेगा।</p></div>
-</section>
-
-<!-- CTA Floating -->
-<a href="https://wa.me/917079216939?text=Hello! मैं आपके साथ अपना ऐप बनवाना चाहता हूँ।" class="floating-cta">WhatsApp करें</a>
-
-<footer>&copy; 2026 OFFICIAL MANJEET. All Rights Reserved.</footer>
+<footer>
+    <p>&copy; 2026 Official Manjeet. All Rights Reserved.</p>
+</footer>
 
 <script>
-// Language toggle (dummy)
-function toggleLang(){
-    const btn=document.getElementById('langBtn');
-    if(btn.innerText==='English'){btn.innerText='हिंदी';}else{btn.innerText='English';}
-}
-
-// Hero Slider
-let slideIndex=0;
-const slides=document.getElementById('heroSlide');
-function showSlide(){slides.style.transform=`translateX(-${slideIndex*100}%)`;}
-function nextSlide(){slideIndex=(slideIndex+1)%slides.children.length; showSlide();}
-function prevSlide(){slideIndex=(slideIndex-1+slides.children.length)%slides.children.length; showSlide();}
-setInterval(nextSlide,5000);
-
-// FAQ toggle
-const faqs=document.querySelectorAll('.faq-item');
-faqs.forEach(item=>item.addEventListener('click',()=>{const p=item.querySelector('p'); p.style.display=(p.style.display==='block')?'none':'block';}));
-
-// Testimonials auto slide
-let testIndex=0;
-const tests=document.querySelectorAll('.testimonial-slide');
-function showTest(){tests.forEach((t,i)=>{t.classList.remove('active'); if(i===testIndex)t.classList.add('active');});}
-setInterval(()=>{testIndex=(testIndex+1)%tests.length; showTest();},5000);
+    function toggleLang() {
+        const title = document.getElementById('main-title');
+        const desc = document.getElementById('main-desc');
+        if(title.innerHTML.includes("Professional")) {
+            title.innerHTML = "प्रोफेशनल <span>ऐप डेवलपमेंट</span>";
+            desc.innerHTML = "We build high-quality mobile apps for your business.";
+        } else {
+            title.innerHTML = "Professional <span>App Development</span>";
+            desc.innerHTML = "हम आपके बिजनेस के लिए हाई-क्वालिटी मोबाइल ऐप्स बनाते हैं।";
+        }
+    }
 </script>
 
 </body>
