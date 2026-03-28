@@ -5,12 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Official Manjeet | Web Solutions</title>
 
-<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-
 body{
     font-family:'Poppins',sans-serif;
     background:#fff;
@@ -29,26 +27,21 @@ header{
     background:#fff;
     z-index:100;
 }
-
 .logo-area{
     display:flex;
     align-items:center;
     gap:10px;
 }
-
 .logo-area img{
     width:40px;
     height:40px;
     border-radius:50%;
 }
-
 .logo-area span{
     font-weight:800;
     font-size:1rem;
 }
-
 .logo-area b{color:#00bd65;}
-
 .lang-btn{
     background:#00bd65;
     color:#fff;
@@ -64,17 +57,14 @@ header{
     padding:20px;
     position:relative;
 }
-
 .hero h2{
     color:#00bd65;
     margin-bottom:10px;
 }
-
 .hero p{
     color:#555;
     margin-bottom:15px;
 }
-
 /* PRO UPGRADE BADGE */
 .pro-badge{
     display:inline-block;
@@ -83,19 +73,16 @@ header{
     padding:5px 15px;
     border-radius:20px;
     font-weight:700;
-    position:absolute;
-    top:10px;
-    right:10px;
-    font-size:0.8rem;
+    font-size:0.9rem;
+    margin-bottom:10px;
 }
-
 /* NEXT LEVEL BANNER */
 .next-level{
     display:block;
-    background:linear-gradient(90deg, #00bd65, #00ff88);
+    background:linear-gradient(90deg,#00bd65,#00ff88);
     color:#fff;
     padding:12px 20px;
-    margin:15px auto;
+    margin:10px auto;
     width:90%;
     border-radius:25px;
     font-weight:700;
@@ -108,32 +95,27 @@ header{
     position:relative;
     margin-bottom:30px;
 }
-
 .slider-container{
     overflow:hidden;
     max-width:100%;
 }
-
 .slider-track{
     display:flex;
     transition:0.5s;
 }
-
 .slide{
     min-width:100%;
     display:flex;
     justify-content:center;
     padding:0 15px;
 }
-
 .slide img{
     width:100%;
-    max-width:600px; /* बढ़ा दी चौड़ाई */
+    max-width:650px;
     height:auto;
     border-radius:15px;
 }
-
-/* NAV */
+/* NAV BUTTONS */
 .nav-btn{
     position:absolute;
     top:50%;
@@ -147,7 +129,6 @@ header{
     cursor:pointer;
     z-index:10;
 }
-
 .prev{left:10px;}
 .next{right:10px;}
 
@@ -156,7 +137,6 @@ header{
     padding:20px;
     text-align:center;
 }
-
 .card{
     border:1px solid #ddd;
     padding:20px;
@@ -188,7 +168,7 @@ header{
     border-radius:8px;
 }
 
-/* BUTTON */
+/* BUTTONS */
 .btn{
     background:#00ff88;
     padding:12px 25px;
@@ -196,12 +176,23 @@ header{
     border:none;
     font-weight:700;
     cursor:pointer;
+    margin-top:10px;
+}
+.footer-back-btn{
+    display:block;
+    margin:20px auto;
+    background:#00bd65;
+    color:#fff;
+    border:none;
+    padding:12px 25px;
+    border-radius:30px;
+    font-weight:700;
 }
 
 /* MOBILE */
 @media(max-width:768px){
 .slide{padding:0 10px;}
-.slide img{max-width:95%;} /* मोबाइल में adjust */
+.slide img{max-width:95%;}
 .portfolio img{width:120px;}
 .card{margin:10px 0;}
 .next-level{width:95%;}
@@ -221,9 +212,9 @@ header{
 
 <!-- HERO -->
 <div class="hero">
+<span class="pro-badge">Pro Upgrade</span>
 <h2 id="heroTitle">🚀 Grow Your Business Online</h2>
 <p id="heroText">We create websites that bring clients 💰</p>
-<span class="pro-badge">Pro Upgrade</span>
 <div class="next-level" id="nextLevelBanner">🔥 अगला Level – Upgrade Now!</div>
 </div>
 
@@ -280,6 +271,9 @@ header{
 <button onclick="send()" class="btn" id="sendBtn">Send on WhatsApp</button>
 </div>
 
+<!-- BACK BUTTON -->
+<button onclick="history.back()" class="footer-back-btn" id="backBtn">⬅ Back</button>
+
 <script>
 /* SLIDER */
 let i=0;
@@ -309,7 +303,7 @@ window.open(url, "_blank");
 }
 
 /* LANGUAGE TOGGLE */
-let lang="en"; // Default English
+let lang="en"; 
 
 function toggleLang(){
 if(lang==="en"){
