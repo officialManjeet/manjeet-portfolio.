@@ -22,7 +22,16 @@
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{background:var(--bg-dark);color:#fff;line-height:1.6;scroll-behavior:smooth;background-image:radial-gradient(circle at top right, rgba(0,210,255,0.07), transparent);}
+body {
+    background: url('https://images.unsplash.com') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+}
+/* Readability ke liye overlay */
+body::before {
+    content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+    background: rgba(0, 0, 0, 0.8); z-index: -1; 
+}
 
 /* Header */
 header{display:flex; justify-content:space-between; align-items:center; padding:15px 5%; position:sticky; top:0; z-index:1000; background: rgba(5,5,5,0.95);}
@@ -133,6 +142,13 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
 
 <header>
     <div class="logo-area">
+        <div style="display: flex; gap: 15px; align-items: center;">
+    <!-- Back Button -->
+    <a href="index.html" style="color: #fff; text-decoration: none; border: 1px solid var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 14px;">← वापस जाएं</a>
+    <!-- Lang Button -->
+    <button class="lang-btn" onclick="toggleLang()">HI / EN</button>
+</div>
+
         <img src="./images/sel.png" alt="Logo">
         <span>OFFICIAL <b>MANJEET</b></span>
     </div>
@@ -226,9 +242,28 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
 <!-- CTA Floating -->
 <a href="https://wa.me/917079216939?text=Hello! मैं आपके साथ अपना ऐप बनवाना चाहता हूँ।" class="floating-cta">WhatsApp करें</a>
 
-<footer>&copy; 2026 OFFICIAL MANJEET. All Rights Reserved.</footer>
+<footer>
+    
+    &copy; 2026 OFFICIAL MANJEET. All Rights Reserved.
+<h2 style="text-align:center; margin: 40px 0; color: var(--primary);">Our Projects</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 0 5%;">
+    <div class="benefit-card"><img src="https://images.unsplash.com" style="width:100%; border-radius:15px;"><h3>E-com App</h3></div>
+    <div class="benefit-card"><img src="https://images.unsplash.com" style="width:100%; border-radius:15px;"><h3>Food Delivery</h3></div>
+    <div class="benefit-card"><img src="https://images.unsplash.com" style="width:100%; border-radius:15px;"><h3>Fintech UI</h3></div>
+</div>
+
+</footer>
 
 <script>
+    function toggleLang() {
+    let title = document.querySelector('.hero-text h1');
+    if(title.innerHTML.includes("Professional")) {
+        title.innerHTML = "प्रोफेशनल <span>ऐप डेवलपमेंट</span>";
+    } else {
+        title.innerHTML = "Professional <span>App Development</span>";
+    }
+}
+
 // Language toggle (dummy)
 function toggleLang(){
     const btn=document.getElementById('langBtn');
