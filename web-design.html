@@ -94,6 +94,11 @@ header{
     text-align:center;
     position:relative;
     margin-bottom:30px;
+    /* Gradient background */
+    background: linear-gradient(to right, #e0ffe0, #ffffff);
+    padding:20px 0;
+    border-radius:20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 .slider-container{
     overflow:hidden;
@@ -111,9 +116,10 @@ header{
 }
 .slide img{
     width:100%;
-    max-width:650px;
+    max-width:750px;
     height:auto;
     border-radius:15px;
+    box-shadow:0 8px 15px rgba(0,0,0,0.2);
 }
 /* NAV BUTTONS */
 .nav-btn{
@@ -215,7 +221,7 @@ header{
 <span class="pro-badge">Pro Upgrade</span>
 <h2 id="heroTitle">🚀 Grow Your Business Online</h2>
 <p id="heroText">We create websites that bring clients 💰</p>
-<div class="next-level" id="nextLevelBanner">🔥 अगला Level – Upgrade Now!</div>
+<div class="next-level" id="nextLevelBanner">🔥 Next Level – Upgrade Now!</div>
 </div>
 
 <!-- SLIDER -->
@@ -235,17 +241,14 @@ header{
 <!-- PRICING -->
 <div class="pricing">
 <h2 id="pricingTitle">💰 Pricing</h2>
-
 <div class="card">
 <h3>₹4999</h3>
 <p id="basic">Basic Website</p>
 </div>
-
 <div class="card">
 <h3>₹9999</h3>
 <p id="standard">Standard Website</p>
 </div>
-
 <div class="card">
 <h3>₹14999</h3>
 <p id="premium">Premium Website</p>
@@ -263,11 +266,9 @@ header{
 <!-- FORM -->
 <div class="form">
 <h2 id="formTitle">📩 Get Quote</h2>
-
 <input type="text" id="name" placeholder="Your Name">
 <input type="text" id="phone" placeholder="Your Phone">
 <textarea id="msg" placeholder="Your Requirement"></textarea>
-
 <button onclick="send()" class="btn" id="sendBtn">Send on WhatsApp</button>
 </div>
 
@@ -279,7 +280,6 @@ header{
 let i=0;
 const track=document.getElementById("track");
 const slides=document.querySelectorAll(".slide");
-
 function move(d){
 i=(i+d+slides.length)%slides.length;
 track.style.transform=`translateX(-${i*100}%)`;
@@ -291,12 +291,10 @@ function send(){
 let name=document.getElementById("name").value;
 let phone=document.getElementById("phone").value;
 let msg=document.getElementById("msg").value;
-
 if(!name || !phone || !msg){
     alert("Please fill all fields!");
     return;
 }
-
 let text = `Hello, I want a website\n\nName: ${name}\nPhone: ${phone}\nRequirement: ${msg}`;
 let url = "https://wa.me/917079216939?text=" + encodeURIComponent(text);
 window.open(url, "_blank");
@@ -304,7 +302,6 @@ window.open(url, "_blank");
 
 /* LANGUAGE TOGGLE */
 let lang="en"; 
-
 function toggleLang(){
 if(lang==="en"){
   lang="hi";
