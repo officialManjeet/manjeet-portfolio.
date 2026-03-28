@@ -4,15 +4,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Web Solutions | Official Manjeet</title>
-
-<!-- Google Font -->
+<title>Official Manjeet | Web Solutions</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-
-<!-- Font Awesome -->
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -25,162 +19,120 @@ body{
 
 /* HEADER */
 header{
-    padding:12px 5%;
     display:flex;
     justify-content:space-between;
-    align-items:center;
+    padding:15px 5%;
     background:#fff;
     position:sticky;
     top:0;
-    z-index:1000;
     border-bottom:1px solid #eee;
 }
 
-.logo-area{
-    display:flex;
-    align-items:center;
-    gap:10px;
-}
-
-.logo-area img{
-    width:38px;
-    height:38px;
-    border-radius:50%;
-    border:2px solid #00bd65;
-}
-
-.logo-area span{
+.logo{
     font-weight:800;
-    font-size:1rem;
 }
 
-.logo-area b{color:#00bd65;}
+.logo span{color:#00bd65;}
 
-.lang-btn{
+.btn{
     background:#00bd65;
     color:#fff;
-    border:none;
-    padding:8px 18px;
-    border-radius:30px;
-    cursor:pointer;
+    padding:10px 20px;
+    border-radius:25px;
+    text-decoration:none;
 }
 
-/* SLIDER */
-.slider-section{
+/* HERO */
+.hero{
     text-align:center;
-    padding:30px 10px;
-}
-
-h1{
-    font-size:1.6rem;
-    color:#00bd65;
-}
-
-.tagline{
-    font-size:0.9rem;
-    color:#777;
-    margin-bottom:20px;
-}
-
-.slider-container{
-    overflow:hidden;
-    max-width:100%;
-}
-
-.slider-track{
-    display:flex;
-    transition:0.5s;
-}
-
-.slide{
-    min-width:100%;
-    padding:0 10px;
-}
-
-.slide img{
-    width:100%;
-    height:auto;
-    border-radius:15px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.1);
-}
-
-/* NAV BUTTON */
-.nav-btn{
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    background:#000;
+    padding:60px 20px;
+    background:linear-gradient(to right,#00bd65,#00ff88);
     color:#fff;
-    border:none;
-    width:40px;
-    height:40px;
-    border-radius:50%;
-    cursor:pointer;
 }
 
-.prev{left:10px;}
-.next{right:10px;}
-
-/* INFO */
-.info-section{
-    padding:30px 15px;
-}
-
-.info-box{
-    margin-bottom:25px;
-}
-
-.info-box h3{
-    color:#00bd65;
+.hero h1{
+    font-size:2rem;
     margin-bottom:10px;
 }
 
-.info-box li{
-    list-style:none;
-    margin:8px 0;
+.hero p{
+    margin-bottom:20px;
 }
 
-/* BUTTON */
-.btn-quote{
-    display:block;
-    width:90%;
-    margin:20px auto;
+.hero a{
+    background:#000;
+    color:#fff;
+    padding:15px 30px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:600;
+}
+
+/* SERVICES */
+.services{
+    padding:40px 20px;
     text-align:center;
-    padding:15px;
+}
+
+.services h2{
+    margin-bottom:20px;
+}
+
+.service-box{
+    background:#f9f9f9;
+    padding:20px;
+    border-radius:15px;
+    margin:10px 0;
+}
+
+/* TESTIMONIAL */
+.testimonial{
+    background:#f1f1f1;
+    padding:40px 20px;
+    text-align:center;
+}
+
+.testimonial p{
+    font-style:italic;
+}
+
+/* CTA */
+.cta{
+    text-align:center;
+    padding:40px 20px;
+}
+
+.cta a{
     background:#00ff88;
+    padding:18px 40px;
     border-radius:30px;
     text-decoration:none;
     font-weight:700;
     color:#000;
 }
 
-/* BACK */
-.footer-back-btn{
-    display:block;
-    margin:20px auto;
-    background:#00bd65;
-    color:#fff;
-    border:none;
-    padding:12px 25px;
-    border-radius:30px;
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:20px;
+    font-size:0.9rem;
 }
 
 /* DESKTOP */
 @media(min-width:768px){
 
-h1{font-size:2.2rem;}
-.tagline{font-size:1rem;}
-
-.info-section{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:40px;
+.hero h1{
+    font-size:2.8rem;
 }
 
-.nav-btn{
-    width:60px;
-    height:60px;
-    font-size:22px;
+.services{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+}
+
+.service-box{
+    width:250px;
 }
 }
 </style>
@@ -190,98 +142,38 @@ h1{font-size:2.2rem;}
 <body>
 
 <header>
-<div class="logo-area">
-<img src="./images/sel.png">
-<span>OFFICIAL <b>MANJEET</b></span>
-</div>
-<button class="lang-btn" onclick="toggleLang()" id="langBtn">English</button>
+<div class="logo">Official <span>Manjeet</span></div>
+<a href="https://wa.me/917079216939" class="btn">Contact</a>
 </header>
 
-<div class="slider-section">
+<section class="hero">
+<h1>Grow Your Business Online 🚀</h1>
+<p>मैं आपके लिए Professional Website बनाता हूँ जो Client लाए 💰</p>
+<a href="https://wa.me/917079216939">Start Now</a>
+</section>
 
-<h1 id="title">प्रीमियम वेबसाइट ओवरव्यू</h1>
-<p class="tagline" id="tagline">बेहतरीन डिज़ाइन देखें</p>
+<section class="services">
+<h2>Our Services</h2>
 
-<button class="nav-btn prev" onclick="move(-1)">❮</button> <button class="nav-btn next" onclick="move(1)">❯</button>
+<div class="service-box">🌐 Website Design</div>
+<div class="service-box">📱 App Development</div>
+<div class="service-box">📈 Digital Marketing</div>
 
-<div class="slider-container">
-<div class="slider-track" id="track">
+</section>
 
-<div class="slide"><img src="./images/p1.jpg"></div>
-<div class="slide"><img src="./images/p2.jpg"></div>
-<div class="slide"><img src="./images/p3.jpg"></div>
-<div class="slide"><img src="./images/p4.jpg"></div>
-<div class="slide"><img src="./images/p5.jpg"></div>
-<div class="slide"><img src="./images/p6.jpg"></div>
+<section class="testimonial">
+<h2>Client Review</h2>
+<p>"Manjeet ne meri website banayi aur mera business 2x grow ho gaya!"</p>
+</section>
 
-</div>
-</div>
+<section class="cta">
+<h2>Ready to Start?</h2>
+<a href="https://wa.me/917079216939">Get Website Now</a>
+</section>
 
-</div>
-
-<div class="info-section">
-
-<div class="info-box">
-<h3 id="why">वेबसाइट क्यों?</h3>
-<ul id="whyList">
-<li>✔ बिजनेस ऑनलाइन करें</li>
-<li>✔ भरोसा बढ़ाएं</li>
-<li>✔ ज्यादा ग्राहक पाएं</li>
-</ul>
-</div>
-
-<div class="info-box">
-<h3 id="what">आपको क्या मिलेगा?</h3>
-<ul id="whatList">
-<li>⭐ फ्री डोमेन</li>
-<li>⭐ मॉडर्न डिजाइन</li>
-<li>⭐ लाइफटाइम सपोर्ट</li>
-</ul>
-</div>
-
-</div>
-
-<a href="https://wa.me/917079216939" class="btn-quote" id="quote">अभी कोटेशन लें</a>
-
-<button onclick="history.back()" class="footer-back-btn" id="backBtn">⬅ वापस जाएं</button>
-
-<script>
-
-let index=0;
-const track=document.getElementById("track");
-const slides=document.querySelectorAll(".slide");
-
-function move(dir){
-    index=(index+dir+slides.length)%slides.length;
-    track.style.transform=`translateX(-${index*100}%)`;
-}
-
-/* AUTO SLIDE */
-setInterval(()=>{move(1)},3000);
-
-/* LANGUAGE */
-let lang="hi";
-
-function toggleLang(){
-
-lang=lang==="hi"?"en":"hi";
-
-if(lang==="en"){
-document.getElementById("title").innerText="Premium Website Overview";
-document.getElementById("tagline").innerText="Explore best designs";
-document.getElementById("why").innerText="Why Website?";
-document.getElementById("what").innerText="What You Get?";
-document.getElementById("quote").innerText="REQUEST NOW";
-document.getElementById("backBtn").innerText="Go Back";
-document.getElementById("langBtn").innerText="Hindi";
-}
-else{
-location.reload();
-}
-
-}
-
-</script>
+<footer>
+© 2026 Official Manjeet | All Rights Reserved
+</footer>
 
 </body>
 </html>
