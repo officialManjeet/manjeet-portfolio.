@@ -168,9 +168,16 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
 <header style="background: #050505; border-bottom: 1px solid #111; padding: 15px 5%; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 1000;">
     <div class="logo-area" style="display: flex; align-items: center; gap: 12px;">
         <img src="./images/sel.png" alt="Logo" style="width: 45px; height: 45px; border-radius: 50%; border: 2px solid #00ff88;">
-        <!-- Yahan color white (#fff) kar diya hai -->
-        <span style="color: #ffffff !important; font-weight: 800; font-size: 1.2rem; letter-spacing: 1px; display: inline-block;">OFFICIAL <b style="color: #00d2ff !important;">MANJEET</b></span>
+        
+        <!-- Yahan OFFICIAL ko White aur MANJEET ko Blue kiya hai -->
+        <span style="font-weight: 800; font-size: 1.4rem; letter-spacing: 1px; font-family: 'Poppins', sans-serif;">
+            <span style="color: #ffffff !important;">OFFICIAL</span><span style="color: #00d2ff !important;">MANJEET</span>
+        </span>
     </div>
+    
+    <button onclick="toggleLang()" id="langBtn" style="background: #00d2ff; color: #000; border: none; padding: 8px 22px; border-radius: 30px; cursor: pointer; font-weight: 700;">Hindi</button>
+</header>
+
     <button onclick="toggleLang()" id="langBtn" style="background: #00d2ff; color: #000; border: none; padding: 8px 22px; border-radius: 30px; cursor: pointer; font-weight: 700;">Hindi</button>
 </header>
 
