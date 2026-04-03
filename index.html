@@ -547,9 +547,10 @@ function toggleLanguage() {
     const btn = document.getElementById("Lang-btn");
     if (!btn) return;
 
-    if (btn.innerText.includes("HI")) {
+    const isHindi = btn.innerText.includes("HI");
+
+    if (isHindi) {
         btn.innerText = "EN / English";
-        // टेक्स्ट बदलने का कोड यहाँ है
         if(document.getElementById("nav-h")) document.getElementById("nav-h").innerText = "होम";
         if(document.getElementById("nav-a")) document.getElementById("nav-a").innerText = "मेरे बारे में";
         if(document.getElementById("nav-p")) document.getElementById("nav-p").innerText = "पोर्टफोलियो";
@@ -563,4 +564,5 @@ function toggleLanguage() {
 </script>
 </body>
 </html>
+
 
