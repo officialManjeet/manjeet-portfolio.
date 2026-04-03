@@ -191,7 +191,9 @@ SOfficial Manjeet - Verified Final GitHub Code
         </nav>
 
         <div class="header-right">
-            <button id="lang-btn" class="lang-btn" onclick="changeLanguage()">HI / हिंदी</button>
+     <button id="lang-btn" class="Lang-btn" onclick="toggleLanguage()">HI / हिंदी</button>
+
+
 
         </div>
     </header>
@@ -539,6 +541,33 @@ function toggleDetails(id) {
 }
 
 // पेज लोड होते ही सब कुछ शुरू करें
+
 window.onload = loadComponents;
+
+function toggleLanguage() {
+    const btn = document.getElementById("Lang-btn");
+    
+    // चेक करें कि बटन मिल रहा है या नहीं
+    if (!btn) {
+        console.error("Button with ID 'Lang-btn' not found!");
+        return;
+    }
+
+    const isHindi = btn.innerText.includes("HI");
+
+    if (isHindi) {
+        btn.innerText = "EN / English";
+        localStorage.setItem("userLang", "hi");
+        // यहाँ आप हिंदी टेक्स्ट बदलने का कोड जोड़ सकते हैं
+    } else {
+        btn.innerText = "HI / हिंदी";
+        localStorage.setItem("userLang", "en");
+        // यहाँ आप वापस इंग्लिश करने का कोड जोड़ सकते हैं
+    }
+
+    // अगर आपने syncLanguage() फंक्शन नहीं बनाया है, तो नीचे वाली लाइन को ऐसे ही रहने दें (commented)
+    // syncLanguage(); 
+}
+</script>
 </body>
 </html>
