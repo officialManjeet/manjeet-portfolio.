@@ -544,10 +544,23 @@ function toggleDetails(id) {
 // पेज लोड होते ही सब कुछ शुरू करें
 
 function toggleLanguage() {
-    const btn = document.getElementById("Lang-btn");
+    const btn = document.getElementById("Lang-btn"); // 'E', 'B', 'I' को कैपिटल किया
     if (!btn) return;
 
-    const isHindi = btn.innerText.includes("HI");
+  const isEnglish = btn.innerText.includes("HI"); // अगर HI बटन पर है, तो मतलब अभी English मोड है
+
+if (isEnglish) {
+    btn.innerText = "EN / English"; // अब बटन का नाम बदलकर 'English' कर दो (ताकि वापस जाने का रास्ता रहे)
+    // यहाँ हिंदी वाले शब्द आएंगे (जो आपने सही लिखे हैं)
+    if(document.getElementById("nav-h")) document.getElementById("nav-h").innerText = "होम";
+    // ... बाकी हिंदी लाइन्स ...
+} else {
+    btn.innerText = "HI / हिंदी";
+    // यहाँ इंग्लिश वाले शब्द आएंगे (जो आपने सही लिखे हैं)
+    if(document.getElementById("nav-h")) document.getElementById("nav-h").innerText = "Home";
+    // ... बाकी इंग्लिश लाइन्स ...
+}
+
 
     if (isHindi) {
         btn.innerText = "EN / English";
@@ -558,9 +571,10 @@ function toggleLanguage() {
         btn.innerText = "HI / हिंदी";
         if(document.getElementById("nav-h")) document.getElementById("nav-h").innerText = "Home";
         if(document.getElementById("nav-a")) document.getElementById("nav-a").innerText = "About";
-              if(document.getElementById("nav-p")) document.getElementById("nav-p").innerText = "Portfolio";
+        if(document.getElementById("nav-p")) document.getElementById("nav-p").innerText = "Portfolio";
     }
-} 
+}
+
 </script>
 </body>
 </html>
