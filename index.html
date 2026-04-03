@@ -543,24 +543,24 @@ function toggleDetails(id) {
 
 // पेज लोड होते ही सब कुछ शुरू करें
 
-window.onload = loadComponents;
 function toggleLanguage() {
     const btn = document.getElementById("Lang-btn");
-    
     if (!btn) return;
 
     if (btn.innerText.includes("HI")) {
         btn.innerText = "EN / English";
-        document.getElementById("nav-h").innerText = "होम";
-        document.getElementById("nav-a").innerText = "मेरे बारे में";
-        document.getElementById("nav-p").innerText = "पोर्टफोलियो";
+        // टेक्स्ट बदलने का कोड यहाँ है
+        if(document.getElementById("nav-h")) document.getElementById("nav-h").innerText = "होम";
+        if(document.getElementById("nav-a")) document.getElementById("nav-a").innerText = "मेरे बारे में";
+        if(document.getElementById("nav-p")) document.getElementById("nav-p").innerText = "पोर्टफोलियो";
     } else {
         btn.innerText = "HI / हिंदी";
-        document.getElementById("nav-h").innerText = "Home";
-        document.getElementById("nav-a").innerText = "About";
-        document.getElementById("nav-p").innerText = "Portfolio";
+        if(document.getElementById("nav-h")) document.getElementById("nav-h").innerText = "Home";
+        if(document.getElementById("nav-a")) document.getElementById("nav-a").innerText = "About";
+        if(document.getElementById("nav-p")) document.getElementById("nav-p").innerText = "Portfolio";
     }
 }
 </script>
 </body>
 </html>
+
