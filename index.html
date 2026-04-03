@@ -543,9 +543,8 @@ function toggleDetails(id) {
 }
 
 // पेज लोड होते ही सब कुछ शुरू करें
-
-function toggleLanguage() {
-    const btn = document.getElementById("Lang-btn");
+function ToggleLanguage() {
+    const btn = document.getElementById("lang-btn");
     if (!btn) return;
 
     const isHindi = btn.innerText.includes("HI");
@@ -563,24 +562,7 @@ function toggleLanguage() {
     }
 }
 
-    // यहाँ हिंदी वाले शब्द आएंगे (जो आपने सही लिखे हैं)
-    function toggleLanguage() {
-    const btn = document.getElementById("Lang-btn");
-    if (!btn) return;
 
-    const isHindi = btn.innerText.includes("HI");
-
-    if (isHindi) {
-        btn.innerText = "EN / English";
-        if(document.getElementById("nav-h")) document.getElementById("nav-h").innerText = "होम";
-        if(document.getElementById("nav-a")) document.getElementById("nav-a").innerText = "मेरे बारे में";
-        if(document.getElementById("nav-p")) document.getElementById("nav-p").innerText = "पोर्टफोलियो";
-    } else {
-        btn.innerText = "HI / हिंदी";
-        if(document.getElementById("nav-h")) document.getElementById("nav-h").innerText = "Home";
-        if(document.getElementById("nav-a")) document.getElementById("nav-a").innerText = "About";
-        if(document.getElementById("nav-p")) document.getElementById("nav-p").innerText = "Portfolio";
-    }
 </script>
 </body>
 </html>
