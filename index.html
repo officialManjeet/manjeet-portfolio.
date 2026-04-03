@@ -543,30 +543,22 @@ function toggleDetails(id) {
 // पेज लोड होते ही सब कुछ शुरू करें
 
 window.onload = loadComponents;
-
 function toggleLanguage() {
     const btn = document.getElementById("Lang-btn");
     
-    // चेक करें कि बटन मिल रहा है या नहीं
-    if (!btn) {
-        console.error("Button with ID 'Lang-btn' not found!");
-        return;
-    }
+    if (!btn) return;
 
-    const isHindi = btn.innerText.includes("HI");
-
-    if (isHindi) {
+    if (btn.innerText.includes("HI")) {
         btn.innerText = "EN / English";
-        localStorage.setItem("userLang", "hi");
-        // यहाँ आप हिंदी टेक्स्ट बदलने का कोड जोड़ सकते हैं
+        document.getElementById("nav-h").innerText = "होम";
+        document.getElementById("nav-a").innerText = "मेरे बारे में";
+        document.getElementById("nav-p").innerText = "पोर्टफोलियो";
     } else {
         btn.innerText = "HI / हिंदी";
-        localStorage.setItem("userLang", "en");
-        // यहाँ आप वापस इंग्लिश करने का कोड जोड़ सकते हैं
+        document.getElementById("nav-h").innerText = "Home";
+        document.getElementById("nav-a").innerText = "About";
+        document.getElementById("nav-p").innerText = "Portfolio";
     }
-
-    // अगर आपने syncLanguage() फंक्शन नहीं बनाया है, तो नीचे वाली लाइन को ऐसे ही रहने दें (commented)
-    // syncLanguage(); 
 }
 </script>
 </body>
