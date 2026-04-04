@@ -235,7 +235,7 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
     margin: 0 5px;
     background-color: rgba(255,255,255,0.5);
     border-radius: 50%;
-    display: inline-block;
+      display: inline-block;
     transition: 0.4s;
 }
 
@@ -245,6 +245,7 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
     border-radius: 10px;
 }
 </style>
+
     
 </head>
 <body>
@@ -259,10 +260,12 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
 </header>
 <!-- Hero Slider -->
 <section class="hero-slider">
-    <div class="hero-slide" id="heroSlide">
-        <img src="https://images.unsplash.com/photo-1591696331114-9b33b16544be?auto=format&fit=crop&w=800&q=80" alt="">
-        <img src="https://images.unsplash.com/photo-1611095961271-5e1c051efc10?auto=format&fit=crop&w=800&q=80" alt="">
-        <img src="https://images.unsplash.com/photo-1606761561475-2cde1a514c6d?auto=format&fit=crop&w=800&q=80" alt="">
+  <img src="images/ap1.jpg" alt="Project 1">
+<img src="images/ap2.jpg" alt="Project 2">
+<img src="images/ap3.jpg" alt="Project 3">
+<img src="images/ap4.jpg" alt="Project 4">
+    <img src="images/ap5.jpg" alt="Project 5">
+        
     </div>
     <button class="slider-btn left" onclick="prevSlide()">&#10094;</button>
 </section>
@@ -473,12 +476,17 @@ setInterval(()=>{testIndex=(testIndex+1)%tests.length; showTest();},5000);
 </script>
     let slideIndex = 0;
 showSlides();
+<script>
+let slideIndex = 0;
+showSlides();
 
 function showSlides() {
     let i;
     let slides = document.getElementsByClassName("mySlides");
     let dots = document.getElementsByClassName("dot");
     
+    if (slides.length == 0) return; // अगर स्लाइड नहीं मिली तो रुक जाए
+
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";  
     }
@@ -492,8 +500,9 @@ function showSlides() {
     slides[slideIndex-1].style.display = "block";  
     dots[slideIndex-1].classList.add("active");
     
-    setTimeout(showSlides, 4000); // 4 सेकंड बाद फोटो बदलेगी
+    setTimeout(showSlides, 4000); 
 }
+</script>
 
 </body>
 </html>
