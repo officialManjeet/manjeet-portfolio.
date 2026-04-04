@@ -191,7 +191,6 @@ SOfficial Manjeet - Verified Final GitHub Code
         </nav>
 
         <div class="header-right">
-<button id="lang-btn" class="long-btn" onclick="BadloBhasha()">HI / हिंदी</button>
 
 
 
@@ -542,29 +541,6 @@ function toggleDetails(id) {
         list.style.display = isHidden ? "block" : "none";
     }
 }
-<!-- JavaScript कोड यहाँ से शुरू -->
-<script>
-function BadloBhasha() {
-    const btn = document.getElementById("lang-btn");
-    if (!btn) return;
-
-    if (btn.innerText.includes("HI")) {
-        btn.innerText = "EN / English";
-        if(document.getElementById("nav-h")) document.getElementById("nav-h").innerText = "होम";
-        if(document.getElementById("nav-a")) document.getElementById("nav-a").innerText = "मेरे बारे में";
-        if(document.getElementById("nav-p")) document.getElementById("nav-p").innerText = "पोर्टफोलियो";
-    } else {
-        btn.innerText = "HI / हिंदी";
-        if(document.getElementById("nav-h")) document.getElementById("nav-h").innerText = "Home";
-        if(document.getElementById("nav-a")) document.getElementById("nav-a").innerText = "About";
-        if(document.getElementById("nav-p")) document.getElementById("nav-p").innerText = "Portfolio";
-    }
-}
-</script>
-
-<!-- अगर आपने यही कोड manjeet-portfolio.js में भी लिखा है, तो नीचे वाली लाइन रहने दें, वरना इसे हटा दें -->
-<script src="manjeet-portfolio.js"></script>
-
 </body>
 </html>
 
