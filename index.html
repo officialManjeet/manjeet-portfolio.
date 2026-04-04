@@ -542,9 +542,9 @@ function toggleDetails(id) {
         list.style.display = isHidden ? "block" : "none";
     }
 }
-
-// पेज लोड होते ही सब कुछ शुरू करें
-  function BadloBhasha() {
+<!-- JavaScript कोड यहाँ से शुरू -->
+<script>
+function BadloBhasha() {
     const btn = document.getElementById("lang-btn");
     if (!btn) return;
 
@@ -560,8 +560,12 @@ function toggleDetails(id) {
         if(document.getElementById("nav-p")) document.getElementById("nav-p").innerText = "Portfolio";
     }
 }
-
 </script>
+
+<!-- अगर आपने यही कोड manjeet-portfolio.js में भी लिखा है, तो नीचे वाली लाइन रहने दें, वरना इसे हटा दें -->
+<script src="manjeet-portfolio.js"></script>
+
 </body>
 </html>
+
 
