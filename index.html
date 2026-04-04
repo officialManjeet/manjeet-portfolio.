@@ -198,6 +198,33 @@ SOfficial Manjeet - Verified Final GitHub Code
 </div>
 
     </header>
+</header>
+
+<!-- यहाँ से पेस्ट करना शुरू करें -->
+<script>
+function BadloBhasha() {
+    console.log("Button Clicked!"); 
+    const btn = document.getElementById("lang-btn");
+    if (!btn) return;
+
+    if (btn.innerText.includes("HI")) {
+        btn.innerText = "EN / English";
+        document.getElementById("nav-h").innerText = "होम";
+        document.getElementById("nav-a").innerText = "मेरे बारे में";
+        document.getElementById("nav-p").innerText = "पोर्टफोलियो";
+        if(document.getElementById("nav-s")) document.getElementById("nav-s").innerText = "दुकान";
+    } else {
+        btn.innerText = "HI / हिंदी";
+        document.getElementById("nav-h").innerText = "Home";
+        document.getElementById("nav-a").innerText = "About";
+        document.getElementById("nav-p").innerText = "Portfolio";
+        if(document.getElementById("nav-s")) document.getElementById("nav-s").innerText = "shop";
+    }
+}
+</script>
+<!-- यहाँ तक पेस्ट करें -->
+
+<!-- Landing View -->
 
     <!-- Landing View -->
     <div id="home-view" class="container">
