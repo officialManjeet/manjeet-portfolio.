@@ -169,45 +169,62 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
     <style>
 /* सिर्फ इस पेज के लिए स्लाइडर स्टाइलिंग */
 <style>
-/* जो फोटो अभी दिखनी चाहिए */
+.project-slider-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1200px; /* डेस्कटॉप पर ज्यादा न फैले इसलिए */
+    margin: 0 auto;
+    overflow: hidden;
+    min-height: 500px; /* मोबाइल के लिए शुरुआती हाइट */
+}
+
+.grid-slide {
+    position: absolute;
+    top: 0; left: 0; width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 10px;
+    transition: transform 2s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(100%);
+    opacity: 0; /* गायब फोटो को वापस लाने के लिए */
+}
+
 .grid-slide.active {
     transform: translateX(0);
+    opacity: 1;
     z-index: 5;
 }
 
-/* जो फोटो बाहर जा रही है */
 .grid-slide.exit {
     transform: translateX(-100%);
+    opacity: 0;
     z-index: 1;
 }
 
-    transition: transform 2s cubic-bezier(0.45, 0.05, 0.55, 0.95);
-    transform: translateX(100%); /* दाईं ओर तैयार खड़ा रहेगा */
+/* 5 फोटो का प्रीमियम ग्रिड लेआउट */
+.p-card { position: relative; overflow: hidden; background: #eee; border-radius: 8px; }
+.p-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.p-card span { position: absolute; bottom: 10px; left: 10px; color: #fff; font-size: 14px; z-index: 2; background: rgba(0,0,0,0.5); padding: 2px 8px; border-radius: 4px; }
+
+/* डेस्कटॉप लेआउट (3 कॉलम) */
+@media screen and (min-width: 769px) {
+    .project-slider-wrapper { min-height: 700px; }
+    .p-card:nth-child(1) { grid-column: 1; grid-row: 1; height: 350px; }
+    .p-card:nth-child(2) { grid-column: 2; grid-row: 1; height: 350px; }
+    .p-card:nth-child(3) { grid-column: 3; grid-row: 1 / 3; height: 710px; } /* लंबी फोटो */
+    .p-card:nth-child(4) { grid-column: 1 / 3; grid-row: 2; height: 350px; } /* चौड़ी फोटो */
+    .p-card:nth-child(5) { display: none; } /* अगर 5वीं फोटो एडजस्ट करनी है तो इसे 4 के बाद डाल सकते हैं */
 }
 
-/* जो ग्रिड दिख रहा है */
-.grid-slide.active {
-    transform: translateX(0);
+/* मोबाइल/टैबलेट लेआउट (सब एक के नीचे एक) */
+@media screen and (max-width: 768px) {
+    .project-slider-wrapper { min-height: 1200px; }
+    .grid-slide { grid-template-columns: 1fr; }
+    .p-card { height: 250px; }
 }
-
-/* जो ग्रिड बाहर जा रहा है */
-.grid-slide.exit {
-    transform: translateX(-100%);
-}
-
-.p-card { position: relative; overflow: hidden; background: #eee; }
-.p-card:nth-child(1) { grid-column: 1; grid-row: 1; }
-.p-card:nth-child(2) { grid-column: 2; grid-row: 1; }
-.p-card:nth-child(3) { grid-column: 3; grid-row: 1 / 3; }
-.p-card:nth-child(4) { grid-column: 1 / 3; grid-row: 2; }
-.p-card img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.9); }
-.p-card span { position: absolute; top: 15px; left: 15px; color: #fff; font-weight: 500; }
 </style>
 
-
-    
-</head>
-<body>
 <header style="background: #050505; border-bottom: 1px solid #111; padding: 15px 5%; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 1000;">
 <div class="logo-area" style="display: flex; align-items: center; gap: 12px;">
     <img src="./images/sel.png" alt="Logo" style="width: 45px; height: 45px; border-radius: 50%; border: 2px solid #00d2ff;">
