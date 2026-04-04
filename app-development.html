@@ -335,18 +335,6 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
             <div class="text-overlay">Fast & Secure</div>
         </div>
 
-        <!-- प्रोग्रेस डॉट्स -->
-        <div class="dots-container">
-            <span class="dot"></span> 
-            <span class="dot"></span> 
-            <span class="dot"></span> 
-            <span class="dot"></span> 
-            <span class="dot"></span> 
-        </div>
-    </div>
-</section>
-
-
 <!-- Testimonials -->
 <section class="testimonials">
 <h2>Client Reviews</h2>
@@ -399,6 +387,41 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
 <div class="faq-item"><strong>Code ownership किसके पास रहेगा?</strong><p>पूरा source code आपको मिलेगा।</p></div>
 </section>
 
+<script>
+// नए नाम के साथ ताकि पुराना 'slideIndex' वाला एरर खत्म हो जाए
+var myCurrentSlide = 0; 
+runMyProjectSlider();
+
+function runMyProjectSlider() {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    
+    // अगर पेज पर स्लाइड नहीं मिली तो रुक जाए
+    if (slides.length == 0) return; 
+
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    myCurrentSlide++;
+    if (myCurrentSlide > slides.length) {myCurrentSlide = 1}    
+    
+    for (i = 0; i < dots.length; i++) {
+        dots[i].classList.remove("active");
+    }
+    
+    // फोटो दिखाना शुरू करें
+    slides[myCurrentSlide-1].style.display = "block";  
+    if(dots[myCurrentSlide-1]) {
+        dots[myCurrentSlide-1].classList.add("active");
+    }
+    
+    // हर 4 सेकंड में स्लाइड बदलेगी
+    setTimeout(runMyProjectSlider, 4000); 
+}
+</script>
+
+        
 <!-- CTA Floating -->
 <a href="https://wa.me/917079216939?text=Hello! मैं आपके साथ अपना ऐप बनवाना चाहता हूँ।" class="floating-cta">WhatsApp करें</a>
 
@@ -467,18 +490,16 @@ setInterval(()=>{testIndex=(testIndex+1)%tests.length; showTest();},5000);
 
 
 </script>
-    let slideIndex = 0;
-showSlides();
-<script>
-let slideIndex = 0;
+  <script>
+var slideIndex = 0;
 showSlides();
 
 function showSlides() {
-    let i;
-    let slides = document.getElementsByClassName("mySlides");
-    let dots = document.getElementsByClassName("dot");
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
     
-    if (slides.length == 0) return; // अगर स्लाइड नहीं मिली तो रुक जाए
+    if (slides.length == 0) return; 
 
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";  
@@ -491,7 +512,9 @@ function showSlides() {
     }
     
     slides[slideIndex-1].style.display = "block";  
-    dots[slideIndex-1].classList.add("active");
+    if(dots[slideIndex-1]) {
+        dots[slideIndex-1].classList.add("active");
+    }
     
     setTimeout(showSlides, 4000); 
 }
