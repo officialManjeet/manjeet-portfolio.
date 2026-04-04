@@ -221,15 +221,49 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
 </section>
 
 <!-- Portfolio -->
-<!-- Portfolio Section -->
-<section class="portfolio">
-    <h2>हमारे प्रोजेक्ट्स</h2>
-    <div class="portfolio-grid">
-        <div class="portfolio-card"><img src="images/ap1.jpg" alt="Project 1"></div>
-        <div class="portfolio-card"><img src="images/ap2.jpg" alt="Project 2"></div>
-        <div class="portfolio-card"><img src="images/ap3.jpg" alt="Project 3"></div>
-        <div class="portfolio-card"><img src="images/ap4.jpg" alt="Project 4"></div>
-        <div class="portfolio-card"><img src="images/ap5.jpg" alt="Project 5"></div>
+<!-- प्रोजेक्ट स्लाइडर सेक्शन -->
+<section class="project-slider-section">
+    <h2 class="section-title">हमारे प्रोजेक्ट्स</h2>
+    
+    <div class="slideshow-container">
+        <!-- फोटो 1 -->
+        <div class="mySlides fade">
+            <img src="images/ap1.jpg" alt="Project 1">
+            <div class="text-overlay">Modern Design</div>
+        </div>
+
+        <!-- फोटो 2 -->
+        <div class="mySlides fade">
+            <img src="images/ap2.jpg" alt="Project 2">
+            <div class="text-overlay">Premium Quality</div>
+        </div>
+
+        <!-- फोटो 3 -->
+        <div class="mySlides fade">
+            <img src="images/ap3.jpg" alt="Project 3">
+            <div class="text-overlay">Innovative Tech</div>
+        </div>
+
+        <!-- फोटो 4 -->
+        <div class="mySlides fade">
+            <img src="images/ap4.jpg" alt="Project 4">
+            <div class="text-overlay">User Friendly</div>
+        </div>
+
+        <!-- फोटो 5 -->
+        <div class="mySlides fade">
+            <img src="images/ap5.jpg" alt="Project 5">
+            <div class="text-overlay">Fast & Secure</div>
+        </div>
+
+        <!-- प्रोग्रेस डॉट्स -->
+        <div class="dots-container">
+            <span class="dot"></span> 
+            <span class="dot"></span> 
+            <span class="dot"></span> 
+            <span class="dot"></span> 
+            <span class="dot"></span> 
+        </div>
     </div>
 </section>
 
@@ -354,5 +388,29 @@ setInterval(()=>{testIndex=(testIndex+1)%tests.length; showTest();},5000);
 
 
 </script>
+    let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}    
+    
+    for (i = 0; i < dots.length; i++) {
+        dots[i].classList.remove("active");
+    }
+    
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].classList.add("active");
+    
+    setTimeout(showSlides, 4000); // 4 सेकंड बाद फोटो बदलेगी
+}
+
 </body>
 </html>
