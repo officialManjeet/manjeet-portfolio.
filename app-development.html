@@ -168,38 +168,66 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
 }
     <style>
 /* सिर्फ इस पेज के लिए स्लाइडर स्टाइलिंग */
-.project-slider-section {
-    padding: 50px 20px;
-    background: #fdfdfd;
+.premium-projects {
+    padding: 60px 5%;
+    background-color: #f8f8f8; /* हल्का मैट बैकग्राउंड */
 }
 
-.section-title {
+.main-title {
     text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 30px;
-    font-family: 'Poppins', sans-serif;
-    color: #333;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    font-family: 'Playfair Display', serif; /* लग्जरी फोंट */
+    color: #222;
 }
 
-.slideshow-container {
-    max-width: 1100px;
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* डेस्कटॉप पर 3 कॉलम */
+    gap: 15px; /* इमेजेस के बीच का गैप */
+}
+
+.p-card {
     position: relative;
-    margin: auto;
-    border-radius: 20px;
+    height: 500px; /* लम्बे कार्ड्स (जैसा फोटो में है) */
     overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    background: #eee;
 }
 
-.mySlides {
-    display: none; /* शुरुआत में स्लाइड छुपी रहेगी */
-}
-
-.mySlides img {
+.p-card img {
     width: 100%;
-    height: 500px; 
-    object-fit: cover;
-    filter: brightness(0.8);
-    display: block;
+    height: 100%;
+    object-fit: cover; /* इमेज स्ट्रेच नहीं होगी */
+    transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+/* मैट लुक के लिए: कोई चमक नहीं, सिर्फ हल्का डार्क ओवरले */
+.p-overlay {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+    z-index: 2;
+}
+
+/* होवर करने पर हल्का सा ज़ूम (बिना किसी शीशे वाली चमक के) */
+.p-card:hover img {
+    transform: scale(1.05);
+}
+
+/* मोबाइल के लिए सेटिंग */
+@media (max-width: 900px) {
+    .project-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .project-grid { grid-template-columns: 1fr; }
+    .p-card { height: 400px; }
+}
+
 }
 
 .text-overlay {
@@ -301,39 +329,41 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
 
 <!-- Portfolio -->
 <!-- प्रोजेक्ट स्लाइडर सेक्शन -->
-<section class="project-slider-section">
-    <h2 class="section-title">हमारे प्रोजेक्ट्स</h2>
+<section class="premium-projects">
+    <h2 class="main-title">हमारे प्रोजेक्ट्स</h2>
     
-    <div class="slideshow-container">
-        <!-- फोटो 1 -->
-        <div class="mySlides fade">
-            <img src="images/ap1.jpg" alt="Project 1">
-            <div class="text-overlay">Modern Design</div>
+    <div class="project-grid">
+        <!-- कार्ड 1 -->
+        <div class="p-card">
+            <img src="images/ap1.jpg" alt="Fashion">
+            <div class="p-overlay">Fashion</div>
         </div>
 
-        <!-- फोटो 2 -->
-        <div class="mySlides fade">
-            <img src="images/ap2.jpg" alt="Project 2">
-            <div class="text-overlay">Premium Quality</div>
+        <!-- कार्ड 2 -->
+        <div class="p-card">
+            <img src="images/ap2.jpg" alt="Dining">
+            <div class="p-overlay">Restaurant & Fine Dining</div>
         </div>
 
-        <!-- फोटो 3 -->
-        <div class="mySlides fade">
-            <img src="images/ap3.jpg" alt="Project 3">
-            <div class="text-overlay">Innovative Tech</div>
+        <!-- कार्ड 3 -->
+        <div class="p-card">
+            <img src="images/ap3.jpg" alt="Tech">
+            <div class="p-overlay">Consumer Durables</div>
         </div>
 
-        <!-- फोटो 4 -->
-        <div class="mySlides fade">
-            <img src="images/ap4.jpg" alt="Project 4">
-            <div class="text-overlay">User Friendly</div>
+        <!-- कार्ड 4 -->
+        <div class="p-card">
+            <img src="images/ap4.jpg" alt="Beauty">
+            <div class="p-overlay">Beauty & Cosmetics</div>
         </div>
 
-        <!-- फोटो 5 -->
-        <div class="mySlides fade">
-            <img src="images/ap5.jpg" alt="Project 5">
-            <div class="text-overlay">Fast & Secure</div>
+        <!-- कार्ड 5 -->
+        <div class="p-card">
+            <img src="images/ap5.jpg" alt="Footwear">
+            <div class="p-overlay">Footwear</div>
         </div>
+    </div>
+</section>
 
 <!-- Testimonials -->
 <section class="testimonials">
