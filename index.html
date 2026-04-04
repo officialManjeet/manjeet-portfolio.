@@ -567,6 +567,61 @@ function toggleDetails(id) {
         list.style.display = isHidden ? "block" : "none";
     }
 }
+    function BadloBhasha() {
+    const btn = document.getElementById("lang-btn");
+    if (!btn) return;
+
+    if (btn.innerText.includes("HI")) {
+        btn.innerText = "EN / English";
+        
+        // Navigation (Home, About, Portfolio)
+        document.getElementById("nav-h").innerText = "होम";
+        document.getElementById("nav-a").innerText = "मेरे बारे में";
+        document.getElementById("nav-p").innerText = "पोर्टफोलियो";
+
+        // Hero Section (Heading & Description)
+        document.getElementById("hero-title").innerText = "अपने व्यवसाय को आगे बढ़ाएं";
+        document.getElementById("hero-desc").innerText = "विश्व स्तरीय विकास के लिए अत्याधुनिक डिजिटल रणनीतियाँ।";
+        document.getElementById("wa-btn").innerText = "वॉट्सऐप पर चैट करें";
+
+        // Services Section (Cards)
+        document.getElementById("srv-sm").innerText = "सोशल मीडिया";
+        document.getElementById("srv-sm-desc").innerText = "अपनी डिजिटल उपस्थिति बढ़ाएं";
+        
+        document.getElementById("srv-ad").innerText = "विज्ञापन";
+        document.getElementById("srv-ad-desc").innerText = "अपनी पहुंच और बिक्री बढ़ाएं";
+        
+        document.getElementById("srv-os").innerText = "हमारी सेवाएँ";
+        document.getElementById("srv-os-desc").innerText = "हाई-डिमांड स्किल सीखें";
+
+        // Connect Section (Footer Title)
+        document.getElementById("conn-title").innerText = "मुझसे जुड़ें";
+
+    } else {
+        btn.innerText = "HI / हिंदी";
+        
+        // English Content (Reset to Original)
+        document.getElementById("nav-h").innerText = "Home";
+        document.getElementById("nav-a").innerText = "About";
+        document.getElementById("nav-p").innerText = "Portfolio";
+
+        document.getElementById("hero-title").innerText = "Elevate Your Business";
+        document.getElementById("hero-desc").innerText = "Cutting-edge digital strategies for world-class growth and dominance.";
+        document.getElementById("wa-btn").innerText = "Chat on WhatsApp";
+
+        document.getElementById("srv-sm").innerText = "Social Media";
+        document.getElementById("srv-sm-desc").innerText = "Grow your digital presence";
+        
+        document.getElementById("srv-ad").innerText = "Advertisement";
+        document.getElementById("srv-ad-desc").innerText = "Boost your reach & sales";
+        
+        document.getElementById("srv-os").innerText = "OUR SERVICES";
+        document.getElementById("srv-os-desc").innerText = "Learn high-demand skills";
+
+        document.getElementById("conn-title").innerText = "Connect With Me";
+    }
+}
+
 </body>
 </html>
 
