@@ -173,7 +173,7 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
 .project-grid {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* नीचे वाली 2 फोटो को बीच में लाएगा */
+    justify-content: mid center; /* नीचे वाली 2 फोटो को बीच में लाएगा */
     gap: 25px;
     padding: 40px 20px;
     max-width: 1100px;
@@ -183,12 +183,12 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
 /* कार्ड का लुक (बिना बॉर्डर, चमकदार) */
 .p-card {
     position: relative;
-    width: calc(31% - 10px); /* एक लाइन में 3 के लिए */
-    min-width: 280px; 
-    height: 320px; /* फोटो का अच्छा साइज */
+    width: calc(41% - 15px); /* एक लाइन में 3 के लिए */
+    min-width: 290px; 
+    height: 330px; /* फोटो का अच्छा साइज */
     overflow: hidden;
     border-radius: 20px; /* गोल कोने */
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    box-shadow: 0 30px 45px rgba(0,0,0,0.2);
     cursor: pointer;
 }
 
@@ -286,13 +286,15 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
 <!-- प्रोजेक्ट स्लाइडर सेक्शन -->
 <section class="premium-slider-section">
     <h2 class="main-title">हमारे प्रोजेक्ट्स</h2>
-    
+  
+        <cneter>
+             
     <div class="project-grid">
         <div class="p-card"><img src="images/ap1.jpg"><span>Fashion</span></div>
         <div class="p-card"><img src="images/ap2.jpg"><span>Dining</span></div>
         <div class="p-card"><img src="images/ap3.jpg"><span>Consumer Durables</span></div>
-        <div class="p-card"><img src="images/ap4.jpg"><span>Beauty</span></div>
-        <div class="p-card"><img src="images/ap5.jpg"><span>Footwear</span></div>
+        <div class="p-card"><img src="images/ap4.jpg"><span>Beauty</span></div> 
+        </cneter>
     </div>
 </section>
 
