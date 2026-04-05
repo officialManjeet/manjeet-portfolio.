@@ -169,34 +169,36 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
     <style>
 /* सिर्फ इस पेज के लिए स्लाइडर स्टाइलिंग */
 <style>
-/* 3 ऊपर और 3 नीचे (या 2 नीचे) वाला ग्रिड लेआउट */
+/* प्रोजेक्ट्स ग्रिड सेटअप (3 ऊपर, 2 नीचे के लिए) */
 .project-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* एक लाइन में 3 फोटो */
-    gap: 15px; /* फोटो के बीच का सही गैप */
-    max-width: 1100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* इमेजेस को बीच में रखेगा */
+    gap: 20px;
+    max-width: 1200px;
     margin: 40px auto;
-    padding: 0 15px;
+    padding: 0 20px;
 }
 
-/* फोटो का कार्ड (सबका साइज एक बराबर और चमकदार) */
+/* कार्ड का लुक - बिना बॉर्डर और एक बराबर साइज */
 .p-card {
     position: relative;
-    width: 100%; 
-    height: 280px; /* फोटो की फिक्स्ड हाइट - सब एक जैसी दिखेंगी */
+    flex: 0 1 calc(31% - 15px); /* डेस्कटॉप पर 3 कॉलम */
+    min-width: 280px; 
+    height: 300px; /* सबकी हाइट एक जैसी */
     overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-radius: 20px; /* स्मूथ कोने */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     border: none;
     cursor: pointer;
 }
 
-/* इमेज को बॉक्स में फिट करने के लिए */
+/* इमेज सेटिंग */
 .p-card img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* इमेज स्ट्रेच नहीं होगी, पूरी फिट होगी */
-    transition: 0.6s ease;
+    object-fit: cover;
+    transition: transform 0.6s ease;
 }
 
 /* शीशे जैसी चमक (Glass Shine Effect) */
@@ -221,23 +223,31 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
     transform: scale(1.1);
 }
 
-/* नाम वाली पट्टी (Glassy Look) */
+/* नीचे नाम वाली पट्टी */
 .p-card span {
     position: absolute;
     bottom: 0;
     width: 100%;
-    padding: 12px;
+    padding: 15px;
     background: rgba(0, 0, 0, 0.4);
     color: #fff;
     text-align: center;
     font-weight: 600;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(8px); /* ग्लास इफ़ेक्ट */
 }
 
-/* मोबाइल के लिए सेटिंग (फोन पर 2 फोटो दिखेंगी) */
+/* मोबाइल के लिए सेटिंग (फोन पर 2 फोटो) */
 @media (max-width: 768px) {
-    .project-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .p-card {
+        flex: 0 1 calc(50% - 15px);
+        height: 250px;
+    }
+}
+
+/* मोबाइल (बहुत छोटे फोन) के लिए 1 फोटो */
+@media (max-width: 480px) {
+    .p-card {
+        flex: 0 1 100%;
     }
 }
 </style>
