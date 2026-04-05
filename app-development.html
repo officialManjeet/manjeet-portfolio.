@@ -168,89 +168,35 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
 }
     <style>
 /* सिर्फ इस पेज के लिए स्लाइडर स्टाइलिंग */
-<style>
-/* प्रोजेक्ट्स ग्रिड सेटअप (3 ऊपर, 2 नीचे के लिए) */
+/* मुख्य कंटेनर: इसे 3 कॉलम में सेट करने के लिए */
 .project-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* इमेजेस को बीच में रखेगा */
-    gap: 20px;
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* एक लाइन में 3 फोटो */
+    gap: 15px; /* फोटो के बीच का गैप (ज़्यादा नहीं) */
+    max-width: 1100px; /* पूरे सेक्शन की चौड़ाई */
+    margin: 30px auto; /* हेडिंग के नीचे और सेंटर में */
+    padding: 0 10px;
 }
 
-/* कार्ड का लुक - बिना बॉर्डर और एक बराबर साइज */
+/* हर फोटो का कार्ड */
 .p-card {
     position: relative;
-    flex: 0 1 calc(31% - 15px); /* डेस्कटॉप पर 3 कॉलम */
-    min-width: 280px; 
-    height: 300px; /* सबकी हाइट एक जैसी */
+    width: 100%; 
+    height: 300px; /* फोटो की ऊँचाई (सबकी एक बराबर) */
     overflow: hidden;
-    border-radius: 20px; /* स्मूथ कोने */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-radius: 15px; /* हल्का गोल कोना */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* हल्की चमक और गहराई */
     border: none;
-    cursor: pointer;
 }
 
-/* इमेज सेटिंग */
+/* इमेज सेटिंग: फोटो का साइज फुल और बराबर करने के लिए */
 .p-card img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
+    object-fit: cover; /* फोटो कटेगी नहीं, बॉक्स में पूरी भरेगी */
+    display: block;
+    transition: transform 0.5s ease;
 }
-
-/* शीशे जैसी चमक (Glass Shine Effect) */
-.p-card::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -150%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
-    transform: skewX(-25deg);
-    transition: 0.7s;
-}
-
-/* माउस ले जाने पर चमक और ज़ूम */
-.p-card:hover::after {
-    left: 150%;
-}
-
-.p-card:hover img {
-    transform: scale(1.1);
-}
-
-/* नीचे नाम वाली पट्टी */
-.p-card span {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 15px;
-    background: rgba(0, 0, 0, 0.4);
-    color: #fff;
-    text-align: center;
-    font-weight: 600;
-    backdrop-filter: blur(8px); /* ग्लास इफ़ेक्ट */
-}
-
-/* मोबाइल के लिए सेटिंग (फोन पर 2 फोटो) */
-@media (max-width: 768px) {
-    .p-card {
-        flex: 0 1 calc(50% - 15px);
-        height: 250px;
-    }
-}
-
-/* मोबाइल (बहुत छोटे फोन) के लिए 1 फोटो */
-@media (max-width: 480px) {
-    .p-card {
-        flex: 0 1 100%;
-    }
-}
-</style>
 
 /* शीशे जैसी चमक (Glass Shine) */
 .p-card::after {
