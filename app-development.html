@@ -168,35 +168,79 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
 }
     <style>
 /* सिर्फ इस पेज के लिए स्लाइडर स्टाइलिंग */
-/* मुख्य कंटेनर: इसे 3 कॉलम में सेट करने के लिए */
+<style>
+/* 3 ऊपर और 3 नीचे (या 2 नीचे) वाला ग्रिड लेआउट */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* एक लाइन में 3 फोटो */
-    gap: 15px; /* फोटो के बीच का गैप (ज़्यादा नहीं) */
-    max-width: 1100px; /* पूरे सेक्शन की चौड़ाई */
-    margin: 30px auto; /* हेडिंग के नीचे और सेंटर में */
-    padding: 0 10px;
+    gap: 15px; /* फोटो के बीच का सही गैप */
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 15px;
 }
 
-/* हर फोटो का कार्ड */
+/* फोटो का कार्ड (सबका साइज एक बराबर और चमकदार) */
 .p-card {
     position: relative;
     width: 100%; 
-    height: 300px; /* फोटो की ऊँचाई (सबकी एक बराबर) */
+    height: 280px; /* फोटो की फिक्स्ड हाइट - सब एक जैसी दिखेंगी */
     overflow: hidden;
-    border-radius: 15px; /* हल्का गोल कोना */
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* हल्की चमक और गहराई */
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     border: none;
+    cursor: pointer;
 }
 
-/* इमेज सेटिंग: फोटो का साइज फुल और बराबर करने के लिए */
+/* इमेज को बॉक्स में फिट करने के लिए */
 .p-card img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* फोटो कटेगी नहीं, बॉक्स में पूरी भरेगी */
-    display: block;
-    transition: transform 0.5s ease;
+    object-fit: cover; /* इमेज स्ट्रेच नहीं होगी, पूरी फिट होगी */
+    transition: 0.6s ease;
 }
+
+/* शीशे जैसी चमक (Glass Shine Effect) */
+.p-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+    transform: skewX(-25deg);
+    transition: 0.7s;
+}
+
+/* माउस ले जाने पर चमक और ज़ूम */
+.p-card:hover::after {
+    left: 150%;
+}
+
+.p-card:hover img {
+    transform: scale(1.1);
+}
+
+/* नाम वाली पट्टी (Glassy Look) */
+.p-card span {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+    backdrop-filter: blur(5px);
+}
+
+/* मोबाइल के लिए सेटिंग (फोन पर 2 फोटो दिखेंगी) */
+@media (max-width: 768px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+</style>
 
 /* शीशे जैसी चमक (Glass Shine) */
 .p-card::after {
