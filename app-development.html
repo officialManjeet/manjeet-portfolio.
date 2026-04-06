@@ -170,21 +170,18 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
 .project-grid {
     display: flex;
     flex-wrap: wrap;
-    /* इससे कार्ड्स स्क्रीन के बिल्कुल बीच (Center) में रहेंगे */
-    justify-content: center; 
-    /* कार्ड्स के बीच 30px की जगह (Gap) रहेगी ताकि वो चिपके नहीं */
-    gap: 30px; 
+    justify-content: center; /* कार्ड्स को स्क्रीन के बीच में रखने के लिए */
+    gap: 30px;               /* कार्ड्स के बीच की दूरी (Gap) */
     padding: 50px 20px;
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
 }
 
 .p-card {
-    /* कार्ड का साइज 350px पर फिक्स कर दिया ताकि वो फैले नहीं */
-    flex: 0 0 350px; 
+    flex: 0 0 350px; /* कार्ड का साइज 350px फिक्स */
     width: 350px;    
     height: 450px;   
-    background: #fff;
+    background: #f9f9f9; /* हल्का बैकग्राउंड ताकि इमेज अलग दिखे */
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 15px 35px rgba(0,0,0,0.1);
@@ -193,10 +190,13 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
 }
 
 .p-card img {
-    /* इमेज कार्ड के अंदर 100% फिट रहेगी और साइज वही रहेगा */
     width: 100%;    
     height: 300px;   
-    object-fit: cover; 
+    /* 'contain' से पूरी इमेज दिखेगी, कटेगी नहीं */
+    object-fit: contain; 
+    /* अगर इमेज छोटी है तो उसे बीच में रखने के लिए */
+    object-position: center; 
+    background: #fff; /* इमेज के पीछे का हिस्सा सफेद रहेगा */
     display: block;
 }
 
@@ -210,8 +210,10 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
     align-items: center;
     justify-content: center;
     text-align: center;
+    background: #fff; /* टेक्स्ट वाला हिस्सा सफेद */
     margin: 0;
 }
+
 
 /* मोबाइल के लिए ताकि कार्ड्स स्क्रीन से बाहर न जाएँ */
 @media (max-width: 400px) {
