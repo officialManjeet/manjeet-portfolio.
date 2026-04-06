@@ -171,54 +171,63 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
 
 
 /* --- प्रोजेक्ट्स लेआउट (3 ऊपर, 2 नीचे और सेंटर) --- */
-/* --- प्रोजेक्ट्स लेआउट (Full Uniform Fix) --- */
+/* --- प्रोजेक्ट्स लेआउट (इमेज कंट्रोल फिक्स) --- */
 .project-grid {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* इससे नीचे के 2 कार्ड्स सेंटर में रहेंगे */
+    justify-content: center; /* 2 कार्ड्स को नीचे सेंटर में रखेगा */
     gap: 25px;
-    padding: 40px 10px;
+    padding: 40px 20px;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto; /* ग्रिड को पेज के बीच में रखेगा */
 }
 
-
 .p-card {
-    /* कार्ड का साइज फिक्स करना */
-    flex: 0 0 350px; /* हर कार्ड की चौड़ाई 350px फिक्स कर दी */
-    height: 420px;   /* हर कार्ड की टोटल ऊंचाई 420px फिक्स कर दी */
+    /* यहाँ चौड़ाई को कंट्रोल किया गया है */
+    flex: 0 1 350px; /* 350px से ज्यादा चौड़ा नहीं होगा, और 3 कार्ड्स एक लाइन में आएंगे */
+    height: 450px;    /* पूरे कार्ड की फिक्स हाइट */
     
-    overflow: hidden;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
 }
 
-/* इमेज का साइज फिक्स करना ताकि 800x600 वाली इमेज फिट हो जाए */
 .p-card img {
+    /* इमेज को फैलने से रोकने के लिए */
     width: 100%;
-    height: 320px; /* इमेज की हाइट फिक्स कर दी ताकि टाइटल की जगह बचे */
-    object-fit: cover; /* इससे इमेज स्ट्रेच नहीं होगी, बॉक्स में फिट रहेगी */
+    height: 320px;    /* इमेज की हाइट को फिक्स कर दिया */
+    object-fit: cover; /* इमेज स्ट्रेच (stretch) नहीं होगी, बॉक्स में फिट रहेगी */
     display: block;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
-    /* टाइटल का एरिया */
+
 .p-card h3, .p-card .title {
-    height: 100px; /* टाइटल के लिए फिक्स जगह */
-    padding: 0 15px;
+    /* टाइटल के लिए फिक्स एरिया */
+    height: 130px;
     margin: 0;
+    padding: 15px;
     font-size: 1.2rem;
+    font-weight: bold;
     color: #333;
     background: #fff;
-    font-weight: bold;
-      /* टेक्स्ट को बिल्कुल सेंटर में लाने के लिए */
+    
+    /* टेक्स्ट को बीच में लाने के लिए */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
+
+/* मोबाइल के लिए सेटिंग (ताकि फोन पर एक-एक कार्ड दिखे) */
+@media (max-width: 768px) {
+    .p-card {
+        flex: 0 1 100%; /* फोन पर पूरी चौड़ाई लेगा */
+        max-width: 400px;
+    }
+}
+
 
 /* होवर करने पर इमेज ज़ूम होगी */
 .p-card:hover img {
