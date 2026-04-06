@@ -170,18 +170,19 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
 .project-grid {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* इससे नीचे वाले 2 कार्ड बिल्कुल सेंटर में रहेंगे */
-    gap: 30px;
+    justify-content: center; /* कार्ड्स को स्क्रीन के बीच में रखने के लिए */
+    gap: 30px;               /* कार्ड्स के बीच की दूरी */
     padding: 50px 20px;
-    max-width: 1250px;
-    margin: 0 auto;
+    max-width: 1200px;       /* ग्रिड की कुल चौड़ाई को कंट्रोल करने के लिए */
+    margin: 0 auto;          /* पूरे सेक्शन को सेंटर में रखने के लिए */
 }
 
 .p-card {
-    /* 1250px की विड्थ में 3 कार्ड फिट करने के लिए 30% रखा है */
-    flex: 0 1 30%; 
-    min-width: 350px; /* इससे कार्ड छोटे नहीं होंगे और 4th-5th नीचे आ जाएंगे */
-    height: 450px;
+    /* चौड़ाई और ऊंचाई को पूरी तरह फिक्स कर दिया */
+    flex: 0 0 350px; 
+    width: 350px;    
+    height: 450px;   
+    
     background: #fff;
     border-radius: 20px;
     overflow: hidden;
@@ -192,7 +193,7 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
 
 .p-card img {
     width: 100%;    
-    height: 300px;   /* जैसा कि आपने कहा, इमेज साइज अब बिल्कुल सही है */
+    height: 300px;   /* इमेज की हाइट फिक्स */
     object-fit: cover; 
     display: block;
 }
@@ -207,8 +208,9 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin: 0;
 }
+
+
 
 
 /* मोबाइल के लिए सेटिंग (900px से कम स्क्रीन पर सब एक के नीचे एक) */
