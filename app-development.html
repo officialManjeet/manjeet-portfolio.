@@ -186,28 +186,31 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
     position: relative;
     flex: 0 1 calc(33.33% - 25px); 
     min-width: 280px; 
-    /* हाइट को फिक्स न रखें ताकि पूरी इमेज दिखे */
-    height: auto; 
+    height: 400px; /* हाइट थोड़ी बढ़ा दी ताकि टाइटल समा सके */
     overflow: hidden;
     border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     background: #fff;
     display: flex;
-    flex-direction: column; /* फोटो और नाम को ऊपर-नीचे रखने के लिए */
+    flex-direction: column; /* फोटो ऊपर, टाइटल नीचे */
 }
+
 
 .p-card img {
     width: 100%;
-    height: auto; /* इससे इमेज अपनी असली शेप में रहेगी */
+    height: 70%; /* फोटो को 70% जगह दी ताकि नीचे टाइटल की जगह बचे */
+    object-fit: cover; 
     display: block;
-    object-fit: contain; /* पूरी इमेज दिखाने के लिए */
 }
-.p-card-title {
+/* अगर टाइटल इमेज के ऊपर आ रहा है, तो उसे यहाँ से सेट करें */
+.p-card h3, .p-card .title {
     padding: 15px;
+    margin: 0;
+    font-size: 1.2rem;
     text-align: center;
-    font-size: 1.1rem;
-    font-weight: bold;
     color: #333;
+    background: #fff;
+    font-weight: bold;
 }
 .p-card img {
     width: 100%;
