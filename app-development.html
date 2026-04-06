@@ -168,58 +168,41 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
 }
     <style>
 .project-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 350px); /* 350px के 3 कॉलम फिक्स */
-    justify-content: center;                /* सबको बीच में रखने के लिए */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* इससे नीचे वाली 2 इमेज बीच में आएँगी */
     gap: 30px;
-    padding: 50px 20px;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 20px;
 }
 
-
 .p-card {
-    width: 100%;
+    flex: 0 0 350px; /* कार्ड की चौड़ाई 350px पर लॉक कर दी */
     height: 450px;
     background: #fff;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
-}
-
-/* चौथी इमेज को दूसरी कॉलम से शुरू करो ताकि वो बीच में आ जाए */
-.p-card:nth-child(4) {
-    grid-column: 1 / 2;
-    grid-column-start: 1; /* इसे 1st कॉलम के अंत में लाएगा */
-    margin-left: 50%;     /* थोड़ा खिसकाने के लिए */
-}
-
-/* पांचवीं इमेज को दूसरी कॉलम में सेट करो */
-.p-card:nth-child(5) {
-    grid-column: 2 / 3;
-    margin-left: 50%;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 .p-card img {
-    width: 100%;       /* ये इमेज को 800px से घटाकर कार्ड की चौड़ाई (350px) पर ले आएगा */
-    height: 250px;      /* एक फिक्स हाइट दें */
-    object-fit: cover;  /* इससे इमेज कटेगी नहीं, बॉक्स में सही से फिट हो जाएगी */
+    /* इमेज को कार्ड के अंदर जबरदस्ती फिट करने के लिए */
+    width: 100% !important; 
+    max-width: 350px !important; 
+    height: 250px !important;
+    object-fit: cover; /* इमेज को बिना खींचे फिट करेगा */
     display: block;
 }
 
-
-.p-card h3, .p-card .title {
-    padding: 20px;
-    margin: 0;
-    font-size: 1.2rem;
-    color: #222;
+.p-card h3 {
     text-align: center;
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 15px;
+    font-size: 1.2rem;
 }
+
 
 /* मोबाइल के लिए सेटिंग (900px से कम स्क्रीन पर सब एक के नीचे एक) */
 @media (max-width: 900px) {
