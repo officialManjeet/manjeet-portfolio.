@@ -171,54 +171,60 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
 
 
 /* --- प्रोजेक्ट्स लेआउट (3 ऊपर, 2 नीचे और सेंटर) --- */
-/* --- प्रोजेक्ट्स लेआउट (इमेज कंट्रोल फिक्स) --- */
+/* --- प्रोजेक्ट्स लेआउट (Final Working Fix) --- */
 .project-grid {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* 2 कार्ड्स को नीचे सेंटर में रखेगा */
-    gap: 25px;
-    padding: 40px 20px;
-    max-width: 1200px;
-    margin: 0 auto; /* ग्रिड को पेज के बीच में रखेगा */
+    justify-content: center; /* 3 ऊपर, नीचे के 2 सेंटर में */
+    gap: 30px;
+    padding: 50px 20px;
+    max-width: 1250px;
+    margin: 0 auto;
 }
 
 .p-card {
-    /* यहाँ चौड़ाई को कंट्रोल किया गया है */
-    flex: 0 1 350px; /* 350px से ज्यादा चौड़ा नहीं होगा, और 3 कार्ड्स एक लाइन में आएंगे */
-    height: 450px;    /* पूरे कार्ड की फिक्स हाइट */
+    /* इमेज को फैलने से रोकने के लिए यहाँ width देना जरूरी है */
+    flex: 0 1 350px; /* हर कार्ड की चौड़ाई 350px फिक्स */
+    height: 450px;   /* पूरे कार्ड की टोटल हाइट */
     
     background: #fff;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
 }
 
 .p-card img {
-    /* इमेज को फैलने से रोकने के लिए */
-    width: 100%;
-    height: 320px;    /* इमेज की हाइट को फिक्स कर दिया */
-    object-fit: cover; /* इमेज स्ट्रेच (stretch) नहीं होगी, बॉक्स में फिट रहेगी */
+    width: 100%;    /* कार्ड की चौड़ाई के बराबर */
+    height: 300px;   /* इमेज की हाइट को फिक्स किया ताकि वो फैले नहीं */
+    object-fit: cover; /* इमेज का रेश्यो बना रहेगा, फटेगी नहीं */
     display: block;
 }
 
 .p-card h3, .p-card .title {
-    /* टाइटल के लिए फिक्स एरिया */
-    height: 130px;
+    /* टाइटल का एरिया */
+    flex-grow: 1; 
+    padding: 20px;
     margin: 0;
-    padding: 15px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #333;
+    font-size: 1.3rem;
+    color: #222;
     background: #fff;
-    
-    /* टेक्स्ट को बीच में लाने के लिए */
+    font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
+
+/* मोबाइल के लिए (ताकि फोन पर सही दिखे) */
+@media (max-width: 768px) {
+    .p-card {
+        flex: 0 1 100%;
+        max-width: 380px;
+    }
+}
+
 
 /* मोबाइल के लिए सेटिंग (ताकि फोन पर एक-एक कार्ड दिखे) */
 @media (max-width: 768px) {
