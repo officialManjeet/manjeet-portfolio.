@@ -168,21 +168,18 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
 }
     <style>
 /* सिर्फ इस पेज के लिए स्लाइडर स्टाइलिंग */
-
 .project-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* इससे नीचे वाली 2 इमेज बीच में रहेंगी */
+    display: grid;
+    /* यह लाइन पक्का करेगी कि एक लाइन में बराबर 3 कॉलम हों */
+    grid-template-columns: repeat(3, 1fr); 
     gap: 30px;
     padding: 50px 20px;
-    max-width: 1200px; /* कंटेनर की चौड़ाई को थोड़ा कम किया */
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 .p-card {
-    /* 350px से घटाकर 30% के करीब किया ताकि 3 कार्ड आराम से आ सकें */
-    flex: 0 1 calc(33.33% - 30px); 
-    min-width: 300px; /* मोबाइल पर खराब न दिखे इसलिए कम से कम चौड़ाई */
+    width: 100%; /* अब चौड़ाई ग्रिड अपने आप सेट करेगा */
     height: 450px;
     background: #fff;
     border-radius: 20px;
@@ -192,25 +189,45 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
     flex-direction: column;
 }
 
+/* नीचे वाले 2 कार्ड्स को सेंटर में लाने के लिए special सेटिंग */
+.p-card:nth-child(4) {
+    grid-column: 1 / 2;
+    margin-left: 50%; /* थोड़ा धक्का देकर सेंटर की तरफ */
+}
+
+.p-card:nth-child(5) {
+    grid-column: 2 / 3;
+    margin-left: 50%; /* थोड़ा धक्का देकर सेंटर की तरफ */
+}
+
 .p-card img {
     width: 100%;
     height: 300px;
-    object-fit: cover; /* इमेज को सही से फिट करने के लिए */
+    object-fit: cover; /* इमेज अब बॉक्स के अंदर ही रहेगी, बाहर नहीं भागेगी */
     display: block;
 }
 
 .p-card h3, .p-card .title {
-    flex-grow: 1;
     padding: 20px;
     margin: 0;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: #222;
-    background: #fff;
-    font-weight: bold;
+    text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
+    flex-grow: 1;
+}
+
+/* मोबाइल के लिए ताकि एक लाइन में एक दिखे */
+@media (max-width: 900px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+    .p-card:nth-child(4), .p-card:nth-child(5) {
+        grid-column: auto;
+        margin-left: 0;
+    }
 }
 
 
