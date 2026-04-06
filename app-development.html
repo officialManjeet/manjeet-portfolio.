@@ -169,13 +169,13 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
     <style>
 .project-grid {
     display: grid;
-    /* 3 कॉलम बराबर साइज के */
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(3, 350px); /* 350px के 3 कॉलम फिक्स */
+    justify-content: center;                /* सबको बीच में रखने के लिए */
     gap: 30px;
     padding: 50px 20px;
-    max-width: 1200px;
     margin: 0 auto;
 }
+
 
 .p-card {
     width: 100%;
@@ -201,13 +201,13 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
     margin-left: 50%;
 }
 
-/* इमेज का साइज फिक्स करने के लिए - ये सबसे जरूरी है */
 .p-card img {
-    width: 100%;
-    height: 300px;     /* हाइट 300px से ज्यादा नहीं होगी */
-    object-fit: cover; /* इमेज खिंचेगी नहीं, सही से कटेगी */
+    width: 100%;       /* ये इमेज को 800px से घटाकर कार्ड की चौड़ाई (350px) पर ले आएगा */
+    height: 250px;      /* एक फिक्स हाइट दें */
+    object-fit: cover;  /* इससे इमेज कटेगी नहीं, बॉक्स में सही से फिट हो जाएगी */
     display: block;
 }
+
 
 .p-card h3, .p-card .title {
     padding: 20px;
