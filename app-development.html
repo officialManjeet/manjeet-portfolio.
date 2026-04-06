@@ -171,10 +171,11 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
 
 
 /* --- प्रोजेक्ट्स लेआउट (3 ऊपर, 2 नीचे और सेंटर) --- */
+/* --- प्रोजेक्ट्स लेआउट (Final Fix) --- */
 .project-grid {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* यह नीचे वाले 2 को बीच में रखेगा */
+    justify-content: center;
     gap: 25px;
     padding: 40px 10px;
     max-width: 1200px;
@@ -185,22 +186,21 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
     position: relative;
     flex: 0 1 calc(33.33% - 25px); 
     min-width: 280px; 
-    height: 350px; /* फिक्स्ड हाइट ताकि कार्ड्स एक बराबर दिखें */
+    height: 350px; /* कार्ड की फिक्स्ड हाइट */
     overflow: hidden;
     border-radius: 20px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.15);
     background: #fff;
 }
-.p-card:hover {
-    transform: translateY(-10px); /* माउस ले जाने पर कार्ड ऊपर उठेगा */
-}
 
+/* इमेज को कार्ड के अंदर फिट करने के लिए सबसे ज़रूरी हिस्सा */
 .p-card img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* इससे इमेज कार्ड के अंदर एकदम फिट आएगी और कटेगी नहीं */
+    object-fit: cover; /* इससे इमेज बॉक्स के बाहर नहीं जाएगी और न ही खिंचेगी */
     display: block;
 }
+
 
 .p-card img {
     width: 100%;
