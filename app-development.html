@@ -178,18 +178,26 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
 }
 
 .p-card {
+    flex: 0 0 350px;
+    width: 350px;
+    height: 450px;
+    background: #f9f9f9;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
-    align-items: center; /* 👈 image ko center lane ke liye */
-}
+    align-items: center; /* 👈 MAIN FIX (image center karega) */
+}* 👈 image ko center lane ke liye */
+
 
 .p-card img {
-    width: auto;              /* full stretch hata diya */
-    max-width: 100%;          /* card ke andar hi rahe */
-    height: 300px;
-    object-fit: contain;      /* image crop nahi hogi */
+    width: auto;
+    max-width: 90%;
+    height: 260px;
+    object-fit: contain;
     display: block;
-    margin: auto;             /* 👈 ye image ko center karega (horizontal + vertical) */
+    margin: 20px auto; /* 👈 MAIN FIX */
 }
 .p-card h3, .p-card .title {
     flex-grow: 1; 
