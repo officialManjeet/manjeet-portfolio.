@@ -171,36 +171,58 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
 
 
 /* --- प्रोजेक्ट्स लेआउट (3 ऊपर, 2 नीचे और सेंटर) --- */
-/* --- प्रोजेक्ट्स लेआउट (Final Fix) --- */
+/* --- प्रोजेक्ट्स लेआउट (Full Uniform Fix) --- */
 .project-grid {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: center; /* इससे नीचे के 2 कार्ड्स सेंटर में रहेंगे */
     gap: 25px;
     padding: 40px 10px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
+
 .p-card {
-    position: relative;
-    flex: 0 1 calc(33.33% - 25px); 
-    min-width: 280px; 
-    height: 400px; /* हाइट थोड़ी बढ़ा दी ताकि टाइटल समा सके */
+    /* कार्ड का साइज फिक्स करना */
+    flex: 0 0 350px; /* हर कार्ड की चौड़ाई 350px फिक्स कर दी */
+    height: 420px;   /* हर कार्ड की टोटल ऊंचाई 420px फिक्स कर दी */
+    
     overflow: hidden;
     border-radius: 20px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     background: #fff;
     display: flex;
-    flex-direction: column; /* फोटो ऊपर, टाइटल नीचे */
+    flex-direction: column;
 }
 
-
+/* इमेज का साइज फिक्स करना ताकि 800x600 वाली इमेज फिट हो जाए */
 .p-card img {
     width: 100%;
-    height: 70%; /* फोटो को 70% जगह दी ताकि नीचे टाइटल की जगह बचे */
-    object-fit: cover; 
+    height: 320px; /* इमेज की हाइट फिक्स कर दी ताकि टाइटल की जगह बचे */
+    object-fit: cover; /* इससे इमेज स्ट्रेच नहीं होगी, बॉक्स में फिट रहेगी */
     display: block;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+    /* टाइटल का एरिया */
+.p-card h3, .p-card .title {
+    height: 100px; /* टाइटल के लिए फिक्स जगह */
+    padding: 0 15px;
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+    background: #fff;
+    font-weight: bold;
+      /* टेक्स्ट को बिल्कुल सेंटर में लाने के लिए */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* होवर करने पर इमेज ज़ूम होगी */
+.p-card:hover img {
+    transform: scale(1.1);
 }
 /* अगर टाइटल इमेज के ऊपर आ रहा है, तो उसे यहाँ से सेट करें */
 .p-card h3, .p-card .title {
@@ -306,15 +328,13 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
 <!-- प्रोजेक्ट स्लाइडर सेक्शन -->
 <section class="premium-slider-section">
     <h2 class="main-title">हमारे प्रोजेक्ट्स</h2>
-  
-        <cneter>
              
     <div class="project-grid">
         <div class="p-card"><img src="images/ap1.jpg"><span>Fashion</span></div>
         <div class="p-card"><img src="images/ap2.jpg"><span>Dining</span></div>
         <div class="p-card"><img src="images/ap3.jpg"><span>Consumer Durables</span></div>
-        <div class="p-card"><img src="images/ap4.jpg"><span>Beauty</span></div> 
-        </cneter>
+       <div class="p-card"><img src="images/ap4.jpg"><span>Beauty</span></div> 
+          <div class="p-card"><img src="images/ap5.jpg"><span>Beauty</span></div> 
     </div>
 </section>
 
