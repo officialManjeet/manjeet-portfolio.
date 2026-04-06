@@ -178,28 +178,19 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
 }
 
 .p-card {
-    flex: 0 0 350px; /* कार्ड का साइज 350px फिक्स */
-    width: 350px;    
-    height: 450px;   
-    background: #f9f9f9; /* हल्का बैकग्राउंड ताकि इमेज अलग दिखे */
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
+    align-items: center; /* 👈 image ko center lane ke liye */
 }
 
 .p-card img {
-    width: 100%;    
-    height: 300px;   
-    /* 'contain' से पूरी इमेज दिखेगी, कटेगी नहीं */
-    object-fit: contain; 
-    /* अगर इमेज छोटी है तो उसे बीच में रखने के लिए */
-    object-position: center; 
-    background: #fff; /* इमेज के पीछे का हिस्सा सफेद रहेगा */
+    width: auto;              /* full stretch hata diya */
+    max-width: 100%;          /* card ke andar hi rahe */
+    height: 300px;
+    object-fit: contain;      /* image crop nahi hogi */
     display: block;
+    margin: auto;             /* 👈 ye image ko center karega (horizontal + vertical) */
 }
-
 .p-card h3, .p-card .title {
     flex-grow: 1; 
     padding: 20px;
@@ -382,6 +373,7 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
         <div class="p-card"><img src="images/ap3.jpg"><span>Consumer Durables</span></div>
        <div class="p-card"><img src="images/ap4.jpg"><span>Beauty</span></div> 
           <div class="p-card"><img src="images/ap5.jpg"><span>Beauty</span></div> 
+        
     </div>
 </section>
 
