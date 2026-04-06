@@ -167,10 +167,9 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
     .benefits,.professional-grid,.process-steps,.portfolio-grid,.pricing-grid{grid-template-columns:1fr;}
 }
     <style>
-/* सिर्फ इस पेज के लिए स्लाइडर स्टाइलिंग */
 .project-grid {
     display: grid;
-    /* यह लाइन पक्का करेगी कि एक लाइन में बराबर 3 कॉलम हों */
+    /* 3 कॉलम बराबर साइज के */
     grid-template-columns: repeat(3, 1fr); 
     gap: 30px;
     padding: 50px 20px;
@@ -179,7 +178,7 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
 }
 
 .p-card {
-    width: 100%; /* अब चौड़ाई ग्रिड अपने आप सेट करेगा */
+    width: 100%;
     height: 450px;
     background: #fff;
     border-radius: 20px;
@@ -189,21 +188,24 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
     flex-direction: column;
 }
 
-/* नीचे वाले 2 कार्ड्स को सेंटर में लाने के लिए special सेटिंग */
+/* चौथी इमेज को दूसरी कॉलम से शुरू करो ताकि वो बीच में आ जाए */
 .p-card:nth-child(4) {
     grid-column: 1 / 2;
-    margin-left: 50%; /* थोड़ा धक्का देकर सेंटर की तरफ */
+    grid-column-start: 1; /* इसे 1st कॉलम के अंत में लाएगा */
+    margin-left: 50%;     /* थोड़ा खिसकाने के लिए */
 }
 
+/* पांचवीं इमेज को दूसरी कॉलम में सेट करो */
 .p-card:nth-child(5) {
     grid-column: 2 / 3;
-    margin-left: 50%; /* थोड़ा धक्का देकर सेंटर की तरफ */
+    margin-left: 50%;
 }
 
+/* इमेज का साइज फिक्स करने के लिए - ये सबसे जरूरी है */
 .p-card img {
     width: 100%;
-    height: 300px;
-    object-fit: cover; /* इमेज अब बॉक्स के अंदर ही रहेगी, बाहर नहीं भागेगी */
+    height: 300px;     /* हाइट 300px से ज्यादा नहीं होगी */
+    object-fit: cover; /* इमेज खिंचेगी नहीं, सही से कटेगी */
     display: block;
 }
 
@@ -213,10 +215,21 @@ footer{text-align:center; padding:25px; color:#888; font-size:13px; font-weight:
     font-size: 1.2rem;
     color: #222;
     text-align: center;
+    flex-grow: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-grow: 1;
+}
+
+/* मोबाइल के लिए सेटिंग (900px से कम स्क्रीन पर सब एक के नीचे एक) */
+@media (max-width: 900px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+    .p-card:nth-child(4), .p-card:nth-child(5) {
+        grid-column: auto;
+        margin-left: 0;
+    }
 }
 
 /* मोबाइल के लिए ताकि एक लाइन में एक दिखे */
