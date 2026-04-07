@@ -1,1 +1,147 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Marketing Services - Official Manjeet</title>
+    <style>
+        /* बेसिक स्टाइलिंग */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 { margin-bottom: 30px; color: #00d2ff; }
+
+        /* कार्ड कंटेनर */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        /* सर्विस कार्ड स्टाइल */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: #00d2ff;
+        }
+
+        .card h2 { color: #ff007a; margin-top: 0; }
+        .card p { font-size: 0.95rem; color: #ccc; line-height: 1.6; }
+
+        /* प्राइस और डिलीवरी सेक्शन */
+        .info-box {
+            background: rgba(0, 210, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 5px;
+        }
+
+        .label { font-weight: bold; color: #00d2ff; }
+        .value { color: #fff; }
+
+        /* कॉल टू एक्शन बटन */
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 25px;
+            background: #25d366; /* WhatsApp Green */
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover { background: #128c7e; }
+    </style>
+</head>
+<body>
+
+    <h1>हमारी सोशल मीडिया सेवाएँ</h1>
+
+    <div class="services-grid">
+        
+        <!-- Instagram Ads Card -->
+        <div class="card">
+            <h2>Instagram Advertising</h2>
+            <p>हम आपके ब्रांड को इंस्टाग्राम की सही ऑडियंस तक पहुँचाने में मदद करते हैं ताकि आपकी सेल्स और फॉलोअर्स बढ़ें।</p>
+            <div class="info-box">
+                <div class="info-item">
+                    <span class="label">Charges:</span>
+                    <span class="value">₹4,999/- से शुरू</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Delivery:</span>
+                    <span class="value">2-3 कार्य दिवस</span>
+                </div>
+            </div>
+            <a href="https://wa.me" class="btn">अभी ऑर्डर करें</a>
+        </div>
+
+        <!-- Facebook Ads Card -->
+        <div class="card">
+            <h2>Facebook Marketing</h2>
+            <p>फेसबुक पिक्सेल और टार्गेटेड कैंपेन के साथ अपने बिजनेस की रीच और लीड्स को 10x तक बढ़ाएं।</p>
+            <div class="info-box">
+                <div class="info-item">
+                    <span class="label">Charges:</span>
+                    <span class="value">₹5,999/- से शुरू</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Delivery:</span>
+                    <span class="value">3-5 कार्य दिवस</span>
+                </div>
+            </div>
+            <a href="https://wa.me" class="btn">अभी ऑर्डर करें</a>
+        </div>
+
+        <!-- Google Ads Card -->
+        <div class="card">
+            <h2>Google Ad Marketing</h2>
+            <p>सर्च इंजन पर सबसे ऊपर दिखें। हम आपके लिए हाई-कन्वर्टिंग सर्च और डिस्प्ले विज्ञापन सेटअप करेंगे।</p>
+            <div class="info-box">
+                <div class="info-item">
+                    <span class="label">Charges:</span>
+                    <span class="value">₹7,999/- से शुरू</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Delivery:</span>
+                    <span class="value">5-7 कार्य दिवस</span>
+                </div>
+            </div>
+            <a href="https://wa.me" class="btn">अभी ऑर्डर करें</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
 
