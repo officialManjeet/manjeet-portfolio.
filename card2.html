@@ -5,182 +5,117 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Advertisement Services - Official Manjeet</title>
     <style>
-        /* Modern Dark Theme with Premium Background */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(rgba(10, 10, 25, 0.92), rgba(10, 10, 25, 0.92)), 
+            font-family: 'Segoe UI', sans-serif;
+            /* प्रीमियम डार्क बिजनेस बैकग्राउंड */
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), 
                         url('https://unsplash.com');
             background-size: cover;
             background-attachment: fixed;
             color: white;
             margin: 0;
-            padding: 80px 20px 40px; /* Top padding for Header */
+            padding: 100px 20px 50px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* Top Header with Logo & Name */
-        header {
-            position: absolute;
-            top: 15px;
-            left: 20px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            z-index: 100;
-        }
-
-        header img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: 2px solid #00d2ff;
-            object-fit: cover;
-        }
-
-        header span {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #00d2ff;
-            letter-spacing: 1px;
-        }
+        header { position: absolute; top: 20px; left: 20px; display: flex; align-items: center; gap: 12px; }
+        header img { width: 55px; height: 55px; border-radius: 50%; border: 2px solid #25d366; }
+        
+        /* नाम का कलर: Official (White) Manjeet (Green) */
+        .brand-name { font-size: 1.5rem; font-weight: bold; }
+        .white-text { color: white; }
+        .green-text { color: #25d366; }
 
         .container { max-width: 1000px; width: 100%; text-align: center; }
-
-        h1 { font-size: 2.5rem; color: #00d2ff; text-shadow: 2px 2px 15px rgba(0,210,255,0.4); margin-top: 40px; }
-        .intro-text { font-size: 1.1rem; color: #ccc; margin-bottom: 40px; }
-
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.04);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 30px;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .card:hover { transform: translateY(-10px); border-color: #ff007a; box-shadow: 0 15px 35px rgba(255, 0, 122, 0.2); }
-
-        .card h2 { color: #ff007a; margin-bottom: 15px; border-bottom: 1px solid rgba(255,0,122,0.2); padding-bottom: 10px; }
         
-        .features { text-align: left; list-style: none; padding: 0; margin: 20px 0; }
-        .features li { margin-bottom: 12px; font-size: 0.95rem; color: #eee; }
-        .features li::before { content: "✔"; color: #25d366; margin-right: 10px; font-weight: bold; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .card { background: rgba(255,255,255,0.07); backdrop-filter: blur(15px); border-radius: 20px; padding: 30px; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; }
+        .card:hover { transform: translateY(-10px); border-color: #25d366; }
 
-        .price-box {
-            background: rgba(0, 210, 255, 0.15);
-            padding: 15px;
-            border-radius: 12px;
-            margin: 25px 0;
-            border-left: 4px solid #00d2ff;
-        }
+        h2 { color: #ff007a; }
+        .features { text-align: left; list-style: none; padding: 0; }
+        .features li { margin: 10px 0; font-size: 0.95rem; }
+        .features li::before { content: "✔"; color: #25d366; margin-right: 10px; }
 
-        /* Buttons Style */
-        .btn {
-            display: block;
-            background: #25d366;
-            color: white;
-            padding: 14px;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: bold;
-            transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-        }
+        .price-box { background: rgba(0, 210, 255, 0.15); padding: 15px; border-radius: 12px; margin: 20px 0; }
+        .btn { display: block; background: #25d366; color: white; padding: 12px; text-decoration: none; border-radius: 10px; font-weight: bold; }
 
-        .btn:hover { background: #128c7e; transform: scale(1.02); }
-
-        .back-btn {
-            display: inline-block;
-            margin-top: 50px;
-            color: #00d2ff;
-            text-decoration: none;
-            font-weight: 500;
-            border: 1px solid #00d2ff;
-            padding: 10px 25px;
-            border-radius: 50px;
-            transition: 0.3s;
-        }
-
-        .back-btn:hover { background: #00d2ff; color: #0a0a19; }
-
-        /* Requirements Section */
-        .requirements {
-            background: rgba(255, 255, 255, 0.05);
-            margin-top: 60px;
-            padding: 30px;
-            border-radius: 20px;
-            border-bottom: 3px solid #ff007a;
-            text-align: left;
-        }
+        /* Back Button */
+        .back-btn { margin-top: 50px; text-decoration: none; color: white; border: 1px solid white; padding: 8px 25px; border-radius: 5px; transition: 0.3s; }
+        .back-btn:hover { background: white; color: black; }
     </style>
 </head>
 <body>
 
-    <!-- Header with Logo and Name -->
     <header>
-        <img src="images/sel.png" alt="Official Manjeet Logo">
-        <span>Official Manjeet</span>
+        <img src="sel.png" alt="Logo">
+        <div class="brand-name">
+            <span class="white-text">Official</span> <span class="green-text">Manjeet</span>
+        </div>
     </header>
 
     <div class="container">
-        <h1>Advanced Advertising Solutions</h1>
-        <p class="intro-text">हम आपके बिजनेस को सिर्फ प्रमोट नहीं करते, उसे एक ब्रांड बनाते हैं।</p>
+        <h1 id="main-title">Advanced Advertising Solutions</h1>
+        <p id="sub-title">हम आपके बिजनेस को सिर्फ प्रमोट नहीं करते, उसे एक ब्रांड बनाते हैं।</p>
 
         <div class="services-grid">
-            <!-- Social Media Ads -->
             <div class="card">
-                <h2>Social Media Ads</h2>
-                <ul class="features">
-                    <li>Targeted Audience (सही ग्राहक तक पहुँच)</li>
-                    <li>Professional Ad Creative Design</li>
-                    <li>Daily Performance Monitoring</li>
-                    <li>Weekly Progress Report</li>
+                <h2 id="sm-title">Social Media Ads</h2>
+                <p id="sm-desc">(FB, Insta, & More)</p>
+                <ul class="features" id="sm-features">
+                    <li>Targeted Audience (सही ग्राहक)</li>
+                    <li>Ad Creative Design</li>
+                    <li>Daily Monitoring</li>
                 </ul>
-                <div class="price-box">
-                    <strong>Charges:</strong> ₹4,999/- <br>
-                    <strong>Delivery:</strong> 3-5 Days
-                </div>
-                <a href="https://wa.me" target="_blank" class="btn">WhatsApp पर बात करें</a>
+                <div class="price-box"><strong>Charges:</strong> ₹4,999/-</div>
+                <a href="https://wa.me" class="btn">Order Now</a>
             </div>
 
-            <!-- Google Ads -->
             <div class="card">
-                <h2>Google Search Ads</h2>
-                <ul class="features">
-                    <li>Top Ranking on Search Results</li>
-                    <li>High-Quality Lead Generation</li>
-                    <li>Keyword Research & Setup</li>
-                    <li>ROI-Focused Campaigns</li>
+                <h2 id="go-title">Google Search Ads</h2>
+                <p id="go-desc">(Search & Leads)</p>
+                <ul class="features" id="go-features">
+                    <li>Top Ranking</li>
+                    <li>Lead Generation</li>
+                    <li>ROI Focused</li>
                 </ul>
-                <div class="price-box">
-                    <strong>Charges:</strong> ₹7,999/- <br>
-                    <strong>Delivery:</strong> 5-7 Days
-                </div>
-                <a href="https://wa.me" target="_blank" class="btn">अभी ऑर्डर करें</a>
+                <div class="price-box"><strong>Charges:</strong> ₹7,999/-</div>
+                <a href="https://wa.me" class="btn">Order Now</a>
             </div>
         </div>
 
-        <!-- Requirements Section -->
-        <div class="requirements">
-            <h3>हमे आपसे क्या चाहिए?</h3>
-            <p>जब आप मैसेज करें, तो कृपया ये जानकारी तैयार रखें:</p>
-            <p>• आपके बिजनेस का नाम और वेबसाइट (यदि है)<br>
-               • आपका मुख्य लक्ष्य (सेल्स, लीड्स या ब्रांडिंग)<br>
-               • आपका विज्ञापन बजट (Daily Budget)</p>
-        </div>
-
-        <!-- Back Button -->
-        <a href="index.html" class="back-btn">⬅ वापस होम पेज पर जाएँ</a>
+        <a href="index.html" class="back-btn">Back</a>
     </div>
 
+    <script>
+        // भाषा बदलने का लॉजिक
+        function applyLanguage() {
+            const lang = localStorage.getItem('selectedLang') || 'hi';
+            const content = {
+                'en': {
+                    'main-title': 'Advanced Advertising Solutions',
+                    'sub-title': 'We don’t just promote, we build brands.',
+                    'sm-title': 'Social Media Ads',
+                    'go-title': 'Google Ads'
+                },
+                'hi': {
+                    'main-title': 'एडवांस्ड एडवरटाइजिंग सॉल्यूशंस',
+                    'sub-title': 'हम आपके बिजनेस को सिर्फ प्रमोट नहीं करते, उसे एक ब्रांड बनाते हैं।',
+                    'sm-title': 'सोशल मीडिया विज्ञापन',
+                    'go-title': 'गूगल विज्ञापन'
+                }
+            };
+            
+            document.getElementById('main-title').innerText = content[lang]['main-title'];
+            document.getElementById('sub-title').innerText = content[lang]['sub-title'];
+            document.getElementById('sm-title').innerText = content[lang]['sm-title'];
+            document.getElementById('go-title').innerText = content[lang]['go-title'];
+        }
+
+        // पेज लोड होते ही भाषा चेक करें
+        window.onload = applyLanguage;
+    </script>
 </body>
 </html>
