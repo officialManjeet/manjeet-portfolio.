@@ -12,12 +12,13 @@
             margin: 0; padding: 0;
             background: #ffffff; color: #1a1a1a;
             font-family: 'Poppins', sans-serif;
-            min-height: 100vh;
+            line-height: 1.6;
         }
 
+        /* --- Header with Lang Buttons --- */
         header {
-            padding: 15px 5%; background: #fff;
-            display: flex; align-items: center;
+            padding: 15px 8%; background: #fff;
+            display: flex; justify-content: space-between; align-items: center;
             border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000;
         }
 
@@ -26,50 +27,76 @@
         .brand-text { font-weight: 800; text-transform: uppercase; font-size: 1.1rem; }
         .brand-text span { color: #00a8e8; }
 
-        .container {
-            max-width: 1100px; margin: 50px auto; padding: 0 20px;
-            display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
+        .lang-switcher { display: flex; gap: 10px; }
+        .lang-btn {
+            padding: 5px 12px; border: 1px solid #ddd; background: #fff;
+            cursor: pointer; border-radius: 5px; font-weight: 600; font-size: 0.8rem;
+        }
+        .lang-btn.active { background: #00a8e8; color: #fff; border-color: #00a8e8; }
+
+        /* --- Hero Section --- */
+        .hero {
+            padding: 60px 8%; display: grid; grid-template-columns: 1fr 1fr;
+            gap: 50px; align-items: center;
         }
 
-        @media (max-width: 850px) {
-            .container { grid-template-columns: 1fr; text-align: center; }
-            .features li { justify-content: center; }
+        @media (max-width: 900px) {
+            .hero { grid-template-columns: 1fr; text-align: center; }
+            .hero-text { order: 2; } .hero-img { order: 1; }
         }
 
-        h1 { font-size: 3rem; font-weight: 800; line-height: 1.2; margin-bottom: 20px; }
+        .seo-tag { color: #00a8e8; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; display: block; margin-bottom: 10px; }
+        h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin: 0 0 20px; }
         h1 span { color: #00a8e8; }
-        p { color: #666; font-size: 1.1rem; line-height: 1.7; margin-bottom: 30px; }
+        .main-desc { font-size: 1.1rem; color: #555; margin-bottom: 30px; }
 
         .price-card {
-            background: #f0faff; border-radius: 15px; padding: 20px 30px;
-            display: inline-block; margin-bottom: 30px; border-left: 5px solid #00a8e8;
+            background: #f8fbff; border: 1px solid #e1efff; padding: 25px;
+            border-radius: 20px; display: inline-block; margin-bottom: 30px;
         }
-        .price-card h2 { margin: 5px 0 0; color: #000; font-size: 2.2rem; }
+        .price-card h2 { margin: 5px 0; font-size: 2.5rem; color: #000; }
 
-        .features { list-style: none; padding: 0; margin-bottom: 30px; }
-        .features li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; font-weight: 500; }
-        .features i { color: #00a8e8; }
+        /* --- Professional Content Section --- */
+        .content-details { padding: 40px 8%; background: #fdfdfd; }
+        .section-title { font-size: 2rem; font-weight: 800; margin-bottom: 40px; text-align: center; }
 
-        .btn-group { display: flex; flex-direction: column; gap: 15px; align-items: flex-start; }
-        @media (max-width: 850px) { .btn-group { align-items: center; } }
+        .services-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px; margin-bottom: 50px;
+        }
 
+        .s-card {
+            background: #fff; padding: 30px; border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 4px solid #00a8e8;
+        }
+        .s-card i { font-size: 30px; color: #00a8e8; margin-bottom: 15px; }
+        .s-card h3 { margin-bottom: 10px; font-size: 1.3rem; }
+        .s-card p { font-size: 0.95rem; color: #666; }
+
+        /* --- Expert Image --- */
+        .expert-img {
+            width: 100%; max-width: 450px; border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* --- Buttons --- */
         .btn-main {
             display: inline-block; background: #00a8e8; color: #fff;
-            padding: 15px 40px; border-radius: 50px; text-decoration: none;
-            font-weight: 700; text-transform: uppercase; box-shadow: 0 10px 20px rgba(0,168,232,0.2);
-            transition: 0.3s;
+            padding: 18px 45px; border-radius: 50px; text-decoration: none;
+            font-weight: 700; text-transform: uppercase; transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(0,168,232,0.2);
         }
-        .btn-main:hover { transform: translateY(-3px); background: #0086b8; }
+        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0,168,232,0.3); }
 
-        /* Back Button Niche wala */
-        .btn-back-bottom {
-            cursor: pointer; background: transparent; border: 1px solid #ddd;
-            padding: 10px 30px; border-radius: 50px; font-weight: 600;
-            color: #777; transition: 0.3s; font-size: 0.85rem; text-transform: uppercase;
+        /* Centered Back Button Footer */
+        .footer-nav { text-align: center; padding: 60px 0; }
+        .btn-back {
+            cursor: pointer; background: #fff; border: 1px solid #ddd;
+            padding: 12px 40px; border-radius: 50px; font-weight: 600;
+            color: #777; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px;
         }
-        .btn-back-bottom:hover { background: #f8f9fa; color: #000; border-color: #999; }
+        .btn-back:hover { background: #000; color: #fff; border-color: #000; }
 
-        .expert-img { width: 100%; max-width: 400px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
     </style>
 </head>
 <body>
@@ -79,77 +106,118 @@
         <img src="images/sel.png" alt="Logo">
         <div class="brand-text">OFFICIAL<span>MANJEET</span></div>
     </a>
+    <div class="lang-switcher">
+        <button class="lang-btn" id="btn-en" onclick="changeLang('en')">EN</button>
+        <button class="lang-btn" id="btn-hi" onclick="changeLang('hi')">HI</button>
+    </div>
 </header>
 
-<div class="container">
-    <div class="content">
-        <h1 id="h1-text">SEO Services</h1>
-        <p id="p-text"></p>
+<section class="hero">
+    <div class="hero-text">
+        <span class="seo-tag" id="tag">Digital Marketing Agency</span>
+        <h1 id="h1-text">Dominate the <br><span>First Page</span></h1>
+        <p class="main-desc" id="p-text">Our expert SEO services help you rank higher on Google, attract more customers, and grow your revenue through organic traffic.</p>
         
         <div class="price-card">
-            <small id="price-label"></small>
+            <small id="price-label">Expert Monthly Plan</small>
             <h2 id="price-val">₹4,999/-</h2>
         </div>
-
-        <ul class="features" id="feat-list"></ul>
-
-        <div class="btn-group">
-            <a href="https://wa.me" class="btn-main" id="cta-btn">Contact Now</a>
-            <!-- Back Button niche shift kar diya -->
-            <button onclick="history.back()" class="btn-back-bottom" id="back-btn">← Back</button>
-        </div>
+        <br>
+        <a href="https://wa.me" class="btn-main" id="cta-btn">Start My Campaign</a>
     </div>
-    
-    <div style="text-align: center;">
+    <div class="hero-img">
         <img src="images/manjeet.png" class="expert-img" alt="SEO Expert">
     </div>
+</section>
+
+<section class="content-details">
+    <h2 class="section-title" id="sec-title">What We Do For Your Business</h2>
+    
+    <div class="services-grid">
+        <div class="s-card">
+            <i class="fas fa-search-plus"></i>
+            <h3 id="s1-t">Technical SEO</h3>
+            <p id="s1-p">We optimize your website's backend, speed, and mobile responsiveness for better ranking.</p>
+        </div>
+        <div class="s-card">
+            <i class="fas fa-keyboard"></i>
+            <h3 id="s2-t">Keyword Strategy</h3>
+            <p id="s2-p">Deep research to find the high-profit keywords your customers are actually searching for.</p>
+        </div>
+        <div class="s-card">
+            <i class="fas fa-link"></i>
+            <h3 id="s3-t">Backlink Building</h3>
+            <p id="s3-p">Building high-authority links that tell Google your business is trustworthy and popular.</p>
+        </div>
+        <div class="s-card">
+            <i class="fas fa-chart-line"></i>
+            <h3 id="s4-t">Growth Analysis</h3>
+            <p id="s4-p">Monthly detailed reports tracking your rank improvements and website traffic.</p>
+        </div>
+    </div>
+</section>
+
+<div class="footer-nav">
+    <button onclick="history.back()" class="btn-back" id="back-btn">← GO BACK</button>
 </div>
 
 <script>
-    const translations = {
+    const content = {
         en: {
-            back: "← BACK",
-            h1: "Rank #1 on <br><span>Google Search</span>",
-            p: "Boost your sales with our premium SEO strategies. We ensure your website ranks on the first page of Google.",
-            priceL: "Monthly Package",
-            btn: "GROW MY BUSINESS",
-            feats: ["Keyword Strategy", "Technical SEO", "High Authority Backlinks", "Monthly Reports"]
+            tag: "Digital Marketing Agency",
+            h1: "Dominate the <br><span>First Page</span>",
+            p: "Our expert SEO services help you rank higher on Google, attract more customers, and grow your revenue through organic traffic. We don't just build rankings; we build businesses.",
+            priceL: "Expert Monthly Plan",
+            btn: "Start My Campaign",
+            secT: "What We Do For Your Business",
+            s1t: "Technical SEO", s1p: "We optimize your website's backend, speed, and mobile responsiveness for better ranking.",
+            s2t: "Keyword Strategy", s2p: "Deep research to find the high-profit keywords your customers are actually searching for.",
+            s3t: "Backlink Building", s3p: "Building high-authority links that tell Google your business is trustworthy and popular.",
+            s4t: "Growth Analysis", s4p: "Monthly detailed reports tracking your rank improvements and website traffic.",
+            back: "← GO BACK"
         },
         hi: {
-            back: "← वापस जाएं",
-            h1: "गूगल में लाएं <br><span>नंबर #1 रैंकिंग</span>",
-            p: "हमारी प्रीमियम SEO तकनीकों के साथ अपनी बिक्री बढ़ाएं। हम सुनिश्चित करते हैं कि आपकी वेबसाइट गूगल के पहले पेज पर रहे।",
-            priceL: "मासिक पैकेज",
-            btn: "बिज़नेस बढ़ाएं",
-            feats: ["कीवर्ड रिसर्च", "टेक्निकल SEO", "हाई-अथॉरिटी बैकलिंक्स", "साप्ताहिक रिपोर्ट"]
+            tag: "डिजिटल मार्केटिंग एजेंसी",
+            h1: "गूगल के <br><span>पहले पेज</span> पर छा जाएं",
+            p: "हमारी एक्सपर्ट SEO सेवाएं आपको गूगल पर टॉप रैंक दिलाने, अधिक ग्राहक आकर्षित करने और ऑर्गेनिक ट्रैफिक के माध्यम से रेवेन्यू बढ़ाने में मदद करती हैं। हम केवल रैंकिंग नहीं, बिज़नेस बनाते हैं।",
+            priceL: "एक्सपर्ट मंथली प्लान",
+            btn: "कैम्पेन शुरू करें",
+            secT: "हम आपके बिज़नेस के लिए क्या करते हैं",
+            s1t: "टेक्निकल SEO", s1p: "हम आपकी वेबसाइट की स्पीड, बैकएंड और मोबाइल परफॉर्मेंस को रैंकिंग के लिए ऑप्टिमाइज़ करते हैं।",
+            s2t: "कीवर्ड स्ट्रेटेजी", s2p: "उन हाई-प्रॉफिट कीवर्ड्स की गहरी रिसर्च जिन्हें आपके ग्राहक वास्तव में सर्च कर रहे हैं।",
+            s3t: "बैकलिंक बिल्डिंग", s3p: "हाई-अथॉरिटी लिंक्स का निर्माण जो गूगल को बताते हैं कि आपका बिज़नेस भरोसेमंद और लोकप्रिय है।",
+            s4t: "ग्रोथ एनालिसिस", s4p: "आपकी रैंक में सुधार और वेबसाइट ट्रैफिक को ट्रैक करने वाली विस्तृत मासिक रिपोर्ट।",
+            back: "← वापस जाएं"
         }
     };
 
-    function applyLang() {
-        // 1. Pehle localStorage check karega
-        // 2. Phir URL parameter (?lang=hi) check karega
-        const urlParams = new URLSearchParams(window.location.search);
-        const langCode = localStorage.getItem('selectedLang') || urlParams.get('lang') || 'en';
-        
-        const data = translations[langCode];
+    function changeLang(lang) {
+        localStorage.setItem('selectedLang', lang);
+        const data = content[lang];
 
-        if(data) {
-            document.getElementById('back-btn').innerText = data.back;
-            document.getElementById('h1-text').innerHTML = data.h1;
-            document.getElementById('p-text').innerText = data.p;
-            document.getElementById('price-label').innerText = data.priceL;
-            document.getElementById('cta-btn').innerText = data.btn;
+        document.getElementById('tag').innerText = data.tag;
+        document.getElementById('h1-text').innerHTML = data.h1;
+        document.getElementById('p-text').innerText = data.p;
+        document.getElementById('price-label').innerText = data.priceL;
+        document.getElementById('cta-btn').innerText = data.btn;
+        document.getElementById('sec-title').innerText = data.secT;
+        document.getElementById('back-btn').innerText = data.back;
 
-            const list = document.getElementById('feat-list');
-            list.innerHTML = "";
-            data.feats.forEach(f => {
-                list.innerHTML += `<li><i class="fa-solid fa-check-circle"></i> ${f}</li>`;
-            });
-        }
+        // Grid cards
+        document.getElementById('s1-t').innerText = data.s1t; document.getElementById('s1-p').innerText = data.s1p;
+        document.getElementById('s2-t').innerText = data.s2t; document.getElementById('s2-p').innerText = data.s2p;
+        document.getElementById('s3-t').innerText = data.s3t; document.getElementById('s3-p').innerText = data.s3p;
+        document.getElementById('s4-t').innerText = data.s4t; document.getElementById('s4-p').innerText = data.s4p;
+
+        // Update button UI
+        document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+        document.getElementById('btn-' + lang).classList.add('active');
     }
 
-    // Page load par apply karein
-    window.onload = applyLang;
+    window.onload = function() {
+        const savedLang = localStorage.getItem('selectedLang') || 'en';
+        changeLang(savedLang);
+    };
 </script>
 
 </body>
