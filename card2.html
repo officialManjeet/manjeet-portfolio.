@@ -6,213 +6,136 @@
     <title>Advertisement Services - Official Manjeet</title>
     <style>
         :root {
-            --primary-bg: #0f172a;
-            --card-bg: rgba(30, 41, 59, 0.7);
-            --accent-blue: #38bdf8;
-            --accent-green: #22c55e;
-            --accent-pink: #f472b6;
+            --bg-dark: #050a18;
+            --card-bg: rgba(255, 255, 255, 0.07);
+            --accent-green: #25d366;
+            --accent-blue: #00d2ff;
+            --accent-pink: #ff007a;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--primary-bg);
-            /* modern mesh gradient background */
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.15) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(34, 197, 94, 0.1) 0px, transparent 50%);
-            background-attachment: fixed;
+            font-family: 'Segoe UI', sans-serif;
+            background: radial-gradient(circle at top right, #1a2a6c, #b21f1f, #fdbb2d); /* प्रीमियम बैकग्राउंड */
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
             color: white;
             margin: 0;
-            padding: 100px 20px 40px;
+            padding: 100px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        header {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+        @keyframes gradient { 0% {background-position: 0% 50%;} 50% {background-position: 100% 50%;} 100% {background-position: 0% 50%;} }
 
-        header img {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            border: 2px solid var(--accent-green);
-            object-fit: cover;
-        }
+        header { position: absolute; top: 20px; left: 20px; display: flex; align-items: center; gap: 15px; }
+        header img { width: 60px; height: 60px; border-radius: 50%; border: 3px solid var(--accent-green); object-fit: cover; }
 
-        .lang-switch {
-            position: absolute;
-            top: 30px;
-            right: 20px;
-        }
+        .lang-btn { position: absolute; top: 30px; right: 20px; background: none; border: 1px solid white; color: white; padding: 5px 15px; border-radius: 20px; cursor: pointer; }
 
-        .lang-btn {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid white;
-            color: white;
-            padding: 5px 15px;
-            cursor: pointer;
-            border-radius: 20px;
-        }
+        .container { max-width: 1100px; width: 100%; text-align: center; }
+        h1 { font-size: 3rem; color: var(--accent-blue); text-shadow: 0 0 20px rgba(0,210,255,0.5); }
 
-        .container { max-width: 1000px; width: 100%; text-align: center; }
-        h1 { font-size: 2.5rem; color: var(--accent-blue); margin-bottom: 10px; }
-        .intro-text { font-size: 1.1rem; color: #94a3b8; margin-bottom: 40px; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 50px; }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-
-        /* Modern Card Background */
+        /* कार्ड का नया बैकग्राउंड और स्टाइल */
         .card {
             background: var(--card-bg);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 30px;
-            transition: 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 25px;
+            padding: 40px;
+            cursor: pointer;
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
         }
 
-        .card:hover { 
-            transform: translateY(-8px); 
-            border-color: var(--accent-pink);
-            box-shadow: 0 15px 40px rgba(244, 114, 182, 0.2);
-        }
+        .card:hover { transform: scale(1.03); border-color: var(--accent-pink); box-shadow: 0 0 30px rgba(255,0,122,0.3); }
+        .card h2 { color: var(--accent-pink); font-size: 1.8rem; }
 
-        .card h2 { color: var(--accent-pink); margin-bottom: 5px; }
-        
-        .features { text-align: left; list-style: none; padding: 0; margin: 25px 0; }
-        .features li { margin-bottom: 12px; font-size: 0.95rem; display: flex; align-items: center; }
-        .features li::before { content: "✓"; color: var(--accent-green); margin-right: 12px; font-weight: bold; }
+        .price-tag { background: rgba(0,0,0,0.3); padding: 15px; border-radius: 15px; margin-top: 20px; border: 1px dashed var(--accent-blue); }
 
-        .price-box {
-            background: rgba(56, 189, 248, 0.1);
-            padding: 15px;
-            border-radius: 15px;
-            margin: 25px 0;
-            border: 1px solid rgba(56, 189, 248, 0.3);
-        }
+        /* Modal (Popup) Style */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); backdrop-filter: blur(10px); }
+        .modal-content { background: #111; margin: 5% auto; padding: 30px; border: 1px solid var(--accent-green); width: 80%; max-width: 600px; border-radius: 20px; text-align: left; }
+        .close { color: white; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
+        .modal h2 { color: var(--accent-green); }
+        .modal li { margin-bottom: 10px; color: #ccc; }
 
-        .btn {
-            display: block;
-            background: var(--accent-green);
-            color: white;
-            padding: 15px;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .btn:hover { filter: brightness(1.1); transform: scale(1.02); }
-
-        .info-section {
-            background: rgba(255, 255, 255, 0.03);
-            margin-top: 40px;
-            padding: 25px;
-            border-radius: 20px;
-            text-align: left;
-            border-left: 5px solid var(--accent-green);
-        }
-
-        .back-btn {
-            display: inline-block;
-            margin-top: 40px;
-            color: #94a3b8;
-            text-decoration: none;
-            padding: 8px 25px;
-            border: 1px solid #475569;
-            border-radius: 8px;
-        }
+        .btn-wa { display: block; background: var(--accent-green); color: white; text-decoration: none; padding: 15px; border-radius: 12px; font-weight: bold; margin-top: 20px; text-align: center; }
     </style>
 </head>
 <body>
 
     <header>
-        <!-- Correct Path for Logo -->
-        <img src="sel.png" alt="Manjeet Logo" onerror="this.src='https://placeholder.com'">
-        <div style="font-weight: bold; font-size: 1.2rem;">
-            <span>Official</span> <span style="color: var(--accent-green);">Manjeet</span>
-        </div>
+        <img src="sel.png" alt="Logo" onerror="this.src='https://placeholder.com'">
+        <div style="font-size: 1.5rem; font-weight: bold;">Official <span style="color:var(--accent-green)">Manjeet</span></div>
     </header>
 
-    <div class="lang-switch">
-        <button class="lang-btn" onclick="toggleLang()">English / Hindi</button>
-    </div>
+    <button class="lang-btn" onclick="alert('Language changed!')">English / Hindi</button>
 
     <div class="container">
-        <h1 id="main-title">Advanced Advertising Solutions</h1>
-        <p class="intro-text" id="tagline">हम आपके बिजनेस को सिर्फ प्रमोट नहीं करते, उसे एक ब्रांड बनाते हैं।</p>
+        <h1>Advanced Advertising Solutions</h1>
+        <p>कार्ड पर क्लिक करें और जानें कि ये आपकी सेल्स कैसे बढ़ाएगा!</p>
 
         <div class="services-grid">
             <!-- Social Media Card -->
-            <div class="card">
-                <h2 id="card1-title">Social Media Ads</h2>
-                <p>(Instagram, Facebook & Others)</p>
-                <ul class="features" id="card1-list">
-                    <li>Targeted Audience (सही ग्राहक तक पहुँच)</li>
-                    <li>Professional Ad Creative Design</li>
-                    <li>Daily Performance Monitoring</li>
-                    <li>Weekly Progress Report</li>
-                </ul>
-                <div class="price-box">
-                    <strong id="charge-text1">Charges:</strong> ₹4,999/- <br>
-                    <strong id="delivery-text1">Delivery:</strong> 3-5 Days
+            <div class="card" onclick="openModal('smModal')">
+                <h2>Social Media Ads</h2>
+                <p>Instagram & Facebook Experts</p>
+                <div class="price-tag">
+                    ₹4,999/- (3-5 Days)
                 </div>
-                <a href="https://wa.me" class="btn lang-wa">WhatsApp पर बात करें</a>
+                <p style="margin-top: 15px; color: var(--accent-blue);">विवरण के लिए क्लिक करें 👆</p>
             </div>
 
             <!-- Google Ads Card -->
-            <div class="card">
-                <h2 id="card2-title">Google Search Ads</h2>
-                <p>(Search, Display & Leads)</p>
-                <ul class="features" id="card2-list">
-                    <li>Top Ranking on Search Results</li>
-                    <li>High-Quality Lead Generation</li>
-                    <li>Keyword Research & Setup</li>
-                    <li>ROI-Focused Campaigns</li>
-                </ul>
-                <div class="price-box">
-                    <strong id="charge-text2">Charges:</strong> ₹7,999/- <br>
-                    <strong id="delivery-text2">Delivery:</strong> 5-7 Days
+            <div class="card" onclick="openModal('gModal')">
+                <h2>Google Search Ads</h2>
+                <p>Top Ranking & High Leads</p>
+                <div class="price-tag">
+                    ₹7,999/- (5-7 Days)
                 </div>
-                <a href="https://wa.me" class="btn lang-wa">WhatsApp पर बात करें</a>
+                <p style="margin-top: 15px; color: var(--accent-blue);">विवरण के लिए क्लिक करें 👆</p>
             </div>
         </div>
+    </div>
 
-        <div class="info-section">
-            <h3 id="why-us-title">हमसे क्यों जुड़ें? (Why Us?)</h3>
-            <p id="why-us-text">• 2+ साल का Ads मैनेजमेंट अनुभव।<br>• कम बजट में ज़्यादा सेल्स और लीड्स की गारंटी।<br>• पूरी पारदर्शिता और रिपोर्ट।</p>
+    <!-- Social Media Modal -->
+    <div id="smModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('smModal')">&times;</span>
+            <h2>Social Media Ads के फायदे</h2>
+            <ul>
+                <li><strong>Targeted Reach:</strong> हम विज्ञापन सिर्फ उन लोगों को दिखाते हैं जो आपकी चीज़ें खरीदना चाहते हैं।</li>
+                <li><strong>Brand Building:</strong> इंस्टाग्राम और फेसबुक पर आपकी एक अलग पहचान बनती है।</li>
+                <li><strong>Retargeting:</strong> जो लोग एक बार आपकी प्रोफाइल देखेंगे, उन्हें बार-बार विज्ञापन दिखेगा।</li>
+                <li><strong>High ROI:</strong> कम खर्च में ज्यादा से ज्यादा ग्राहकों तक पहुँच।</li>
+            </ul>
+            <a href="https://wa.me" class="btn-wa">WhatsApp पर बात करें</a>
         </div>
+    </div>
 
-        <a href="index.html" class="back-btn">Back</a>
+    <!-- Google Ads Modal -->
+    <div id="gModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('gModal')">&times;</span>
+            <h2>Google Ads के फायदे</h2>
+            <ul>
+                <li><strong>Instant Traffic:</strong> गूगल पर सर्च करते ही आपका नाम सबसे ऊपर आएगा।</li>
+                <li><strong>High Quality Leads:</strong> यहाँ वो लोग मिलते हैं जो खुद आपकी सर्विस ढूंढ रहे हैं।</li>
+                <li><strong>Keyword Strategy:</strong> हम सही कीवर्ड्स चुनते हैं ताकि आपका पैसा बेकार न जाए।</li>
+                <li><strong>Sales Boost:</strong> सीधे उन ग्राहकों तक पहुँच जो खरीदने के लिए तैयार हैं।</li>
+            </ul>
+            <a href="https://wa.me" class="btn-wa">WhatsApp पर बात करें</a>
+        </div>
     </div>
 
     <script>
-        let currentLang = 'hi';
-        function toggleLang() {
-            if(currentLang === 'hi') {
-                document.getElementById('main-title').innerText = "Advanced Advertising Solutions";
-                document.getElementById('tagline').innerText = "We don't just promote your business, we build a brand.";
-                document.querySelectorAll('.lang-wa').forEach(el => el.innerText = "Chat on WhatsApp");
-                // Update other sections similarly
-                currentLang = 'en';
-            } else {
-                document.getElementById('main-title').innerText = "Advanced Advertising Solutions";
-                document.getElementById('tagline').innerText = "हम आपके बिजनेस को सिर्फ प्रमोट नहीं करते, उसे एक ब्रांड बनाते हैं।";
-                document.querySelectorAll('.lang-wa').forEach(el => el.innerText = "WhatsApp पर बात करें");
-                currentLang = 'hi';
-            }
-        }
+        function openModal(id) { document.getElementById(id).style.display = "block"; }
+        function closeModal(id) { document.getElementById(id).style.display = "none"; }
+        window.onclick = function(event) { if (event.target.className === 'modal') { event.target.style.display = "none"; } }
     </script>
 
 </body>
