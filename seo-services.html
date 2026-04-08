@@ -1,18 +1,158 @@
-<!-- (बाकी CSS और Header सेम रहेगा, बस Container का कंटेंट ये डालें) -->
-<div class="container">
-    <h1>SEO & Digital Marketing</h1>
-    <div class="project-image-box">
-        <img src="https://images.unsplash.com" alt="SEO Preview">
-    </div>
-    <div class="content-info">
-        <h2>SEO क्यों ज़रूरी है?</h2>
-        <p>अगर आपकी वेबसाइट Google के पहले पेज पर नहीं है, तो समझो आप बिज़नेस खो रहे हैं।</p>
-        <ul style="color: #00ff88; list-style: none; padding: 0;">
-            <li>✅ Google Ranking Strategy</li>
-            <li>✅ Targeted Keyword Research</li>
-            <li>✅ More Sales & Organic Traffic</li>
-        </ul>
-    </div>
-    <a href="card3.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Services</a>
-</div>
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Optimization | Official Manjeet</title>
+    <!-- FontAwesome FIXED LINK -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        body {
+            margin: 0; padding: 0;
+            background: #0b0b0d; color: white;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
 
+        header {
+            padding: 15px 8%;
+            background: rgba(0,0,0,0.9);
+            position: sticky; top: 0; z-index: 100;
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid rgba(0, 210, 255, 0.2);
+        }
+
+        .logo { font-size: 1.5rem; font-weight: 800; text-transform: uppercase; }
+        .logo span { color: #00d2ff; }
+
+        .btn-back {
+            color: #00d2ff; text-decoration: none; font-weight: 600; font-size: 0.9rem;
+            border: 1px solid #00d2ff; padding: 6px 15px; border-radius: 50px; transition: 0.3s;
+        }
+        .btn-back:hover { background: #00d2ff; color: #000; }
+
+        .seo-container {
+            padding: 60px 8%;
+            display: flex; align-items: center; gap: 50px; flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .seo-text { flex: 1; min-width: 300px; }
+
+        .seo-icon { 
+            font-size: 75px; 
+            color: #00d2ff; 
+            margin-bottom: 25px;
+            filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.4));
+        }
+
+        h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); margin-bottom: 20px; line-height: 1.2; }
+        .highlight { color: #00d2ff; }
+        p { color: #ccc; font-size: 18px; line-height: 1.6; margin-bottom: 30px; }
+
+        .price-tag {
+            background: linear-gradient(135deg, #00d2ff 0%, #0072ff 100%);
+            padding: 20px 30px; border-radius: 15px; display: inline-block; 
+            margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2);
+        }
+        .price-tag h4 { margin: 0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
+        .price-tag .amount { font-size: 2rem; font-weight: 800; margin-top: 5px; }
+
+        .features { list-style: none; padding: 0; margin-bottom: 35px; }
+        .features li { margin-bottom: 15px; display: flex; align-items: center; gap: 12px; font-size: 1.05rem; }
+        .features i { color: #00d2ff; font-size: 1.2rem; }
+
+        .btn-primary {
+            display: inline-block; background: #00d2ff; color: #000;
+            padding: 16px 45px; border-radius: 50px; text-decoration: none;
+            font-weight: 700; text-transform: uppercase; transition: 0.4s;
+        }
+        .btn-primary:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0, 210, 255, 0.4); }
+
+        .main-img {
+            width: 100%; max-width: 480px; border-radius: 25px;
+            border: 1px solid rgba(0, 210, 255, 0.3);
+            box-shadow: 0 0 60px rgba(0, 210, 255, 0.15);
+        }
+
+        @media (max-width: 768px) { 
+            .seo-container { text-align: center; padding-top: 40px; } 
+            .features li { justify-content: center; } 
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Official<span>Manjeet</span></div>
+        <a href="index.html" class="btn-back" id="back-txt">← Back to Home</a>
+    </header>
+
+    <section class="seo-container">
+        <div class="seo-text">
+            <i class="fa-solid fa-magnifying-glass-chart seo-icon"></i>
+            <h1 id="seo-h1">SEO <span class="highlight">Optimization</span></h1>
+            <p id="seo-p">Loading Content...</p>
+            
+            <div class="price-tag">
+                <h4 id="price-title">Monthly Charges</h4>
+                <div class="amount" id="price-amt">₹4,999/-</div>
+            </div>
+
+            <ul class="features" id="feat-list"></ul>
+
+            <a href="https://wa.me" class="btn-primary" id="cta-btn">Get Started Now</a>
+        </div>
+
+        <div class="seo-image">
+            <img src="images/manjeet.png" class="main-img" alt="SEO Expert">
+        </div>
+    </section>
+
+    <script>
+        const content = {
+            en: {
+                back: "← Back to Home",
+                h1: "Dominate <span class='highlight'>Google Search</span> Results",
+                p: "We help your business get found by the right people. Our expert SEO strategies focus on ranking your keywords on the first page and driving real sales.",
+                priceT: "Monthly SEO Plan",
+                priceA: "₹4,999/-",
+                btn: "Grow My Business",
+                feats: ["Keyword Research & Analysis", "Technical SEO Audit", "High-Quality Backlinking", "Real-time Traffic Tracking"]
+            },
+            hi: {
+                back: "← होम पर जाएं",
+                h1: "गूगल सर्च में <span class='highlight'>नंबर #1</span> पर आएं",
+                p: "जब कोई आपके बिजनेस से जुड़ी सर्विस सर्च करे, तो आपकी वेबसाइट सबसे ऊपर होनी चाहिए। हम एडवांस SEO तकनीकों का उपयोग करके आपके ग्राहकों और ट्रैफिक को बढ़ाते हैं।",
+                priceT: "मासिक शुल्क",
+                priceA: "₹4,999/-",
+                btn: "रैंकिंग बेहतर करें",
+                feats: ["कीवर्ड रिसर्च और एनालिसिस", "टेक्निकल SEO ऑडिट", "हाई-क्वालिटी बैकलिंक्स", "ट्रैफिक ट्रैकिंग रिपोर्ट"]
+            }
+        };
+
+        function applyLanguage() {
+            const savedLang = localStorage.getItem('selectedLang') || 'en';
+            console.log("Current Language:", savedLang); // Debugging ke liye
+
+            const data = content[savedLang];
+            
+            document.getElementById('back-txt').innerText = data.back;
+            document.getElementById('seo-h1').innerHTML = data.h1;
+            document.getElementById('seo-p').innerText = data.p;
+            document.getElementById('price-title').innerText = data.priceT;
+            document.getElementById('price-amt').innerText = data.priceA;
+            document.getElementById('cta-btn').innerText = data.btn;
+
+            const list = document.getElementById('feat-list');
+            list.innerHTML = "";
+            data.feats.forEach(f => {
+                list.innerHTML += `<li><i class="fas fa-check-double"></i> ${f}</li>`;
+            });
+        }
+
+        // Page load hone par function run karein
+        window.onload = applyLanguage;
+    </script>
+</body>
+</html>
