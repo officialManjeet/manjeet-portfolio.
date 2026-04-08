@@ -65,18 +65,27 @@
             gap: 30px; margin-bottom: 50px;
         }
 
-       .s-card {
-    background: #ffffff;
-    /* Premium Sky Blue Gradient */
-    background-image: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);
-    padding: 40px 30px;
-    border-radius: 20px;
+     .s-card {
+    background: #ffffff !important; /* Pura White Background */
+    border-radius: 25px;
+    padding: 50px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1); /* Halka shadow */
     text-align: center;
-    box-shadow: 0 15px 35px rgba(0, 168, 232, 0.1);
-    border: 1px solid #e1efff;
-    border-top: 5px solid #00a8e8; /* Upar ek patli blue line */
-    transition: 0.3s;
 }
+
+/* Text ko dark karne ke liye */
+.s-card h1, .s-card p, .s-card li, .s-card h3 {
+    color: #1a1a1a !important;
+}
+
+/* Icon ki styling (Line 87-93 ko bhi isse replace kar sakte hain) */
+.s-card i {
+    font-size: 60px;
+    color: #00a8e8; /* Blue Icon */
+    margin-bottom: 20px;
+    display: block;
+}
+
 
 .s-card:hover {
     transform: translateY(-10px);
@@ -119,21 +128,18 @@
             padding: 12px 40px; border-radius: 50px; font-weight: 600;
             color: #777; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px;
         }
-        .btn-back:hover { background: #000; color: #fff; border-color: #000; }
+       .hero-text {
+    background: #ffffff !important; /* Card white karne ke liye */
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Halka shadow */
+}
 
-    </style>
-</head>
-<body>
+/* Text color dark karne ke liye */
+#h1-text, #p-text, .seo-tag {
+    color: #1a1a1a !important;
+}
 
-<header>
-    <a href="index.html" class="brand">
-        <img src="images/sel.png" alt="Logo">
-        <div class="brand-text">OFFICIAL<span>MANJEET</span></div>
-    </a>
-    <div class="lang-switcher">
-        <button class="lang-btn" id="btn-en" onclick="changeLang('en')">EN</button>
-        <button class="lang-btn" id="btn-hi" onclick="changeLang('hi')">HI</button>
-    </div>
 </header>
 
 <section class="hero">
