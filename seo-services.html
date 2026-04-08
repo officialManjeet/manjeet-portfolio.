@@ -17,7 +17,7 @@
 
         header {
             padding: 15px 5%; background: #fff;
-            display: flex; justify-content: space-between; align-items: center;
+            display: flex; align-items: center;
             border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000;
         }
 
@@ -25,14 +25,6 @@
         .brand img { width: 35px; height: 35px; border-radius: 50%; border: 1.5px solid #00a8e8; }
         .brand-text { font-weight: 800; text-transform: uppercase; font-size: 1.1rem; }
         .brand-text span { color: #00a8e8; }
-
-        /* Back Button Style */
-        .btn-back {
-            cursor: pointer; background: #f8f9fa; border: 1px solid #ddd;
-            padding: 8px 20px; border-radius: 50px; font-weight: 600;
-            color: #444; transition: 0.3s; font-size: 0.9rem;
-        }
-        .btn-back:hover { background: #00a8e8; color: #fff; border-color: #00a8e8; }
 
         .container {
             max-width: 1100px; margin: 50px auto; padding: 0 20px;
@@ -58,11 +50,24 @@
         .features li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; font-weight: 500; }
         .features i { color: #00a8e8; }
 
+        .btn-group { display: flex; flex-direction: column; gap: 15px; align-items: flex-start; }
+        @media (max-width: 850px) { .btn-group { align-items: center; } }
+
         .btn-main {
             display: inline-block; background: #00a8e8; color: #fff;
             padding: 15px 40px; border-radius: 50px; text-decoration: none;
             font-weight: 700; text-transform: uppercase; box-shadow: 0 10px 20px rgba(0,168,232,0.2);
+            transition: 0.3s;
         }
+        .btn-main:hover { transform: translateY(-3px); background: #0086b8; }
+
+        /* Back Button Niche wala */
+        .btn-back-bottom {
+            cursor: pointer; background: transparent; border: 1px solid #ddd;
+            padding: 10px 30px; border-radius: 50px; font-weight: 600;
+            color: #777; transition: 0.3s; font-size: 0.85rem; text-transform: uppercase;
+        }
+        .btn-back-bottom:hover { background: #f8f9fa; color: #000; border-color: #999; }
 
         .expert-img { width: 100%; max-width: 400px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
     </style>
@@ -74,13 +79,11 @@
         <img src="images/sel.png" alt="Logo">
         <div class="brand-text">OFFICIAL<span>MANJEET</span></div>
     </a>
-    <!-- Go Back Button (history.back use kiya hai) -->
-    <button onclick="history.back()" class="btn-back" id="back-btn">← BACK</button>
 </header>
 
 <div class="container">
     <div class="content">
-        <h1 id="h1-text">Loading...</h1>
+        <h1 id="h1-text">SEO Services</h1>
         <p id="p-text"></p>
         
         <div class="price-card">
@@ -90,7 +93,11 @@
 
         <ul class="features" id="feat-list"></ul>
 
-        <a href="https://wa.me" class="btn-main" id="cta-btn">Contact Now</a>
+        <div class="btn-group">
+            <a href="https://wa.me" class="btn-main" id="cta-btn">Contact Now</a>
+            <!-- Back Button niche shift kar diya -->
+            <button onclick="history.back()" class="btn-back-bottom" id="back-btn">← Back</button>
+        </div>
     </div>
     
     <div style="text-align: center;">
@@ -119,30 +126,30 @@
     };
 
     function applyLang() {
-        // Bahar wale page se lang uthayega
-        const lang = localStorage.getItem('selectedLang') || 'en';
-        const data = translations[lang];
+        // 1. Pehle localStorage check karega
+        // 2. Phir URL parameter (?lang=hi) check karega
+        const urlParams = new URLSearchParams(window.location.search);
+        const langCode = localStorage.getItem('selectedLang') || urlParams.get('lang') || 'en';
+        
+        const data = translations[langCode];
 
-        document.getElementById('back-btn').innerText = data.back;
-        document.getElementById('h1-text').innerHTML = data.h1;
-        document.getElementById('p-text').innerText = data.p;
-        document.getElementById('price-label').innerText = data.priceL;
-        document.getElementById('cta-btn').innerText = data.btn;
+        if(data) {
+            document.getElementById('back-btn').innerText = data.back;
+            document.getElementById('h1-text').innerHTML = data.h1;
+            document.getElementById('p-text').innerText = data.p;
+            document.getElementById('price-label').innerText = data.priceL;
+            document.getElementById('cta-btn').innerText = data.btn;
 
-        const list = document.getElementById('feat-list');
-        list.innerHTML = "";
-        data.feats.forEach(f => {
-            list.innerHTML += `<li><i class="fa-solid fa-check-circle"></i> ${f}</li>`;
-        });
+            const list = document.getElementById('feat-list');
+            list.innerHTML = "";
+            data.feats.forEach(f => {
+                list.innerHTML += `<li><i class="fa-solid fa-check-circle"></i> ${f}</li>`;
+            });
+        }
     }
 
-    // Har baar page khulne par aur language change hone par update karega
+    // Page load par apply karein
     window.onload = applyLang;
-    
-    // Extra security: agar bahar button dabaya ho toh ye turant detect karega
-    window.addEventListener('storage', () => {
-        applyLang();
-    });
 </script>
 
 </body>
