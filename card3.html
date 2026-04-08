@@ -128,6 +128,25 @@
             border-color: #00a8e8;
             animation: wobble 0.5s ease infinite;
             background: rgba(0, 168, 232, 0.05);
+            131    }
+
+   /* चारों कार्ड्स के लिए कॉमन स्टाइल */
+    .service-card {
+       background-color: #FFFFFF !important;
+        border: 2px solid #007bff; /* मैंने यहाँ नीला बॉर्डर दिया है जो सफेद पर अच्छा लगेगा */
+       border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+       transition: all 0.3s ease;
+       box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      margin-bottom: 20px;
+  }
+   .service-card:hover {
+        border-color: #0056b3; 
+       transform: translateY(-5px);
+       box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+   }
+
         }
     </style>
 </head>
@@ -167,11 +186,16 @@
         </a>
 
         <a href="seo-services.html" class="service-link">
-            <div class="service-card">
-                <i class="fa-solid fa-rocket"></i>
-                <h3 class="s-title">एसईओ सेवाएं</h3>
-                <p class="s-desc">गूगल के पहले पेज पर आएं। बिना पैसे खर्च किए हजारों ग्राहक पाएं।</p>
-            </div>
+            <!-- SEO कार्ड के अंदर यह डालें -->
+<div class="service-card">
+    <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="#007bff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="20" x2="18" y2="10"></line>
+        <line x1="12" y1="20" x2="12" y2="4"></line>
+        <line x1="6" y1="20" x2="6" y2="14"></line>
+    </svg>
+    <h3>SEO Services</h3>
+    <p>Rank your website higher.</p>
+</div>
         </a>
 
         <a href="analytics.html" class="service-link">
