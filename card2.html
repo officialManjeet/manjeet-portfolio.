@@ -24,8 +24,36 @@
             align-items: center;
         }
 
-        header { position: absolute; top: 20px; left: 20px; display: flex; align-items: center; gap: 15px; }
-        .logo-img { width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--primary-green); object-fit: cover; background: #222; }
+        header { 
+    position: absolute; 
+    top: 20px; 
+    left: 20px; 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+}
+
+.logo-img { 
+    width: 60px; 
+    height: 60px; 
+    border-radius: 50%; 
+    border: 3px solid #00e5ff; 
+    box-shadow: 0 0 15px #00e5ff; 
+    object-fit: cover; 
+}
+
+.brand-text { 
+    font-weight: bold; 
+    font-size: 1.5rem; 
+    letter-spacing: 1px; 
+}
+
+.white-txt { color: #ffffff; }
+
+.blue-txt { 
+    color: #00e5ff; 
+    text-shadow: 0 0 10px rgba(0, 229, 255, 0.6); 
+}
 
         .lang-switch { position: absolute; top: 25px; right: 25px; z-index: 100; }
         .lang-btn { 
@@ -99,8 +127,11 @@
 
 <header>
     <img src="images/sel.png" alt="Logo" class="logo-img" onerror="this.src='https://placeholder.com'">
-    <div style="font-weight: bold; font-size: 1.4rem;">Official <span style="color:var(--primary-green)">Manjeet</span></div>
+    <div class="brand-text">
+        <span class="white-txt">OFFICIAL</span><span class="blue-txt">MANJEET</span>
+    </div>
 </header>
+
 
 <div class="lang-switch">
     <button class="lang-btn" id="toggle-btn" onclick="toggleLanguage()">Switch to English</button>
