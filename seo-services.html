@@ -4,155 +4,193 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SEO Optimization | Official Manjeet</title>
-    <!-- FontAwesome FIXED LINK -->
+    <!-- Latest FontAwesome -->
     <link rel="stylesheet" href="https://cloudflare.com">
     <style>
+        @import url('https://googleapis.com');
+
         body {
             margin: 0; padding: 0;
-            background: #0b0b0d; color: white;
-            font-family: 'Poppins', sans-serif;
-            overflow-x: hidden;
+            background: #050a0f; 
+            background-image: radial-gradient(circle at 0% 0%, #001f3f 0%, transparent 50%),
+                              radial-gradient(circle at 100% 100%, #004d4d 0%, transparent 50%);
+            color: white; font-family: 'Poppins', sans-serif;
+            min-height: 100vh; overflow-x: hidden;
         }
 
+        /* --- Stylish Header --- */
         header {
-            padding: 15px 8%;
-            background: rgba(0,0,0,0.9);
-            position: sticky; top: 0; z-index: 100;
-            display: flex; justify-content: space-between; align-items: center;
-            border-bottom: 1px solid rgba(0, 210, 255, 0.2);
+            padding: 20px 5%; background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(15px); display: flex;
+            justify-content: space-between; align-items: center;
+            position: sticky; top: 0; z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .logo { font-size: 1.5rem; font-weight: 800; text-transform: uppercase; }
-        .logo span { color: #00d2ff; }
+        .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .brand img { width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid #00d2ff; }
+        .brand-text { font-size: 1.2rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+        .brand-text span { color: #00d2ff; }
 
         .btn-back {
-            color: #00d2ff; text-decoration: none; font-weight: 600; font-size: 0.9rem;
-            border: 1px solid #00d2ff; padding: 6px 15px; border-radius: 50px; transition: 0.3s;
+            color: #ccc; text-decoration: none; font-size: 0.9rem; font-weight: 600;
+            padding: 8px 20px; border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50px; transition: 0.3s;
         }
-        .btn-back:hover { background: #00d2ff; color: #000; }
+        .btn-back:hover { border-color: #00d2ff; color: #00d2ff; background: rgba(0, 210, 255, 0.05); }
 
-        .seo-container {
-            padding: 60px 8%;
-            display: flex; align-items: center; gap: 50px; flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .seo-text { flex: 1; min-width: 300px; }
-
-        .seo-icon { 
-            font-size: 75px; 
-            color: #00d2ff; 
-            margin-bottom: 25px;
-            filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.4));
+        /* --- Main Content Layout --- */
+        .container {
+            max-width: 1200px; margin: 60px auto; padding: 0 30px;
+            display: grid; grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px; align-items: center;
         }
 
-        h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); margin-bottom: 20px; line-height: 1.2; }
-        .highlight { color: #00d2ff; }
-        p { color: #ccc; font-size: 18px; line-height: 1.6; margin-bottom: 30px; }
-
-        .price-tag {
-            background: linear-gradient(135deg, #00d2ff 0%, #0072ff 100%);
-            padding: 20px 30px; border-radius: 15px; display: inline-block; 
-            margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2);
-        }
-        .price-tag h4 { margin: 0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
-        .price-tag .amount { font-size: 2rem; font-weight: 800; margin-top: 5px; }
-
-        .features { list-style: none; padding: 0; margin-bottom: 35px; }
-        .features li { margin-bottom: 15px; display: flex; align-items: center; gap: 12px; font-size: 1.05rem; }
-        .features i { color: #00d2ff; font-size: 1.2rem; }
-
-        .btn-primary {
-            display: inline-block; background: #00d2ff; color: #000;
-            padding: 16px 45px; border-radius: 50px; text-decoration: none;
-            font-weight: 700; text-transform: uppercase; transition: 0.4s;
-        }
-        .btn-primary:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0, 210, 255, 0.4); }
-
-        .main-img {
-            width: 100%; max-width: 480px; border-radius: 25px;
-            border: 1px solid rgba(0, 210, 255, 0.3);
-            box-shadow: 0 0 60px rgba(0, 210, 255, 0.15);
+        @media (max-width: 968px) {
+            .container { grid-template-columns: 1fr; text-align: center; margin: 30px auto; }
+            .features li { justify-content: center; }
         }
 
-        @media (max-width: 768px) { 
-            .seo-container { text-align: center; padding-top: 40px; } 
-            .features li { justify-content: center; } 
+        /* --- Left Side Content --- */
+        .seo-icon-box { 
+            display: inline-block; padding: 15px; 
+            background: rgba(0, 210, 255, 0.1); 
+            border-radius: 20px; margin-bottom: 25px;
         }
+        .seo-icon-box i { font-size: 50px; color: #00d2ff; }
+
+        h1 { font-size: clamp(2.5rem, 5vw, 3.8rem); font-weight: 800; line-height: 1.1; margin: 0 0 20px; }
+        h1 span { color: #00d2ff; text-shadow: 0 0 30px rgba(0, 210, 255, 0.3); }
+
+        p { color: #aaa; font-size: 1.1rem; line-height: 1.7; margin-bottom: 40px; max-width: 600px; }
+
+        /* Pricing Card */
+        .price-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 25px 35px; border-radius: 25px;
+            display: inline-block; margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+        }
+        .price-card span { font-size: 0.8rem; text-transform: uppercase; color: #00d2ff; font-weight: 700; letter-spacing: 1.5px; }
+        .price-card h2 { font-size: 2.8rem; margin: 5px 0 0; font-weight: 800; }
+
+        /* Feature List */
+        .features { list-style: none; padding: 0; margin-bottom: 45px; }
+        .features li { margin-bottom: 18px; font-size: 1.1rem; display: flex; align-items: center; gap: 15px; color: #eee; }
+        .features i { color: #00d2ff; background: rgba(0, 210, 255, 0.1); padding: 8px; border-radius: 50%; font-size: 0.9rem; }
+
+        .btn-main {
+            display: inline-block; padding: 18px 50px; background: #00d2ff;
+            color: #000; text-decoration: none; font-weight: 800;
+            border-radius: 50px; text-transform: uppercase; letter-spacing: 1px;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 15px 30px rgba(0, 210, 255, 0.3);
+        }
+        .btn-main:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0, 210, 255, 0.5); }
+
+        /* --- Right Side: Expert Image --- */
+        .expert-box { position: relative; }
+        .expert-box img {
+            width: 100%; max-width: 450px; border-radius: 30px;
+            filter: grayscale(20%); border: 1px solid rgba(255,255,255,0.1);
+            transition: 0.5s;
+        }
+        .expert-box:hover img { filter: grayscale(0%); border-color: #00d2ff; transform: scale(1.02); }
+        
+        /* Floating Badge */
+        .badge {
+            position: absolute; bottom: 20px; left: -20px;
+            background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(10px);
+            padding: 15px 25px; border-radius: 15px; border: 1px solid #00d2ff;
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">Official<span>Manjeet</span></div>
-        <a href="index.html" class="btn-back" id="back-txt">← Back to Home</a>
-    </header>
+<header>
+    <a href="index.html" class="brand">
+        <img src="images/sel.png" alt="Logo"> <!-- Aapka Logo -->
+        <div class="brand-text">OFFICIAL<span>MANJEET</span></div>
+    </a>
+    <a href="index.html" class="btn-back" id="back-btn">← Back to Home</a>
+</header>
 
-    <section class="seo-container">
-        <div class="seo-text">
-            <i class="fa-solid fa-magnifying-glass-chart seo-icon"></i>
-            <h1 id="seo-h1">SEO <span class="highlight">Optimization</span></h1>
-            <p id="seo-p">Loading Content...</p>
-            
-            <div class="price-tag">
-                <h4 id="price-title">Monthly Charges</h4>
-                <div class="amount" id="price-amt">₹4,999/-</div>
-            </div>
+<div class="container">
+    <div class="seo-content">
+        <div class="seo-icon-box">
+            <i class="fa-solid fa-magnifying-glass-chart"></i>
+        </div>
+        
+        <h1 id="main-h1">Rank #1 on <br><span>Google Search</span></h1>
+        <p id="main-p">Loading expertise...</p>
 
-            <ul class="features" id="feat-list"></ul>
-
-            <a href="https://wa.me" class="btn-primary" id="cta-btn">Get Started Now</a>
+        <div class="price-card">
+            <span id="price-label">Monthly Investment</span>
+            <h2 id="price-val">₹4,999/-</h2>
         </div>
 
-        <div class="seo-image">
-            <img src="images/manjeet.png" class="main-img" alt="SEO Expert">
+        <ul class="features" id="feat-list">
+            <!-- Features load automatically -->
+        </ul>
+
+        <a href="https://wa.me" class="btn-main" id="cta-btn">Grow My Business</a>
+    </div>
+
+    <div class="expert-box">
+        <img src="images/manjeet.png" alt="SEO Expert Manjeet"> <!-- Aapki Image -->
+        <div class="badge">
+            <div style="color: #00d2ff; font-weight: 800; font-size: 1.2rem;">99%</div>
+            <div style="font-size: 0.7rem; text-transform: uppercase;">Success Rate</div>
         </div>
-    </section>
+    </div>
+</div>
 
-    <script>
-        const content = {
-            en: {
-                back: "← Back to Home",
-                h1: "Dominate <span class='highlight'>Google Search</span> Results",
-                p: "We help your business get found by the right people. Our expert SEO strategies focus on ranking your keywords on the first page and driving real sales.",
-                priceT: "Monthly SEO Plan",
-                priceA: "₹4,999/-",
-                btn: "Grow My Business",
-                feats: ["Keyword Research & Analysis", "Technical SEO Audit", "High-Quality Backlinking", "Real-time Traffic Tracking"]
-            },
-            hi: {
-                back: "← होम पर जाएं",
-                h1: "गूगल सर्च में <span class='highlight'>नंबर #1</span> पर आएं",
-                p: "जब कोई आपके बिजनेस से जुड़ी सर्विस सर्च करे, तो आपकी वेबसाइट सबसे ऊपर होनी चाहिए। हम एडवांस SEO तकनीकों का उपयोग करके आपके ग्राहकों और ट्रैफिक को बढ़ाते हैं।",
-                priceT: "मासिक शुल्क",
-                priceA: "₹4,999/-",
-                btn: "रैंकिंग बेहतर करें",
-                feats: ["कीवर्ड रिसर्च और एनालिसिस", "टेक्निकल SEO ऑडिट", "हाई-क्वालिटी बैकलिंक्स", "ट्रैफिक ट्रैकिंग रिपोर्ट"]
-            }
-        };
-
-        function applyLanguage() {
-            const savedLang = localStorage.getItem('selectedLang') || 'en';
-            console.log("Current Language:", savedLang); // Debugging ke liye
-
-            const data = content[savedLang];
-            
-            document.getElementById('back-txt').innerText = data.back;
-            document.getElementById('seo-h1').innerHTML = data.h1;
-            document.getElementById('seo-p').innerText = data.p;
-            document.getElementById('price-title').innerText = data.priceT;
-            document.getElementById('price-amt').innerText = data.priceA;
-            document.getElementById('cta-btn').innerText = data.btn;
-
-            const list = document.getElementById('feat-list');
-            list.innerHTML = "";
-            data.feats.forEach(f => {
-                list.innerHTML += `<li><i class="fas fa-check-double"></i> ${f}</li>`;
-            });
+<script>
+    const translations = {
+        en: {
+            back: "← Back to Home",
+            h1: "Rank #1 on <br><span>Google Search</span>",
+            p: "Don't let your competitors take your customers. Our advanced SEO strategies ensure your website stays on top and generates consistent organic revenue.",
+            priceL: "Monthly Investment",
+            priceV: "₹4,999/-",
+            btn: "Grow My Business",
+            feats: ["Full Keyword Strategy", "Technical SEO Audit", "High-Authority Links", "Monthly Growth Reports"]
+        },
+        hi: {
+            back: "← होम पर जाएं",
+            h1: "गूगल में लाएं <br><span>नंबर #1 रैंकिंग</span>",
+            p: "अपने ग्राहकों को कॉम्पिटिटर्स के पास न जाने दें। हमारी एडवांस SEO तकनीकें आपकी वेबसाइट को गूगल के पहले पेज पर लाकर ऑर्गेनिक सेल बढ़ाती हैं।",
+            priceL: "मासिक निवेश",
+            priceV: "₹4,999/-",
+            btn: "बिज़नेस बढ़ाएं",
+            feats: ["कीवर्ड रिसर्च स्ट्रेटेजी", "टेक्निकल SEO ऑडिट", "हाई-अथॉरिटी बैकलिंक्स", "मंथली प्रोग्रेस रिपोर्ट"]
         }
+    };
 
-        // Page load hone par function run karein
-        window.onload = applyLanguage;
-    </script>
+    function applyLang() {
+        const lang = localStorage.getItem('selectedLang') || 'en';
+        const data = translations[lang];
+
+        document.getElementById('back-btn').innerText = data.back;
+        document.getElementById('main-h1').innerHTML = data.h1;
+        document.getElementById('main-p').innerText = data.p;
+        document.getElementById('price-label').innerText = data.priceL;
+        document.getElementById('price-val').innerText = data.priceV;
+        document.getElementById('cta-btn').innerText = data.btn;
+
+        const list = document.getElementById('feat-list');
+        list.innerHTML = "";
+        data.feats.forEach(f => {
+            list.innerHTML += `<li><i class="fa-solid fa-check"></i> ${f}</li>`;
+        });
+    }
+
+    window.onload = applyLang;
+</script>
+
 </body>
 </html>
