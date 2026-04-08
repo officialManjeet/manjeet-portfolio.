@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Services | Official Manjeet</title>
-    <!-- Sabse Latest FontAwesome Link (Icons dikhne ke liye) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
+    <!-- Sabse Latest FontAwesome Link -->
+    <link rel="stylesheet" href="https://cloudflare.com">
     <style>
-        /* --- Exact Wave Mix Background (Inspired by your Image) --- */
+        /* --- Exact Wave Mix Background --- */
         body {
             margin: 0; padding: 0;
             background: #050a0f; 
             background-image: 
-                radial-gradient(circle at 100% 0%, #3a2a1d 0%, transparent 40%), /* Brownish Wave */
-                radial-gradient(circle at 0% 100%, #004d4d 0%, transparent 50%), /* Teal Wave */
+                radial-gradient(circle at 100% 0%, #3a2a1d 0%, transparent 40%), 
+                radial-gradient(circle at 0% 100%, #004d4d 0%, transparent 50%), 
                 radial-gradient(circle at 50% 50%, #050a0f 0%, #020508 100%);
             background-attachment: fixed;
             font-family: 'Poppins', sans-serif;
@@ -28,6 +28,7 @@
             background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(15px);
             z-index: 1000; box-sizing: border-box;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            justify-content: space-between; /* Space for Lang Buttons */
         }
 
         .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
@@ -35,6 +36,15 @@
         .brand-text { font-size: 1.1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
         .brand-text .white { color: #ffffff; }
         .brand-text .blue { color: #00a8e8; }
+
+        /* --- Language Switcher Buttons --- */
+        .lang-btns { display: flex; gap: 10px; }
+        .lang-btn {
+            background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+            color: white; padding: 5px 12px; border-radius: 5px; cursor: pointer;
+            font-size: 0.75rem; font-weight: 700; transition: 0.3s;
+        }
+        .lang-btn.active { background: #00a8e8; border-color: #00a8e8; }
 
         /* --- Content Container --- */
         .container { 
@@ -59,7 +69,6 @@
         
         .service-link { text-decoration: none; color: inherit; }
 
-        /* --- Glowing Glass Cards --- */
         .service-card {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(20px);
@@ -79,16 +88,14 @@
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 168, 232, 0.3);
         }
 
-        /* Big Glowing Icons */
         .service-card i { 
             font-size: 55px; color: #00a8e8; margin-bottom: 25px;
-            filter: drop-shadow(0 0 15px rgba(0, 168, 232, 0.6)); /* Chamakne wala effect */
+            filter: drop-shadow(0 0 15px rgba(0, 168, 232, 0.6));
         }
         
         .service-card h3 { font-size: 1.4rem; margin-bottom: 12px; color: #fff; font-weight: 700; }
         .service-card p { font-size: 0.85rem; line-height: 1.6; color: #bbb; }
 
-        /* --- Buttons --- */
         .btn-quote {
             display: inline-block; padding: 16px 50px;
             background: #00a8e8; color: #fff; text-decoration: none;
@@ -99,7 +106,6 @@
 
         .btn-quote:hover { transform: scale(1.05); box-shadow: 0 15px 40px rgba(0, 168, 232, 0.5); }
 
-        /* --- Wobble Back Button --- */
         .footer-nav { margin-top: 40px; padding-bottom: 40px; }
         
         .btn-home {
@@ -120,10 +126,9 @@
         .btn-home:hover { 
             color: #00a8e8; 
             border-color: #00a8e8;
-            animation: wobble 0.5s ease infinite; /* Wobble Effect */
+            animation: wobble 0.5s ease infinite;
             background: rgba(0, 168, 232, 0.05);
         }
-
     </style>
 </head>
 <body>
@@ -135,56 +140,99 @@
             <span class="white">OFFICIAL</span><span class="blue">MANJEET</span>
         </div>
     </a>
+    <div class="lang-btns">
+        <button class="lang-btn" onclick="changeLang('en')">EN</button>
+        <button class="lang-btn active" onclick="changeLang('hi')">HI</button>
+    </div>
 </header>
 
 <div class="container">
-    <h1>Our Premium Services</h1>
+    <h1 id="main-title">हमारी प्रीमियम सेवाएं</h1>
 
     <div class="service-grid">
-        <!-- Web Design Icon -->
         <a href="web-design.html" class="service-link">
             <div class="service-card">
                 <i class="fa-solid fa-laptop-code"></i>
-                <h3>Web Design</h3>
-                <p>5-8 पन्नों की प्रीमियम वेबसाइट। मोबाइल और गूगल के लिए पूरी तरह से फिट।</p>
+                <h3 class="s-title">वेब डिज़ाइन</h3>
+                <p class="s-desc">5-8 पन्नों की प्रीमियम वेबसाइट। मोबाइल और गूगल के लिए पूरी तरह से फिट।</p>
             </div>
         </a>
 
-        <!-- App Development Icon -->
-      <a href="app-development.html" class="service-link">
-
+        <a href="app-development.html" class="service-link">
             <div class="service-card">
                 <i class="fa-solid fa-mobile-screen-button"></i>
-                <h3>App Development</h3>
-                <p>आपका अपना एंड्राइड और iOS ऐप। बिज़नेस को लोगों की जेब तक पहुँचाएं।</p>
+                <h3 class="s-title">ऐप डेवलपमेंट</h3>
+                <p class="s-desc">आपका अपना एंड्राइड और iOS ऐप। बिज़नेस को लोगों की जेब तक पहुँचाएं।</p>
             </div>
         </a>
 
-        <!-- SEO Icon -->
         <a href="seo-services.html" class="service-link">
             <div class="service-card">
                 <i class="fa-solid fa-rocket"></i>
-                <h3>SEO Services</h3>
-                <p>गूगल के पहले पेज पर आएं। बिना पैसे खर्च किए हजारों ग्राहक पाएं।</p>
+                <h3 class="s-title">एसईओ सेवाएं</h3>
+                <p class="s-desc">गूगल के पहले पेज पर आएं। बिना पैसे खर्च किए हजारों ग्राहक पाएं।</p>
             </div>
         </a>
 
-        <!-- Analytics Icon -->
         <a href="analytics.html" class="service-link">
             <div class="service-card">
                 <i class="fa-solid fa-chart-line"></i>
-                <h3>Analytics</h3>
-                <p>समझें आपके ग्राहक क्या चाहते हैं। डेटा देखकर अपने बिज़नेस के फैसले लें।</p>
+                <h3 class="s-title">एनालिटिक्स</h3>
+                <p class="s-desc">समझें आपके ग्राहक क्या चाहते हैं। डेटा देखकर अपने बिज़नेस के फैसले लें।</p>
             </div>
         </a>
     </div>
 
-    <a href="https://wa.me" class="btn-quote">Request A Quote</a>
+    <a href="https://wa.me" class="btn-quote" id="quote-btn">Request A Quote</a>
 
     <div class="footer-nav">
-        <a href="index.html" class="btn-home">← BACK TO HOME</a>
+        <a href="index.html" class="btn-home" id="home-btn">← BACK TO HOME</a>
     </div>
 </div>
+
+<script>
+    const translations = {
+        en: {
+            title: "Our Premium Services",
+            services: [
+                {t: "Web Design", d: "Premium 5-8 page website. Fully optimized for mobile and Google."},
+                {t: "App Development", d: "Your own Android and iOS app. Reach customers' pockets."},
+                {t: "SEO Services", d: "Rank on Google's first page. Get thousands of organic customers."},
+                {t: "Analytics", d: "Understand what your customers want. Make data-driven decisions."}
+            ],
+            quote: "Request A Quote",
+            home: "← BACK TO HOME"
+        },
+        hi: {
+            title: "हमारी प्रीमियम सेवाएं",
+            services: [
+                {t: "वेब डिज़ाइन", d: "5-8 पन्नों की प्रीमियम वेबसाइट। मोबाइल और गूगल के लिए पूरी तरह से फिट।"},
+                {t: "ऐप डेवलपमेंट", d: "आपका अपना एंड्राइड और iOS ऐप। बिज़नेस को लोगों की जेब तक पहुँचाएं।"},
+                {t: "एसईओ सेवाएं", d: "गूगल के पहले पेज पर आएं। बिना पैसे खर्च किए हजारों ग्राहक पाएं।"},
+                {t: "एनालिटिक्स", d: "समझें आपके ग्राहक क्या चाहते हैं। डेटा देखकर अपने बिज़नेस के फैसले लें।"}
+            ],
+            quote: "Request A Quote",
+            home: "← BACK TO HOME"
+        }
+    };
+
+    function changeLang(lang) {
+        document.getElementById('main-title').innerText = translations[lang].title;
+        document.getElementById('quote-btn').innerText = translations[lang].quote;
+        document.getElementById('home-btn').innerText = translations[lang].home;
+
+        const titles = document.querySelectorAll('.s-title');
+        const descs = document.querySelectorAll('.s-desc');
+        
+        translations[lang].services.forEach((item, index) => {
+            titles[index].innerText = item.t;
+            descs[index].innerText = item.d;
+        });
+
+        document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+    }
+</script>
 
 </body>
 </html>
