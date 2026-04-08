@@ -52,7 +52,6 @@
         .card h2 { color: #ff007a; margin-bottom: 15px; }
         .price { font-size: 1.5rem; font-weight: bold; color: var(--primary-green); margin: 20px 0; }
 
-        /* Why Choose Us Section */
         .why-us {
             background: rgba(255, 255, 255, 0.03);
             border-radius: 25px;
@@ -64,7 +63,6 @@
         .why-us h3 { color: var(--primary-green); font-size: 1.8rem; margin-top: 0; }
         .why-us p { line-height: 1.8; color: #ccc; font-size: 1.1rem; }
 
-        /* Back Button */
         .back-btn {
             display: inline-block;
             margin-top: 50px;
@@ -78,19 +76,18 @@
         }
         .back-btn:hover { border-color: white; color: white; background: rgba(255,255,255,0.05); }
 
-        /* Modal */
         .modal {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.95); z-index: 1000; justify-content: center; align-items: center;
         }
         .modal-content {
-            background: #111; padding: 40px; border-radius: 30px; max-width: 600px; width: 90%;
+            background: #111; padding: 40px; border-radius: 30px; max-width: 600px; width: 95%;
             border: 1px solid var(--primary-green); position: relative;
         }
-        .close-btn { position: absolute; top: 20px; right: 25px; font-size: 35px; cursor: pointer; color: #555; }
+        .close-btn { position: absolute; top: 10px; right: 20px; font-size: 35px; cursor: pointer; color: #555; }
         .benefits-list { text-align: left; list-style: none; padding: 0; margin-top: 25px; }
-        .benefits-list li { margin-bottom: 15px; display: flex; gap: 10px; color: #ccc; }
-        .benefits-list b { color: var(--primary-green); min-width: 90px; }
+        .benefits-list li { margin-bottom: 18px; display: flex; gap: 12px; color: #ccc; line-height: 1.6; }
+        .benefits-list b { color: var(--primary-green); min-width: 90px; display: inline-block; }
 
         .btn-wa {
             display: block; background: var(--primary-green); color: white; text-align: center;
@@ -128,14 +125,12 @@
         </div>
     </div>
 
-    <!-- Why Us Section -->
     <div class="why-us">
         <h3 id="why-title">हमसे क्यों जुड़ें?</h3>
         <p id="why-text">
             • <b>अनुभव:</b> हमें एड्स मैनेज करने का 2+ साल का गहरा अनुभव है।<br>
             • <b>कम बजट, ज्यादा सेल:</b> हम आपके बजट का सही इस्तेमाल करके ज्यादा से ज्यादा ग्राहक लाते हैं।<br>
-            • <b>पारदर्शिता:</b> हर हफ्ते आपको विज्ञापन की परफॉरमेंस रिपोर्ट दी जाएगी।<br>
-            • <b>सपोर्ट:</b> विज्ञापन के दौरान कोई भी समस्या आने पर हम आपके लिए हमेशा उपलब्ध हैं।
+            • <b>पारदर्शिता:</b> हर हफ्ते रिपोर्ट दी जाएगी।
         </p>
     </div>
 
@@ -165,8 +160,16 @@
             back: "पीछे जाएं",
             whyT: "हमसे क्यों जुड़ें?",
             whyX: "• <b>अनुभव:</b> हमें एड्स मैनेज करने का 2+ साल का गहरा अनुभव है।<br>• <b>कम बजट, ज्यादा सेल:</b> हम आपके बजट का सही इस्तेमाल करके ज्यादा से ज्यादा ग्राहक लाते हैं।<br>• <b>पारदर्शिता:</b> हर हफ्ते रिपोर्ट दी जाएगी।",
-            smList: `<li><b>Instagram:</b> रील एड्स से ब्रांड वैल्यू।</li><li><b>Facebook:</b> लोकल ग्राहकों तक पहुँच।</li><li><b>Reports:</b> हर हफ्ते विज्ञापन का हिसाब।</li>`,
-            goList: `<li><b>Search:</b> गूगल पर सबसे ऊपर नाम।</li><li><b>Leads:</b> सीधे ग्राहकों के कॉल्स।</li><li><b>ROI:</b> खर्च किए पैसे का बेहतरीन रिटर्न।</li>`
+            smList: `
+                <li><b>Instagram:</b> रील और स्टोरी एड्स से युवाओं तक सीधी पहुँच और ब्रांड वैल्यू।</li>
+                <li><b>Facebook:</b> लोकल एरिया के ग्राहकों को टारगेट करके सेल्स में बढ़ोतरी।</li>
+                <li><b>Creative:</b> हम ऐसे फोटो/वीडियो बनाएंगे जो लोग देखते ही रुक जाएं।</li>
+                <li><b>Reports:</b> हर हफ्ते आपको विज्ञापन का पूरा हिसाब और रिजल्ट मिलेगा।</li>`,
+            goList: `
+                <li><b>Search:</b> जब कोई आपकी सर्विस सर्च करेगा, आप सबसे ऊपर दिखेंगे।</li>
+                <li><b>Leads:</b> सीधे उन लोगों के कॉल आएँगे जिन्हें आपकी सर्विस की ज़रूरत है।</li>
+                <li><b>Keywords:</b> हम सही शब्दों का चुनाव करेंगे ताकि कम पैसे में ज्यादा कॉल आएं।</li>
+                <li><b>Sales:</b> गूगल एड्स से मिलने वाली लीड्स के सेल में बदलने के चांस 90% होते हैं।</li>`
         },
         en: {
             btn: "हिंदी में बदलें",
@@ -178,9 +181,17 @@
             wa: "Chat on WhatsApp",
             back: "Back to Home",
             whyT: "Why Choose Us?",
-            whyX: "• <b>Experience:</b> 2+ years of expertise in ad management.<br>• <b>Low Budget, High Sales:</b> Optimized results for every rupee spent.<br>• <b>Transparency:</b> Detailed weekly reports provided.",
-            smList: `<li><b>Instagram:</b> Boost brand with Reels.</li><li><b>Facebook:</b> Target local customers.</li><li><b>Reports:</b> Complete weekly data.</li>`,
-            goList: `<li><b>Search:</b> Appear on top of Google.</li><li><b>Leads:</b> High-quality direct calls.</li><li><b>ROI:</b> Best return on investment.</li>`
+            whyX: "• <b>Experience:</b> 2+ years of expertise.<br>• <b>ROI:</b> High conversion for every rupee spent.<br>• <b>Transparency:</b> Full weekly analytics provided.",
+            smList: `
+                <li><b>Instagram:</b> Direct reach to youth via Reels/Stories & brand value.</li>
+                <li><b>Facebook:</b> Increase sales by targeting local customers.</li>
+                <li><b>Creative:</b> Eye-catching designs to stop the scroll.</li>
+                <li><b>Reports:</b> Complete weekly performance & result tracking.</li>`,
+            goList: `
+                <li><b>Search:</b> Appear on top when someone searches for your service.</li>
+                <li><b>Leads:</b> Direct calls from people who need you right now.</li>
+                <li><b>Keywords:</b> Smart keyword bidding for more calls in less budget.</li>
+                <li><b>Sales:</b> Google leads have a 90% higher chance of conversion.</li>`
         }
     };
 
