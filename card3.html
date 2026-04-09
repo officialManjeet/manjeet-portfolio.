@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Services | Official Manjeet</title>
-    <!-- Sabse Latest FontAwesome Link -->
+<link rel="stylesheet" href="https://cloudflare.com">
+
     <link rel="stylesheet" href="https://cloudflare.com">
     <style>
         /* --- Exact Wave Mix Background --- */
@@ -70,13 +71,34 @@
         .service-link { text-decoration: none; color: inherit; }
 
         .service-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
-            padding: 40px 20px;
-            border-radius: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            min-height: 350px;
+    background: #ffffff !important;
+    padding: 40px 20px;
+    border-radius: 25px;
+    border: 1px solid #eef2f5;
+    transition: 0.4s;
+    min-height: 350px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* Hover par blue border chamkega */
+.service-card:hover {
+    transform: translateY(-10px);
+    border-color: #00a8e8;
+    box-shadow: 0 20px 40px rgba(0, 168, 232, 0.1);
+}
+
+/* Text ko dark aur saaf karne ke liye */
+.service-card h3 { color: #1a1a1a !important; font-weight: 700; margin-bottom: 15px; }
+.service-card p { color: #444 !important; font-size: 0.95rem; line-height: 1.6; }
+
+/* Icons ka size aur color */
+.service-card i { 
+    font-size: 50px; color: #00a8e8; margin-bottom: 25px; 
+    filter: drop-shadow(0 5px 10px rgba(0,168,232,0.2));
+}
+
             display: flex; flex-direction: column;
             align-items: center; justify-content: center;
         }
@@ -188,11 +210,7 @@
         <a href="seo-services.html" class="service-link">
             <!-- SEO कार्ड के अंदर यह डालें -->
 <div class="service-card">
-    <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="#007bff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="18" y1="20" x2="18" y2="10"></line>
-        <line x1="12" y1="20" x2="12" y2="4"></line>
-        <line x1="6" y1="20" x2="6" y2="14"></line>
-    </svg>
+    <i class="fa-solid fa-rocket"></i>
     <h3>SEO Services</h3>
     <p>Rank your website higher.</p>
 </div>
@@ -200,7 +218,7 @@
 
         <a href="analytics.html" class="service-link">
             <div class="service-card">
-                <i class="fa-solid fa-chart-line"></i>
+              <i class="fa-solid fa-chart-line"></i>
                 <h3 class="s-title">एनालिटिक्स</h3>
                 <p class="s-desc">समझें आपके ग्राहक क्या चाहते हैं। डेटा देखकर अपने बिज़नेस के फैसले लें।</p>
             </div>
