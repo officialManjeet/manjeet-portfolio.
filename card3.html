@@ -268,15 +268,18 @@
             home: "« होम पर वापस जाएँ"
         }
     };
-
-       function updateLanguage(lang) {
+    function updateLanguage(lang) {
         const data = translations[lang];
         
-        // 1. Heading change (Our Premium Services)
+        // 1. Heading change
         const mainTitle = document.querySelector('h1') || document.getElementById('main-title');
         if(mainTitle) mainTitle.innerText = data.title;
+
+        // 2. Quotation Button change
+        const quoteBtn = document.querySelector('.btn-quote') || document.querySelector('.cta-btn') || document.querySelector('button[style*="background"]');
+        if(quoteBtn) quoteBtn.innerText = data.quote;
         
-        // 2. All Cards update (Titles and Descriptions)
+        // 3. Cards update (Title and Description)
         const titles = document.querySelectorAll('.service-card h3'); 
         const descs = document.querySelectorAll('.service-card p');
         
@@ -285,16 +288,16 @@
             if(descs[index]) descs[index].innerText = service.d;
         });
 
-        // 3. Home Button update
+        // 4. Back Button change
         const homeBtn = document.querySelector('.btn-home');
         if(homeBtn) homeBtn.innerText = data.home;
     }
 
-    // Yeh function aapke buttons (Line 185-186) ko connect karega
+    // Yeh function buttons se connect hoga
     function changeLang(lang) {
         updateLanguage(lang);
         
-        // Active class logic (sirf button ka color change karne ke liye)
+        // Active button style switch
         document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
         if(event && event.target) {
             event.target.classList.add('active');
