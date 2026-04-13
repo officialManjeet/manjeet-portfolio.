@@ -242,9 +242,7 @@
         <a href="index.html" class="btn-home" data-en="← BACK TO HOME" data-hi="← होम पर वापस जाएं">← होम पर वापस जाएं</a>
     </div>
 </div> <!-- Main Container Band -->
-
 <script>
-  <script>
     const translations = {
         en: {
             title: "Our Premium Services",
@@ -269,6 +267,29 @@
             home: "« होम पर वापस जाएँ"
         }
     };
+
+    // यह फंक्शन ही भाषा बदलेगा
+    function setLanguage(lang) {
+        const data = translations[lang];
+        
+        // 1. मुख्य टाइटल बदलें
+        document.querySelector('h1').innerText = data.title;
+        
+        // 2. सारे कार्ड्स का टाइटल और डिस्क्रिप्शन बदलें
+        const titles = document.querySelectorAll('.card h3'); 
+        const descs = document.querySelectorAll('.card p');
+        
+        data.services.forEach((service, index) => {
+            if(titles[index]) titles[index].innerText = service.t;
+            if(descs[index]) descs[index].innerText = service.d;
+        });
+
+        // 3. होम बटन बदलें
+        const homeBtn = document.querySelector('.btn-home');
+        if(homeBtn) homeBtn.innerText = data.home;
+    }
+</script>
+
 
     function updateLanguage(lang) {
         const data = translations[lang];
