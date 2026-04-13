@@ -269,52 +269,37 @@
         }
     };
 
-    // यह फंक्शन ही भाषा बदलेगा
-    function setLanguage(lang) {
+       function updateLanguage(lang) {
         const data = translations[lang];
         
-        // 1. मुख्य टाइटल बदलें
-        document.querySelector('h1').innerText = data.title;
-        
-        // 2. सारे कार्ड्स का टाइटल और डिस्क्रिप्शन बदलें
-        const titles = document.querySelectorAll('.card h3'); 
-        const descs = document.querySelectorAll('.card p');
-        
-        data.services.forEach((service, index) => {
-            if(titles[index]) titles[index].innerText = service.t;
-            if(descs[index]) descs[index].innerText = service.d;
-           function updateLanguage(lang) {
-        const data = translations[lang];
-        
-        // 1. Heading change
-        const mainTitle = document.querySelector('h1');
+        // 1. Heading change (Our Premium Services)
+        const mainTitle = document.querySelector('h1') || document.getElementById('main-title');
         if(mainTitle) mainTitle.innerText = data.title;
         
-        // 2. Cards update (Heading aur Paragraph)
-        const titles = document.querySelectorAll('.card h3'); 
-        const descs = document.querySelectorAll('.card p');
+        // 2. All Cards update (Titles and Descriptions)
+        const titles = document.querySelectorAll('.service-card h3'); 
+        const descs = document.querySelectorAll('.service-card p');
         
         data.services.forEach((service, index) => {
             if(titles[index]) titles[index].innerText = service.t;
             if(descs[index]) descs[index].innerText = service.d;
         });
 
-        // 3. Home/Back Button update
+        // 3. Home Button update
         const homeBtn = document.querySelector('.btn-home');
         if(homeBtn) homeBtn.innerText = data.home;
     }
 
-    // Buttons ko function se connect karne ke liye
-    document.addEventListener('DOMContentLoaded', () => {
-        // English Button
-        const enBtn = document.querySelector('.en') || document.querySelector('[onclick*="en"]');
-        // Hindi Button
-        const hiBtn = document.querySelector('.hi') || document.querySelector('[onclick*="hi"]');
-
-        if(enBtn) enBtn.onclick = () => updateLanguage('en');
-        if(hiBtn) hiBtn.onclick = () => updateLanguage('hi');
-    });
+    // Yeh function aapke buttons (Line 185-186) ko connect karega
+    function changeLang(lang) {
+        updateLanguage(lang);
+        
+        // Active class logic (sirf button ka color change karne ke liye)
+        document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+        if(event && event.target) {
+            event.target.classList.add('active');
+        }
+    }
 </script>
 </body>
 </html>
-
