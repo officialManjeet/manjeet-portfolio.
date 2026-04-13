@@ -244,30 +244,52 @@
 </div> <!-- Main Container Band -->
 
 <script>
+  <script>
     const translations = {
         en: {
             title: "Our Premium Services",
             services: [
-                {t: "Web Design", d: "Premium 5-8 page website. Fully optimized for mobile and Google."},
-                {t: "App Development", d: "Your own Android and iOS app. Reach customers' pockets."},
-                {t: "SEO Services", d: "Rank on Google's first page. Get thousands of organic customers."},
-                {t: "Analytics", d: "Understand what your customers want. Make data-driven decisions."}
+                { t: "Web Design", d: "Premium 5-8 page website. Fully optimized for mobile and Google." },
+                { t: "App Development", d: "Your own Android and iOS app. Reach customers' pockets." },
+                { t: "SEO Services", d: "Rank on Google's first page. Get thousands of organic customers." },
+                { t: "Analytics Expert", d: "Setup & Audits, Conversion Tracking, Custom Dashboards, and ROI Growth Reports." }
             ],
             quote: "Request A Quote",
-            home: "← BACK TO HOME"
+            home: "« BACK TO HOME"
         },
         hi: {
-            title: "हमारी प्रीमियम सेवाएं",
+            title: "हमारी प्रीमियम सेवाएँ",
             services: [
-                {t: "वेब डिज़ाइन", d: "5-8 पन्नों की प्रीमियम वेबसाइट। मोबाइल और गूगल के लिए पूरी तरह से फिट।"},
-                {t: "ऐप डेवलपमेंट", d: "आपका अपना एंड्राइड और iOS ऐप। बिज़नेस को लोगों की जेब तक पहुँचाएं।"},
-                {t: "एसईओ सेवाएं", d: "गूगल के पहले पेज पर आएं। बिना पैसे खर्च किए हजारों ग्राहक पाएं।"},
-                {t: "एनालिटिक्स", d: "समझें आपके ग्राहक क्या चाहते हैं। डेटा देखकर अपने बिज़नेस के फैसले लें।"}
+                { t: "वेब डिज़ाइन", d: "5-8 पन्नों की प्रीमियम वेबसाइट। मोबाइल और गूगल के लिए पूरी तरह से फिट।" },
+                { t: "ऐप डेवलपमेंट", d: "आपका अपना एंड्राइड और iOS ऐप। बिज़नेस को लोगों की जेब तक पहुँचाएं।" },
+                { t: "एसईओ सेवाएं", d: "गूगल के पहले पेज पर आएं। बिना पैसे खर्च किए हज़ारों ग्राहक पाएं।" },
+                { t: "एनालिटिक्स एक्सपर्ट", d: "फुल सेटअप, सेल्स ट्रैकिंग, कस्टम डैशबोर्ड और बिज़नेस ग्रोथ रिपोर्ट तैयार करवाना।" }
             ],
-            quote: "Request A Quote",
-            home: "← BACK TO HOME"
+            quote: "एक कोट मांगें",
+            home: "« होम पर वापस जाएँ"
         }
     };
+
+    function updateLanguage(lang) {
+        const data = translations[lang];
+        
+        // Heading change
+        document.querySelector('h1').innerText = data.title;
+        
+        // Cards update (Ensure your card titles have class 'card-title' and descs have 'card-desc')
+        const titles = document.querySelectorAll('.card h3'); 
+        const descs = document.querySelectorAll('.card p');
+        
+        data.services.forEach((service, index) => {
+            if(titles[index]) titles[index].innerText = service.t;
+            if(descs[index]) descs[index].innerText = service.d;
+        });
+
+        // Home link change
+        const homeBtn = document.querySelector('.btn-home');
+        if(homeBtn) homeBtn.innerText = data.home;
+    }
+</script>
 
     function changeLang(lang) {
         document.getElementById('main-title').innerText = translations[lang].title;
