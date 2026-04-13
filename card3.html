@@ -282,22 +282,14 @@
         data.services.forEach((service, index) => {
             if(titles[index]) titles[index].innerText = service.t;
             if(descs[index]) descs[index].innerText = service.d;
-        });
-
-        // 3. होम बटन बदलें
-        const homeBtn = document.querySelector('.btn-home');
-        if(homeBtn) homeBtn.innerText = data.home;
-    }
-</script>
-
-
-    function updateLanguage(lang) {
+           function updateLanguage(lang) {
         const data = translations[lang];
         
-        // Heading change
-        document.querySelector('h1').innerText = data.title;
+        // 1. Heading change
+        const mainTitle = document.querySelector('h1');
+        if(mainTitle) mainTitle.innerText = data.title;
         
-        // Cards update (Ensure your card titles have class 'card-title' and descs have 'card-desc')
+        // 2. Cards update (Heading aur Paragraph)
         const titles = document.querySelectorAll('.card h3'); 
         const descs = document.querySelectorAll('.card p');
         
@@ -306,29 +298,22 @@
             if(descs[index]) descs[index].innerText = service.d;
         });
 
-        // Home link change
+        // 3. Home/Back Button update
         const homeBtn = document.querySelector('.btn-home');
         if(homeBtn) homeBtn.innerText = data.home;
     }
+
+    // Buttons ko function se connect karne ke liye
+    document.addEventListener('DOMContentLoaded', () => {
+        // English Button
+        const enBtn = document.querySelector('.en') || document.querySelector('[onclick*="en"]');
+        // Hindi Button
+        const hiBtn = document.querySelector('.hi') || document.querySelector('[onclick*="hi"]');
+
+        if(enBtn) enBtn.onclick = () => updateLanguage('en');
+        if(hiBtn) hiBtn.onclick = () => updateLanguage('hi');
+    });
 </script>
-
-    function changeLang(lang) {
-        document.getElementById('main-title').innerText = translations[lang].title;
-        document.getElementById('quote-btn').innerText = translations[lang].quote;
-        document.getElementById('home-btn').innerText = translations[lang].home;
-
-        const titles = document.querySelectorAll('.s-title');
-        const descs = document.querySelectorAll('.s-desc');
-        
-        translations[lang].services.forEach((item, index) => {
-            titles[index].innerText = item.t;
-            descs[index].innerText = item.d;
-        });
-
-        document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-        event.target.classList.add('active');
-    }
-</script>
-
 </body>
 </html>
+
