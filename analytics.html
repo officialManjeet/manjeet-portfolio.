@@ -1,18 +1,270 @@
-<!-- (बाकी CSS और Header सेम रहेगा, बस Container का कंटेंट ये डालें) -->
-<div class="container">
-    <h1>Google Analytics & Insights</h1>
-    <div class="project-image-box">
-        <img src="https://images.unsplash.com" alt="Analytics Preview">
-    </div>
-    <div class="content-info">
-        <h2>Analytics का क्या फायदा?</h2>
-        <p>बिना डेटा के बिज़नेस चलाना अंधेरे में तीर चलाने जैसा है। समझें आपके ग्राहक क्या चाहते हैं।</p>
-        <ul style="color: #00ff88; list-style: none; padding: 0;">
-            <li>✅ Real-time Visitor Tracking</li>
-            <li>✅ Conversion Rate Analysis</li>
-            <li>✅ Deep Business Insights</li>
-        </ul>
-    </div>
-    <a href="card3.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Services</a>
-</div>
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Analytics Services | Manjeet Sharma</title>
+    <!-- Google Fonts -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
+        body {
+            background: #0f172a;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Header Style */
+        header {
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .brand-name {
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .brand-name span.white { color: #ffffff; }
+        .brand-name span.green { color: #00ff88; }
+
+        .lang-btn {
+            background: #00ff88;
+            color: #0f172a;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .lang-btn:hover {
+            transform: scale(1.05);
+            background: #fff;
+        }
+
+        /* Main Card Container */
+        .container {
+            max-width: 800px;
+            width: 90%;
+            margin: 40px auto;
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 2.2rem;
+            background: linear-gradient(90deg, #00ff88, #60efff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .project-image-box {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 15px;
+            margin-bottom: 25px;
+        }
+
+        .project-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .content-info h2 {
+            color: #00ff88;
+            margin-bottom: 15px;
+        }
+
+        .content-info p {
+            line-height: 1.6;
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+
+        .service-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .service-list li {
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #00ff88;
+            transition: 0.3s;
+        }
+
+        .service-list li:hover {
+            background: rgba(0, 255, 136, 0.1);
+            transform: translateX(5px);
+        }
+
+        .back-btn {
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+            background: rgba(255,255,255,0.1);
+            padding: 10px 25px;
+            border-radius: 30px;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+
+        .back-btn:hover {
+            background: #ef4444;
+        }
+
+        .cta-box {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-section">
+            <img src="images/sel.png" alt="Logo" class="logo-img">
+            <div class="brand-name">
+                <span class="white">Official</span> <span class="green">Manjeet Sharma</span>
+            </div>
+        </div>
+        <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">English</button>
+    </header>
+
+    <div class="container">
+        <h1 id="mainTitle">Google Analytics & Insights</h1>
+        
+        <div class="project-image-box">
+            <img src="https://unsplash.com" alt="Analytics Preview">
+        </div>
+
+        <div class="content-info">
+            <h2 id="subTitle">Analytics का क्या फायदा?</h2>
+            <p id="description">बिना डेटा के बिज़नेस चलाना अंधेरे में तीर चलाने जैसा है। हम आपके डेटा को प्रॉफिट में बदलते हैं।</p>
+            
+            <ul class="service-list" id="serviceList">
+                <li>✅ Real-time Visitor Tracking</li>
+                <li>✅ User Behavior Mapping</li>
+                <li>✅ Sales & Conversion Funnel</li>
+                <li>✅ Custom Dashboard Setup</li>
+                <li>✅ ROI & Ad Spend Analysis</li>
+                <li>✅ Weekly Performance Reports</li>
+            </ul>
+        </div>
+
+        <div class="cta-box">
+            <p id="ctaText">अपनी वेबसाइट की ग्रोथ शुरू करें!</p>
+            <a href="card3.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> <span id="backBtnText">Back to Services</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        let currentLang = 'hi';
+
+        const content = {
+            hi: {
+                title: "Google Analytics & Insights",
+                subTitle: "Analytics का क्या फायदा?",
+                desc: "बिना डेटा के बिज़नेस चलाना अंधेरे में तीर चलाने जैसा है। हम आपके डेटा को प्रॉफिट में बदलते हैं। समझें आपके ग्राहक क्या चाहते हैं।",
+                services: [
+                    "✅ रियल-टाइम विजिटर ट्रैकिंग",
+                    "✅ यूजर बिहेवियर मैपिंग",
+                    "✅ सेल्स और कन्वर्जन फनल",
+                    "✅ कस्टम डैशबोर्ड सेटअप",
+                    "✅ ROI और विज्ञापन खर्च विश्लेषण",
+                    "✅ साप्ताहिक परफॉरमेंस रिपोर्ट"
+                ],
+                cta: "अपनी वेबसाइट की ग्रोथ शुरू करें!",
+                back: "पीछे जाएँ",
+                btn: "English"
+            },
+            en: {
+                title: "Data-Driven Growth Insights",
+                subTitle: "Why Use Google Analytics?",
+                desc: "Running a business without data is like driving in the dark. We turn your raw data into actionable profit-making strategies.",
+                services: [
+                    "✅ Real-time Visitor Tracking",
+                    "✅ User Behavior Mapping",
+                    "✅ Sales & Conversion Funnel",
+                    "✅ Custom Dashboard Setup",
+                    "✅ ROI & Ad Spend Analysis",
+                    "✅ Weekly Performance Reports"
+                ],
+                cta: "Start Scaling Your Website Today!",
+                back: "Back to Services",
+                btn: "Hindi"
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'hi' ? 'en' : 'hi';
+            const data = content[currentLang];
+
+            document.getElementById('mainTitle').innerText = data.title;
+            document.getElementById('subTitle').innerText = data.subTitle;
+            document.getElementById('description').innerText = data.desc;
+            document.getElementById('ctaText').innerText = data.cta;
+            document.getElementById('backBtnText').innerText = data.back;
+            document.getElementById('langBtn').innerText = data.btn;
+
+            const list = document.getElementById('serviceList');
+            list.innerHTML = '';
+            data.services.forEach(service => {
+                const li = document.createElement('li');
+                li.innerText = service;
+                list.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>
