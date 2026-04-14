@@ -196,6 +196,53 @@
     </div>
 
     <a href="index.html" class="back-btn" id="back-txt">Back to Home</a>
+    <script>
+    let currentLang = 'hi';
+    const data = {
+        hi: {
+            btn: "EN / HI",
+            title: "एडवांस्ड एडवरटाइजिंग सॉल्यूशंस",
+            tagline: "हम आपके बिजनेस को सिर्फ प्रमोट नहीं करते, उसे एक ब्रांड बनाते हैं।",
+            c1T: "Social Media Ads", c1D: "(इंस्टाग्राम और फेसबुक)",
+            c2T: "Google Search Ads", c2D: "(सर्च और लीड्स)",
+            msg1: "फ़ायदे देखने के लिए क्लिक करें 👇",
+            msg2: "फ़ायदे देखने के लिए क्लिक करें 👇",
+            whyT: "हमसे क्यों जुड़ें?",
+            whyX: "<b>अनुभव:</b> हमें एड्स मैनेज करने का 2+ साल का गहरा अनुभव है।<br><b>कम बजट, ज्यादा सेल:</b> हम आपके बजट का सही इस्तेमाल करके ज्यादा से ज्यादा ग्राहक लाते हैं।<br><b>पारदर्शिता:</b> हर हफ्ते रिपोर्ट दी जाएगी।",
+            back: "Back to Home"
+        },
+        en: {
+            btn: "EN / HI",
+            title: "Advanced Advertising Solutions",
+            tagline: "We don't just promote your business, we turn it into a brand.",
+            c1T: "Social Media Ads", c1D: "(Instagram & Facebook)",
+            c2T: "Google Search Ads", c2D: "(Search & Leads)",
+            msg1: "Click to see benefits 👇",
+            msg2: "Click to see benefits 👇",
+            whyT: "Why Choose Us?",
+            whyX: "<b>Experience:</b> 2+ years of expertise in managing ads.<br><b>Low Budget, High Sales:</b> Maximize ROI with optimized budget management.<br><b>Transparency:</b> Get detailed performance reports every week.",
+            back: "Back to Home"
+        }
+    };
+
+    function togglelanguage() {
+        currentLang = currentLang === 'hi' ? 'en' : 'hi';
+        const d = data[currentLang];
+        
+        document.getElementById('main-title').innerText = d.title;
+        document.getElementById('main-tagline').innerText = d.tagline;
+        document.getElementById('card1-title').innerText = d.c1T;
+        document.getElementById('card1-desc').innerText = d.c1D;
+        document.getElementById('card2-title').innerText = d.c2T;
+        document.getElementById('card2-desc').innerText = d.c2D;
+        document.getElementById('click-msg1').innerText = d.msg1;
+        document.getElementById('click-msg2').innerText = d.msg2;
+        document.getElementById('why-title').innerText = d.whyT;
+        document.getElementById('why-text').innerHTML = d.whyX;
+        document.getElementById('back-txt').innerText = d.back;
+    }
+</script>
+
 </div>
 
 <div id="infoModal" class="modal">
