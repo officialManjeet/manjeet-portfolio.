@@ -24,11 +24,40 @@
             align-items: center;
         }
 
-        header { 
-    position: absolute; 
-    top: 20px; 
-    left: 20px; 
-    display: flex; 
+               header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 5%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-box img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #00ff88;
+        }
+
+        .brand-text {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
     align-items: center; 
     gap: 15px; 
 }
@@ -125,18 +154,7 @@
 </head>
 <body>
 
-<header style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; flex-wrap: wrap; gap: 10px;">
-    <div class="brand-logo" style="display: flex; align-items: center;">
-        <img src="images/mel.png" alt="Logo" class="logo-img" onerror="this.src='https://placeholder.com'" style="height: 40px; margin-right: 10px;">
-        <div class="brand-text">
-            <span class="white-txt">OFFICIAL </span><span class="blue-txt">MANJEET</span>
-        </div>
-    </div>
-    
-    <div class="lang-switch">
-        <button class="lang-btn" id="toggle-btn" onclick="toggleLanguage()" style="padding: 8px 15px; border-radius: 20px; border: 1px solid #00d2ff; background: transparent; color: #00d2ff; cursor: pointer; font-size: 14px;">Switch to English</button>
-    </div>
-</header>
+
 
 <div class="container">
     <h1 id="main-title">एडवांस्ड एडवरटाइजिंग सॉल्यूशंस</h1>
