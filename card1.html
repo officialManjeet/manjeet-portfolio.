@@ -6,14 +6,12 @@
     <title>Social Media Management - Official Manjeet</title>
     <link rel="stylesheet" href="https://cloudflare.com">
     <style>
-        /* Premium Radial Gradient Background */
         body { 
             font-family: 'Segoe UI', sans-serif; 
             background: radial-gradient(circle at center, #1e293b 0%, #080c14 100%); 
             color: white; margin: 0; padding: 0; text-align: center; min-height: 100vh;
         }
         
-        /* Navbar */
         .navbar { display: flex; justify-content: space-between; align-items: center; padding: 12px 25px; background: rgba(22, 33, 62, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid #334155; position: sticky; top: 0; z-index: 100; }
         .logo-area { display: flex; align-items: center; gap: 12px; }
         .logo-img { width: 40px; height: 40px; border-radius: 50%; border: 2px solid #25d366; }
@@ -21,42 +19,48 @@
         .manjeet { color: #ffffff; font-weight: bold; font-size: 1.3rem; }
         
         .lang-btn { background: #00d2ff; border: none; color: #16213e; padding: 8px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; transition: 0.3s; }
-        .lang-btn:hover { background: #ffffff; transform: scale(1.05); }
 
         .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
         
-        /* Educational Box with Pink Border */
+        /* Card & Section Styles */
         .edu-section { background: rgba(30, 41, 59, 0.3); border: 1.5px solid #ff007a; border-radius: 15px; padding: 35px; margin-bottom: 40px; text-align: left; }
         .price { font-size: 1.5rem; font-weight: bold; color: #ff007a; margin: 10px 0; }
-
-        /* Premium Cards */
         .services-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-bottom: 40px; }
-        .card { 
-            background: rgba(22, 33, 62, 0.6); 
-            border: 1px solid rgba(0, 210, 255, 0.2); 
-            border-radius: 15px; padding: 40px 25px; width: 280px; transition: 0.4s ease; 
+        .card { background: rgba(22, 33, 62, 0.6); border: 1px solid rgba(0, 210, 255, 0.2); border-radius: 15px; padding: 40px 25px; width: 280px; transition: 0.4s; }
+        .card:hover { border-color: #00d2ff; transform: translateY(-10px); }
+
+        .btn { display: inline-block; background: linear-gradient(90deg, #25d366, #1ebd57); color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; font-weight: bold; transition: 0.3s; width: 100%; border: none; cursor: pointer; text-align: center; }
+        .btn:hover { box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); }
+
+        /* Premium Modal Look */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); }
+        .modal-content { 
+            background: #111827; 
+            margin: 15vh auto; 
+            padding: 30px; 
+            border: 1px solid #00d2ff; 
+            width: 85%; max-width: 450px; 
+            border-radius: 20px; 
+            text-align: left; 
+            position: relative; 
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.2);
+            animation: popIn 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
         }
-        .card:hover { border-color: #00d2ff; transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0, 210, 255, 0.1); }
-        .card h2 { color: white; font-size: 1.6rem; margin-bottom: 20px; }
+        @keyframes popIn { from {transform: scale(0.8); opacity: 0;} to {transform: scale(1); opacity: 1;} }
+        
+        .close { position: absolute; right: 20px; top: 15px; color: #94a3b8; font-size: 24px; cursor: pointer; transition: 0.3s; }
+        .close:hover { color: #ff007a; }
 
-        /* Buttons */
-        .btn { display: inline-block; background: linear-gradient(90deg, #25d366, #1ebd57); color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; width: 100%; border: none; cursor: pointer; }
-        .btn:hover { box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); letter-spacing: 0.5px; }
+        .modal-content h3 { color: #00d2ff; border-bottom: 1px solid #334155; padding-bottom: 10px; margin-top: 0; }
+        .modal-content ul { list-style: none; padding: 0; }
+        .modal-content li { padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; }
+        .modal-content li::before { content: "✔"; color: #25d366; margin-right: 10px; font-weight: bold; }
 
-        /* Modal / Pop-up Styles */
-        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); }
-        .modal-content { background: #16213e; margin: 12% auto; padding: 35px; border: 1.5px solid #00d2ff; width: 85%; max-width: 500px; border-radius: 20px; text-align: left; position: relative; animation: slideDown 0.3s; }
-        .close { position: absolute; right: 20px; top: 15px; color: #94a3b8; font-size: 28px; cursor: pointer; }
-        @keyframes slideDown { from {opacity: 0; transform: translateY(-30px);} to {opacity: 1; transform: translateY(0);} }
-
-        .back-btn { background: transparent; border: 1.5px solid #94a3b8; padding: 10px 35px; color: #94a3b8; border-radius: 50px; cursor: pointer; margin-top: 40px; transition: 0.3s; }
-        .back-btn:hover { background: #25d366; border-color:#25d366; color:white; }
-
-        .hi-text { display: block; }
-        .en-text { display: none; }
+        .back-btn { background: transparent; border: 1.5px solid #94a3b8; padding: 10px 35px; color: #94a3b8; border-radius: 50px; cursor: pointer; margin-top: 40px; }
+        .hi-text { display: block; } .en-text { display: none; }
     </style>
 </head>
-<body id="pageBody">
+<body>
 
     <div class="navbar">
         <div class="logo-area">
@@ -67,34 +71,28 @@
     </div>
 
     <div class="container">
-        <!-- Top Pink Box -->
         <div class="edu-section">
             <div class="hi-text">
-                <h2>🚀 सोशल मीडिया मैनेजमेंट (Organic Growth)</h2>
+                <h2>🚀 सोशल मीडिया मैनेजमेंट</h2>
                 <p>बिना विज्ञापन के अपने बिज़नेस को ब्रांड बनाएं और असली ऑडियंस तक पहुँचें।</p>
-                <div class="price">फीस: ₹1,999/- (परामर्श)</div>
-                <a href="https://wa.me" class="btn" style="width: auto; padding: 10px 30px;">अभी शुरू करें</a>
+                <div class="price">फीस: ₹1,999/-</div>
+                <button class="btn" style="width: auto; padding: 10px 30px;">अभी शुरू करें</button>
             </div>
             <div class="en-text">
-                <h2>🚀 Social Media Management (Organic Growth)</h2>
-                <p>Build your business into a brand and reach real audiences without ads.</p>
-                <div class="price">Fees: ₹1,999/- (Consultation)</div>
-                <a href="https://wa.me" class="btn" style="width: auto; padding: 10px 30px;">Start Now</a>
+                <h2>🚀 Social Media Management</h2>
+                <p>Build your brand profile and reach real audiences organically.</p>
+                <div class="price">Fees: ₹1,999/-</div>
+                <button class="btn" style="width: auto; padding: 10px 30px;">Start Now</button>
             </div>
         </div>
 
         <div class="services-grid">
-            <!-- Card 1 -->
             <div class="card">
-                <h2 class="hi-text">कंटेंट क्रिएशन</h2>
-                <h2 class="en-text">Content Creation</h2>
+                <h2 class="hi-text">कंटेंट क्रिएशन</h2><h2 class="en-text">Content Creation</h2>
                 <button class="btn" onclick="openPopup('content')">Learn More</button>
             </div>
-
-            <!-- Card 2 -->
             <div class="card">
-                <h2 class="hi-text">प्रोफाइल ग्रोथ</h2>
-                <h2 class="en-text">Profile Growth</h2>
+                <h2 class="hi-text">प्रोफाइल ग्रोथ</h2><h2 class="en-text">Profile Growth</h2>
                 <button class="btn" onclick="openPopup('growth')">Learn More</button>
             </div>
         </div>
@@ -102,26 +100,24 @@
         <button class="back-btn" onclick="history.back()">← Back to Home</button>
     </div>
 
-    <!-- Modal Box -->
     <div id="infoModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closePopup()">&times;</span>
             <div id="modalBody"></div>
-            <a href="https://wa.me" class="btn" style="margin-top: 25px; text-align: center; display: block;">WhatsApp पर बात करें</a>
+            <a href="https://wa.me" class="btn" style="margin-top: 20px;">WhatsApp पर बात करें</a>
         </div>
     </div>
 
     <script>
         let currentLang = 'hi';
-
         const details = {
             content: {
-                hi: "<h3>कंटेंट क्रिएशन:</h3><ul><li>HD रील्स और वीडियो एडिटिंग</li><li>प्रोफेशनल ग्राफिक डिजाइन</li><li>वायरल कैप्शन और रिसर्च</li><li>ब्रांड के हिसाब से कलर थीम</li></ul>",
-                en: "<h3>Content Creation:</h3><ul><li>HD Reels & Video Editing</li><li>Professional Graphic Design</li><li>Viral Captions & Research</li><li>Brand Color Theme Selection</li></ul>"
+                hi: "<h3>कंटेंट क्रिएशन</h3><ul><li>HD रील्स और वीडियो एडिटिंग</li><li>प्रोफेशनल ग्राफिक डिजाइन</li><li>वायरल कैप्शन और रिसर्च</li></ul>",
+                en: "<h3>Content Creation</h3><ul><li>HD Reels & Video Editing</li><li>Professional Graphic Design</li><li>Viral Captions & Research</li></ul>"
             },
             growth: {
-                hi: "<h3>प्रोफाइल ग्रोथ:</h3><ul><li>ऑर्गेनिक फॉलोअर्स बढ़ाना</li><li>हैशटैग और SEO स्ट्रेटेजी</li><li>ऑडियंस के साथ एंगेजमेंट</li><li>कंपटीशन का एनालिसिस</li></ul>",
-                en: "<h3>Profile Growth:</h3><ul><li>Organic Follower Increase</li><li>Hashtag & SEO Strategy</li><li>Audience Engagement</li><li>Competitor Analysis</li></ul>"
+                hi: "<h3>प्रोफाइल ग्रोथ</h3><ul><li>ऑर्गेनिक फॉलोअर्स बढ़ाना</li><li>हैशटैग और SEO स्ट्रेटेजी</li><li>ऑडियंस एंगेजमेंट</li></ul>",
+                en: "<h3>Profile Growth</h3><ul><li>Organic Follower Increase</li><li>Hashtag & SEO Strategy</li><li>Audience Engagement</li></ul>"
             }
         };
 
@@ -129,28 +125,13 @@
             document.getElementById('modalBody').innerHTML = details[type][currentLang];
             document.getElementById('infoModal').style.display = "block";
         }
-
         function closePopup() { document.getElementById('infoModal').style.display = "none"; }
-
         function toggleLang() {
-            const hiElems = document.querySelectorAll('.hi-text');
-            const enElems = document.querySelectorAll('.en-text');
-            const btn = document.getElementById('langBtn');
-
-            if (currentLang === 'hi') {
-                hiElems.forEach(el => el.style.display = 'none');
-                enElems.forEach(el => el.style.display = 'block');
-                btn.innerText = "Hindi";
-                currentLang = 'en';
-            } else {
-                hiElems.forEach(el => el.style.display = 'block');
-                enElems.forEach(el => el.style.display = 'none');
-                btn.innerText = "English";
-                currentLang = 'hi';
-            }
+            const hi = document.querySelectorAll('.hi-text'); const en = document.querySelectorAll('.en-text');
+            if (currentLang === 'hi') { hi.forEach(e=>e.style.display='none'); en.forEach(e=>e.style.display='block'); currentLang='en'; document.getElementById('langBtn').innerText="Hindi"; }
+            else { hi.forEach(e=>e.style.display='block'); en.forEach(e=>e.style.display='none'); currentLang='hi'; document.getElementById('langBtn').innerText="English"; }
         }
-
-        window.onclick = function(event) { if (event.target == document.getElementById('infoModal')) closePopup(); }
+        window.onclick = function(e) { if(e.target == document.getElementById('infoModal')) closePopup(); }
     </script>
 </body>
 </html>
