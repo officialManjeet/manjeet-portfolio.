@@ -3,334 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Official Manjeet - Ads Solutions</title>
+    <title>Paid Advertisements - Official Manjeet</title>
+    <link rel="stylesheet" href="https://cloudflare.com">
     <style>
-        :root {
-            --primary-green: #25d366;
-            --accent-blue: #00d2ff;
-            --card-bg: rgba(255, 255, 255, 0.05);
-        }
-
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            margin: 0;
-            padding: 100px 20px 50px;
-            color: white;
-            background: #0a0a0a;
-            background-image: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #050505 100%);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-               header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 5%;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            box-sizing: border-box;
-        }
-
-        .logo-box {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo-box img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #00ff88;
-        }
-
-        .brand-text {
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-    align-items: center; 
-    gap: 15px; 
-}
-
-.logo-img { 
-    width: 60px; 
-    height: 60px; 
-    border-radius: 50%; 
-    border: 3px solid #00e5ff; 
-    box-shadow: 0 0 15px #00e5ff; 
-    object-fit: cover; 
-}
-
-.brand-text { 
-    font-weight: bold; 
-    font-size: 1.5rem; 
-    letter-spacing: 1px; 
-}
-
-.white-txt { color: #ffffff; }
-
-.blue-txt { 
-    color: #00e5ff; 
-    text-shadow: 0 0 10px rgba(0, 229, 255, 0.6); 
-}
-
-        .lang-switch { position: absolute; top: 25px; right: 25px; z-index: 100; }
-        .lang-btn { 
-            background: var(--primary-green); color: white; border: none; 
-            padding: 10px 25px; border-radius: 30px; cursor: pointer; 
-            font-weight: bold; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-        }
-
-        .container { max-width: 1000px; width: 100%; text-align: center; }
-        h1 { font-size: 3rem; color: var(--accent-blue); margin-bottom: 10px; }
-        .tagline { color: #888; margin-bottom: 60px; font-size: 1.2rem; }
-
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 40px; margin-bottom: 60px; }
-        .card {
-            background: var(--card-bg);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 30px;
-            padding: 40px;
-            cursor: pointer;
-            transition: 0.4s ease;
-        }
-        .card:hover { transform: translateY(-10px); border-color: var(--primary-green); }
-        .card h2 { color: #ff007a; margin-bottom: 15px; }
-        .price { font-size: 1.5rem; font-weight: bold; color: var(--primary-green); margin: 20px 0; }
-
-        .why-us {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 25px;
-            padding: 40px;
-            margin-top: 20px;
-            text-align: left;
-            border-left: 5px solid var(--primary-green);
-        }
-        .why-us h3 { color: var(--primary-green); font-size: 1.8rem; margin-top: 0; }
-        .why-us p { line-height: 1.8; color: #ccc; font-size: 1.1rem; }
-
-        .back-btn {
-            display: inline-block;
-            margin-top: 50px;
-            padding: 12px 40px;
-            border: 1px solid #444;
-            color: #888;
-            text-decoration: none;
-            border-radius: 30px;
-            transition: 0.3s;
-            font-weight: bold;
-        }
-        .back-btn:hover { border-color: white; color: white; background: rgba(255,255,255,0.05); }
-
-        .modal {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95); z-index: 1000; justify-content: center; align-items: center;
-        }
-        .modal-content {
-            background: #111; padding: 40px; border-radius: 30px; max-width: 600px; width: 95%;
-            border: 1px solid var(--primary-green); position: relative;
-        }
-        .close-btn { position: absolute; top: 10px; right: 20px; font-size: 35px; cursor: pointer; color: #555; }
-        .benefits-list { text-align: left; list-style: none; padding: 0; margin-top: 25px; }
-        .benefits-list li { margin-bottom: 18px; display: flex; gap: 12px; color: #ccc; line-height: 1.6; }
-        .benefits-list b { color: var(--primary-green); min-width: 90px; display: inline-block; }
-
-        .btn-wa {
-            display: block; background: var(--primary-green); color: white; text-align: center;
-            padding: 18px; border-radius: 15px; text-decoration: none; font-weight: bold; margin-top: 25px;
-        }
+        /* CSS Same as above for consistency */
+        body { font-family: 'Segoe UI', sans-serif; background: #0f172a; color: white; margin: 0; padding: 0; text-align: center; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 12px 25px; background: #16213e; border-bottom: 1px solid #334155; }
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .logo-img { width: 40px; height: 40px; border-radius: 50%; border: 2px solid #25d366; object-fit: cover; }
+        .official { color: #25d366; font-weight: bold; font-size: 1.3rem; }
+        .manjeet { color: #ffffff; font-weight: bold; font-size: 1.3rem; }
+        .lang-btn { background: #00d2ff; border: none; color: #16213e; padding: 6px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+        .edu-section { background: rgba(30, 41, 59, 0.4); border: 1.5px solid #ff007a; border-radius: 15px; padding: 25px; margin-bottom: 40px; text-align: left; display: flex; align-items: center; justify-content: space-between; }
+        .price { font-size: 1.4rem; font-weight: bold; color: #ff007a; margin: 10px 0; }
+        .services-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 40px; }
+        .card { background: #16213e; border: 1px solid #334155; border-radius: 12px; padding: 25px; width: 270px; transition: 0.3s; }
+        .card:hover { border-color: #00d2ff; }
+        .card i { font-size: 3rem; margin-bottom: 15px; display: block; }
+        .fa-instagram { color: #e4405f; } .fa-facebook { color: #1877f2; } .fa-google { color: #4285f4; }
+        .btn { display: inline-block; background: #25d366; color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; margin-top: 10px; font-weight: bold; transition: 0.3s; width: 100%; border:none; cursor:pointer;}
+        .btn:hover { background: #1ebd57; }
+        .back-btn { background: transparent; border: 1.5px solid #94a3b8; padding: 8px 30px; font-size: 0.9rem; color: #94a3b8; border-radius: 50px; cursor: pointer; margin-bottom: 40px; transition: 0.3s;}
+        .back-btn:hover { background: #25d366 !important; color: white; border-color:#25d366; }
+        .en-text { display: none; }
     </style>
 </head>
 <body>
-
-    <header style="position: absolute; top: 0; left: 0; width: 100%; height: 80px; display: flex; justify-content: space-between; align-items: center; padding: 0 5%; box-sizing: border-box; z-index: 10000; pointer-events: none;">
-    <!-- Logo Section -->
-    <div style="display: flex; align-items: center; gap: 12px; pointer-events: auto;">
-        <img src="images/sel.png" alt="Logo" style="height: 45px; width: 45px; border-radius: 50%; border: 2px solid #00ff88; object-fit: cover;">
-        <div style="font-weight: 800; font-size: 1.3rem;">
-            <span style="color: #ffffff;">OFFICIAL</span><span style="color: #00ff88;"> MANJEET</span>
+    <div class="navbar">
+        <div class="logo-area">
+            <img src="images/sel.png" alt="Logo" class="logo-img">
+            <div class="brand-name"><span class="official">Official</span> <span class="manjeet">Manjeet</span></div>
         </div>
+        <button class="lang-btn" onclick="toggleLang()" id="btnText">English</button>
     </div>
 
-    <!-- Lang Button Section -->
-    <div class="lang-switch" style="pointer-events: auto;">
-        <button id="toggle-btn" onclick="togglelanguage()" style="padding: 8px 20px; border-radius: 20px; border: none; background: #00ff88; color: #000; font-weight: bold; cursor: pointer;">EN / HI</button>
-    </div>
-</header>
-    
-<div class="container" style="position: relative; z-index: 1;">
-    <h1 id="main-title">एडवांस्ड एडवरटाइजिंग सॉल्यूशंस</h1>
-    <p class="tagline" id="main-tagline">हम आपके बिजनेस को सिर्फ प्रमोट नहीं करते, उसे एक ब्रांड बनाते हैं।</p>
-
-    <div class="services-grid">
-        <div class="card" onclick="openPopup('sm')">
-            <h2 id="card1-title">Social Media Ads</h2>
-            <p id="card1-desc">(इंस्टाग्राम और फेसबुक)</p>
-            <div class="price">₹4,999/-</div>
-            <p style="color:var(--accent-blue)" id="click-msg1">फायदे देखने के लिए क्लिक करें 👆</p>
+    <div class="container">
+        <div class="edu-section">
+            <div>
+                <div class="hi-text">
+                    <h2>🚀 पेड एडवरटाइजमेंट (Fast Growth)</h2>
+                    <p>फेसबुक, इंस्टाग्राम और गूगल पर विज्ञापन चलाकर तुरंत सेल और लीड्स पाएं।</p>
+                    <div class="price">कोर्स फीस: ₹1,999/-</div>
+                </div>
+                <div class="en-text">
+                    <h2>🚀 Paid Advertisements</h2>
+                    <p>Get instant sales and leads by running ads on FB, Insta, and Google.</p>
+                    <div class="price">Course Fee: ₹1,999/-</div>
+                </div>
+                <a href="https://wa.me" class="btn" style="width: auto;">अभी आर्डर करें</a>
+            </div>
+            <i class="fas fa-bullhorn fa-4x" style="color: #ff007a; margin-right: 20px;"></i>
         </div>
-        <div class="card" onclick="openPopup('go')">
-            <h2 id="card2-title">Google Search Ads</h2>
-            <p id="card2-desc">(सर्च और लीड्स)</p>
-            <div class="price">₹7,999/-</div>
-            <p style="color:var(--accent-blue)" id="click-msg2">फायदे देखने के लिए क्लिक करें 👆</p>
+
+        <div class="services-grid">
+            <div class="card">
+                <i class="fab fa-instagram"></i>
+                <h2>Instagram Ads</h2>
+                <p class="hi-text">ऑडियंस बढ़ाएं</p><p class="en-text">Targeted Growth</p>
+                <div class="price">₹4,999/-</div>
+                <button class="btn">Order Now</button>
+            </div>
+            <div class="card">
+                <i class="fab fa-facebook"></i>
+                <h2>Facebook Ads</h2>
+                <p class="hi-text">लीड्स जनरेट करें</p><p class="en-text">Lead Generation</p>
+                <div class="price">₹5,999/-</div>
+                <button class="btn">Order Now</button>
+            </div>
+            <div class="card">
+                <i class="fab fa-google"></i>
+                <h2>Google Ads</h2>
+                <p class="hi-text">सर्च विजिबिलिटी</p><p class="en-text">Search Visibility</p>
+                <div class="price">₹7,999/-</div>
+                <button class="btn">Order Now</button>
+            </div>
         </div>
+        <button class="back-btn" onclick="history.back()">← Back</button>
     </div>
 
-    <div class="why-us">
-        <h3 id="why-title">हमसे क्यों जुड़ें?</h3>
-        <p id="why-text">
-            • <b>अनुभव:</b> हमें एड्स मैनेज करने का 2+ साल का गहरा अनुभव है।<br>
-            • <b>कम बजट, ज्यादा सेल:</b> हम आपके बजट का सही इस्तेमाल करके ज्यादा से ज्यादा ग्राहक लाते हैं।<br>
-            • <b>पारदर्शिता:</b> हर हफ्ते रिपोर्ट दी जाएगी।
-        </p>
-    </div>
-
-    <a href="index.html" class="back-btn" id="back-txt">Back to Home</a>
     <script>
-    let currentLang = 'hi';
-    const data = {
-        hi: {
-            btn: "EN / HI",
-            title: "एडवांस्ड एडवरटाइजिंग सॉल्यूशंस",
-            tagline: "हम आपके बिजनेस को सिर्फ प्रमोट नहीं करते, उसे एक ब्रांड बनाते हैं।",
-            c1T: "Social Media Ads", c1D: "(इंस्टाग्राम और फेसबुक)",
-            c2T: "Google Search Ads", c2D: "(सर्च और लीड्स)",
-            msg1: "फ़ायदे देखने के लिए क्लिक करें 👇",
-            msg2: "फ़ायदे देखने के लिए क्लिक करें 👇",
-            whyT: "हमसे क्यों जुड़ें?",
-            whyX: "<b>अनुभव:</b> हमें एड्स मैनेज करने का 2+ साल का गहरा अनुभव है।<br><b>कम बजट, ज्यादा सेल:</b> हम आपके बजट का सही इस्तेमाल करके ज्यादा से ज्यादा ग्राहक लाते हैं।<br><b>पारदर्शिता:</b> हर हफ्ते रिपोर्ट दी जाएगी।",
-            back: "Back to Home"
-        },
-        en: {
-            btn: "EN / HI",
-            title: "Advanced Advertising Solutions",
-            tagline: "We don't just promote your business, we turn it into a brand.",
-            c1T: "Social Media Ads", c1D: "(Instagram & Facebook)",
-            c2T: "Google Search Ads", c2D: "(Search & Leads)",
-            msg1: "Click to see benefits 👇",
-            msg2: "Click to see benefits 👇",
-            whyT: "Why Choose Us?",
-            whyX: "<b>Experience:</b> 2+ years of expertise in managing ads.<br><b>Low Budget, High Sales:</b> Maximize ROI with optimized budget management.<br><b>Transparency:</b> Get detailed performance reports every week.",
-            back: "Back to Home"
+        function toggleLang() {
+            var hi = document.querySelectorAll('.hi-text'); var en = document.querySelectorAll('.en-text'); var btn = document.getElementById('btnText');
+            if (btn.innerText === "English") { hi.forEach(el => el.style.display = 'none'); en.forEach(el => el.style.display = 'block'); btn.innerText = "Hindi"; }
+            else { hi.forEach(el => el.style.display = 'block'); en.forEach(el => el.style.display = 'none'); btn.innerText = "English"; }
         }
-    };
-
-    function togglelanguage() {
-        currentLang = currentLang === 'hi' ? 'en' : 'hi';
-        const d = data[currentLang];
-        
-        document.getElementById('main-title').innerText = d.title;
-        document.getElementById('main-tagline').innerText = d.tagline;
-        document.getElementById('card1-title').innerText = d.c1T;
-        document.getElementById('card1-desc').innerText = d.c1D;
-        document.getElementById('card2-title').innerText = d.c2T;
-        document.getElementById('card2-desc').innerText = d.c2D;
-        document.getElementById('click-msg1').innerText = d.msg1;
-        document.getElementById('click-msg2').innerText = d.msg2;
-        document.getElementById('why-title').innerText = d.whyT;
-        document.getElementById('why-text').innerHTML = d.whyX;
-        document.getElementById('back-txt').innerText = d.back;
-    }
-</script>
-
-</div>
-
-<div id="infoModal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closePopup()">&times;</span>
-        <h2 id="m-title" style="color:var(--accent-blue); margin-top:0;">Service Details</h2>
-        <ul class="benefits-list" id="m-list"></ul>
-        <a href="https://wa.me" class="btn-wa" id="wa-text">WhatsApp पर बात करें</a>
-    </div>
-</div>
-
-<script>
-    let currentLang = 'hi';
-    const data = {
-        hi: {
-            btn: "Switch to English",
-            title: "एडवांस्ड एडवरटाइजिंग सॉल्यूशंस",
-            tagline: "हम आपके बिजनेस को सिर्फ प्रमोट नहीं करते, उसे एक ब्रांड बनाते हैं।",
-            c1T: "Social Media Ads", c1D: "(इंस्टाग्राम और फेसबुक)",
-            c2T: "Google Search Ads", c2D: "(सर्च और लीड्स)",
-            click: "फायदे देखने के लिए क्लिक करें 👆",
-            wa: "WhatsApp पर बात करें",
-            back: "पीछे जाएं",
-            whyT: "हमसे क्यों जुड़ें?",
-            whyX: "• <b>अनुभव:</b> हमें एड्स मैनेज करने का 2+ साल का गहरा अनुभव है।<br>• <b>कम बजट, ज्यादा सेल:</b> हम आपके बजट का सही इस्तेमाल करके ज्यादा से ज्यादा ग्राहक लाते हैं।<br>• <b>पारदर्शिता:</b> हर हफ्ते रिपोर्ट दी जाएगी।",
-            smList: `
-                <li><b>Instagram:</b> रील और स्टोरी एड्स से युवाओं तक सीधी पहुँच और ब्रांड वैल्यू।</li>
-                <li><b>Facebook:</b> लोकल एरिया के ग्राहकों को टारगेट करके सेल्स में बढ़ोतरी।</li>
-                <li><b>Creative:</b> हम ऐसे फोटो/वीडियो बनाएंगे जो लोग देखते ही रुक जाएं।</li>
-                <li><b>Reports:</b> हर हफ्ते आपको विज्ञापन का पूरा हिसाब और रिजल्ट मिलेगा।</li>`,
-            goList: `
-                <li><b>Search:</b> जब कोई आपकी सर्विस सर्च करेगा, आप सबसे ऊपर दिखेंगे।</li>
-                <li><b>Leads:</b> सीधे उन लोगों के कॉल आएँगे जिन्हें आपकी सर्विस की ज़रूरत है।</li>
-                <li><b>Keywords:</b> हम सही शब्दों का चुनाव करेंगे ताकि कम पैसे में ज्यादा कॉल आएं।</li>
-                <li><b>Sales:</b> गूगल एड्स से मिलने वाली लीड्स के सेल में बदलने के चांस 90% होते हैं।</li>`
-        },
-        en: {
-            btn: "हिंदी में बदलें",
-            title: "Advanced Advertising Solutions",
-            tagline: "We don't just promote your business, we build a legacy.",
-            c1T: "Social Media Ads", c1D: "(Instagram & Facebook)",
-            c2T: "Google Search Ads", c2D: "(Search & Leads)",
-            click: "Click for details 👆",
-            wa: "Chat on WhatsApp",
-            back: "Back to Home",
-            whyT: "Why Choose Us?",
-            whyX: "• <b>Experience:</b> 2+ years of expertise.<br>• <b>ROI:</b> High conversion for every rupee spent.<br>• <b>Transparency:</b> Full weekly analytics provided.",
-            smList: `
-                <li><b>Instagram:</b> Direct reach to youth via Reels/Stories & brand value.</li>
-                <li><b>Facebook:</b> Increase sales by targeting local customers.</li>
-                <li><b>Creative:</b> Eye-catching designs to stop the scroll.</li>
-                <li><b>Reports:</b> Complete weekly performance & result tracking.</li>`,
-            goList: `
-                <li><b>Search:</b> Appear on top when someone searches for your service.</li>
-                <li><b>Leads:</b> Direct calls from people who need you right now.</li>
-                <li><b>Keywords:</b> Smart keyword bidding for more calls in less budget.</li>
-                <li><b>Sales:</b> Google leads have a 90% higher chance of conversion.</li>`
-        }
-    };
-
-    function toggleLanguage() {
-        currentLang = (currentLang === 'hi') ? 'en' : 'hi';
-        const t = data[currentLang];
-        document.getElementById('toggle-btn').innerText = t.btn;
-        document.getElementById('main-title').innerText = t.title;
-        document.getElementById('main-tagline').innerText = t.tagline;
-        document.getElementById('card1-title').innerText = t.c1T;
-        document.getElementById('card1-desc').innerText = t.c1D;
-        document.getElementById('card2-title').innerText = t.c2T;
-        document.getElementById('card2-desc').innerText = t.c2D;
-        document.getElementById('click-msg1').innerText = t.click;
-        document.getElementById('click-msg2').innerText = t.click;
-        document.getElementById('wa-text').innerText = t.wa;
-        document.getElementById('back-txt').innerText = t.back;
-        document.getElementById('why-title').innerText = t.whyT;
-        document.getElementById('why-text').innerHTML = t.whyX;
-    }
-
-    function openPopup(type) {
-        const t = data[currentLang];
-        document.getElementById('m-title').innerText = (type === 'sm') ? t.c1T : t.c2T;
-        document.getElementById('m-list').innerHTML = (type === 'sm') ? t.smList : t.goList;
-        document.getElementById('infoModal').style.display = "flex";
-    }
-    function closePopup() { document.getElementById('infoModal').style.display = "none"; }
-</script>
-
+    </script>
 </body>
 </html>
