@@ -6,51 +6,57 @@
     <title>Social Media Management - Official Manjeet</title>
     <link rel="stylesheet" href="https://cloudflare.com">
     <style>
-        /* Premium Gradient Background */
+        /* Premium Radial Gradient Background */
         body { 
             font-family: 'Segoe UI', sans-serif; 
-            background: radial-gradient(circle at top right, #1e293b, #0f172a); 
+            background: radial-gradient(circle at center, #1e293b 0%, #080c14 100%); 
             color: white; margin: 0; padding: 0; text-align: center; min-height: 100vh;
         }
         
-        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(22, 33, 62, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid #334155; position: sticky; top: 0; z-index: 100; }
+        /* Navbar */
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 12px 25px; background: rgba(22, 33, 62, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid #334155; position: sticky; top: 0; z-index: 100; }
         .logo-area { display: flex; align-items: center; gap: 12px; }
         .logo-img { width: 40px; height: 40px; border-radius: 50%; border: 2px solid #25d366; }
         .official { color: #25d366; font-weight: bold; font-size: 1.3rem; }
         .manjeet { color: #ffffff; font-weight: bold; font-size: 1.3rem; }
         
         .lang-btn { background: #00d2ff; border: none; color: #16213e; padding: 8px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; transition: 0.3s; }
-        .lang-btn:hover { transform: scale(1.05); box-shadow: 0 0 15px rgba(0, 210, 255, 0.4); }
+        .lang-btn:hover { background: #ffffff; transform: scale(1.05); }
 
-        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
         
-        /* Glassmorphism Cards */
+        /* Educational Box with Pink Border */
+        .edu-section { background: rgba(30, 41, 59, 0.3); border: 1.5px solid #ff007a; border-radius: 15px; padding: 35px; margin-bottom: 40px; text-align: left; }
+        .price { font-size: 1.5rem; font-weight: bold; color: #ff007a; margin: 10px 0; }
+
+        /* Premium Cards */
+        .services-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-bottom: 40px; }
         .card { 
             background: rgba(22, 33, 62, 0.6); 
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-            border-radius: 15px; padding: 30px; width: 280px; transition: 0.4s; 
+            border: 1px solid rgba(0, 210, 255, 0.2); 
+            border-radius: 15px; padding: 40px 25px; width: 280px; transition: 0.4s ease; 
         }
-        .card:hover { border-color: #00d2ff; transform: translateY(-10px); background: rgba(22, 33, 62, 0.9); }
-        .card i { font-size: 3.5rem; margin-bottom: 20px; color: #00d2ff; }
+        .card:hover { border-color: #00d2ff; transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0, 210, 255, 0.1); }
+        .card h2 { color: white; font-size: 1.6rem; margin-bottom: 20px; }
 
-        .price { font-size: 1.5rem; font-weight: bold; color: #ff007a; margin: 15px 0; }
-        .btn { display: inline-block; background: #25d366; color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; font-weight: bold; transition: 0.3s; width: 100%; border:none; cursor:pointer; }
-        .btn:hover { background: #1ebd57; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); }
+        /* Buttons */
+        .btn { display: inline-block; background: linear-gradient(90deg, #25d366, #1ebd57); color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; width: 100%; border: none; cursor: pointer; }
+        .btn:hover { box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); letter-spacing: 0.5px; }
 
-        /* Modal (Learn More Popup) */
-        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); }
-        .modal-content { background: #16213e; margin: 10% auto; padding: 30px; border: 1px solid #00d2ff; width: 80%; max-width: 500px; border-radius: 20px; position: relative; text-align: left; animation: fadeIn 0.3s; }
+        /* Modal / Pop-up Styles */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); }
+        .modal-content { background: #16213e; margin: 12% auto; padding: 35px; border: 1.5px solid #00d2ff; width: 85%; max-width: 500px; border-radius: 20px; text-align: left; position: relative; animation: slideDown 0.3s; }
         .close { position: absolute; right: 20px; top: 15px; color: #94a3b8; font-size: 28px; cursor: pointer; }
-        @keyframes fadeIn { from {opacity: 0; transform: translateY(-20px);} to {opacity: 1; transform: translateY(0);} }
+        @keyframes slideDown { from {opacity: 0; transform: translateY(-30px);} to {opacity: 1; transform: translateY(0);} }
+
+        .back-btn { background: transparent; border: 1.5px solid #94a3b8; padding: 10px 35px; color: #94a3b8; border-radius: 50px; cursor: pointer; margin-top: 40px; transition: 0.3s; }
+        .back-btn:hover { background: #25d366; border-color:#25d366; color:white; }
 
         .hi-text { display: block; }
         .en-text { display: none; }
-        .back-btn { background: transparent; border: 1.5px solid #94a3b8; padding: 8px 30px; color: #94a3b8; border-radius: 50px; cursor: pointer; margin-top: 40px; }
-        .back-btn:hover { background: #25d366; border-color:#25d366; color:white; }
     </style>
 </head>
-<body id="mainBody">
+<body id="pageBody">
 
     <div class="navbar">
         <div class="logo-area">
@@ -61,24 +67,35 @@
     </div>
 
     <div class="container">
-        <h1 class="hi-text">सोशल मीडिया मैनेजमेंट</h1>
-        <h1 class="en-text">Social Media Management</h1>
-        
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; margin-top: 40px;">
+        <!-- Top Pink Box -->
+        <div class="edu-section">
+            <div class="hi-text">
+                <h2>🚀 सोशल मीडिया मैनेजमेंट (Organic Growth)</h2>
+                <p>बिना विज्ञापन के अपने बिज़नेस को ब्रांड बनाएं और असली ऑडियंस तक पहुँचें।</p>
+                <div class="price">फीस: ₹1,999/- (परामर्श)</div>
+                <a href="https://wa.me" class="btn" style="width: auto; padding: 10px 30px;">अभी शुरू करें</a>
+            </div>
+            <div class="en-text">
+                <h2>🚀 Social Media Management (Organic Growth)</h2>
+                <p>Build your business into a brand and reach real audiences without ads.</p>
+                <div class="price">Fees: ₹1,999/- (Consultation)</div>
+                <a href="https://wa.me" class="btn" style="width: auto; padding: 10px 30px;">Start Now</a>
+            </div>
+        </div>
+
+        <div class="services-grid">
             <!-- Card 1 -->
             <div class="card">
-                <i class="fas fa-pen-nib"></i>
                 <h2 class="hi-text">कंटेंट क्रिएशन</h2>
                 <h2 class="en-text">Content Creation</h2>
-                <button class="btn" onclick="showDetails('content')">Learn More</button>
+                <button class="btn" onclick="openPopup('content')">Learn More</button>
             </div>
 
             <!-- Card 2 -->
             <div class="card">
-                <i class="fas fa-chart-line"></i>
                 <h2 class="hi-text">प्रोफाइल ग्रोथ</h2>
                 <h2 class="en-text">Profile Growth</h2>
-                <button class="btn" onclick="showDetails('growth')">Learn More</button>
+                <button class="btn" onclick="openPopup('growth')">Learn More</button>
             </div>
         </div>
 
@@ -86,56 +103,54 @@
     </div>
 
     <!-- Modal Box -->
-    <div id="detailsModal" class="modal">
+    <div id="infoModal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <div id="modalBody">
-                <!-- Content will be injected by JS -->
-            </div>
-            <a href="https://wa.me" class="btn" style="margin-top: 20px; text-align: center;">Chat on WhatsApp</a>
+            <span class="close" onclick="closePopup()">&times;</span>
+            <div id="modalBody"></div>
+            <a href="https://wa.me" class="btn" style="margin-top: 25px; text-align: center; display: block;">WhatsApp पर बात करें</a>
         </div>
     </div>
 
     <script>
         let currentLang = 'hi';
 
-        const data = {
+        const details = {
             content: {
-                hi: "<h3>कंटेंट क्रिएशन की जानकारी:</h3><ul><li>हाई क्वालिटी रील्स बनाना।</li><li>ब्रैंडेड पोस्ट डिजाइन करना।</li><li>वायरल होने वाली हेडलाइंस लिखना।</li></ul>",
-                en: "<h3>Content Creation Details:</h3><ul><li>Creating High-Quality Reels.</li><li>Branded Post Designing.</li><li>Writing Viral Headlines.</li></ul>"
+                hi: "<h3>कंटेंट क्रिएशन:</h3><ul><li>HD रील्स और वीडियो एडिटिंग</li><li>प्रोफेशनल ग्राफिक डिजाइन</li><li>वायरल कैप्शन और रिसर्च</li><li>ब्रांड के हिसाब से कलर थीम</li></ul>",
+                en: "<h3>Content Creation:</h3><ul><li>HD Reels & Video Editing</li><li>Professional Graphic Design</li><li>Viral Captions & Research</li><li>Brand Color Theme Selection</li></ul>"
             },
             growth: {
-                hi: "<h3>प्रोफाइल ग्रोथ की जानकारी:</h3><ul><li>ऑर्गेनिक फॉलोअर्स बढ़ाना।</li><li>प्रोफाइल को सर्च में ऊपर लाना।</li><li>सही हैशटैग का इस्तेमाल।</li></ul>",
-                en: "<h3>Profile Growth Details:</h3><ul><li>Growing Organic Followers.</li><li>SEO for Profile Ranking.</li><li>Using the Right Hashtags.</li></ul>"
+                hi: "<h3>प्रोफाइल ग्रोथ:</h3><ul><li>ऑर्गेनिक फॉलोअर्स बढ़ाना</li><li>हैशटैग और SEO स्ट्रेटेजी</li><li>ऑडियंस के साथ एंगेजमेंट</li><li>कंपटीशन का एनालिसिस</li></ul>",
+                en: "<h3>Profile Growth:</h3><ul><li>Organic Follower Increase</li><li>Hashtag & SEO Strategy</li><li>Audience Engagement</li><li>Competitor Analysis</li></ul>"
             }
         };
 
-        function showDetails(type) {
-            document.getElementById('modalBody').innerHTML = data[type][currentLang];
-            document.getElementById('detailsModal').style.display = "block";
+        function openPopup(type) {
+            document.getElementById('modalBody').innerHTML = details[type][currentLang];
+            document.getElementById('infoModal').style.display = "block";
         }
 
-        function closeModal() { document.getElementById('detailsModal').style.display = "none"; }
+        function closePopup() { document.getElementById('infoModal').style.display = "none"; }
 
         function toggleLang() {
-            const hi = document.querySelectorAll('.hi-text');
-            const en = document.querySelectorAll('.en-text');
+            const hiElems = document.querySelectorAll('.hi-text');
+            const enElems = document.querySelectorAll('.en-text');
             const btn = document.getElementById('langBtn');
 
             if (currentLang === 'hi') {
-                hi.forEach(el => el.style.display = 'none');
-                en.forEach(el => el.style.display = 'block');
+                hiElems.forEach(el => el.style.display = 'none');
+                enElems.forEach(el => el.style.display = 'block');
                 btn.innerText = "Hindi";
                 currentLang = 'en';
             } else {
-                hi.forEach(el => el.style.display = 'block');
-                en.forEach(el => el.style.display = 'none');
+                hiElems.forEach(el => el.style.display = 'block');
+                enElems.forEach(el => el.style.display = 'none');
                 btn.innerText = "English";
                 currentLang = 'hi';
             }
         }
 
-        window.onclick = function(event) { if (event.target == document.getElementById('detailsModal')) closeModal(); }
+        window.onclick = function(event) { if (event.target == document.getElementById('infoModal')) closePopup(); }
     </script>
 </body>
 </html>
