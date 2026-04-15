@@ -3,49 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Media Marketing - Official Manjeet</title>
+    <title>Official Manjeet - Marketing</title>
     <style>
-        body { font-family: sans-serif; background: #1a1a2e; color: white; padding: 20px; text-align: center; }
-        .services-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 30px; }
-        .card { background: #16213e; border: 1px solid #00d2ff; border-radius: 10px; padding: 20px; width: 300px; }
-        h2 { color: #00d2ff; }
-        .price { font-size: 1.2rem; color: #ff007a; margin: 10px 0; }
-        .btn { display: inline-block; background: #25d366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-top: 15px; font-weight: bold; }
+        body { font-family: 'Segoe UI', sans-serif; background: #0f172a; color: white; margin: 0; padding: 0; text-align: center; }
+        
+        /* Navbar */
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 12px 25px; background: #16213e; border-bottom: 1px solid #334155; }
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .logo-img { width: 40px; height: 40px; border-radius: 50%; border: 2px solid #25d366; object-fit: cover; }
+        .brand-name { font-size: 1.3rem; font-weight: bold; }
+        .official { color: #25d366; } 
+        .manjeet { color: #ffffff; } 
+        
+        .lang-btn { background: transparent; border: 1px solid #00d2ff; color: #00d2ff; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.9rem; transition: 0.3s; }
+        .lang-btn:hover { background: #00d2ff; color: #16213e; }
+
+        .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+        
+        /* Masterclass Section with Image */
+        .edu-section { 
+            display: flex; 
+            align-items: center; 
+            gap: 20px; 
+            background: rgba(30, 41, 59, 0.5); 
+            border: 1px solid #ff007a; 
+            border-radius: 12px; 
+            padding: 25px; 
+            margin-bottom: 40px; 
+            text-align: left; 
+            flex-wrap: wrap;
+        }
+        .edu-content { flex: 2; }
+        .edu-image { flex: 1; min-width: 150px; text-align: center; }
+        .edu-image img { width: 100%; border-radius: 10px; border: 1px solid #ff007a; }
+        
+        /* Cards Grid */
+        .services-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 40px; }
+        .card { background: #16213e; border: 1px solid #334155; border-radius: 10px; padding: 15px; width: 260px; transition: 0.3s; }
+        .card:hover { border-color: #00d2ff; transform: scale(1.02); }
+        .card-img { width: 100%; height: 140px; border-radius: 8px; object-fit: cover; margin-bottom: 15px; }
+        .card h2 { color: #00d2ff; font-size: 1.2rem; margin: 10px 0; }
+        .price { font-size: 1.2rem; font-weight: bold; color: #ff007a; }
+
+        /* Buttons */
+        .btn { display: inline-block; background: #25d366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-top: 10px; font-weight: bold; transition: 0.3s; border: none; cursor: pointer; width: 80%; }
+        .btn:hover { background: #1ebd57; }
+
+        /* Back Button */
+        .back-btn { background: transparent; border: 1.5px solid #94a3b8; padding: 8px 25px; font-size: 0.9rem; color: #94a3b8; border-radius: 50px; cursor: pointer; transition: all 0.3s; margin-bottom: 30px; }
+        .back-btn:hover { background: #25d366 !important; border-color: #25d366; color: white; }
+
+        .lang-en { display: none; }
     </style>
 </head>
 <body>
 
-    <h1>Social Media Marketing</h1>
-    <p>Boost your brand's digital identity & engagement.</p>
-
-    <div class="services-grid">
-        <!-- Instagram Card -->
-        <div class="card">
-            <h2>Instagram Ads</h2>
-            <p>Targeted audience growth.</p>
-            <div class="price">Charges: ₹4,999/-</div>
-            <p>Delivery: 3 Days</p>
-            <a href="https://wa.me" target="_blank" class="btn">अभी ऑर्डर करें</a>
+    <div class="navbar">
+        <div class="logo-area">
+            <img src="images/sel.png" alt="Logo" class="logo-img">
+            <div class="brand-name"><span class="official">Official</span> <span class="manjeet">Manjeet</span></div>
         </div>
-
-        <!-- Facebook Card -->
-        <div class="card">
-            <h2>Facebook Ads</h2>
-            <p>Lead generation & reach.</p>
-            <div class="price">Charges: ₹5,999/-</div>
-            <p>Delivery: 5 Days</p>
-            <a href="https://wa.me" target="_blank" class="btn">अभी ऑर्डर करें</a>
-        </div>
-
-        <!-- Google Card -->
-        <div class="card">
-            <h2>Google Ads</h2>
-            <p>Search & Display ads.</p>
-            <div class="price">Charges: ₹7,999/-</div>
-            <p>Delivery: 7 Days</p>
-            <a href="https://wa.me" target="_blank" class="btn">अभी ऑर्डर करें</a>
-        </div>
+        <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">English</button>
     </div>
 
+    <div class="container">
+        <!-- Masterclass with Image -->
+        <div class="edu-section">
+            <div class="edu-content">
+                <div class="lang-hi">
+                    <h2>🚀 सोशल मीडिया से कमाई सीखें</h2>
+                    <p>सीखें कैसे अपना बिज़नेस बढ़ाएं और सोशल मीडिया को कमाई का जरिया बनाएं।</p>
+                    <div class="price">फीस: ₹1,999/-</div>
+                </div>
+                <div class="lang-en">
+                    <h2>🚀 Learn Social Media Earning</h2>
+                    <p>Learn to grow your business and monetize your presence.</p>
+                    <div class="price">Fees: ₹1,999/-</div>
+                </div>
+                <a href="https://wa.me" class="btn" style="width: auto;">अभी सीट बुक करें</a>
+            </div>
+            <div class="edu-image">
+                <!-- Replace with your actual image path -->
+                <img src="https://flaticon.com" alt="Learning">
+            </div>
+        </div>
+
+        <div class="services-grid">
+            <!-- Instagram -->
+            <div class="card">
+                <img src="https://freepik.com" class="card-img" alt="Insta">
+                <h2>Instagram Ads</h2>
+                <p class="lang-hi">ऑडियंस बढ़ाएं</p><p class="lang-en">Grow Audience</p>
+                <div class="price">₹4,999/-</div>
+                <a href="#" class="btn">Order Now</a>
+            </div>
+
+            <!-- Facebook -->
+            <div class="card">
+                <img src="https://freepik.com" class="card-img" alt="FB">
+                <h2>Facebook Ads</h2>
+                <p class="lang-hi">लीड्स जनरेट करें</p><p class="lang-en">Generate Leads</p>
+                <div class="price">₹5,999/-</div>
+                <a href="#" class="btn">Order Now</a>
+            </div>
+
+            <!-- Google -->
+            <div class="card">
+                <img src="https://freepik.com" class="card-img" alt="Google">
+                <h2>Google Ads</h2>
+                <p class="lang-hi">सर्च विजिबिलिटी</p><p class="lang-en">Search Visibility</p>
+                <div class="price">₹7,999/-</div>
+                <a href="#" class="btn">Order Now</a>
+            </div>
+        </div>
+
+        <button class="back-btn" onclick="history.back()">← Back</button>
+    </div>
+
+    <script>
+        function toggleLanguage() {
+            const hiElems = document.querySelectorAll('.lang-hi');
+            const enElems = document.querySelectorAll('.lang-en');
+            const btn = document.getElementById('langBtn');
+            if (btn.innerText === "English") {
+                hiElems.forEach(el => el.style.display = 'none');
+                enElems.forEach(el => el.style.display = 'block');
+                btn.innerText = "Hindi";
+            } else {
+                hiElems.forEach(el => el.style.display = 'block');
+                enElems.forEach(el => el.style.display = 'none');
+                btn.innerText = "English";
+            }
+        }
+    </script>
 </body>
 </html>
