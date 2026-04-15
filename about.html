@@ -2,50 +2,70 @@
     
     <!-- 1. आपकी फोटो -->
     <div class="detail-img" style="flex: 1; min-width: 350px;">
-        <img id="det-img" src="images/bg.jpg" alt="Official Manjeet" style="width:100%; border-radius:25px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+        <img id="det-img" src="images/bg.jpg" alt="Manjeet - Full Stack Developer" style="width:100%; border-radius:25px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
     </div>
 
     <!-- 2. आपका परिचय -->
     <div class="detail-text" style="flex: 1.2; min-width: 350px;">
         <h2 id="det-title" style="color: #00d2ff; font-size: 45px; margin-bottom: 20px; font-weight: 800;">About Me</h2>
-        <p id="det-desc" style="color: #ccc; font-size: 1.1rem; line-height: 1.8; margin-bottom: 30px;">
-            Loading your story...
+        <p id="det-desc" style="color: #ccc; font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
+            Loading...
         </p>
+        
+        <!-- Tech Stack Badges -->
+        <div id="tech-stack" style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 30px;">
+            <span style="background: rgba(0, 210, 255, 0.1); color: #00d2ff; padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; border: 1px solid #00d2ff; font-weight: 600;">MERN Stack</span>
+            <span style="background: rgba(0, 210, 255, 0.1); color: #00d2ff; padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; border: 1px solid #00d2ff; font-weight: 600;">JavaScript</span>
+            <span style="background: rgba(0, 210, 255, 0.1); color: #00d2ff; padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; border: 1px solid #00d2ff; font-weight: 600;">Power BI</span>
+            <span style="background: rgba(0, 210, 255, 0.1); color: #00d2ff; padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; border: 1px solid #00d2ff; font-weight: 600;">AWS Cloud</span>
+        </div>
+
+        <!-- Contact & Social Buttons -->
+        <div class="action-btns" style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
+            <a href="mailto:your-email@gmail.com" id="contact-btn" style="background: #00d2ff; color: #000; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: 0.3s; box-shadow: 0 10px 20px rgba(0, 210, 255, 0.3);">Contact Me</a>
+            
+            <div class="social-links" style="display: flex; gap: 15px;">
+                <!-- लिंक बदलें (href="#") की जगह अपना लिंक डालें -->
+                <a href="#" target="_blank" title="LinkedIn" style="color: #fff; font-size: 1.5rem; transition: 0.3s;"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank" title="GitHub" style="color: #fff; font-size: 1.5rem; transition: 0.3s;"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank" title="Instagram" style="color: #fff; font-size: 1.5rem; transition: 0.3s;"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
     </div>
 </div>
 
 <script>
-    // 1. भाषा के अनुसार कंटेंट का डेटाबेस
     const aboutContent = {
         HI: {
             title: "मेरे बारे में",
-            para: "नमस्ते! मैं मंजीत हूँ और आज मैं एक <b>Full Stack Developer</b> हूँ। मेरी स्कूली पढ़ाई मेरे गाँव से हुई, जिसके बाद साल 2019 में मैं दिल्ली आ गया। यहाँ से मैंने साल 2022 में <b>JB Knowledge Park, Faridabad</b> से अपना ग्रेजुएशन (BCA) पूरा किया। फिलहाल, मैं एक कंपनी में फुल स्टैक डेवलपर के तौर पर काम कर रहा हूँ।<br><br>आज की इस तेज़ी से बदलती दुनिया को देखते हुए मुझे एहसास हुआ कि अगर हम तकनीक के साथ नहीं चले, तो हम बहुत पीछे रह जाएंगे। इसीलिए मैंने फैसला किया कि मैं इस नई डिजिटल दुनिया के साथ कदम से कदम मिलाकर चलूँगा और मैं भी इस नई दुनिया का एक हिस्सा बनूँगा। यहाँ आपको डिजिटल दुनिया से जुड़ी हर तरह की एजुकेशन सपोर्ट और बिज़नेस से जुड़ी ज़रूरी जानकारियाँ मिलेंगी। तो आइए, मेरे साथ हाथ मिलाइए और इस नई दुनिया का हिस्सा बनिए ताकि हम सब मिलकर खुद को <b>आगे बढ़ा (Grow)</b> सकें। 😊"
+            para: "नमस्ते! मैं <b>मंजीत</b> हूँ, एक कुशल <b>Full Stack Developer</b> जिसे इंडस्ट्री में <b>4 साल का अनुभव</b> है। JB Knowledge Park से BCA करने के बाद, मैंने खुद को मॉडर्न वेब टेक्नोलॉजीज और <b>Data Analytics</b> में माहिर बनाया है।<br><br>वर्तमान में, मैं एक कंपनी में फुल स्टैक डेवलपर के रूप में काम कर रहा हूँ। मेरा उद्देश्य तकनीक और डेटा के मेल से आपके बिज़नेस को <b>Next Level</b> पर ले जाना है।",
+            btn: "संपर्क करें"
         },
         EN: {
             title: "About Me",
-            para: "Hi! I am Manjeet, and today I am a <b>Full Stack Developer</b>. I completed my schooling in my village and moved to Delhi in 2019. I graduated with a BCA in 2022 from <b>JB Knowledge Park, Faridabad</b>. Currently, I am working as a Full Stack Developer in a company.<br><br>Looking at today's fast-changing world, I realized that if we don't keep up with technology, we will be left far behind. That’s why I decided to walk hand-in-hand with this new digital world and become a part of it. Here, you will find all kinds of digital education support and essential business information. So, join hands with me and become part of this new world so that we can all <b>Grow</b> together. 😊"
+            para: "Hi! I am <b>Manjeet</b>, a professional <b>Full Stack Developer</b> with <b>4 years of experience</b>. After completing my BCA, I specialized in the <b>MERN Stack</b> and <b>Data Analytics</b>.<br><br>Currently working as a Full Stack Developer, I focus on building data-driven applications that drive results. I am passionate about helping businesses <b>Grow</b> through cutting-edge technology. Let’s build something great!",
+            btn: "Contact Me"
         }
     };
 
-    // 2. कंटेंट को स्क्रीन पर दिखाने का फंक्शन
     function loadAboutContent() {
-        let lang = localStorage.getItem("preferredLang") || "HI"; // डिफ़ॉल्ट हिंदी रहेगा
+        let lang = localStorage.getItem("preferredLang") || "HI"; 
         let titleEl = document.getElementById("det-title");
         let paraEl = document.getElementById("det-desc");
+        let btnEl = document.getElementById("contact-btn");
 
         if (titleEl && paraEl) {
             titleEl.innerHTML = aboutContent[lang].title;
             paraEl.innerHTML = aboutContent[lang].para;
+            btnEl.innerHTML = aboutContent[lang].btn;
         }
     }
 
-    // 3. भाषा बदलने का ग्लोबल फंक्शन (इसे आप Nav Bar के बटन पर कॉल कर सकते हैं)
+    // ... (बाकी स्क्रिप्ट वही रहेगी)
     function changeLanguage(langCode) {
         localStorage.setItem("preferredLang", langCode);
         loadAboutContent();
     }
-
-    // 4. पेज लोड होने पर और स्टोरेज चेंज होने पर कंटेंट लोड करना
     window.addEventListener('DOMContentLoaded', loadAboutContent);
     window.addEventListener('storage', loadAboutContent);
 </script>
