@@ -629,7 +629,8 @@ function toggleDetails(id) {
         document.getElementById("srv-os").innerText = "OUR SERVICES";
         document.getElementById("srv-os-desc").innerText = "Learn high-demand skills";
 
-        document.getElementById("conn-title").innerText = "Connect With Me";
+     document.getElementById('conn-title').innerText = "Connect with me";
+
     }
 }
 <script>
@@ -642,13 +643,20 @@ function toggleDetails(id) {
       "headline": "अपने व्यवसाय को बढ़ाएं",
       "whatsapp": "व्हाट्सएप पर चैट करें"
     }
-  };
+ };
 
-  function updateLanguage(lang) {
+function updateLanguage(lang) {
     document.getElementById('headline').textContent = data[lang].headline;
     document.getElementById('whatsapp-btn').textContent = data[lang].whatsapp;
-    // इसी तरह बाकी IDs को भी यहाँ जोड़ें
-  }
+}
+
+function showDetail(page) {
+    window.location.href = page + ".html";
+}
+
+function showHome() {
+    window.location.href = "index.html";
+}
 </script>
 
 </body>
