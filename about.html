@@ -1,71 +1,71 @@
-<div class="detail-flex" style="display: flex; gap: 50px; align-items: center; flex-wrap: wrap; padding-top: 20px;">
-    
-    <!-- 1. आपकी फोटो -->
-    <div class="detail-img" style="flex: 1; min-width: 350px;">
-        <img id="det-img" src="images/bg.jpg" alt="Manjeet - Full Stack Developer" style="width:100%; border-radius:25px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
-    </div>
-
-    <!-- 2. आपका परिचय -->
-    <div class="detail-text" style="flex: 1.2; min-width: 350px;">
-        <h2 id="det-title" style="color: #00d2ff; font-size: 45px; margin-bottom: 20px; font-weight: 800;">About Me</h2>
-        <p id="det-desc" style="color: #ccc; font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
-            Loading...
-        </p>
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>मेरे बारे में | Official Manjeet</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background: #0f172a; color: #fff; line-height: 1.6; overflow-x: hidden; }
         
-        <!-- Tech Stack Badges -->
-        <div id="tech-stack" style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 30px;">
-            <span style="background: rgba(0, 210, 255, 0.1); color: #00d2ff; padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; border: 1px solid #00d2ff; font-weight: 600;">MERN Stack</span>
-            <span style="background: rgba(0, 210, 255, 0.1); color: #00d2ff; padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; border: 1px solid #00d2ff; font-weight: 600;">JavaScript</span>
-            <span style="background: rgba(0, 210, 255, 0.1); color: #00d2ff; padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; border: 1px solid #00d2ff; font-weight: 600;">Power BI</span>
-            <span style="background: rgba(0, 210, 255, 0.1); color: #00d2ff; padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; border: 1px solid #00d2ff; font-weight: 600;">AWS Cloud</span>
+        .container { max-width: 1100px; margin: 80px auto; padding: 20px; display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
+        
+        /* Image Section */
+        .profile-img-container { flex: 1; min-width: 300px; position: relative; }
+        .profile-img { width: 100%; border-radius: 20px; box-shadow: 0 20px 50px rgba(0, 255, 255, 0.2); transition: transform 0.3s ease; border: 2px solid #00f2fe; }
+        .profile-img:hover { transform: translateY(-10px); }
+
+        /* Text Section */
+        .about-content { flex: 1.5; min-width: 300px; }
+        .about-content h1 { font-size: 3rem; margin-bottom: 20px; background: linear-gradient(to right, #00f2fe, #4facfe); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .about-content p { color: #94a3b8; font-size: 1.1rem; margin-bottom: 25px; }
+        
+        /* Skill Tags */
+        .skills { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; }
+        .skill-tag { background: rgba(0, 242, 254, 0.1); border: 1px solid #00f2fe; color: #00f2fe; padding: 6px 15px; border-radius: 50px; font-size: 0.9rem; transition: 0.3s; }
+        .skill-tag:hover { background: #00f2fe; color: #0f172a; }
+
+        /* Buttons */
+        .btn-group { display: flex; gap: 15px; }
+        .btn { padding: 12px 30px; border-radius: 10px; text-decoration: none; font-weight: 600; transition: 0.3s; cursor: pointer; }
+        .btn-primary { background: linear-gradient(45deg, #00f2fe, #4facfe); color: #0f172a; box-shadow: 0 10px 20px rgba(0, 242, 254, 0.3); }
+        .btn-primary:hover { transform: scale(1.05); }
+        .btn-secondary { border: 1px solid #fff; color: #fff; }
+        .btn-secondary:hover { background: #fff; color: #0f172a; }
+
+        @media (max-width: 768px) { .container { flex-direction: column; text-align: center; margin: 40px auto; } .about-content h1 { font-size: 2.2rem; } .btn-group { justify-content: center; } .skills { justify-content: center; } }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Photo Section -->
+        <div class="profile-img-container">
+            <img src="images/manjeet.jpg" alt="Manjeet" class="profile-img"> 
+            <!-- ऊपर 'images/manjeet.jpg' को अपनी फोटो के सही पाथ से बदलें -->
         </div>
 
-        <!-- Contact & Social Buttons -->
-        <div class="action-btns" style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
-            <a href="mailto:your-email@gmail.com" id="contact-btn" style="background: #00d2ff; color: #000; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: 0.3s; box-shadow: 0 10px 20px rgba(0, 210, 255, 0.3);">Contact Me</a>
+        <!-- Content Section -->
+        <div class="about-content">
+            <h1>मेरे बारे में</h1>
+            <p>नमस्ते! मैं मंजीत हूँ, एक कुशल <strong>Full Stack Developer</strong> जिसे इंडस्ट्री में 4 साल का अनुभव है। JB Knowledge Park से BCA करने के बाद, मैंने खुद को मॉडर्न वेब टेक्नोलॉजीज और Data Analytics में माहिर बनाया है।</p>
+            <p>वर्तमान में, मैं एक कंपनी में फुल स्टैक डेवलपर के रूप में काम कर रहा हूँ। मेरा उद्देश्य तकनीक और डेटा के मेल से आपके बिज़नेस को Next Level पर ले जाना है।</p>
             
-            <div class="social-links" style="display: flex; gap: 15px;">
-                <!-- लिंक बदलें (href="#") की जगह अपना लिंक डालें -->
-                <a href="#" target="_blank" title="LinkedIn" style="color: #fff; font-size: 1.5rem; transition: 0.3s;"><i class="fab fa-linkedin"></i></a>
-                <a href="#" target="_blank" title="GitHub" style="color: #fff; font-size: 1.5rem; transition: 0.3s;"><i class="fab fa-github"></i></a>
-                <a href="#" target="_blank" title="Instagram" style="color: #fff; font-size: 1.5rem; transition: 0.3s;"><i class="fab fa-instagram"></i></a>
+            <div class="skills">
+                <span class="skill-tag">MERN Stack</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">Power BI</span>
+                <span class="skill-tag">AWS Cloud</span>
+                <span class="skill-tag">Python</span>
+            </div>
+
+            <div class="btn-group">
+                <a href="mailto:officialmanjeet@example.com" class="btn btn-primary">संपर्क करें</a>
+                <a href="index.html" class="btn btn-secondary">वापस होम</a>
             </div>
         </div>
     </div>
-</div>
 
-<script>
-    const aboutContent = {
-        HI: {
-            title: "मेरे बारे में",
-            para: "नमस्ते! मैं <b>मंजीत</b> हूँ, एक कुशल <b>Full Stack Developer</b> जिसे इंडस्ट्री में <b>4 साल का अनुभव</b> है। JB Knowledge Park से BCA करने के बाद, मैंने खुद को मॉडर्न वेब टेक्नोलॉजीज और <b>Data Analytics</b> में माहिर बनाया है।<br><br>वर्तमान में, मैं एक कंपनी में फुल स्टैक डेवलपर के रूप में काम कर रहा हूँ। मेरा उद्देश्य तकनीक और डेटा के मेल से आपके बिज़नेस को <b>Next Level</b> पर ले जाना है।",
-            btn: "संपर्क करें"
-        },
-        EN: {
-            title: "About Me",
-            para: "Hi! I am <b>Manjeet</b>, a professional <b>Full Stack Developer</b> with <b>4 years of experience</b>. After completing my BCA, I specialized in the <b>MERN Stack</b> and <b>Data Analytics</b>.<br><br>Currently working as a Full Stack Developer, I focus on building data-driven applications that drive results. I am passionate about helping businesses <b>Grow</b> through cutting-edge technology. Let’s build something great!",
-            btn: "Contact Me"
-        }
-    };
-
-    function loadAboutContent() {
-        let lang = localStorage.getItem("preferredLang") || "HI"; 
-        let titleEl = document.getElementById("det-title");
-        let paraEl = document.getElementById("det-desc");
-        let btnEl = document.getElementById("contact-btn");
-
-        if (titleEl && paraEl) {
-            titleEl.innerHTML = aboutContent[lang].title;
-            paraEl.innerHTML = aboutContent[lang].para;
-            btnEl.innerHTML = aboutContent[lang].btn;
-        }
-    }
-
-    // ... (बाकी स्क्रिप्ट वही रहेगी)
-    function changeLanguage(langCode) {
-        localStorage.setItem("preferredLang", langCode);
-        loadAboutContent();
-    }
-    window.addEventListener('DOMContentLoaded', loadAboutContent);
-    window.addEventListener('storage', loadAboutContent);
-</script>
+</body>
+</html>
