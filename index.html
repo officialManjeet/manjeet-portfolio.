@@ -189,8 +189,9 @@ SOfficial Manjeet - Verified Final GitHub Code
 
      <div class="header-right">
     <!-- भाषा बदलने वाला बटन यहाँ है -->
-    <button id="lang-btn" onclick="BadloBhasha()" style="cursor: pointer; padding: 5px 10px; border-radius: 5px; background: #25d366; color: white; border: none; font-weight: bold;">
-        HI / हिंदी
+    <!-- उदाहरण के लिए -->
+<button onclick="updateLanguage('hi')">HINDI</button>
+<button onclick="updateLanguage('en')">ENGLISH</button>
     </button>
 </div>
 
@@ -226,7 +227,7 @@ function BadloBhasha() {
     <!-- Landing View -->
     <div id="home-view" class="container">
         <section class="hero">
-            <h1 id="hero-h">Elevate Your <span>Business</span></h1>
+            <h1 id="headline">Elevate Your Business</h1>
             <p id="hero-p">Cutting-edge digital strategies for world-class growth and dominance.</p>
             
            <a href="https://wa.me/917079216939" target="_blank" class="btn-whatsapp"
@@ -621,6 +622,24 @@ function toggleDetails(id) {
         document.getElementById("conn-title").innerText = "Connect With Me";
     }
 }
+<script>
+  const data = {
+    "en": {
+      "headline": "Elevate Your Business",
+      "whatsapp": "Chat on WhatsApp"
+    },
+    "hi": {
+      "headline": "अपने व्यवसाय को बढ़ाएं",
+      "whatsapp": "व्हाट्सएप पर चैट करें"
+    }
+  };
+
+  function updateLanguage(lang) {
+    document.getElementById('headline').textContent = data[lang].headline;
+    document.getElementById('whatsapp-btn').textContent = data[lang].whatsapp;
+    // इसी तरह बाकी IDs को भी यहाँ जोड़ें
+  }
+</script>
 
 </body>
 </html>
